@@ -132,7 +132,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndDate.Location = new System.Drawing.Point(397, 135);
-            this.dtpEndDate.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpEndDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(246, 29);
             this.dtpEndDate.TabIndex = 1;
@@ -141,7 +141,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.dtpInitDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInitDate.Location = new System.Drawing.Point(397, 82);
-            this.dtpInitDate.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpInitDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpInitDate.Name = "dtpInitDate";
             this.dtpInitDate.Size = new System.Drawing.Size(246, 29);
             this.dtpInitDate.TabIndex = 0;
@@ -222,7 +222,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TabHistory.Controls.Add(this.metroTabPageResults);
             this.TabHistory.Location = new System.Drawing.Point(23, 69);
             this.TabHistory.Name = "TabHistory";
-            this.TabHistory.SelectedIndex = 0;
+            this.TabHistory.SelectedIndex = 1;
             this.TabHistory.Size = new System.Drawing.Size(1073, 580);
             this.TabHistory.TabIndex = 59;
             this.TabHistory.UseSelectable = true;

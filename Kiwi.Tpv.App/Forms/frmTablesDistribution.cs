@@ -220,7 +220,7 @@ namespace Kiwi.Tpv.App.Forms
                         {
                             Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                             Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                            Text = tableDistributed.Name + Environment.NewLine + totalPending + "€",
+                            Text = tableDistributed.Name + Environment.NewLine + totalPending.ToString("F") + "€",
                             Tag = tableDistributed,
                             Style = hasPendingSales ? MetroColorStyle.Red : MetroColorStyle.Green,
                             TextAlign = ContentAlignment.TopLeft,

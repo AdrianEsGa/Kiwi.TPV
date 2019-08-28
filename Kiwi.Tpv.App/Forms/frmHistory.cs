@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.App.Util.Exportations;
@@ -57,7 +56,7 @@ namespace Kiwi.Tpv.App.Forms
             dtpInitTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
             dtpEndTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
 
-            if (AppGlobal.AppGeneralConfig.ShowJokeReport)
+            if (AppGlobal.JokeSystemActive && AppGlobal.AppGeneralConfig.ShowJokeReport)
                 cbReports.Items.Add("Informe - Resumen general");
 
             spinnerProgress.Visible = false;
@@ -267,12 +266,12 @@ namespace Kiwi.Tpv.App.Forms
 
                 _totals = _totalHistory;
 
-                txtTotalLogic.Text = _totals[0].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
-                txtTotalInvited.Text = _totals[1].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
-                txtTotalDisscount.Text = _totals[2].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
-                txtTotalReal.Text = _totals[3].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
-                txtTotalCash.Text = _totals[4].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
-                txtTotalCreditCard.Text = _totals[5].ToString(CultureInfo.InvariantCulture) + Resources.Euro;
+                txtTotalLogic.Text = _totals[0].ToString("F") + Resources.Euro;
+                txtTotalInvited.Text = _totals[1].ToString("F") + Resources.Euro;
+                txtTotalDisscount.Text = _totals[2].ToString("F") + Resources.Euro;
+                txtTotalReal.Text = _totals[3].ToString("F") + Resources.Euro;
+                txtTotalCash.Text = _totals[4].ToString("F") + Resources.Euro;
+                txtTotalCreditCard.Text = _totals[5].ToString("F") + Resources.Euro;
             }
             catch (Exception ex)
             {
