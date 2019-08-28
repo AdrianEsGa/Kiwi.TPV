@@ -69,7 +69,7 @@ namespace Kiwi.Tpv.App.Forms
             {
                 _pendingSales = SalesController.GetPendingsByTable(_selectedTable);
                 DataGridViewTableSales.DataSource = _pendingSales;
-                txtTotalPending.Text = "Total: " + _pendingSales.Sum(pendingSale => pendingSale.Total).ToString(CultureInfo.InvariantCulture) + " €"; 
+                txtTotalPending.Text = _selectedTable.Name + " - Total: " + _pendingSales.Sum(pendingSale => pendingSale.Total).ToString(CultureInfo.InvariantCulture) + " €"; 
             }
             catch (Exception ex)
             {

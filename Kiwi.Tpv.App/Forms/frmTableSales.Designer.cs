@@ -185,12 +185,12 @@
             this.txtTotalPending.ActiveControl = null;
             this.txtTotalPending.BackColor = System.Drawing.Color.White;
             this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.txtTotalPending.Location = new System.Drawing.Point(202, 23);
+            this.txtTotalPending.Location = new System.Drawing.Point(199, 26);
             this.txtTotalPending.Name = "txtTotalPending";
-            this.txtTotalPending.Size = new System.Drawing.Size(156, 35);
+            this.txtTotalPending.Size = new System.Drawing.Size(613, 35);
             this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
             this.txtTotalPending.TabIndex = 58;
-            this.txtTotalPending.Text = "100 €";
+            this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
             this.txtTotalPending.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.txtTotalPending.UseSelectable = true;
             // 
