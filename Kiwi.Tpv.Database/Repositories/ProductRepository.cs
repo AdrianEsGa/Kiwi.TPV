@@ -1,0 +1,370 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using Kiwi.Tpv.Database.Entities;
+
+namespace Kiwi.Tpv.Database.Repositories
+{
+    internal static class ProductRepository
+    {
+        internal static List<Product> GetAllActive()
+        {
+            const string strSql =
+                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
+                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
+                "FROM Products WHERE Active = 1 AND ShowInMainView = 1 ORDER BY Type, SubType";
+            var products = new List<Product>();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var product = new Product
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
+                                    SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    Type = (ProductType) reader["Type"],
+                                    SubType = (ProductSubType)reader["SubType"],
+                                    Active = (bool) reader["Active"],
+                                    SaleTaxType =
+                                        new TaxType {Percentaje = Convert.ToDouble(reader["SaleTaxPercentaje"])},
+                                    SaleUnits = Convert.ToDouble(reader["SaleUnits"]),
+                                    PurchaseUnits = Convert.ToDouble(reader["PurchaseUnits"]),
+                                    PurchasePrice = Convert.ToDouble(reader["PurchasePrice"]),
+                                    PurchaseTaxType = new TaxType
+                                    {
+                                        Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
+                                    },
+                                    ShowInMainView = (bool)reader["ShowInMainView"]
+                                };
+
+                                products.Add(product);
+                            }
+
+                            return products;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static List<Product> GetAll()
+        {
+            const string strSql =
+                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView  " +
+                "FROM Products ORDER BY Type, SubType";
+            var products = new List<Product>();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var product = new Product
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
+                                    SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    Type = (ProductType) reader["Type"],
+                                    SubType = (ProductSubType)reader["SubType"],
+                                    Active = (bool) reader["Active"],
+                                    SaleTaxType =
+                                        new TaxType {Percentaje = Convert.ToDouble(reader["SaleTaxPercentaje"])},
+                                    SaleUnits = Convert.ToDouble(reader["SaleUnits"]),
+                                    PurchaseUnits = Convert.ToDouble(reader["PurchaseUnits"]),
+                                    PurchasePrice = Convert.ToDouble(reader["PurchasePrice"]),
+                                    PurchaseTaxType = new TaxType
+                                    {
+                                        Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
+                                    },
+                                    ShowInMainView = (bool)reader["ShowInMainView"]
+                                };
+
+                                products.Add(product);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+
+            return products;
+        }
+
+        internal static List<Product> GetAllActive(ProductType type)
+        {
+            string strSql =
+                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
+                "FROM Products WHERE Active = 1 AND Type = " + (int) type + " ORDER BY Type, SubType";
+
+            var products = new List<Product>();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var product = new Product
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
+                                    SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    Type = (ProductType) reader["Type"],
+                                    SubType = (ProductSubType)reader["SubType"],
+                                    Active = (bool) reader["Active"],
+                                    SaleTaxType =
+                                        new TaxType {Percentaje = Convert.ToDouble(reader["SaleTaxPercentaje"])},
+                                    SaleUnits = Convert.ToDouble(reader["SaleUnits"]),
+                                    PurchaseUnits = Convert.ToDouble(reader["PurchaseUnits"]),
+                                    PurchasePrice = Convert.ToDouble(reader["PurchasePrice"]),
+                                    PurchaseTaxType = new TaxType
+                                    {
+                                        Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
+                                    },
+                                    ShowInMainView = (bool)reader["ShowInMainView"]
+                                };
+
+
+                                products.Add(product);
+                            }
+
+                            return products;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static List<Product> GetAllActiveAndNotShowInMainView(ProductType type)
+        {
+            string strSql =
+                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
+                "FROM Products WHERE Active = 1 AND ShowInMainView = 0 AND Type = " + (int)type + " ORDER BY Type, SubType";
+
+            var products = new List<Product>();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var product = new Product
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
+                                    SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    Type = (ProductType)reader["Type"],
+                                    SubType = (ProductSubType)reader["SubType"],
+                                    Active = (bool)reader["Active"],
+                                    SaleTaxType =
+                                        new TaxType { Percentaje = Convert.ToDouble(reader["SaleTaxPercentaje"]) },
+                                    SaleUnits = Convert.ToDouble(reader["SaleUnits"]),
+                                    PurchaseUnits = Convert.ToDouble(reader["PurchaseUnits"]),
+                                    PurchasePrice = Convert.ToDouble(reader["PurchasePrice"]),
+                                    PurchaseTaxType = new TaxType
+                                    {
+                                        Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
+                                    },
+                                    ShowInMainView = (bool)reader["ShowInMainView"]
+                                };
+
+
+                                products.Add(product);
+                            }
+
+                            return products;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static Product SaveOrUpdate(Product product)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    var strSql = product.Id == 0
+                        ? "INSERT INTO Products (Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView) " +
+                          "VALUES (@Name, @ImagePath, @SalePrice, @SaleDayPrice, @Type, @SubType, @Active, @SaleTaxPercentaje, @SaleUnits, @PurchaseUnits, @PurchasePrice, @PurchaseTaxPercentaje, @ShowInMainView) SELECT Scope_Identity()"
+                        : "UPDATE Products " +
+                          "SET Name = @Name, ImagePath = @ImagePath, SalePrice = @SalePrice, SaleDayPrice = @SaleDayPrice, " +
+                          "Type = @Type, SubType = @SubType, Active = @Active, SaleTaxPercentaje = @SaleTaxPercentaje, " +
+                          "SaleUnits = @SaleUnits, PurchaseUnits = @PurchaseUnits, " +
+                          "PurchasePrice = @PurchasePrice, PurchaseTaxPercentaje = @PurchaseTaxPercentaje, ShowInMainView = @ShowInMainView " +
+                          "WHERE Id = @Id";
+
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", product.Name);
+                        command.Parameters.AddWithValue("@ImagePath", product.ImagePath);
+                        command.Parameters.AddWithValue("@SalePrice", product.SaleNightPrice);
+                        command.Parameters.AddWithValue("@SaleDayPrice", product.SaleDayPrice);
+                        command.Parameters.AddWithValue("@Type", product.Type);
+                        command.Parameters.AddWithValue("@SubType", product.SubType);
+                        command.Parameters.AddWithValue("@Active", product.Active);
+                        command.Parameters.AddWithValue("@SaleTaxPercentaje", product.SaleTaxType.Percentaje);
+                        command.Parameters.AddWithValue("@SaleUnits", product.SaleUnits);
+                        command.Parameters.AddWithValue("@PurchaseUnits", product.PurchaseUnits);
+                        command.Parameters.AddWithValue("@PurchasePrice", product.PurchasePrice);
+                        command.Parameters.AddWithValue("@PurchaseTaxPercentaje", product.PurchaseTaxType.Percentaje);
+                        command.Parameters.AddWithValue("@ShowInMainView", product.ShowInMainView);
+                        command.Parameters.AddWithValue("@Id", product.Id);
+
+                        connection.Open();
+
+                        if (product.Id == 0)
+                            product.Id = Convert.ToInt32(command.ExecuteScalar());
+                        else command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+
+            return product;
+        }
+
+        internal static void Remove(Product product)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    var strSql = "DELETE FROM Products WHERE Id = @Id";
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", product.Id);
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static Product GetById(int productId)
+        {
+            const string strSql =
+                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
+                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
+                "FROM Products WHERE Id = @ProductId";
+
+            var product = new Product();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@ProductId", productId);
+
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                product = new Product
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
+                                    SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    Type = (ProductType)reader["Type"],
+                                    SubType = (ProductSubType)reader["SubType"],
+                                    Active = (bool)reader["Active"],
+                                    SaleTaxType =
+                                        new TaxType { Percentaje = Convert.ToDouble(reader["SaleTaxPercentaje"]) },
+                                    SaleUnits = Convert.ToDouble(reader["SaleUnits"]),
+                                    PurchaseUnits = Convert.ToDouble(reader["PurchaseUnits"]),
+                                    PurchasePrice = Convert.ToDouble(reader["PurchasePrice"]),
+                                    PurchaseTaxType = new TaxType
+                                    {
+                                        Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
+                                    },
+                                    ShowInMainView = (bool)reader["ShowInMainView"]
+
+                                };
+                            }
+
+                           
+                        }
+                    }
+                }
+
+                return product;
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+    }
+}

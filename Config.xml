@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Configuration base, no modify.-->
+<Configuration>
+  <ConnectionString>Server=localhost;Database=LicuoreTPV;User Id=sa;Password=1234</ConnectionString>
+  <StationCode>2</StationCode>
+</Configuration>

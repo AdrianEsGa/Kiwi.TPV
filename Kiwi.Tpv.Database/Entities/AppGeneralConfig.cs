@@ -1,0 +1,15 @@
+﻿namespace Kiwi.Tpv.Database.Entities
+{
+    public class AppGeneralConfig
+    {
+        public string AdminPassword { get; set; }
+        public int ProductButtonsDimension { get; set; }
+        public int EmployeeButtonsDimension { get; set; }
+        public string BackgroundImage { get; set; }
+        public bool SystemJoke { get; set; }
+        public int JokeInit { get; set; }
+        public int JokeEnd { get; set; }
+        public int JokeInterval { get; set; }
+        public bool ShowJokeReport { get; set; }
+    }
+}

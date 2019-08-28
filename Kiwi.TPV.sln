@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwi.Tpv.App", "Kiwi.Tpv.App\Kiwi.Tpv.App.csproj", "{D0FB3309-7C35-4E81-9771-8AB3180430B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwi.Tpv.Database", "Kiwi.Tpv.Database\Kiwi.Tpv.Database.csproj", "{68E04105-17AB-4EC7-9BB8-928C76C289BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Release|x64.ActiveCfg = Release|Any CPU
+		{D0FB3309-7C35-4E81-9771-8AB3180430B7}.Release|x86.ActiveCfg = Release|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|x64.ActiveCfg = Release|Any CPU
+		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D92FD3DD-FBCC-450E-8F10-CB7C5DB49AB0}
+	EndGlobalSection
+EndGlobal

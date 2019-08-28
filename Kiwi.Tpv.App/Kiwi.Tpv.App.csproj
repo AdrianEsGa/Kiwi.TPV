@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0FB3309-7C35-4E81-9771-8AB3180430B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kiwi.Tpv.App</RootNamespace>
+    <AssemblyName>Kiwi.Tpv.App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>kiwiLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\frmTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTables.Designer.cs">
+      <DependentUpon>frmTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConfiguration.Designer.cs">
+      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPopUp.Designer.cs">
+      <DependentUpon>FrmPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProductSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProductSelector.Designer.cs">
+      <DependentUpon>frmProductSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTableSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTableSales.Designer.cs">
+      <DependentUpon>frmTableSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTablesDistribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTablesDistribution.Designer.cs">
+      <DependentUpon>frmTablesDistribution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTablesSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTablesSelector.Designer.cs">
+      <DependentUpon>frmTablesSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Common.cs" />
+    <Compile Include="Util\CashDrawerController.cs" />
+    <Compile Include="Forms\frmBottle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBottle.Designer.cs">
+      <DependentUpon>frmBottle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmConfirmPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConfirmPay.Designer.cs">
+      <DependentUpon>frmConfirmPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmployees.Designer.cs">
+      <DependentUpon>frmEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHistory.Designer.cs">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProducts.Designer.cs">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppGlobal.cs" />
+    <Compile Include="Util\Configurations\GlobalConfigurationRepository.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Configurations\Settings.cs" />
+    <Compile Include="Util\Exportations\ExportationToExcel.cs" />
+    <Compile Include="Util\PrinterController.cs" />
+    <Compile Include="Util\RawPrinterHelper.cs" />
+    <Compile Include="Util\ViewController.cs" />
+    <Content Include="kiwiLogo.ico" />
+    <Content Include="Reports\SaleTicket.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.BarTable.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.BarTables.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Sale.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.SaleDetail.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Station.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Table.datasource" />
+    <None Include="Resources\icoClose.png" />
+    <None Include="Resources\icoMinimize.png" />
+    <None Include="Resources\icoMaximize.png" />
+    <EmbeddedResource Include="Forms\frmTables.resx">
+      <DependentUpon>frmTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBottle.resx">
+      <DependentUpon>frmBottle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConfiguration.resx">
+      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConfirmPay.resx">
+      <DependentUpon>frmConfirmPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEmployees.resx">
+      <DependentUpon>frmEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHistory.resx">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPopUp.resx">
+      <DependentUpon>FrmPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProducts.resx">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProductSelector.resx">
+      <DependentUpon>frmProductSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTableSales.resx">
+      <DependentUpon>frmTableSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTablesDistribution.resx">
+      <DependentUpon>frmTablesDistribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTablesSelector.resx">
+      <DependentUpon>frmTablesSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Reports\SaleDetails.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.DTOs.ReportDTOs.SaleDetailsReportDto.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.DTOs.ReportDTOs.SaleResumeDisscountDto.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.DTOs.ReportDTOs.SaleResumeReportDto.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Company.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Employee.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Product.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.Domain.Employee.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.Domain.Product.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.Domain.SaleDetail.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.Domain.Station.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.DTOs.EmployeeHistoryDto.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.DTOs.ProductHistoryDto.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.DTOs.ReportDTOs.ProductConsumeChartReportDto.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.DTOs.ReportDTOs.SaleResumeReportDto.datasource" />
+    <None Include="Properties\DataSources\Liquore.TPV.Database.DTOs.SaleDetailsReportDto.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Util\Configurations\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kiwi.Tpv.Database\Kiwi.Tpv.Database.csproj">
+      <Project>{68e04105-17ab-4ec7-9bb8-928c76c289bd}</Project>
+      <Name>Kiwi.Tpv.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Licoure19.ico" />
+    <Content Include="logo.ico" />
+    <None Include="Resources\Licoure19.ico" />
+    <None Include="Resources\loader.gif" />
+    <None Include="Resources\Ok.png" />
+    <None Include="Resources\NoOk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
