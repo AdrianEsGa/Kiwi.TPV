@@ -197,12 +197,12 @@ namespace Kiwi.Tpv.App
             AppGlobal.Sale.Employee = (Employee) btn.Tag;
 
             ViewController.ShowPopUp();
-            var frmConfirmPay = new FrmConfirmPay();
+            var frmConfirmPay = new FrmConfirmPay(false);
             frmConfirmPay.ShowDialog();
             ViewController.HidePopUp();
 
             if (!frmConfirmPay.OperationFinalized) return;
-            FinalizeSale();
+              FinalizeSale();
 
             RefreshScreen();
         }
@@ -847,7 +847,6 @@ namespace Kiwi.Tpv.App
                 ViewController.ShowError(ex.Message);
             }
         }
-
 
         #endregion
 

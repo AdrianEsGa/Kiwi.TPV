@@ -106,6 +106,10 @@ namespace Kiwi.Tpv.App.Forms
                         frmTableSales.Dispose();
                         Close();
                     }
+                    else
+                    {
+                        LoadData();
+                    }
                 }
                 else
                 {

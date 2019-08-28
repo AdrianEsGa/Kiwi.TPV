@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
@@ -13,11 +12,13 @@ namespace Kiwi.Tpv.App.Forms
     {
         private BackgroundWorker _worker;
         public bool OperationFinalized;
+        private bool _masivePay;
 
-        public FrmConfirmPay()
+        public FrmConfirmPay(bool masivePay)
         {
             InitializeComponent();
             ViewController.SetSkin(this);
+            _masivePay = masivePay;
         }
 
         private void FrmConfirmPay_Load(object sender, EventArgs e)
@@ -32,7 +33,11 @@ namespace Kiwi.Tpv.App.Forms
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            ViewController.HidePopUp();
+            if (!_masivePay)
+            {
+                ViewController.HidePopUp();
+            }
+
             Close();
         }
 

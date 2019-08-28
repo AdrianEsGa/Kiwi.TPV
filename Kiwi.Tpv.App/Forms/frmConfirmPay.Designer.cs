@@ -205,6 +205,7 @@
             this.Movable = false;
             this.Name = "FrmConfirmPay";
             this.Resizable = false;
+            this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Finalizar venta";
             this.Load += new System.EventHandler(this.FrmConfirmPay_Load);

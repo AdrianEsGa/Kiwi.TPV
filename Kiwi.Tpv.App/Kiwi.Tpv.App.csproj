@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmEmployeeSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmployeeSelector.Designer.cs">
+      <DependentUpon>frmEmployeeSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTables.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     <None Include="Resources\icoClose.png" />
     <None Include="Resources\icoMinimize.png" />
     <None Include="Resources\icoMaximize.png" />
+    <EmbeddedResource Include="Forms\frmEmployeeSelector.resx">
+      <DependentUpon>frmEmployeeSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTables.resx">
       <DependentUpon>frmTables.cs</DependentUpon>
     </EmbeddedResource>
