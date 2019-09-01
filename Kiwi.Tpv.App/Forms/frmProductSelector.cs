@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -15,12 +16,14 @@ namespace Kiwi.Tpv.App.Forms
     {
         public Product SelectedProduct;
         private readonly ProductType _typeToLoad;
+        private bool _combination;
 
-        public FrmProductSelector(ProductType typeToLoad)
+        public FrmProductSelector(ProductType typeToLoad, bool combination)
         {
             InitializeComponent();
             ViewController.SetSkin(this);
             _typeToLoad = typeToLoad;
+            _combination = combination;
         }
 
         private void frmProductSelector_Load(object sender, EventArgs e)
@@ -55,7 +58,8 @@ namespace Kiwi.Tpv.App.Forms
 
         private void PaintProductButtons()
         {
-            var products = ProductController.GetAllActiveAndNotShowInMainView(_typeToLoad);
+            var products = _combination ? ProductController.GetAllActive(_typeToLoad) 
+                : ProductController.GetAllActiveAndNotShowInMainView(_typeToLoad);
 
             foreach (var product in products)
             {
@@ -101,7 +105,11 @@ namespace Kiwi.Tpv.App.Forms
             var btn = (Button)sender;
             SelectedProduct = (Product)btn.Tag;
             SelectedProduct.Quantity = 1;
+
+            if (_combination) {SelectedProduct.SaleDayPrice = 0; SelectedProduct.SaleNightPrice = 0; }
+          
             FrmMain.Instance.AddProductToSale(SelectedProduct);
+            if(_combination) Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

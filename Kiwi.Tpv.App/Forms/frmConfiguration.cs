@@ -154,6 +154,7 @@ namespace Kiwi.Tpv.App.Forms
                 txtAdminPassword.Text = AppGlobal.AppGeneralConfig.AdminPassword;
                 txtProductButtonsDimension.Text = AppGlobal.AppGeneralConfig.ProductButtonsDimension.ToString();
                 txtEmployeeButtonsDimension.Text = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension.ToString();
+                txtTableButtonsDimensions.Text = AppGlobal.AppGeneralConfig.TableButtonsDimension.ToString();
                 TxtBackImagePath.Text = AppGlobal.AppGeneralConfig.BackgroundImage;
                 chkShowJokeReport.Checked = AppGlobal.AppGeneralConfig.ShowJokeReport;
 
@@ -195,6 +196,8 @@ namespace Kiwi.Tpv.App.Forms
                     Convert.ToInt16(txtProductButtonsDimension.Text.Trim());
                 AppGlobal.AppGeneralConfig.EmployeeButtonsDimension =
                     Convert.ToInt16(txtEmployeeButtonsDimension.Text.Trim());
+                AppGlobal.AppGeneralConfig.TableButtonsDimension =
+                    Convert.ToInt16(txtTableButtonsDimensions.Text.Trim());
                 AppGlobal.AppGeneralConfig.BackgroundImage = TxtBackImagePath.Text.Trim();
                 AppGlobal.AppGeneralConfig.ShowJokeReport = chkShowJokeReport.Checked;
                 AppCommonController.SaveOrUpdate(AppGlobal.AppGeneralConfig);
@@ -224,14 +227,17 @@ namespace Kiwi.Tpv.App.Forms
             {
                 ViewController.ShowError( ex.Message);
             }
-        }
 
-        #endregion
+        }
 
         private void btnTestPrintter_Click(object sender, EventArgs e)
         {
             PrinterController.PrintSale(new Sale());
         }
+
+        #endregion
+
+
 
     }
 }

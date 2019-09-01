@@ -56,7 +56,7 @@ namespace Kiwi.Tpv.App.Forms
             dtpInitTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
             dtpEndTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
 
-            if (AppGlobal.JokeSystemActive && AppGlobal.AppGeneralConfig.ShowJokeReport)
+            if (AppGlobal.AppGeneralConfig.SystemJoke && AppGlobal.AppGeneralConfig.ShowJokeReport)
                 cbReports.Items.Add("Informe - Resumen general");
 
             spinnerProgress.Visible = false;

@@ -140,8 +140,8 @@ namespace Kiwi.Tpv.App.Forms
                     {
                         var btn = new MetroButton
                         {
-                            Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
+                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
                             Tag = selectedTable,
                             BackgroundImage = Image.FromFile(selectedTable.ImagePath),
                             BackgroundImageLayout = ImageLayout.Stretch
@@ -156,8 +156,8 @@ namespace Kiwi.Tpv.App.Forms
                     {
                         var btn = new MetroTile
                         {
-                            Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
+                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
                             Text = selectedTable.Name,
                             Tag = selectedTable,
                             Style = MetroColorStyle.Silver,
@@ -201,8 +201,8 @@ namespace Kiwi.Tpv.App.Forms
                     {
                         var btn = new MetroButton
                         {
-                            Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
+                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
                             Tag = tableDistributed,
                             BackgroundImage = Image.FromFile(tableDistributed.ImagePath),
                             BackgroundImageLayout = ImageLayout.Stretch,
@@ -218,8 +218,8 @@ namespace Kiwi.Tpv.App.Forms
                     {
                         var btn = new MetroTile
                         {
-                            Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
+                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
                             Text = tableDistributed.Name + Environment.NewLine + totalPending.ToString("F") + "€",
                             Tag = tableDistributed,
                             Style = hasPendingSales ? MetroColorStyle.Red : MetroColorStyle.Green,

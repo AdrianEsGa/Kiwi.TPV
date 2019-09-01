@@ -61,8 +61,8 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new MetroButton
                     {
-                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                        Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                        Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
+                        Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
                         Tag = table,
                         BackgroundImage = Image.FromFile(table.ImagePath),
                         BackgroundImageLayout = ImageLayout.Stretch

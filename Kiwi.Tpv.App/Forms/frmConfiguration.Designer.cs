@@ -39,13 +39,10 @@ namespace Kiwi.Tpv.App.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguration));
             this.tabConfig = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.txtTableButtonsDimensions = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.chkShowJokeReport = new System.Windows.Forms.CheckBox();
             this.label11 = new MetroFramework.Controls.MetroLabel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btnVer = new MetroFramework.Controls.MetroTile();
-            this.btnLoadJokeImage = new MetroFramework.Controls.MetroTile();
-            this.btnJokeImage = new MetroFramework.Controls.MetroTile();
-            this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new MetroFramework.Controls.MetroLabel();
             this.label6 = new MetroFramework.Controls.MetroLabel();
             this.txtAdminPassword = new MetroFramework.Controls.MetroTextBox();
@@ -88,11 +85,15 @@ namespace Kiwi.Tpv.App.Forms
             this.cbPrinter = new MetroFramework.Controls.MetroComboBox();
             this.btnOpenBox = new MetroFramework.Controls.MetroTile();
             this.label4 = new MetroFramework.Controls.MetroLabel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnVer = new MetroFramework.Controls.MetroTile();
+            this.btnLoadJokeImage = new MetroFramework.Controls.MetroTile();
+            this.btnJokeImage = new MetroFramework.Controls.MetroTile();
+            this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReportsLocalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReportsLogo)).BeginInit();
@@ -101,6 +102,7 @@ namespace Kiwi.Tpv.App.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             this.metroTabPage4.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabConfig
@@ -111,16 +113,17 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.Controls.Add(this.metroTabPage4);
             this.tabConfig.Location = new System.Drawing.Point(23, 69);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.SelectedIndex = 3;
+            this.tabConfig.SelectedIndex = 0;
             this.tabConfig.Size = new System.Drawing.Size(856, 433);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.UseSelectable = true;
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.txtTableButtonsDimensions);
+            this.metroTabPage1.Controls.Add(this.metroLabel2);
             this.metroTabPage1.Controls.Add(this.chkShowJokeReport);
             this.metroTabPage1.Controls.Add(this.label11);
-            this.metroTabPage1.Controls.Add(this.panel10);
             this.metroTabPage1.Controls.Add(this.label1);
             this.metroTabPage1.Controls.Add(this.label6);
             this.metroTabPage1.Controls.Add(this.txtAdminPassword);
@@ -142,10 +145,50 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // txtTableButtonsDimensions
+            // 
+            this.txtTableButtonsDimensions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.txtTableButtonsDimensions.CustomButton.Image = null;
+            this.txtTableButtonsDimensions.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtTableButtonsDimensions.CustomButton.Name = "";
+            this.txtTableButtonsDimensions.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtTableButtonsDimensions.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTableButtonsDimensions.CustomButton.TabIndex = 1;
+            this.txtTableButtonsDimensions.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTableButtonsDimensions.CustomButton.UseSelectable = true;
+            this.txtTableButtonsDimensions.CustomButton.Visible = false;
+            this.txtTableButtonsDimensions.Lines = new string[0];
+            this.txtTableButtonsDimensions.Location = new System.Drawing.Point(232, 137);
+            this.txtTableButtonsDimensions.MaxLength = 32767;
+            this.txtTableButtonsDimensions.Name = "txtTableButtonsDimensions";
+            this.txtTableButtonsDimensions.PasswordChar = '\0';
+            this.txtTableButtonsDimensions.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTableButtonsDimensions.SelectedText = "";
+            this.txtTableButtonsDimensions.SelectionLength = 0;
+            this.txtTableButtonsDimensions.SelectionStart = 0;
+            this.txtTableButtonsDimensions.ShortcutsEnabled = true;
+            this.txtTableButtonsDimensions.Size = new System.Drawing.Size(185, 20);
+            this.txtTableButtonsDimensions.TabIndex = 59;
+            this.txtTableButtonsDimensions.UseSelectable = true;
+            this.txtTableButtonsDimensions.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTableButtonsDimensions.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(28, 134);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(161, 19);
+            this.metroLabel2.TabIndex = 58;
+            this.metroLabel2.Text = "Dimensión Botones Mesas";
+            // 
             // chkShowJokeReport
             // 
             this.chkShowJokeReport.AutoSize = true;
-            this.chkShowJokeReport.Location = new System.Drawing.Point(232, 179);
+            this.chkShowJokeReport.Location = new System.Drawing.Point(232, 211);
             this.chkShowJokeReport.Name = "chkShowJokeReport";
             this.chkShowJokeReport.Size = new System.Drawing.Size(15, 14);
             this.chkShowJokeReport.TabIndex = 57;
@@ -154,86 +197,11 @@ namespace Kiwi.Tpv.App.Forms
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 174);
+            this.label11.Location = new System.Drawing.Point(28, 206);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 19);
             this.label11.TabIndex = 56;
             this.label11.Text = "Ver Informes";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btnVer);
-            this.panel10.Controls.Add(this.btnLoadJokeImage);
-            this.panel10.Controls.Add(this.btnJokeImage);
-            this.panel10.Controls.Add(this.txtJokeImage);
-            this.panel10.Location = new System.Drawing.Point(459, 189);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(386, 146);
-            this.panel10.TabIndex = 55;
-            this.panel10.Visible = false;
-            // 
-            // btnVer
-            // 
-            this.btnVer.ActiveControl = null;
-            this.btnVer.Location = new System.Drawing.Point(3, 43);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(353, 49);
-            this.btnVer.TabIndex = 58;
-            this.btnVer.Text = "Ver";
-            this.btnVer.UseSelectable = true;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
-            // btnLoadJokeImage
-            // 
-            this.btnLoadJokeImage.ActiveControl = null;
-            this.btnLoadJokeImage.Location = new System.Drawing.Point(3, 98);
-            this.btnLoadJokeImage.Name = "btnLoadJokeImage";
-            this.btnLoadJokeImage.Size = new System.Drawing.Size(353, 45);
-            this.btnLoadJokeImage.TabIndex = 57;
-            this.btnLoadJokeImage.Text = "Guardar";
-            this.btnLoadJokeImage.UseSelectable = true;
-            this.btnLoadJokeImage.Click += new System.EventHandler(this.btnLoadJokeImage_Click);
-            // 
-            // btnJokeImage
-            // 
-            this.btnJokeImage.ActiveControl = null;
-            this.btnJokeImage.Location = new System.Drawing.Point(334, 3);
-            this.btnJokeImage.Name = "btnJokeImage";
-            this.btnJokeImage.Size = new System.Drawing.Size(22, 20);
-            this.btnJokeImage.TabIndex = 56;
-            this.btnJokeImage.UseSelectable = true;
-            this.btnJokeImage.Click += new System.EventHandler(this.btnJokeImage_Click);
-            // 
-            // txtJokeImage
-            // 
-            this.txtJokeImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            // 
-            // 
-            // 
-            this.txtJokeImage.CustomButton.Image = null;
-            this.txtJokeImage.CustomButton.Location = new System.Drawing.Point(303, 2);
-            this.txtJokeImage.CustomButton.Name = "";
-            this.txtJokeImage.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.txtJokeImage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtJokeImage.CustomButton.TabIndex = 1;
-            this.txtJokeImage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtJokeImage.CustomButton.UseSelectable = true;
-            this.txtJokeImage.CustomButton.Visible = false;
-            this.txtJokeImage.Lines = new string[0];
-            this.txtJokeImage.Location = new System.Drawing.Point(3, 3);
-            this.txtJokeImage.MaxLength = 50;
-            this.txtJokeImage.Name = "txtJokeImage";
-            this.txtJokeImage.PasswordChar = '\0';
-            this.txtJokeImage.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtJokeImage.SelectedText = "";
-            this.txtJokeImage.SelectionLength = 0;
-            this.txtJokeImage.SelectionStart = 0;
-            this.txtJokeImage.ShortcutsEnabled = true;
-            this.txtJokeImage.Size = new System.Drawing.Size(321, 20);
-            this.txtJokeImage.TabIndex = 55;
-            this.txtJokeImage.UseSelectable = true;
-            this.txtJokeImage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtJokeImage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // label1
             // 
@@ -247,7 +215,7 @@ namespace Kiwi.Tpv.App.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 137);
+            this.label6.Location = new System.Drawing.Point(28, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 19);
             this.label6.TabIndex = 54;
@@ -287,7 +255,7 @@ namespace Kiwi.Tpv.App.Forms
             // btnOpenBackImage
             // 
             this.btnOpenBackImage.ActiveControl = null;
-            this.btnOpenBackImage.Location = new System.Drawing.Point(559, 136);
+            this.btnOpenBackImage.Location = new System.Drawing.Point(559, 174);
             this.btnOpenBackImage.Name = "btnOpenBackImage";
             this.btnOpenBackImage.Size = new System.Drawing.Size(22, 20);
             this.btnOpenBackImage.TabIndex = 53;
@@ -297,7 +265,7 @@ namespace Kiwi.Tpv.App.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 63);
+            this.label2.Location = new System.Drawing.Point(28, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 19);
             this.label2.TabIndex = 4;
@@ -319,7 +287,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtBackImagePath.CustomButton.UseSelectable = true;
             this.TxtBackImagePath.CustomButton.Visible = false;
             this.TxtBackImagePath.Lines = new string[0];
-            this.TxtBackImagePath.Location = new System.Drawing.Point(232, 137);
+            this.TxtBackImagePath.Location = new System.Drawing.Point(232, 174);
             this.TxtBackImagePath.MaxLength = 50;
             this.TxtBackImagePath.Name = "TxtBackImagePath";
             this.TxtBackImagePath.PasswordChar = '\0';
@@ -399,7 +367,7 @@ namespace Kiwi.Tpv.App.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 100);
+            this.label5.Location = new System.Drawing.Point(28, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(190, 19);
             this.label5.TabIndex = 6;
@@ -859,6 +827,81 @@ namespace Kiwi.Tpv.App.Forms
             this.label4.TabIndex = 3;
             this.label4.Text = "Impresora";
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btnVer);
+            this.panel10.Controls.Add(this.btnLoadJokeImage);
+            this.panel10.Controls.Add(this.btnJokeImage);
+            this.panel10.Controls.Add(this.txtJokeImage);
+            this.panel10.Location = new System.Drawing.Point(701, 512);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(50, 44);
+            this.panel10.TabIndex = 55;
+            this.panel10.Visible = false;
+            // 
+            // btnVer
+            // 
+            this.btnVer.ActiveControl = null;
+            this.btnVer.Location = new System.Drawing.Point(3, 43);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(353, 49);
+            this.btnVer.TabIndex = 58;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseSelectable = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
+            // btnLoadJokeImage
+            // 
+            this.btnLoadJokeImage.ActiveControl = null;
+            this.btnLoadJokeImage.Location = new System.Drawing.Point(3, 98);
+            this.btnLoadJokeImage.Name = "btnLoadJokeImage";
+            this.btnLoadJokeImage.Size = new System.Drawing.Size(353, 45);
+            this.btnLoadJokeImage.TabIndex = 57;
+            this.btnLoadJokeImage.Text = "Guardar";
+            this.btnLoadJokeImage.UseSelectable = true;
+            this.btnLoadJokeImage.Click += new System.EventHandler(this.btnLoadJokeImage_Click);
+            // 
+            // btnJokeImage
+            // 
+            this.btnJokeImage.ActiveControl = null;
+            this.btnJokeImage.Location = new System.Drawing.Point(334, 3);
+            this.btnJokeImage.Name = "btnJokeImage";
+            this.btnJokeImage.Size = new System.Drawing.Size(22, 20);
+            this.btnJokeImage.TabIndex = 56;
+            this.btnJokeImage.UseSelectable = true;
+            this.btnJokeImage.Click += new System.EventHandler(this.btnJokeImage_Click);
+            // 
+            // txtJokeImage
+            // 
+            this.txtJokeImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.txtJokeImage.CustomButton.Image = null;
+            this.txtJokeImage.CustomButton.Location = new System.Drawing.Point(303, 2);
+            this.txtJokeImage.CustomButton.Name = "";
+            this.txtJokeImage.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtJokeImage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtJokeImage.CustomButton.TabIndex = 1;
+            this.txtJokeImage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtJokeImage.CustomButton.UseSelectable = true;
+            this.txtJokeImage.CustomButton.Visible = false;
+            this.txtJokeImage.Lines = new string[0];
+            this.txtJokeImage.Location = new System.Drawing.Point(3, 3);
+            this.txtJokeImage.MaxLength = 50;
+            this.txtJokeImage.Name = "txtJokeImage";
+            this.txtJokeImage.PasswordChar = '\0';
+            this.txtJokeImage.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtJokeImage.SelectedText = "";
+            this.txtJokeImage.SelectionLength = 0;
+            this.txtJokeImage.SelectionStart = 0;
+            this.txtJokeImage.ShortcutsEnabled = true;
+            this.txtJokeImage.Size = new System.Drawing.Size(321, 20);
+            this.txtJokeImage.TabIndex = 55;
+            this.txtJokeImage.UseSelectable = true;
+            this.txtJokeImage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtJokeImage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // btnClose
             // 
             this.btnClose.ActiveControl = null;
@@ -897,6 +940,7 @@ namespace Kiwi.Tpv.App.Forms
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabConfig);
+            this.Controls.Add(this.panel10);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Movable = false;
@@ -908,7 +952,6 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            this.panel10.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReportsLocalImage)).EndInit();
@@ -920,6 +963,7 @@ namespace Kiwi.Tpv.App.Forms
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage4.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -979,5 +1023,7 @@ namespace Kiwi.Tpv.App.Forms
         private PictureBox picBoxReportsLocalImage;
         private MetroLabel metroLabel1;
         private MetroTile btnSelectCompanyLocalImage;
+        private MetroTextBox txtTableButtonsDimensions;
+        private MetroLabel metroLabel2;
     }
 }

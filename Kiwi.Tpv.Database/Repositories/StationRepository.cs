@@ -68,7 +68,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                     PrintterComPort = reader["PrintterComPort"].ToString()
                                 };
 
-
                                 stations.Add(station);
                             }
                         }
@@ -90,7 +89,7 @@ namespace Kiwi.Tpv.Database.Repositories
             {
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
-                    var strSql = "UPDATE Stations SET PrintterComPort = @PrintterComPort WHERE Id = @Id";
+                    const string strSql = "UPDATE Stations SET PrintterComPort = @PrintterComPort WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
                     {

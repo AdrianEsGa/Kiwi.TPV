@@ -10,7 +10,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static AppGeneralConfig Get()
         {
             const string strSql =
-                "SELECT AdminPassword, ProductButtonsDimensions, EmployeeButtonsDimensions, BackgroundImage, " +
+                "SELECT AdminPassword, ProductButtonsDimensions, EmployeeButtonsDimensions, TableButtonsDimensions, BackgroundImage, " +
                 "SystemJoke, JokeInit, JokeEnd, JokeInterval, ShowJokeReport " +
                 "FROM AppGeneralConfig";
             var appGeneralConfig = new AppGeneralConfig();
@@ -30,6 +30,7 @@ namespace Kiwi.Tpv.Database.Repositories
                                     AdminPassword = reader["AdminPassword"].ToString(),
                                     ProductButtonsDimension = Convert.ToInt32(reader["ProductButtonsDimensions"]),
                                     EmployeeButtonsDimension = Convert.ToInt32(reader["EmployeeButtonsDimensions"]),
+                                    TableButtonsDimension = Convert.ToInt32(reader["TableButtonsDimensions"]),
                                     BackgroundImage = reader["BackgroundImage"].ToString(),
                                     SystemJoke = (bool) reader["SystemJoke"],
                                     JokeInit = int.Parse(reader["JokeInit"].ToString()),
@@ -61,6 +62,7 @@ namespace Kiwi.Tpv.Database.Repositories
                         "SET AdminPassword = @AdminPassword, " +
                         "ProductButtonsDimensions = @ProductButtonsDimensions, " +
                         "EmployeeButtonsDimensions = @EmployeeButtonsDimensions, " +
+                        "TableButtonsDimensions = @TableButtonsDimensions, " +
                         "BackgroundImage = @BackgroundImage, " +
                         "ShowJokeReport = @ShowJokeReport";
 
@@ -72,6 +74,8 @@ namespace Kiwi.Tpv.Database.Repositories
                             appGeneralConfig.ProductButtonsDimension);
                         command.Parameters.AddWithValue("@EmployeeButtonsDimensions",
                             appGeneralConfig.EmployeeButtonsDimension);
+                        command.Parameters.AddWithValue("@TableButtonsDimensions",
+                            appGeneralConfig.TableButtonsDimension);
                         command.Parameters.AddWithValue("@BackgroundImage", appGeneralConfig.BackgroundImage);
                         command.Parameters.AddWithValue("@ShowJokeReport", appGeneralConfig.ShowJokeReport);
                         connection.Open();

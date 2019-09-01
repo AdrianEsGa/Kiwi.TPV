@@ -168,7 +168,7 @@ namespace Kiwi.Tpv.App
 
 
                 ViewController.ShowPopUp();
-                var frmProductSelector = new FrmProductSelector(productType);
+                var frmProductSelector = new FrmProductSelector(productType, false);
                 frmProductSelector.ShowDialog();
                 ViewController.HidePopUp();             
                 return;
@@ -176,17 +176,15 @@ namespace Kiwi.Tpv.App
 
             product = (Product) btn.Tag;
             product.Quantity = 1;
+            AddProductToSale(product);
 
             if (AppGlobal.Company.CombinationControl && product.Type == ProductType.Alcohol)
             {
                 ViewController.ShowPopUp();
-                var frmProductSelector = new FrmProductSelector(ProductType.Refresco);
+                var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
                 frmProductSelector.ShowDialog();
                 ViewController.HidePopUp();
-                return;
             }
-
-            AddProductToSale(product);
         }
 
         private void ButtonEmployee_Click(object sender, EventArgs e)

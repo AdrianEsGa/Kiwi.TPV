@@ -98,10 +98,10 @@ namespace Kiwi.Tpv.App.Forms
                     }
 
                     AppGlobal.Sale = new Sale();
-                    LoadData();
+                    Close();
                 }
 
-                frmEmployeeSelector.Dispose();
+                frmEmployeeSelector.Dispose();             
             }
             catch (Exception ex)
             {

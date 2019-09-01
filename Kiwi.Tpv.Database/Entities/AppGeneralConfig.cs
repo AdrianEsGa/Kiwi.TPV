@@ -5,6 +5,7 @@
         public string AdminPassword { get; set; }
         public int ProductButtonsDimension { get; set; }
         public int EmployeeButtonsDimension { get; set; }
+        public int TableButtonsDimension { get; set; }
         public string BackgroundImage { get; set; }
         public bool SystemJoke { get; set; }
         public int JokeInit { get; set; }
