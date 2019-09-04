@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using Kiwi.Tpv.Database.Entities;
 
@@ -10,7 +11,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<Product> GetAllActive()
         {
             const string strSql =
-                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
+                "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
                 "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
                 "FROM Products WHERE Active = 1 AND ShowInMainView = 1 ORDER BY Type, SubType";
             var products = new List<Product>();
@@ -30,7 +31,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
                                     Type = (ProductType) reader["Type"],
@@ -47,6 +47,9 @@ namespace Kiwi.Tpv.Database.Repositories
                                     },
                                     ShowInMainView = (bool)reader["ShowInMainView"]
                                 };
+
+                                if (reader["Image"] != DBNull.Value)
+                                    product.Image = (byte[])reader["Image"];
 
                                 products.Add(product);
                             }
@@ -66,8 +69,8 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<Product> GetAll()
         {
             const string strSql =
-                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
-                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView  " +
+                "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, ImagePath  " +
                 "FROM Products ORDER BY Type, SubType";
             var products = new List<Product>();
 
@@ -104,6 +107,9 @@ namespace Kiwi.Tpv.Database.Repositories
                                     ShowInMainView = (bool)reader["ShowInMainView"]
                                 };
 
+                                if (reader["Image"] != DBNull.Value)
+                                    product.Image = (byte[])reader["Image"];
+
                                 products.Add(product);
                             }
                         }
@@ -122,7 +128,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<Product> GetAllActive(ProductType type)
         {
             string strSql =
-                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
                 "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
                 "FROM Products WHERE Active = 1 AND Type = " + (int) type + " ORDER BY Type, SubType";
 
@@ -143,7 +149,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
                                     Type = (ProductType) reader["Type"],
@@ -161,6 +166,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     ShowInMainView = (bool)reader["ShowInMainView"]
                                 };
 
+                                if (reader["Image"] != DBNull.Value)
+                                    product.Image = (byte[])reader["Image"];
 
                                 products.Add(product);
                             }
@@ -180,7 +187,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<Product> GetAllActiveAndNotShowInMainView(ProductType type)
         {
             string strSql =
-                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, " +
+                "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
                 "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
                 "FROM Products WHERE Active = 1 AND ShowInMainView = 0 AND Type = " + (int)type + " ORDER BY Type, SubType";
 
@@ -201,7 +208,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
                                     Type = (ProductType)reader["Type"],
@@ -219,6 +225,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     ShowInMainView = (bool)reader["ShowInMainView"]
                                 };
 
+                                if (reader["Image"] != DBNull.Value)
+                                    product.Image = (byte[])reader["Image"];
 
                                 products.Add(product);
                             }
@@ -242,10 +250,10 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = product.Id == 0
-                        ? "INSERT INTO Products (Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView) " +
-                          "VALUES (@Name, @ImagePath, @SalePrice, @SaleDayPrice, @Type, @SubType, @Active, @SaleTaxPercentaje, @SaleUnits, @PurchaseUnits, @PurchasePrice, @PurchaseTaxPercentaje, @ShowInMainView) SELECT Scope_Identity()"
+                        ? "INSERT INTO Products (Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView) " +
+                          "VALUES (@Name, @Image, @SalePrice, @SaleDayPrice, @Type, @SubType, @Active, @SaleTaxPercentaje, @SaleUnits, @PurchaseUnits, @PurchasePrice, @PurchaseTaxPercentaje, @ShowInMainView) SELECT Scope_Identity()"
                         : "UPDATE Products " +
-                          "SET Name = @Name, ImagePath = @ImagePath, SalePrice = @SalePrice, SaleDayPrice = @SaleDayPrice, " +
+                          "SET Name = @Name, Image = @Image, SalePrice = @SalePrice, SaleDayPrice = @SaleDayPrice, " +
                           "Type = @Type, SubType = @SubType, Active = @Active, SaleTaxPercentaje = @SaleTaxPercentaje, " +
                           "SaleUnits = @SaleUnits, PurchaseUnits = @PurchaseUnits, " +
                           "PurchasePrice = @PurchasePrice, PurchaseTaxPercentaje = @PurchaseTaxPercentaje, ShowInMainView = @ShowInMainView " +
@@ -254,7 +262,10 @@ namespace Kiwi.Tpv.Database.Repositories
                     using (var command = new SqlCommand(strSql, connection))
                     {
                         command.Parameters.AddWithValue("@Name", product.Name);
-                        command.Parameters.AddWithValue("@ImagePath", product.ImagePath);
+                        if (product.Image == null)
+                            command.Parameters.Add("@Image", SqlDbType.VarBinary).Value = DBNull.Value;
+                        else command.Parameters.Add("@Image", SqlDbType.VarBinary).Value = product.Image;
+
                         command.Parameters.AddWithValue("@SalePrice", product.SaleNightPrice);
                         command.Parameters.AddWithValue("@SaleDayPrice", product.SaleDayPrice);
                         command.Parameters.AddWithValue("@Type", product.Type);
@@ -310,7 +321,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static Product GetById(int productId)
         {
             const string strSql =
-                "SELECT Id, Name, ImagePath, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
+                "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
                 "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
                 "FROM Products WHERE Id = @ProductId";
 
@@ -333,7 +344,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
                                     Type = (ProductType)reader["Type"],
@@ -349,8 +359,10 @@ namespace Kiwi.Tpv.Database.Repositories
                                         Percentaje = Convert.ToDouble(reader["PurchaseTaxPercentaje"])
                                     },
                                     ShowInMainView = (bool)reader["ShowInMainView"]
-
                                 };
+
+                                if (reader["Image"] != DBNull.Value)
+                                    product.Image = (byte[])reader["Image"];
                             }
 
                            

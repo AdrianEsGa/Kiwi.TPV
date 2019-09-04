@@ -235,9 +235,13 @@ namespace Kiwi.Tpv.App.Forms
             PrinterController.PrintSale(new Sale());
         }
 
+
+
         #endregion
 
-
-
+        private void btnImageUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateController.UpdateImages();
+        }
     }
 }

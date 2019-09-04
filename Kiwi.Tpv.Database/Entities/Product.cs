@@ -16,7 +16,6 @@
         public double PurchasePrice { get; set; }
         public TaxType PurchaseTaxType { get; set; }
         public int Quantity { get; set; }
-        public string ImagePath { get; set; }
         public ProductType Type { get; set; }
         public ProductSubType SubType { get; set; }
         public bool Active { get; set; }
@@ -25,6 +24,8 @@
         public double SaleDayPrice { get; set; }
         public double SaleNightPrice { get; set; }
         public bool ShowInMainView { get; set; }
+        public byte[] Image { get; set; }
+        public string ImagePath { get; set; }
 
         public override bool Equals(object obj)
         {

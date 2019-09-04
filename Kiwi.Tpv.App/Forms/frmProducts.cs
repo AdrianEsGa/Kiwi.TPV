@@ -285,7 +285,6 @@ namespace Kiwi.Tpv.App.Forms
             };
 
             if (file.ShowDialog() != DialogResult.OK) return;
-            TxtImagePath.Text = file.FileName;
             pictureBoxProductImage.BackgroundImage = Image.FromFile(file.FileName);
             pictureBoxProductImage.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxProductImage.Text = String.Empty;
@@ -366,8 +365,7 @@ namespace Kiwi.Tpv.App.Forms
                 TxtProductId.Text = _selectedProduct.Id.ToString();
                 CbProductType.SelectedItem = _selectedProduct.Type;
                 CbProductSubType.SelectedItem = _selectedProduct.SubType;
-                TxtProductName.Text = _selectedProduct.Name;
-                TxtImagePath.Text = _selectedProduct.ImagePath;
+                TxtProductName.Text = _selectedProduct.Name;             
                 TxtSaleNightPrice.Text = _selectedProduct.SaleNightPrice.ToString(CultureInfo.InvariantCulture);
                 TxtSaleDayPrice.Text = _selectedProduct.SaleDayPrice.ToString(CultureInfo.InvariantCulture);
                 TxtPurchasePrice.Text = _selectedProduct.PurchasePrice.ToString(CultureInfo.InvariantCulture);
@@ -384,14 +382,11 @@ namespace Kiwi.Tpv.App.Forms
                         _selectedProduct.PurchaseTaxType.Percentaje.ToString(CultureInfo.InvariantCulture));
 
                 pictureBoxProductImage.BackgroundImage = null;
-                if (!string.IsNullOrEmpty(_selectedProduct.ImagePath))
+                if (_selectedProduct.Image != null)
                 {
-                    if (File.Exists(_selectedProduct.ImagePath))
-                    {
-                        pictureBoxProductImage.BackgroundImage = Image.FromFile(_selectedProduct.ImagePath);
-                        pictureBoxProductImage.BackgroundImageLayout = ImageLayout.Center;
-                        pictureBoxProductImage.Text = String.Empty;
-                    }
+                    pictureBoxProductImage.BackgroundImage = Common.BytesToImage(_selectedProduct.Image);
+                    pictureBoxProductImage.BackgroundImageLayout = ImageLayout.Center;
+                    pictureBoxProductImage.Text = String.Empty;
                 }
 
                 CbProductSubType.Visible = _selectedProduct.Type == ProductType.Alcohol;
@@ -411,7 +406,10 @@ namespace Kiwi.Tpv.App.Forms
             _selectedProduct.Type = (ProductType) CbProductType.SelectedItem;
             _selectedProduct.SubType = (ProductSubType?) CbProductSubType.SelectedItem ?? ProductSubType.Generico;
             _selectedProduct.Name = TxtProductName.Text;
-            _selectedProduct.ImagePath = TxtImagePath.Text;
+            if (pictureBoxProductImage.BackgroundImage != null)
+            {
+                _selectedProduct.Image = Common.ImageToBytes(pictureBoxProductImage.BackgroundImage);
+            }
             _selectedProduct.SaleNightPrice = Convert.ToDouble(TxtSaleNightPrice.Text.Replace('.', ','));
             _selectedProduct.SaleDayPrice = Convert.ToDouble(TxtSaleDayPrice.Text.Replace('.', ','));
             _selectedProduct.SaleTaxType = (TaxType) cbSaleTaxTypes.SelectedItem;

@@ -43,7 +43,7 @@ namespace Kiwi.Tpv.App.Forms
                 foreach (var employee in _activeEmployees)
                 {
 
-                    if (Common.FileExists(employee.ImagePath))
+                    if (employee.Image != null)
                     {
                         PaintEmployeeButtons(employee);
                     }
@@ -66,7 +66,7 @@ namespace Kiwi.Tpv.App.Forms
                 Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                 Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                 Tag = employee,
-                BackgroundImage = Image.FromFile(employee.ImagePath),
+                BackgroundImage = Common.BytesToImage(employee.Image),
                 BackgroundImageLayout = ImageLayout.Stretch
             };
             btn.Click += ButtonEmployee_Click;

@@ -19,7 +19,7 @@ namespace Kiwi.Tpv.App
 {
     public partial class FrmMain : MetroForm
     {
-        private List<Employee> _activeEmployees;
+        private List<Employee> _employees;
         private List<Product> _products;
         private BackgroundWorker _worker;
 
@@ -313,6 +313,38 @@ namespace Kiwi.Tpv.App
             _worker.RunWorkerAsync();
         }
 
+        private void picBoxLogo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CashDrawerController.Open();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
+        private void btnDayMode_Click(object sender, EventArgs e)
+        {
+            lblDayNight.Text = "Día";
+            AppGlobal.SaleMode = SaleMode.Day;
+        }
+
+        private void btnNightMode_Click(object sender, EventArgs e)
+        {
+            lblDayNight.Text = "Noche";
+            AppGlobal.SaleMode = SaleMode.Night;
+        }
+
+        private void btnCommands_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowPopUp();
+            var frmCommands = new FrmCommands();
+            frmCommands.ShowDialog();
+            ViewController.HidePopUp();
+        }
+
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -343,7 +375,7 @@ namespace Kiwi.Tpv.App
 
                 foreach (var product in _products)
                 {
-                    if (Common.FileExists(product.ImagePath))
+                    if (product.Image != null)
                     {
                         PaintProductTiles(product);
                     }
@@ -369,7 +401,7 @@ namespace Kiwi.Tpv.App
                 Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                 Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                 Tag = product,
-                BackgroundImage = Image.FromFile(product.ImagePath),
+                BackgroundImage = Common.BytesToImage(product.Image),
                 BackgroundImageLayout = ImageLayout.Stretch
             };
 
@@ -602,12 +634,12 @@ namespace Kiwi.Tpv.App
             {
                 flowLayoutPanelEmployees.Controls.Clear();
 
-                _activeEmployees = EmployeeController.GetAllActive();
+                _employees = EmployeeController.GetAllActive();
 
-                foreach (var employee in _activeEmployees)
+                foreach (var employee in _employees)
                 {
 
-                    if (Common.FileExists(employee.ImagePath))
+                    if (employee.Image != null)
                     {
                         PaintEmployeeButtons(employee);
                     }
@@ -630,7 +662,7 @@ namespace Kiwi.Tpv.App
                 Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                 Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                 Tag = employee,
-                BackgroundImage = Image.FromFile(employee.ImagePath),
+                BackgroundImage = Common.BytesToImage(employee.Image),
                 BackgroundImageLayout = ImageLayout.Stretch
             };
             btn.Click += ButtonEmployee_Click;
@@ -848,29 +880,6 @@ namespace Kiwi.Tpv.App
 
         #endregion
 
-        private void picBoxLogo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CashDrawerController.Open();
-            }
-            catch (Exception ex)
-            {
-                ViewController.ShowError(ex.Message);
-            }
-        }
 
-        private void btnDayMode_Click(object sender, EventArgs e)
-        {
-            lblDayNight.Text = "Día";
-            AppGlobal.SaleMode = SaleMode.Day;
-        }
-
-        private void btnNightMode_Click(object sender, EventArgs e)
-        {
-            lblDayNight.Text = "Noche";
-            AppGlobal.SaleMode = SaleMode.Night;
-        }
-    
     }
 }

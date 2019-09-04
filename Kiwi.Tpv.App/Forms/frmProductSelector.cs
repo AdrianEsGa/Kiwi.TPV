@@ -64,14 +64,14 @@ namespace Kiwi.Tpv.App.Forms
             foreach (var product in products)
             {
 
-                if (File.Exists(product.ImagePath))
+                if (product.Image != null)
                 {
                     var btn = new MetroButton
                     {
                         Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension + 25,
                         Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                         Tag = product,
-                        BackgroundImage = Image.FromFile(product.ImagePath),
+                        BackgroundImage = Common.BytesToImage(product.Image),
                         BackgroundImageLayout = ImageLayout.Stretch
                     };
 

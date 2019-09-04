@@ -42,11 +42,10 @@ namespace Kiwi.Tpv.App
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.lblComPortStatus = new MetroFramework.Controls.MetroLabel();
+            this.btnCommands = new MetroFramework.Controls.MetroTile();
             this.btnSelectBar = new MetroFramework.Controls.MetroTile();
             this.btnSelectTable = new MetroFramework.Controls.MetroTile();
             this.btnMenu = new MetroFramework.Controls.MetroTile();
-            this.lblStation = new MetroFramework.Controls.MetroLabel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.picBoxLogo = new MetroFramework.Controls.MetroButton();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -58,6 +57,8 @@ namespace Kiwi.Tpv.App
             this.btnMaximize = new MetroFramework.Controls.MetroTile();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnClose = new MetroFramework.Controls.MetroTile();
+            this.lblComPortStatus = new MetroFramework.Controls.MetroLabel();
+            this.lblStation = new MetroFramework.Controls.MetroLabel();
             this.lblDateTime = new MetroFramework.Controls.MetroLabel();
             this.SaleManagementPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SaleTotalAndEmployeePanel = new System.Windows.Forms.Panel();
@@ -151,25 +152,32 @@ namespace Kiwi.Tpv.App
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.lblComPortStatus);
+            this.panel10.Controls.Add(this.btnCommands);
             this.panel10.Controls.Add(this.btnSelectBar);
             this.panel10.Controls.Add(this.btnSelectTable);
             this.panel10.Controls.Add(this.btnMenu);
-            this.panel10.Controls.Add(this.lblStation);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(419, 64);
             this.panel10.TabIndex = 0;
             // 
-            // lblComPortStatus
+            // btnCommands
             // 
-            this.lblComPortStatus.AutoSize = true;
-            this.lblComPortStatus.Location = new System.Drawing.Point(283, 39);
-            this.lblComPortStatus.Name = "lblComPortStatus";
-            this.lblComPortStatus.Size = new System.Drawing.Size(111, 19);
-            this.lblComPortStatus.TabIndex = 2;
-            this.lblComPortStatus.Text = "lblComPortStatus";
+            this.btnCommands.ActiveControl = null;
+            this.btnCommands.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCommands.Location = new System.Drawing.Point(295, 16);
+            this.btnCommands.Name = "btnCommands";
+            this.btnCommands.Size = new System.Drawing.Size(113, 48);
+            this.btnCommands.Style = MetroFramework.MetroColorStyle.Lime;
+            this.btnCommands.TabIndex = 65;
+            this.btnCommands.Text = "Comandas";
+            this.btnCommands.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCommands.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnCommands.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnCommands.UseSelectable = true;
+            this.btnCommands.UseTileImage = true;
+            this.btnCommands.Click += new System.EventHandler(this.btnCommands_Click);
             // 
             // btnSelectBar
             // 
@@ -221,16 +229,6 @@ namespace Kiwi.Tpv.App
             this.btnMenu.UseSelectable = true;
             this.btnMenu.UseTileImage = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // lblStation
-            // 
-            this.lblStation.AutoSize = true;
-            this.lblStation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.lblStation.Location = new System.Drawing.Point(283, 16);
-            this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(63, 19);
-            this.lblStation.TabIndex = 1;
-            this.lblStation.Text = "lblStation";
             // 
             // panel11
             // 
@@ -372,6 +370,25 @@ namespace Kiwi.Tpv.App
             this.btnClose.UseSelectable = true;
             this.btnClose.UseTileImage = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblComPortStatus
+            // 
+            this.lblComPortStatus.AutoSize = true;
+            this.lblComPortStatus.Location = new System.Drawing.Point(414, 11);
+            this.lblComPortStatus.Name = "lblComPortStatus";
+            this.lblComPortStatus.Size = new System.Drawing.Size(111, 19);
+            this.lblComPortStatus.TabIndex = 2;
+            this.lblComPortStatus.Text = "lblComPortStatus";
+            // 
+            // lblStation
+            // 
+            this.lblStation.AutoSize = true;
+            this.lblStation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.lblStation.Location = new System.Drawing.Point(287, 11);
+            this.lblStation.Name = "lblStation";
+            this.lblStation.Size = new System.Drawing.Size(63, 19);
+            this.lblStation.TabIndex = 1;
+            this.lblStation.Text = "lblStation";
             // 
             // lblDateTime
             // 
@@ -879,10 +896,12 @@ namespace Kiwi.Tpv.App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 690);
             this.ControlBox = false;
+            this.Controls.Add(this.lblComPortStatus);
             this.Controls.Add(this.ProductsPanel);
             this.Controls.Add(this.SaleManagementPanel);
             this.Controls.Add(this.HeadPanel);
             this.Controls.Add(this.lblDateTime);
+            this.Controls.Add(this.lblStation);
             this.DisplayHeader = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
@@ -895,7 +914,6 @@ namespace Kiwi.Tpv.App
             this.HeadPanel.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -980,6 +998,7 @@ namespace Kiwi.Tpv.App
         private System.Windows.Forms.DataGridViewCheckBoxColumn isBottleDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveOne;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveAll;
+        private MetroTile btnCommands;
     }
 }
 

@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCommands.Designer.cs">
+      <DependentUpon>frmCommands.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmEmployeeSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,7 @@
     <Compile Include="Forms\frmTablesSelector.Designer.cs">
       <DependentUpon>frmTablesSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateController.cs" />
     <Compile Include="Util\Common.cs" />
     <Compile Include="Util\CashDrawerController.cs" />
     <Compile Include="Forms\frmBottle.cs">
@@ -189,6 +196,8 @@
     </Content>
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.BarTable.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.BarTables.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Command.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.CommandDetail.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Sale.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.SaleDetail.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Station.datasource" />
@@ -196,6 +205,9 @@
     <None Include="Resources\icoClose.png" />
     <None Include="Resources\icoMinimize.png" />
     <None Include="Resources\icoMaximize.png" />
+    <EmbeddedResource Include="Forms\frmCommands.resx">
+      <DependentUpon>frmCommands.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEmployeeSelector.resx">
       <DependentUpon>frmEmployeeSelector.cs</DependentUpon>
     </EmbeddedResource>

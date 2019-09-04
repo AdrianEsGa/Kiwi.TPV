@@ -89,8 +89,13 @@ UPDATE Products SET ShowInMainView = 0 WHERE Type IN (4,6,7,8,9,10)
 
 
 -------------------------------------------------------------------------------
-
+-- New -- Hasta aqui Licuore Bay ----
+--------------------------------------------------------
 GO
 ALTER TABLE AppGeneralConfig ADD TableButtonsDimensions INT
 GO
 UPDATE AppGeneralConfig SET TableButtonsDimensions = 70
+GO
+ALTER TABLE Employees ADD Image VARBINARY(MAX)
+GO
+ALTER TABLE Products ADD Image VARBINARY(MAX)

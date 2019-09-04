@@ -325,5 +325,48 @@ namespace Kiwi.Tpv.Database.Repositories
             return totalPending;
         }
 
+        public static BarTable GetById(int id)
+        {
+            const string strSql =
+                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "FROM BarTables WHERE Id = @Id";
+
+            var table = new BarTable();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                table = new BarTable()
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Code = Convert.ToInt32(reader["Code"]),
+                                    Name = reader["Name"].ToString(),
+                                    ImagePath = reader["ImagePath"].ToString(),
+                                    Location = reader["Location"].ToString(),
+                                    Active = (bool) reader["Active"]
+                                };
+                            }
+
+                            return table;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
     }
 }

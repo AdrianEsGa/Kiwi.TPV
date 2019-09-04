@@ -52,7 +52,6 @@ namespace Kiwi.Tpv.App.Forms
             this.lblActive = new MetroFramework.Controls.MetroLabel();
             this.CbProductType = new MetroFramework.Controls.MetroComboBox();
             this.LblProductType = new MetroFramework.Controls.MetroLabel();
-            this.TxtImagePath = new MetroFramework.Controls.MetroTextBox();
             this.LblProductName = new MetroFramework.Controls.MetroLabel();
             this.LblProductId = new MetroFramework.Controls.MetroLabel();
             this.btnNew = new MetroFramework.Controls.MetroTile();
@@ -83,7 +82,6 @@ namespace Kiwi.Tpv.App.Forms
             this.purchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseTaxTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -361,38 +359,6 @@ namespace Kiwi.Tpv.App.Forms
             this.LblProductType.TabIndex = 78;
             this.LblProductType.Text = "Tipo";
             // 
-            // TxtImagePath
-            // 
-            this.TxtImagePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            // 
-            // 
-            // 
-            this.TxtImagePath.CustomButton.Image = null;
-            this.TxtImagePath.CustomButton.Location = new System.Drawing.Point(163, 2);
-            this.TxtImagePath.CustomButton.Name = "";
-            this.TxtImagePath.CustomButton.Size = new System.Drawing.Size(17, 17);
-            this.TxtImagePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtImagePath.CustomButton.TabIndex = 1;
-            this.TxtImagePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtImagePath.CustomButton.UseSelectable = true;
-            this.TxtImagePath.CustomButton.Visible = false;
-            this.TxtImagePath.Lines = new string[0];
-            this.TxtImagePath.Location = new System.Drawing.Point(588, 256);
-            this.TxtImagePath.MaxLength = 50;
-            this.TxtImagePath.Name = "TxtImagePath";
-            this.TxtImagePath.PasswordChar = '\0';
-            this.TxtImagePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtImagePath.SelectedText = "";
-            this.TxtImagePath.SelectionLength = 0;
-            this.TxtImagePath.SelectionStart = 0;
-            this.TxtImagePath.ShortcutsEnabled = true;
-            this.TxtImagePath.Size = new System.Drawing.Size(183, 22);
-            this.TxtImagePath.TabIndex = 77;
-            this.TxtImagePath.UseSelectable = true;
-            this.TxtImagePath.Visible = false;
-            this.TxtImagePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtImagePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // LblProductName
             // 
             this.LblProductName.AutoSize = true;
@@ -514,7 +480,6 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageFicha.Controls.Add(this.CbProductType);
             this.metroTabPageFicha.Controls.Add(this.LblProductType);
             this.metroTabPageFicha.Controls.Add(this.LblProductId);
-            this.metroTabPageFicha.Controls.Add(this.TxtImagePath);
             this.metroTabPageFicha.Controls.Add(this.LblProductName);
             this.metroTabPageFicha.HorizontalScrollbarBarColor = true;
             this.metroTabPageFicha.HorizontalScrollbarHighlightOnWheel = false;
@@ -750,7 +715,6 @@ namespace Kiwi.Tpv.App.Forms
             this.purchasePriceDataGridViewTextBoxColumn,
             this.purchaseTaxTypeDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
-            this.imagePathDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.SubType,
             this.activeDataGridViewCheckBoxColumn,
@@ -862,14 +826,6 @@ namespace Kiwi.Tpv.App.Forms
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // imagePathDataGridViewTextBoxColumn
-            // 
-            this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.HeaderText = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.Name = "imagePathDataGridViewTextBoxColumn";
-            this.imagePathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.imagePathDataGridViewTextBoxColumn.Visible = false;
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -985,7 +941,6 @@ namespace Kiwi.Tpv.App.Forms
         private MetroFramework.Controls.MetroLabel lblActive;
         private MetroFramework.Controls.MetroComboBox CbProductType;
         private MetroFramework.Controls.MetroLabel LblProductType;
-        private MetroFramework.Controls.MetroTextBox TxtImagePath;
         private MetroFramework.Controls.MetroLabel LblProductName;
         private MetroFramework.Controls.MetroLabel LblProductId;
         private MetroFramework.Controls.MetroTile btnNew;

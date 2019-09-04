@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmployees));
             this.lblActive = new MetroFramework.Controls.MetroLabel();
-            this.TxtImagePath = new MetroFramework.Controls.MetroTextBox();
             this.LblName = new MetroFramework.Controls.MetroLabel();
             this.LblId = new MetroFramework.Controls.MetroLabel();
             this.TxtName = new MetroFramework.Controls.MetroTextBox();
@@ -51,7 +50,6 @@
             this.DataGridViewEmployees = new MetroFramework.Controls.MetroGrid();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new MetroFramework.Controls.MetroTile();
@@ -70,38 +68,6 @@
             this.lblActive.Size = new System.Drawing.Size(45, 19);
             this.lblActive.TabIndex = 48;
             this.lblActive.Text = "Activo";
-            // 
-            // TxtImagePath
-            // 
-            this.TxtImagePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            // 
-            // 
-            // 
-            this.TxtImagePath.CustomButton.Image = null;
-            this.TxtImagePath.CustomButton.Location = new System.Drawing.Point(227, 2);
-            this.TxtImagePath.CustomButton.Name = "";
-            this.TxtImagePath.CustomButton.Size = new System.Drawing.Size(17, 17);
-            this.TxtImagePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtImagePath.CustomButton.TabIndex = 1;
-            this.TxtImagePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtImagePath.CustomButton.UseSelectable = true;
-            this.TxtImagePath.CustomButton.Visible = false;
-            this.TxtImagePath.Lines = new string[0];
-            this.TxtImagePath.Location = new System.Drawing.Point(549, 244);
-            this.TxtImagePath.MaxLength = 50;
-            this.TxtImagePath.Name = "TxtImagePath";
-            this.TxtImagePath.PasswordChar = '\0';
-            this.TxtImagePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtImagePath.SelectedText = "";
-            this.TxtImagePath.SelectionLength = 0;
-            this.TxtImagePath.SelectionStart = 0;
-            this.TxtImagePath.ShortcutsEnabled = true;
-            this.TxtImagePath.Size = new System.Drawing.Size(247, 22);
-            this.TxtImagePath.TabIndex = 45;
-            this.TxtImagePath.UseSelectable = true;
-            this.TxtImagePath.Visible = false;
-            this.TxtImagePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtImagePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // LblName
             // 
@@ -265,7 +231,6 @@
             this.metroTabPageFicha.Controls.Add(this.btnRemove);
             this.metroTabPageFicha.Controls.Add(this.LblName);
             this.metroTabPageFicha.Controls.Add(this.LblId);
-            this.metroTabPageFicha.Controls.Add(this.TxtImagePath);
             this.metroTabPageFicha.HorizontalScrollbarBarColor = true;
             this.metroTabPageFicha.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPageFicha.HorizontalScrollbarSize = 10;
@@ -333,7 +298,6 @@
             this.DataGridViewEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.imagePathDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.DataGridViewEmployees.DataSource = this.employeeBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -384,14 +348,6 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // imagePathDataGridViewTextBoxColumn
-            // 
-            this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.HeaderText = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.Name = "imagePathDataGridViewTextBoxColumn";
-            this.imagePathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.imagePathDataGridViewTextBoxColumn.Visible = false;
             // 
             // activeDataGridViewCheckBoxColumn
             // 
@@ -452,7 +408,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel lblActive;
-        private MetroFramework.Controls.MetroTextBox TxtImagePath;
         private MetroFramework.Controls.MetroLabel LblName;
         private MetroFramework.Controls.MetroLabel LblId;
         private MetroFramework.Controls.MetroTextBox TxtName;

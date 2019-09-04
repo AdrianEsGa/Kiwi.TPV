@@ -77,7 +77,6 @@ namespace Kiwi.Tpv.App.Forms
             };
 
             if (file.ShowDialog() != DialogResult.OK) return;
-            TxtImagePath.Text = file.FileName;
             pictureBoxImage.BackgroundImage = Image.FromFile(file.FileName);
             pictureBoxImage.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxImage.Text = String.Empty;
@@ -108,13 +107,11 @@ namespace Kiwi.Tpv.App.Forms
                 BindingToControls();
 
                 ViewController.ShowAsterisk( @"Empleado guardado satisfactoriamente.");
-
             }
             catch (Exception ex)
             {
                 ViewController.ShowError( ex.Message);
             }
-
         }
 
         private void Remove()
@@ -148,27 +145,27 @@ namespace Kiwi.Tpv.App.Forms
         {
             TxtId.Text = _selectedEmployee.Id.ToString();
             TxtName.Text = _selectedEmployee.Name;
-            TxtImagePath.Text = _selectedEmployee.ImagePath;
             chkActive.Checked = _selectedEmployee.Active;
 
             pictureBoxImage.BackgroundImage = null;
 
-            if (!string.IsNullOrEmpty(_selectedEmployee.ImagePath))
+            if (_selectedEmployee.Image != null)
             {
-                if (File.Exists(_selectedEmployee.ImagePath))
-                {
-                    pictureBoxImage.BackgroundImage = Image.FromFile(_selectedEmployee.ImagePath);
-                    pictureBoxImage.BackgroundImageLayout = ImageLayout.Center;
-                    pictureBoxImage.Text = String.Empty;
-                }
+                pictureBoxImage.BackgroundImage = Common.BytesToImage(_selectedEmployee.Image);
+                pictureBoxImage.BackgroundImageLayout = ImageLayout.Center;
+                pictureBoxImage.Text = String.Empty;
             }
-
         }
 
         private void BindingFromControls()
         {
             _selectedEmployee.Name = TxtName.Text;
-            _selectedEmployee.ImagePath = TxtImagePath.Text;
+
+            if (pictureBoxImage.BackgroundImage != null)
+            {
+                _selectedEmployee.Image = Common.ImageToBytes(pictureBoxImage.BackgroundImage);
+            }
+
             _selectedEmployee.Active = chkActive.Checked;
         }
 

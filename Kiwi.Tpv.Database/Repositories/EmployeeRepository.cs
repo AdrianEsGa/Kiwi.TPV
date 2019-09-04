@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using Kiwi.Tpv.Database.Entities;
 
@@ -9,7 +10,7 @@ namespace Kiwi.Tpv.Database.Repositories
     {
         internal static List<Employee> GetAllActive()
         {
-            const string strSql = "SELECT Id, Name, ImagePath, Active FROM Employees WHERE Active = 1";
+            const string strSql = "SELECT Id, Name, Image, Active FROM Employees WHERE Active = 1";
             var employees = new List<Employee>();
 
             try
@@ -26,11 +27,12 @@ namespace Kiwi.Tpv.Database.Repositories
                                 var employee = new Employee
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
-                                    Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
+                                    Name = reader["Name"].ToString(),                                 
                                     Active = (bool) reader["Active"]
                                 };
 
+                                if (reader["Image"] != DBNull.Value)
+                                    employee.Image = (byte[])reader["Image"];
 
                                 employees.Add(employee);
                             }
@@ -49,7 +51,7 @@ namespace Kiwi.Tpv.Database.Repositories
 
         internal static List<Employee> GetAll()
         {
-            const string strSql = "SELECT Id, Name, ImagePath, Active FROM Employees";
+            const string strSql = "SELECT Id, Name, Image, Active, ImagePath FROM Employees";
             var employees = new List<Employee>();
 
             try
@@ -59,6 +61,7 @@ namespace Kiwi.Tpv.Database.Repositories
                     using (var command = new SqlCommand(strSql, connection))
                     {
                         connection.Open();
+
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -70,6 +73,9 @@ namespace Kiwi.Tpv.Database.Repositories
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Active = (bool) reader["Active"]
                                 };
+
+                                if (reader["Image"] != DBNull.Value)
+                                    employee.Image = (byte[])reader["Image"];
 
                                 employees.Add(employee);
                             }
@@ -93,13 +99,17 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = employee.Id == 0
-                        ? "INSERT INTO Employees (Name, ImagePath, Active) VALUES (@Name, @ImagePath, @Active) SELECT Scope_Identity()"
-                        : "UPDATE Employees SET Name = @Name, ImagePath = @ImagePath, Active = @Active WHERE Id = @Id";
+                        ? "INSERT INTO Employees (Name, Image, Active) VALUES (@Name, @ImagePath, @Active) SELECT Scope_Identity()"
+                        : "UPDATE Employees SET Name = @Name, Image = @Image, Active = @Active WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
                     {
                         command.Parameters.AddWithValue("@Name", employee.Name);
-                        command.Parameters.AddWithValue("@ImagePath", employee.ImagePath);
+
+                        if (employee.Image == null)
+                            command.Parameters.Add("@Image", SqlDbType.VarBinary).Value = DBNull.Value;
+                        else command.Parameters.Add("@Image", SqlDbType.VarBinary).Value = employee.Image;
+
                         command.Parameters.AddWithValue("@Active", employee.Active);
                         command.Parameters.AddWithValue("@Id", employee.Id);
 
@@ -132,6 +142,48 @@ namespace Kiwi.Tpv.Database.Repositories
                         command.Parameters.AddWithValue("@Id", employee.Id);
                         connection.Open();
                         command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static Employee GetById(int id)
+        {
+            const string strSql = "SELECT Id, Name, Image, Active FROM Employees WHERE Id = @Id";
+            var employee = new Employee();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                employee = new Employee
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Name = reader["Name"].ToString(),
+                                    Active = (bool)reader["Active"]
+                                };
+
+                                if (reader["Image"] != DBNull.Value)
+                                    employee.Image = (byte[])reader["Image"];
+                            }
+
+                            return employee;
+                        }
                     }
                 }
             }

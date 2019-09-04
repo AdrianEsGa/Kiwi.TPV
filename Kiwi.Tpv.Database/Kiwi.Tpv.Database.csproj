@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AppCommonController.cs" />
+    <Compile Include="Controllers\CommandController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\BarTablesController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="Controllers\TaxTypeController.cs" />
     <Compile Include="DTOs\ReportDTOs\SaleResumeDisscountDto.cs" />
     <Compile Include="Entities\AppGeneralConfig.cs" />
+    <Compile Include="Entities\Command.cs" />
+    <Compile Include="Entities\CommandDetail.cs" />
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="GlobalDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AppCommonRepository.cs" />
+    <Compile Include="Repositories\CommandRepository.cs" />
     <Compile Include="Repositories\CompanyRepository.cs" />
     <Compile Include="Repositories\BarTablesRepository.cs" />
     <Compile Include="Repositories\DbManagementRepository.cs" />
