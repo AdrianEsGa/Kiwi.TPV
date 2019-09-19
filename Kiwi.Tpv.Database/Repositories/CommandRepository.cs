@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using Kiwi.Tpv.Database.Entities;
 
@@ -7,6 +8,34 @@ namespace Kiwi.Tpv.Database.Repositories
 {
     public static class CommandRepository
     {
+
+        internal static void Update(Command command)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    const string strSql = "UPDATE Commands " +
+                                          "SET Status = @Status " +
+                                          "WHERE Id = @Id";
+
+                    using (var commandSql = new SqlCommand(strSql, connection))
+                    {
+                        commandSql.Parameters.AddWithValue("@Id", command.Id);
+                        commandSql.Parameters.AddWithValue("@Status", (int) command.Status);                    
+                        connection.Open();
+                        commandSql.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
         internal static List<Command> GetPendingAndInProcessOrFinalizedWithStation(Station station)
         {
             var commands = new List<Command>();
@@ -102,5 +131,7 @@ namespace Kiwi.Tpv.Database.Repositories
 
             return commandDetails;
         }
+
+        
     }
 }
