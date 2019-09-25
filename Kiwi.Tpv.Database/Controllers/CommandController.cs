@@ -20,11 +20,11 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
-        public static List<Command> GetPendingAndInProcessOrFinalizedWithStation(Station station)
+        public static List<Command> GetPendingOrInProcessWithStation(Station station)
         {          
             try
             {
-                return CommandRepository.GetPendingAndInProcessOrFinalizedWithStation(station);
+                return CommandRepository.GetPendingOrInProcessWithStation(station);
             }
             catch (Exception ex)
             {

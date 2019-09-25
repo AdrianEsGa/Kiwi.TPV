@@ -25,9 +25,39 @@ namespace Kiwi.Tpv.App.Forms
 
         #region General Events
 
-        private void btnClose_Click(object sender, System.EventArgs e)
+        private void btnActions_Click(object sender, EventArgs e)
         {
-            Close();
+            try
+            {
+                switch (_selectedCommand.Status)
+                {
+                    case CommandStatus.Pendiente:
+                        _selectedCommand.Status = CommandStatus.EnProceso;
+                        _selectedCommand.Station = AppGlobal.Station;
+                        break;
+
+                    case CommandStatus.EnProceso:
+                        _selectedCommand.Status = CommandStatus.Finalizado;
+                        break;
+
+                    case CommandStatus.Finalizado:
+                        _selectedCommand.Status = CommandStatus.Servido;
+                        break;
+                }
+
+                CommandController.Update(_selectedCommand);
+                EstablishButtonAction();
+                _dataGridViewCommandsLastaSelectedIndex = 0;
+                DataGridViewCommands.ClearSelection();
+                DataGridViewCommands.ClearSelection();
+                DataGridViewCommands.DataSource = null;
+                DataGridViewCommandDetails.DataSource = null;
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
         }
 
         private void TimerRefresh_Tick(object sender, System.EventArgs e)
@@ -37,9 +67,60 @@ namespace Kiwi.Tpv.App.Forms
 
         private void DataGridViewCommands_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            if (DataGridViewCommands.CurrentRow == null) return;
+            try
+            {
+                TimerRefresh.Stop();
+                ShowCommandDetails();
+                TimerRefresh.Start();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+    
+        private void btnClose_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
 
-            TimerRefresh.Stop();
+        #endregion
+
+        #region Private Events
+
+        private void LoadData()
+        {
+            try
+            {
+                TimerRefresh.Stop();
+
+                DataGridViewCommands.DataSource =
+                    CommandController.GetPendingOrInProcessWithStation(AppGlobal.Station);
+
+                if (DataGridViewCommands.Rows.Count > 0)
+                {
+                    DataGridViewCommands.ClearSelection();
+                    DataGridViewCommands.Rows[_dataGridViewCommandsLastaSelectedIndex].Selected = true;
+                    ShowCommandDetails();
+                }
+                else
+                {
+                    btnActions.Visible = false;
+                }
+
+                TimerRefresh.Start();
+
+            }
+            catch (Exception ex)
+            {
+                TimerRefresh.Start();
+                ViewController.ShowError(ex.Message);
+            }
+        }
+ 
+        private void ShowCommandDetails()
+        {
+            if (DataGridViewCommands.CurrentRow == null) return;
 
             _selectedCommand = (Command)DataGridViewCommands.CurrentRow.DataBoundItem;
 
@@ -49,17 +130,12 @@ namespace Kiwi.Tpv.App.Forms
             DataGridViewCommandDetails.DataSource = _selectedCommand.Details;
 
             EstablishButtonAction();
-
-            TimerRefresh.Start();
-
         }
-
-        #endregion
-
-        #region Private Events
 
         private void EstablishButtonAction()
         {
+            btnActions.Visible = true;
+
             switch (_selectedCommand.Status)
             {
                 case CommandStatus.Pendiente:
@@ -79,65 +155,7 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
-        private void LoadData()
-        {
-            try
-            {
-                TimerRefresh.Stop();
-
-                DataGridViewCommands.DataSource =
-                    CommandController.GetPendingAndInProcessOrFinalizedWithStation(AppGlobal.Station);
-
-                if (DataGridViewCommands.Rows.Count > 0)
-                {
-                    DataGridViewCommands.ClearSelection();
-                    DataGridViewCommands.Rows[_dataGridViewCommandsLastaSelectedIndex].Selected = true;
-                }
-
-                TimerRefresh.Start();
-
-            }
-            catch (Exception ex)
-            {
-                TimerRefresh.Start();
-                ViewController.ShowError(ex.Message);
-            }
-        }
-
-
         #endregion
 
-        private void btnActions_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                switch (_selectedCommand.Status)
-                {
-                    case CommandStatus.Pendiente:
-                        _selectedCommand.Status = CommandStatus.EnProceso;
-                        break;
-
-                    case CommandStatus.EnProceso:
-                        _selectedCommand.Status = CommandStatus.Finalizado;
-                        break;
-
-                    case CommandStatus.Finalizado:
-                        _selectedCommand.Status = CommandStatus.Servido;
-                        break;
-                }
-
-                CommandController.Update(_selectedCommand);
-                EstablishButtonAction();
-                _dataGridViewCommandsLastaSelectedIndex = 0;
-                DataGridViewCommands.ClearSelection();
-                DataGridViewCommands.ClearSelection();
-                DataGridViewCommands.DataSource = null;
-                DataGridViewCommandDetails.DataSource = null;
-            }
-            catch (Exception ex)
-            {
-                ViewController.ShowError(ex.Message);
-            }
-        }
     }
 }

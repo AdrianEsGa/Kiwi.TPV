@@ -16,13 +16,14 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     const string strSql = "UPDATE Commands " +
-                                          "SET Status = @Status " +
+                                          "SET Status = @Status, StationId = @StationId " +
                                           "WHERE Id = @Id";
 
                     using (var commandSql = new SqlCommand(strSql, connection))
                     {
                         commandSql.Parameters.AddWithValue("@Id", command.Id);
-                        commandSql.Parameters.AddWithValue("@Status", (int) command.Status);                    
+                        commandSql.Parameters.AddWithValue("@Status", (int) command.Status);
+                        commandSql.Parameters.AddWithValue("@StationId", command.Station.Id);
                         connection.Open();
                         commandSql.ExecuteNonQuery();
                         connection.Close();
@@ -36,14 +37,14 @@ namespace Kiwi.Tpv.Database.Repositories
             }
         }
 
-        internal static List<Command> GetPendingAndInProcessOrFinalizedWithStation(Station station)
+        internal static List<Command> GetPendingOrInProcessWithStation(Station station)
         {
             var commands = new List<Command>();
 
             const string strSql =
                 "SELECT Id, EmployeeId, BarTableId, StationId, Date, Status " +
                 "FROM Commands " +
-                "WHERE Status = 0 OR (Status IN (1, 2) AND StationId = @StationId)";
+                "WHERE Status = 0 OR (Status = 1 AND StationId = @StationId)";
 
             try
             {
