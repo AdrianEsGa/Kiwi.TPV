@@ -44,7 +44,7 @@ namespace Kiwi.Tpv.Database.Repositories
             const string strSql =
                 "SELECT Id, EmployeeId, BarTableId, StationId, Date, Status " +
                 "FROM Commands " +
-                "WHERE Status = 0 OR (Status = 1 AND StationId = @StationId)";
+                "WHERE Status = 0 OR (Status = 1 AND StationId = @StationId) ORDER BY Status DESC";
 
             try
             {

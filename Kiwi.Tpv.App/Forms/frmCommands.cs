@@ -38,10 +38,7 @@ namespace Kiwi.Tpv.App.Forms
 
                     case CommandStatus.EnProceso:
                         _selectedCommand.Status = CommandStatus.Finalizado;
-                        break;
-
-                    case CommandStatus.Finalizado:
-                        _selectedCommand.Status = CommandStatus.Servido;
+                        CreateSale();
                         break;
                 }
 
@@ -84,6 +81,12 @@ namespace Kiwi.Tpv.App.Forms
             Close();
         }
 
+        private void FrmCommands_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            TimerRefresh.Stop();
+            TimerRefresh.Enabled = false;
+        }
+
         #endregion
 
         #region Private Events
@@ -100,6 +103,7 @@ namespace Kiwi.Tpv.App.Forms
                 if (DataGridViewCommands.Rows.Count > 0)
                 {
                     DataGridViewCommands.ClearSelection();
+                    _dataGridViewCommandsLastaSelectedIndex = DataGridViewCommands.CurrentCell.RowIndex;
                     DataGridViewCommands.Rows[_dataGridViewCommandsLastaSelectedIndex].Selected = true;
                     ShowCommandDetails();
                 }
@@ -148,10 +152,33 @@ namespace Kiwi.Tpv.App.Forms
                     btnActions.Text = "Finalizada";
                     break;
 
-                case CommandStatus.Finalizado:
-                    btnActions.Style = MetroColorStyle.Green;
-                    btnActions.Text = "Servida";
-                    break;
+            }
+        }
+
+        private void CreateSale()
+        {
+            try
+            {
+                var newSale = new Sale
+                {
+                    Date = DateTime.Now,
+                    Station = AppGlobal.Station,
+                    Table = _selectedCommand.Table,
+                    Ticket = true
+                };
+
+                foreach (var commandDetail in _selectedCommand.Details)
+                {
+                   commandDetail.Product.Quantity = commandDetail.Quantity; 
+                   newSale.Add(commandDetail.Product, AppGlobal.SaleMode);
+                }
+
+                SalesController.SaveOrUpdate(newSale);
+                PrinterController.PrintSale(newSale);
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
             }
         }
 

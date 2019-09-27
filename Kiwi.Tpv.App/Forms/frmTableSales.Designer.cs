@@ -38,7 +38,6 @@
             this.btnPayAllSales = new MetroFramework.Controls.MetroTile();
             this.btnNewSale = new MetroFramework.Controls.MetroTile();
             this.DataGridViewTableSales = new MetroFramework.Controls.MetroGrid();
-            this.txtTotalPending = new MetroFramework.Controls.MetroTile();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@
             this.paidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ticketDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtTotalPending = new MetroFramework.Controls.MetroTile();
             this.panelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTableSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
@@ -165,7 +165,7 @@
             this.DataGridViewTableSales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -179,20 +179,6 @@
             this.DataGridViewTableSales.Size = new System.Drawing.Size(862, 401);
             this.DataGridViewTableSales.TabIndex = 3;
             this.DataGridViewTableSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTableSales_CellDoubleClick);
-            // 
-            // txtTotalPending
-            // 
-            this.txtTotalPending.ActiveControl = null;
-            this.txtTotalPending.BackColor = System.Drawing.Color.White;
-            this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.txtTotalPending.Location = new System.Drawing.Point(199, 26);
-            this.txtTotalPending.Name = "txtTotalPending";
-            this.txtTotalPending.Size = new System.Drawing.Size(613, 35);
-            this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
-            this.txtTotalPending.TabIndex = 58;
-            this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
-            this.txtTotalPending.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.txtTotalPending.UseSelectable = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -285,6 +271,20 @@
             // saleBindingSource
             // 
             this.saleBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Sale);
+            // 
+            // txtTotalPending
+            // 
+            this.txtTotalPending.ActiveControl = null;
+            this.txtTotalPending.BackColor = System.Drawing.Color.White;
+            this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.txtTotalPending.Location = new System.Drawing.Point(199, 26);
+            this.txtTotalPending.Name = "txtTotalPending";
+            this.txtTotalPending.Size = new System.Drawing.Size(613, 35);
+            this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
+            this.txtTotalPending.TabIndex = 58;
+            this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
+            this.txtTotalPending.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.txtTotalPending.UseSelectable = true;
             // 
             // FrmTableSales
             // 

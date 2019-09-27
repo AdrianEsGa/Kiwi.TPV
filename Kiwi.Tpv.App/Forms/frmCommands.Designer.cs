@@ -37,25 +37,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.DataGridViewCommands = new MetroFramework.Controls.MetroGrid();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataGridViewCommandDetails = new MetroFramework.Controls.MetroGrid();
+            this.btnActions = new MetroFramework.Controls.MetroTile();
+            this.TimerRefresh = new System.Windows.Forms.Timer(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commandIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.combinedProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commandDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnActions = new MetroFramework.Controls.MetroTile();
-            this.TimerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCommands)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCommandDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandDetailBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -99,7 +99,7 @@
             this.DataGridViewCommands.DataSource = this.commandBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -130,50 +130,6 @@
             this.DataGridViewCommands.TabIndex = 56;
             this.DataGridViewCommands.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCommands_CellClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Código";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeeDataGridViewTextBoxColumn
-            // 
-            this.employeeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
-            this.employeeDataGridViewTextBoxColumn.HeaderText = "Empleado";
-            this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
-            this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tableDataGridViewTextBoxColumn
-            // 
-            this.tableDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tableDataGridViewTextBoxColumn.DataPropertyName = "Table";
-            this.tableDataGridViewTextBoxColumn.HeaderText = "Mesa";
-            this.tableDataGridViewTextBoxColumn.Name = "tableDataGridViewTextBoxColumn";
-            this.tableDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Fecha/Hora";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Estado";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // commandBindingSource
-            // 
-            this.commandBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Command);
-            // 
             // DataGridViewCommandDetails
             // 
             this.DataGridViewCommandDetails.AllowUserToResizeRows = false;
@@ -200,7 +156,7 @@
             this.DataGridViewCommandDetails.DataSource = this.commandDetailBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -229,6 +185,27 @@
             this.DataGridViewCommandDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewCommandDetails.Size = new System.Drawing.Size(854, 225);
             this.DataGridViewCommandDetails.TabIndex = 57;
+            // 
+            // btnActions
+            // 
+            this.btnActions.ActiveControl = null;
+            this.btnActions.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActions.ForeColor = System.Drawing.Color.Green;
+            this.btnActions.Location = new System.Drawing.Point(25, 515);
+            this.btnActions.Name = "btnActions";
+            this.btnActions.Size = new System.Drawing.Size(854, 43);
+            this.btnActions.Style = MetroFramework.MetroColorStyle.Orange;
+            this.btnActions.TabIndex = 58;
+            this.btnActions.Text = "En proceso";
+            this.btnActions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnActions.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnActions.UseSelectable = true;
+            this.btnActions.Click += new System.EventHandler(this.btnActions_Click);
+            // 
+            // TimerRefresh
+            // 
+            this.TimerRefresh.Interval = 1500;
+            this.TimerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -274,26 +251,49 @@
             // 
             this.commandDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.CommandDetail);
             // 
-            // btnActions
+            // idDataGridViewTextBoxColumn
             // 
-            this.btnActions.ActiveControl = null;
-            this.btnActions.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnActions.ForeColor = System.Drawing.Color.Green;
-            this.btnActions.Location = new System.Drawing.Point(25, 515);
-            this.btnActions.Name = "btnActions";
-            this.btnActions.Size = new System.Drawing.Size(854, 43);
-            this.btnActions.Style = MetroFramework.MetroColorStyle.Orange;
-            this.btnActions.TabIndex = 58;
-            this.btnActions.Text = "En proceso";
-            this.btnActions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnActions.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnActions.UseSelectable = true;
-            this.btnActions.Click += new System.EventHandler(this.btnActions_Click);
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // TimerRefresh
+            // employeeDataGridViewTextBoxColumn
             // 
-            this.TimerRefresh.Interval = 1500;
-            this.TimerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
+            this.employeeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
+            this.employeeDataGridViewTextBoxColumn.HeaderText = "Empleado";
+            this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
+            this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tableDataGridViewTextBoxColumn
+            // 
+            this.tableDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tableDataGridViewTextBoxColumn.DataPropertyName = "Table";
+            this.tableDataGridViewTextBoxColumn.HeaderText = "Mesa";
+            this.tableDataGridViewTextBoxColumn.Name = "tableDataGridViewTextBoxColumn";
+            this.tableDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Fecha/Hora";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Estado";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // commandBindingSource
+            // 
+            this.commandBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Command);
             // 
             // FrmCommands
             // 
@@ -313,11 +313,12 @@
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Comandas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCommands_FormClosing);
             this.Load += new System.EventHandler(this.FrmCommands_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCommands)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCommandDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandDetailBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
