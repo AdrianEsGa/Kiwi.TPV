@@ -17,13 +17,14 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                 {
                     var strSql =
                         "SELECT SD.SaleId, STA.Name AS Station, EMP.Name AS Employee, S.Date, S.Total as TotalSale, " +
-                        "S.Tax as TaxSale, S.Disscount as DisscountSale, PR.Name as Product, " +
+                        "S.Tax as TaxSale, S.Disscount as DisscountSale, TBL.Name AS TableName, PR.Name as Product, " +
                         "SD.Quantity, SD.Price, SD.SubTotal, SD.TaxPercentaje, SD.Tax, SD.Total  " +
                         "FROM Sales AS S  " +
                         "INNER JOIN SaleDetails AS SD ON S.Id = SD.SaleId  " +
                         "INNER JOIN Stations AS STA ON S.StationId = STA.Id  " +
                         "INNER JOIN Products AS PR ON SD.ProductId = PR.Id  " +
                         "LEFT JOIN Employees AS EMP ON S.EmployeeId = EMP.Id " +
+                        "LEFT JOIN BarTables AS TBL ON S.BarTableId = TBL.Id " +
                         "WHERE S.Id = @saleId ";
 
 
@@ -43,6 +44,7 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                                     Station = reader["Station"].ToString(),
                                     Employee = reader["Employee"].ToString(),
                                     Date = Convert.ToDateTime(reader["Date"]),
+                                    TableName = reader["TableName"].ToString(),
                                     TotalSale = Convert.ToDouble(reader["TotalSale"]),
                                     DisscountSale = Convert.ToDouble(reader["DisscountSale"]),
                                     TaxSale = Convert.ToDouble(reader["TaxSale"]),
@@ -80,13 +82,14 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                 {
                     var strSql =
                         "SELECT SD.SaleId, STA.Name AS Station, EMP.Name AS Employee, S.Date, S.Total as TotalSale, " +
-                        "S.Tax as TaxSale, S.Disscount as DisscountSale, PR.Name as Product, " +
+                        "S.Tax as TaxSale, S.Disscount as DisscountSale, TBL.Name AS TableName, PR.Name as Product, " +
                         "SD.Quantity, SD.Price, SD.SubTotal, SD.TaxPercentaje, SD.Tax, SD.Total  " +
                         "FROM Sales AS S  " +
                         "INNER JOIN SaleDetails AS SD ON S.Id = SD.SaleId  " +
                         "INNER JOIN Stations AS STA ON S.StationId = STA.Id  " +
                         "INNER JOIN Products AS PR ON SD.ProductId = PR.Id  " +
                         "INNER JOIN Employees AS EMP ON S.EmployeeId = EMP.Id " +
+                        "LEFT JOIN BarTables AS TBL ON S.BarTableId = TBL.Id " +
                         "WHERE STA.Id IN ( " + stationIds + ") AND S.Date >= @InitDate AND s.Date <= @EndDate ";
 
 
@@ -106,6 +109,7 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                                     Station = reader["Station"].ToString(),
                                     Employee = reader["Employee"].ToString(),
                                     Date = Convert.ToDateTime(reader["Date"]),
+                                    TableName = reader["TableName"].ToString(),
                                     TotalSale = Convert.ToDouble(reader["TotalSale"]),
                                     DisscountSale = Convert.ToDouble(reader["DisscountSale"]),
                                     TaxSale = Convert.ToDouble(reader["TaxSale"]),
@@ -235,13 +239,14 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                 {
                     var strSql =
                         "SELECT SD.SaleId, STA.Name AS Station, EMP.Name AS Employee, S.Date, S.Total as TotalSale, " +
-                        "S.Tax as TaxSale, S.Disscount as DisscountSale, PR.Name as Product, " +
+                        "S.Tax as TaxSale, S.Disscount as DisscountSale, TBL.Name AS TableName, PR.Name as Product, " +
                         "SD.Quantity, SD.Price, SD.SubTotal, SD.TaxPercentaje, SD.Tax, SD.Total  " +
                         "FROM JokeSales AS S  " +
                         "INNER JOIN JokeSaleDetails AS SD ON S.Id = SD.SaleId  " +
                         "INNER JOIN Stations AS STA ON S.StationId = STA.Id  " +
                         "INNER JOIN Products AS PR ON SD.ProductId = PR.Id  " +
                         "INNER JOIN Employees AS EMP ON S.EmployeeId = EMP.Id " +
+                        "LEFT JOIN BarTables AS TBL ON S.BarTableId = TBL.Id " +
                         "WHERE STA.Id IN ( " + stationIds + ") AND S.Date >= @InitDate AND s.Date <= @EndDate ";
 
 
@@ -261,6 +266,7 @@ namespace Kiwi.Tpv.Database.Repositories.Reports
                                     Station = reader["Station"].ToString(),
                                     Employee = reader["Employee"].ToString(),
                                     Date = Convert.ToDateTime(reader["Date"]),
+                                    TableName = reader["TableName"].ToString(),
                                     TotalSale = Convert.ToDouble(reader["TotalSale"]),
                                     DisscountSale = Convert.ToDouble(reader["DisscountSale"]),
                                     TaxSale = Convert.ToDouble(reader["TaxSale"]),

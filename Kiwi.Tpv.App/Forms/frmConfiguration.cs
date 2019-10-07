@@ -122,11 +122,6 @@ namespace Kiwi.Tpv.App.Forms
             Close();
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSelectCompanyLocalImage_Click(object sender, EventArgs e)
         {
             var file = new OpenFileDialog
@@ -161,6 +156,7 @@ namespace Kiwi.Tpv.App.Forms
                 TxtCompanyName.Text = AppGlobal.Company.Name;
                 txtCompanyCif.Text = AppGlobal.Company.Cif;
                 chkCombinationControl.Checked = AppGlobal.Company.CombinationControl;
+                TxtTicketReport.Text = AppGlobal.Company.TicketReport;
 
                 DataGridViewStations.DataSource = StationController.GetAll();
                 DataGridViewStations.ClearSelection();
@@ -215,6 +211,7 @@ namespace Kiwi.Tpv.App.Forms
                 AppGlobal.Company.Name = TxtCompanyName.Text.Trim();
                 AppGlobal.Company.Cif = txtCompanyCif.Text.Trim();
                 AppGlobal.Company.CombinationControl = chkCombinationControl.Checked;
+                AppGlobal.Company.TicketReport = TxtTicketReport.Text;
                 AppGlobal.Company.AppLogo = Common.ImageToBytes(picBoxAppLogo.Image);
                 AppGlobal.Company.ReportsLogo = Common.ImageToBytes(picBoxReportsLogo.Image);
                 AppGlobal.Company.LocalImage = Common.ImageToBytes(picBoxReportsLocalImage.Image);
@@ -242,6 +239,18 @@ namespace Kiwi.Tpv.App.Forms
         private void btnImageUpdate_Click(object sender, EventArgs e)
         {
             UpdateController.UpdateImages();
+        }
+
+        private void BtnSelectReportTicket_Click(object sender, EventArgs e)
+        {
+            var file = new OpenFileDialog
+            {
+                InitialDirectory = Directory.GetCurrentDirectory(),
+                Filter = Resources.ReportExtensionFilter
+            };
+
+            if (file.ShowDialog() == DialogResult.OK)
+                TxtTicketReport.Text = file.FileName;
         }
     }
 }

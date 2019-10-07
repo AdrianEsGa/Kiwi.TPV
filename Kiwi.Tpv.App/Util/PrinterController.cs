@@ -15,14 +15,14 @@ namespace Kiwi.Tpv.App.Util
     {
 
 
-        public static void PrintSale(Sale sale)
+        public static void PrintSale(Sale saleToPrint)
         {
             try
             {
-                var saleDetails = ReportRepository.GetSaleById(AppGlobal.Sale.Id);
+                var saleDetails = ReportRepository.GetSaleById(saleToPrint.Id);
                 var reportViewer = new FrmReportViewer();
                 var report = reportViewer.reportViewer.LocalReport;
-                report.ReportPath = "Reports\\SaleTicket.rdlc";
+                report.ReportPath = AppGlobal.Company.TicketReport;
                 report.DataSources.Clear();
                 report.DataSources.Add(new ReportDataSource
                 {

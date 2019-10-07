@@ -196,4 +196,7 @@
   <data name="icoMinimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoMinimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReportExtensionFilter" xml:space="preserve">
+    <value>Rdlc files (*.rdlc)|*rdlc</value>
+  </data>
 </root>

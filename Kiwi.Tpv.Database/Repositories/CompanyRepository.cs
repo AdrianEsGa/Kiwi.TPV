@@ -14,7 +14,7 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = "UPDATE Companies " +
-                                 "SET Name = @Name, Cif = @Cif, AppLogo = @AppLogo, ReportsLogo = @ReportsLogo, CombinationControl = @CombinationControl, LocalImage = @LocalImage " +
+                                 "SET Name = @Name, Cif = @Cif, AppLogo = @AppLogo, ReportsLogo = @ReportsLogo, CombinationControl = @CombinationControl, LocalImage = @LocalImage, TicketReport = @TicketReport " +
                                  "WHERE CompanyId = @CompanyId";
 
                     using (var command = new SqlCommand(strSql, connection))
@@ -36,6 +36,8 @@ namespace Kiwi.Tpv.Database.Repositories
 
                         command.Parameters.AddWithValue("@CombinationControl", company.CombinationControl);
 
+                        command.Parameters.AddWithValue("@TicketReport", company.TicketReport);
+
                         command.Parameters.AddWithValue("@CompanyId", company.CompanyId);
 
                         connection.Open();
@@ -54,7 +56,7 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             var company = new Company();
             const string strSql =
-                "SELECT CompanyId, Name, Cif, AppLogo, ReportsLogo, LocalImage, CombinationControl " +
+                "SELECT CompanyId, Name, Cif, AppLogo, ReportsLogo, LocalImage, CombinationControl, TicketReport " +
                 "FROM Companies WHERE CompanyId = @CompanyId";
 
             try
@@ -75,7 +77,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     CompanyId = Convert.ToInt16(reader["CompanyId"]),
                                     Name = reader["Name"].ToString(),
                                     Cif = reader["Cif"].ToString(),
-                                    CombinationControl = (bool) reader["CombinationControl"]
+                                    CombinationControl = (bool) reader["CombinationControl"],
+                                    TicketReport = reader["TicketReport"].ToString()
                                 };
 
                                 if (reader["AppLogo"] != DBNull.Value)
@@ -84,6 +87,7 @@ namespace Kiwi.Tpv.Database.Repositories
                                     company.ReportsLogo = (byte[]) reader["ReportsLogo"];
                                 if (reader["LocalImage"] != DBNull.Value)
                                     company.LocalImage = (byte[])reader["LocalImage"];
+
                             }
                         }
                     }

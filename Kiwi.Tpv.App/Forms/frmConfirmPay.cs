@@ -12,7 +12,7 @@ namespace Kiwi.Tpv.App.Forms
     {
         private BackgroundWorker _worker;
         public bool OperationFinalized;
-        private bool _masivePay;
+        private readonly bool _masivePay;
 
         public FrmConfirmPay(bool masivePay)
         {

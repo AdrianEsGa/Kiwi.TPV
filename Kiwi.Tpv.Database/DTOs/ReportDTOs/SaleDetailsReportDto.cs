@@ -12,6 +12,7 @@ namespace Kiwi.Tpv.Database.DTOs.ReportDTOs
         public double TotalSale { get; set; }
         public double TaxSale { get; set; }
         public double DisscountSale { private get; set; }
+        public string TableName { get; set; }
 
         //Sale details
         public string Product { get; set; } //IsBottle
@@ -31,6 +32,7 @@ namespace Kiwi.Tpv.Database.DTOs.ReportDTOs
         {
             return SaleId + Environment.NewLine +
                    "Caja: " + Station + Environment.NewLine +
+                   "Mesa: " + TableName + Environment.NewLine +
                    "Fecha/Hora: " + Date + Environment.NewLine +
                    "Descuento: " + DisscountSale + Environment.NewLine;
         }

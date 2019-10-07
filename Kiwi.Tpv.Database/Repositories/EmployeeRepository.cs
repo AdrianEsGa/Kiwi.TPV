@@ -99,7 +99,7 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = employee.Id == 0
-                        ? "INSERT INTO Employees (Name, Image, Active) VALUES (@Name, @ImagePath, @Active) SELECT Scope_Identity()"
+                        ? "INSERT INTO Employees (Name, Image, Active) VALUES (@Name, @Image, @Active) SELECT Scope_Identity()"
                         : "UPDATE Employees SET Name = @Name, Image = @Image, Active = @Active WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
