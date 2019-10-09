@@ -191,21 +191,6 @@ namespace Kiwi.Tpv.App
                 frmAlcoholModeTypes.ShowDialog();
                 alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
 
-                switch (alcoholModeType)
-                {
-                    case AlcoholModeTypes.Combined:
-                        product.Name = "COMBI. " + product.Name.Replace("COMBI. ","");
-                        break;
-
-                    case AlcoholModeTypes.Cup:
-                        product.Name = "COPA " + product.Name.Replace("COPA ", ""); ;
-                        break;
-
-                    case AlcoholModeTypes.Shot:
-                        product.Name = "CHUPITO " + product.Name.Replace("CHUPITO ", ""); ;
-                        break;
-                }
-
                 if (alcoholModeType == AlcoholModeTypes.Combined)
                 {
                     var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
@@ -341,7 +326,7 @@ namespace Kiwi.Tpv.App
 
         private void btnPrintTicket_Click(object sender, EventArgs e)
         {
-            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0) return;
+            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0 || AppGlobal.Sale.TotalPriceDetails() == 0) return;
             ViewController.ShowPopUpWithSpinner();
             _worker.RunWorkerAsync();
         }

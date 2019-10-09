@@ -46,7 +46,7 @@
             // 
             // 
             this.txtTotalToPay.CustomButton.Image = null;
-            this.txtTotalToPay.CustomButton.Location = new System.Drawing.Point(601, 2);
+            this.txtTotalToPay.CustomButton.Location = new System.Drawing.Point(818, 2);
             this.txtTotalToPay.CustomButton.Name = "";
             this.txtTotalToPay.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtTotalToPay.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -70,7 +70,7 @@
             this.txtTotalToPay.SelectionLength = 0;
             this.txtTotalToPay.SelectionStart = 0;
             this.txtTotalToPay.ShortcutsEnabled = true;
-            this.txtTotalToPay.Size = new System.Drawing.Size(639, 40);
+            this.txtTotalToPay.Size = new System.Drawing.Size(856, 40);
             this.txtTotalToPay.TabIndex = 1;
             this.txtTotalToPay.Text = "0";
             this.txtTotalToPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -84,7 +84,7 @@
             this.btnConfirmCash.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnConfirmCash.Location = new System.Drawing.Point(24, 212);
             this.btnConfirmCash.Name = "btnConfirmCash";
-            this.btnConfirmCash.Size = new System.Drawing.Size(307, 109);
+            this.btnConfirmCash.Size = new System.Drawing.Size(405, 146);
             this.btnConfirmCash.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCash.TabIndex = 4;
             this.btnConfirmCash.Text = "Confirmar Efectivo";
@@ -98,9 +98,9 @@
             this.btnCancel.ActiveControl = null;
             this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(24, 448);
+            this.btnCancel.Location = new System.Drawing.Point(24, 490);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(639, 72);
+            this.btnCancel.Size = new System.Drawing.Size(855, 82);
             this.btnCancel.Style = MetroFramework.MetroColorStyle.Red;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
@@ -112,9 +112,9 @@
             // btnInvite
             // 
             this.btnInvite.ActiveControl = null;
-            this.btnInvite.Location = new System.Drawing.Point(356, 127);
+            this.btnInvite.Location = new System.Drawing.Point(474, 127);
             this.btnInvite.Name = "btnInvite";
-            this.btnInvite.Size = new System.Drawing.Size(307, 57);
+            this.btnInvite.Size = new System.Drawing.Size(405, 57);
             this.btnInvite.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnInvite.TabIndex = 3;
             this.btnInvite.Text = "Invitar";
@@ -131,7 +131,7 @@
             this.btnDisccount.ForeColor = System.Drawing.Color.Coral;
             this.btnDisccount.Location = new System.Drawing.Point(24, 127);
             this.btnDisccount.Name = "btnDisccount";
-            this.btnDisccount.Size = new System.Drawing.Size(307, 57);
+            this.btnDisccount.Size = new System.Drawing.Size(405, 57);
             this.btnDisccount.Style = MetroFramework.MetroColorStyle.Purple;
             this.btnDisccount.TabIndex = 2;
             this.btnDisccount.Text = "Dto 1€";
@@ -144,9 +144,9 @@
             // 
             this.btnConfirmCreditCard.ActiveControl = null;
             this.btnConfirmCreditCard.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConfirmCreditCard.Location = new System.Drawing.Point(356, 212);
+            this.btnConfirmCreditCard.Location = new System.Drawing.Point(474, 212);
             this.btnConfirmCreditCard.Name = "btnConfirmCreditCard";
-            this.btnConfirmCreditCard.Size = new System.Drawing.Size(307, 109);
+            this.btnConfirmCreditCard.Size = new System.Drawing.Size(405, 146);
             this.btnConfirmCreditCard.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCreditCard.TabIndex = 6;
             this.btnConfirmCreditCard.Text = "Confirmar Tarjeta";
@@ -158,9 +158,9 @@
             // btnConfirmCashTicket
             // 
             this.btnConfirmCashTicket.ActiveControl = null;
-            this.btnConfirmCashTicket.Location = new System.Drawing.Point(24, 349);
+            this.btnConfirmCashTicket.Location = new System.Drawing.Point(24, 391);
             this.btnConfirmCashTicket.Name = "btnConfirmCashTicket";
-            this.btnConfirmCashTicket.Size = new System.Drawing.Size(307, 71);
+            this.btnConfirmCashTicket.Size = new System.Drawing.Size(405, 71);
             this.btnConfirmCashTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCashTicket.TabIndex = 7;
             this.btnConfirmCashTicket.Text = "Confirmar Efectivo Ticket";
@@ -174,9 +174,9 @@
             this.btnConfirmCreditCardTicket.ActiveControl = null;
             this.btnConfirmCreditCardTicket.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnConfirmCreditCardTicket.ForeColor = System.Drawing.Color.Green;
-            this.btnConfirmCreditCardTicket.Location = new System.Drawing.Point(356, 349);
+            this.btnConfirmCreditCardTicket.Location = new System.Drawing.Point(474, 391);
             this.btnConfirmCreditCardTicket.Name = "btnConfirmCreditCardTicket";
-            this.btnConfirmCreditCardTicket.Size = new System.Drawing.Size(307, 71);
+            this.btnConfirmCreditCardTicket.Size = new System.Drawing.Size(405, 71);
             this.btnConfirmCreditCardTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCreditCardTicket.TabIndex = 8;
             this.btnConfirmCreditCardTicket.Text = "Confirmar Tarjeta Ticket";
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 542);
+            this.ClientSize = new System.Drawing.Size(902, 605);
             this.ControlBox = false;
             this.Controls.Add(this.txtTotalToPay);
             this.Controls.Add(this.btnConfirmCreditCardTicket);

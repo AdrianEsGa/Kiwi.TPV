@@ -79,7 +79,7 @@
             this.panelButtons.HorizontalScrollbarBarColor = true;
             this.panelButtons.HorizontalScrollbarHighlightOnWheel = false;
             this.panelButtons.HorizontalScrollbarSize = 10;
-            this.panelButtons.Location = new System.Drawing.Point(20, 492);
+            this.panelButtons.Location = new System.Drawing.Point(20, 521);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(862, 64);
             this.panelButtons.TabIndex = 57;
@@ -290,7 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 576);
+            this.ClientSize = new System.Drawing.Size(902, 605);
             this.ControlBox = false;
             this.Controls.Add(this.txtTotalPending);
             this.Controls.Add(this.panelButtons);

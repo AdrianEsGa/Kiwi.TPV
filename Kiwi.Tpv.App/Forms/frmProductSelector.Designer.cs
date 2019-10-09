@@ -37,13 +37,13 @@
             // 
             this.flowLayoutPanelProducts.Location = new System.Drawing.Point(23, 63);
             this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
-            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(856, 431);
+            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(856, 469);
             this.flowLayoutPanelProducts.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.ActiveControl = null;
-            this.btnCancel.Location = new System.Drawing.Point(23, 500);
+            this.btnCancel.Location = new System.Drawing.Point(23, 538);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(856, 53);
             this.btnCancel.Style = MetroFramework.MetroColorStyle.Green;
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 576);
+            this.ClientSize = new System.Drawing.Size(902, 605);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.flowLayoutPanelProducts);

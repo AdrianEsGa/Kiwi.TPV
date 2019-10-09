@@ -71,46 +71,27 @@ namespace Kiwi.Tpv.Database.Entities
 
         public void RemoveOneUnit(SaleDetail saleDetail)
         {
-            foreach (var detail in Details)
+            if (saleDetail.Quantity > 1)
             {
-                if (detail.Product.Id != saleDetail.Product.Id || detail.Product.Type != saleDetail.Product.Type ||
-                    // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    detail.Product.SalePrice != saleDetail.Product.SalePrice)
-                    continue;
-
-                if (detail.Quantity > 1)
-                {
-                    detail.Quantity -= 1;
-                    detail.Total = Math.Round(detail.Quantity * detail.Price, 2);
-                    detail.SubTotal = Math.Round(detail.Total / (detail.TaxPercentaje / 100 + 1), 2);
-                    detail.TaxPercentaje = detail.TaxPercentaje;
-                    detail.Tax = detail.Total - detail.SubTotal;       
-                }
-                else
-                {
-                    Details.Remove(detail);
-                }
-
-                return;
+                saleDetail.Quantity -= 1;
+                saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
+                saleDetail.SubTotal = Math.Round(saleDetail.Total / (saleDetail.TaxPercentaje / 100 + 1), 2);
+                saleDetail.TaxPercentaje = saleDetail.TaxPercentaje;
+                saleDetail.Tax = saleDetail.Total - saleDetail.SubTotal;
+            }
+            else
+            {
+                Details.Remove(saleDetail);
             }
         }
 
         public void AddOneUnit(SaleDetail saleDetail)
         {
-            foreach (var detail in Details)
-            {
-                if (detail.Product.Id != saleDetail.Product.Id || detail.Product.Type != saleDetail.Product.Type ||
-                    // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    detail.Product.SalePrice != saleDetail.Product.SalePrice)
-                    continue;
-
-                detail.Quantity += 1;
-                detail.Total = Math.Round(detail.Quantity * detail.Price, 2);
-                detail.SubTotal = Math.Round(detail.Total / (detail.TaxPercentaje / 100 + 1), 2);
-                detail.TaxPercentaje = detail.TaxPercentaje;
-                detail.Tax = detail.Total - detail.SubTotal;
-                return;
-            }
+            saleDetail.Quantity += 1;
+            saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
+            saleDetail.SubTotal = Math.Round(saleDetail.Total / (saleDetail.TaxPercentaje / 100 + 1), 2);
+            saleDetail.TaxPercentaje = saleDetail.TaxPercentaje;
+            saleDetail.Tax = saleDetail.Total - saleDetail.SubTotal;
         }
 
         public void RemoveAll(SaleDetail saleDetail)

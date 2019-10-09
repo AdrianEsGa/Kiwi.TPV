@@ -213,7 +213,7 @@
             this.tabEmployees.Controls.Add(this.metroTabPageBusqueda);
             this.tabEmployees.Location = new System.Drawing.Point(23, 69);
             this.tabEmployees.Name = "tabEmployees";
-            this.tabEmployees.SelectedIndex = 1;
+            this.tabEmployees.SelectedIndex = 0;
             this.tabEmployees.Size = new System.Drawing.Size(865, 488);
             this.tabEmployees.TabIndex = 53;
             this.tabEmployees.UseSelectable = true;
@@ -245,9 +245,9 @@
             // 
             // pictureBoxImage
             // 
-            this.pictureBoxImage.Location = new System.Drawing.Point(549, 21);
+            this.pictureBoxImage.Location = new System.Drawing.Point(557, 11);
             this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(247, 217);
+            this.pictureBoxImage.Size = new System.Drawing.Size(204, 187);
             this.pictureBoxImage.TabIndex = 53;
             this.pictureBoxImage.Text = "Imagen";
             this.pictureBoxImage.UseSelectable = true;
