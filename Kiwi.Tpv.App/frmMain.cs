@@ -126,6 +126,7 @@ namespace Kiwi.Tpv.App
                 product = frmBottle.Bottle;
              
                 AddProductToSale(product);
+                RefreshScreen();
                 ViewController.HidePopUp();
 
                 return;
@@ -184,15 +185,42 @@ namespace Kiwi.Tpv.App
             if (AppGlobal.Company.CombinationControl && product.Type == ProductType.Alcohol)
             {
                 ViewController.ShowPopUp();
-                var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
-                frmProductSelector.ShowDialog();
+
+                var alcoholModeType = AlcoholModeTypes.Combined;
+                var frmAlcoholModeTypes = new frmAlcoholModeTypes();
+                frmAlcoholModeTypes.ShowDialog();
+                alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
+
+                switch (alcoholModeType)
+                {
+                    case AlcoholModeTypes.Combined:
+                        product.Name = "COMBI. " + product.Name.Replace("COMBI. ","");
+                        break;
+
+                    case AlcoholModeTypes.Cup:
+                        product.Name = "COPA " + product.Name.Replace("COPA ", ""); ;
+                        break;
+
+                    case AlcoholModeTypes.Shot:
+                        product.Name = "CHUPITO " + product.Name.Replace("CHUPITO ", ""); ;
+                        break;
+                }
+
+                if (alcoholModeType == AlcoholModeTypes.Combined)
+                {
+                    var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
+                    frmProductSelector.ShowDialog();
+                }
+
                 ViewController.HidePopUp();
             }
+
+            RefreshScreen();
         }
 
         private void ButtonEmployee_Click(object sender, EventArgs e)
         {
-            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0) return;
+            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0 || AppGlobal.Sale.TotalPriceDetails() == 0) return;
 
             var btn = (Button) sender;
             AppGlobal.Sale.Employee = (Employee) btn.Tag;
@@ -762,36 +790,10 @@ namespace Kiwi.Tpv.App
             {
                 AppGlobal.Sale = new Sale();
             }
-
-            if (selectedProduct.Type == ProductType.Alcohol)
-            {
-                ViewController.ShowPopUp();
-                var frmAlcoholModeTypes = new frmAlcoholModeTypes();
-                frmAlcoholModeTypes.ShowDialog();
-                alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
-
-                switch (alcoholModeType)
-                {
-                    case AlcoholModeTypes.Combined:
-                        selectedProduct.Name = "COMBI. " + selectedProduct.Name;
-                        break;
-
-                    case AlcoholModeTypes.Cup:
-                        selectedProduct.Name = "COPA " + selectedProduct.Name;
-                        break;
-
-                    case AlcoholModeTypes.Shot:
-                        selectedProduct.Name = "CHUPITO " + selectedProduct.Name;
-                        break;
-                }
-
-                ViewController.HidePopUp();
-            }
           
             AppGlobal.Sale.Station = AppGlobal.Station;
             AppGlobal.Sale.Table = AppGlobal.Table;
-            AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);
-            RefreshScreen();
+            AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);    
         }
 
         private void RefreshScreen()

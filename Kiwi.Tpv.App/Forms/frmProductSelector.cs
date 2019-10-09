@@ -109,7 +109,7 @@ namespace Kiwi.Tpv.App.Forms
             if (_combination) {SelectedProduct.SaleDayPrice = 0; SelectedProduct.SaleNightPrice = 0; }
           
             FrmMain.Instance.AddProductToSale(SelectedProduct);
-            if(_combination) Close();
+            if (_combination) Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
