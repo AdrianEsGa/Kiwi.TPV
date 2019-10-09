@@ -170,7 +170,7 @@ namespace Kiwi.Tpv.App.Forms
                 foreach (var commandDetail in _selectedCommand.Details)
                 {
                    commandDetail.Product.Quantity = commandDetail.Quantity; 
-                   newSale.Add(commandDetail.Product, AppGlobal.SaleMode);
+                   newSale.Add(commandDetail.Product, AppGlobal.SaleMode, AlcoholModeTypes.Default);
                 }
 
                 SalesController.SaveOrUpdate(newSale);

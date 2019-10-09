@@ -74,186 +74,28 @@ namespace Kiwi.Tpv.App.Forms
             Save();
         }
 
-        private void TxtPurchasePrice_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Comprueba si el valor del TextBox se ajusta a un valor válido
-            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
-            {
-                // Si es válido se almacena el valor actual en la variable privada
-                _prevTextBoxValue = textBox.Text;
-            }
-            else
-            {
-                // Si no es válido se recupera el valor de la variable privada con el valor anterior
-                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
-                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
-                // Recupera el valor anterior
-                textBox.Text = _prevTextBoxValue;
-                // Posiciona el cursor en la misma posición
-                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
-            }
-        }
-
-        private void TxtPurchasePrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Si el carácter pulsado no es un carácter válido se anula
-            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
-                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
-                        &&
-                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
-                         || textBox.SelectionStart == 0
-                         || textBox.Text.Contains(SignoDecimal.ToString()));
-        }
-
-        private void TxtSalePrice_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Comprueba si el valor del TextBox se ajusta a un valor válido
-            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
-            {
-                // Si es válido se almacena el valor actual en la variable privada
-                _prevTextBoxValue = textBox.Text;
-            }
-            else
-            {
-                // Si no es válido se recupera el valor de la variable privada con el valor anterior
-                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
-                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
-                // Recupera el valor anterior
-                textBox.Text = _prevTextBoxValue;
-                // Posiciona el cursor en la misma posición
-                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
-            }
-        }
-
-        private void TxtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Si el carácter pulsado no es un carácter válido se anula
-            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
-                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
-                        &&
-                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
-                         || textBox.SelectionStart == 0
-                         || textBox.Text.Contains(SignoDecimal.ToString()));
-        }
-
-        private void TxtSaleDayPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textBox = (MetroTextBox)sender;
-            // Si el carácter pulsado no es un carácter válido se anula
-            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
-                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
-                        &&
-                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
-                         || textBox.SelectionStart == 0
-                         || textBox.Text.Contains(SignoDecimal.ToString()));
-        }
-
-        private void TxtSaleDayPrice_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (MetroTextBox)sender;
-            // Comprueba si el valor del TextBox se ajusta a un valor válido
-            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
-            {
-                // Si es válido se almacena el valor actual en la variable privada
-                _prevTextBoxValue = textBox.Text;
-            }
-            else
-            {
-                // Si no es válido se recupera el valor de la variable privada con el valor anterior
-                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
-                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
-                // Recupera el valor anterior
-                textBox.Text = _prevTextBoxValue;
-                // Posiciona el cursor en la misma posición
-                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
-            }
-        }
-
-        private void txtSaleUnits_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Comprueba si el valor del TextBox se ajusta a un valor válido
-            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
-            {
-                // Si es válido se almacena el valor actual en la variable privada
-                _prevTextBoxValue = textBox.Text;
-            }
-            else
-            {
-                // Si no es válido se recupera el valor de la variable privada con el valor anterior
-                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
-                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
-                // Recupera el valor anterior
-                textBox.Text = _prevTextBoxValue;
-                // Posiciona el cursor en la misma posición
-                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
-            }
-        }
-
-        private void txtSaleUnits_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Si el carácter pulsado no es un carácter válido se anula
-            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
-                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
-                        &&
-                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
-                         || textBox.SelectionStart == 0
-                         || textBox.Text.Contains(SignoDecimal.ToString()));
-        }
-
-        private void txtPurchaseUnits_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Comprueba si el valor del TextBox se ajusta a un valor válido
-            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
-            {
-                // Si es válido se almacena el valor actual en la variable privada
-                _prevTextBoxValue = textBox.Text;
-            }
-            else
-            {
-                // Si no es válido se recupera el valor de la variable privada con el valor anterior
-                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
-                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
-                // Recupera el valor anterior
-                textBox.Text = _prevTextBoxValue;
-                // Posiciona el cursor en la misma posición
-                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
-            }
-        }
-
-        private void txtPurchaseUnits_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            var textBox = (MetroTextBox) sender;
-            // Si el carácter pulsado no es un carácter válido se anula
-            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
-                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
-                        &&
-                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
-                         || textBox.SelectionStart == 0
-                         || textBox.Text.Contains(SignoDecimal.ToString()));
-        }
-
         private void CbProductType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if ((ProductType) CbProductType.SelectedItem == ProductType.Alcohol)
             {
                 CbProductSubType.Visible = true;
+                lblDayPrice.Text = "Precio combi. (Día)";
+                lblNightPrice.Text = "Precio combi. (Noche)";
+                AlcoholPricesPanel.Visible = true;
             }
             else
             {
                 CbProductSubType.Visible = false;
                 CbProductSubType.SelectedItem = ProductSubType.Generico;
+                lblDayPrice.Text = "Precio (Día)";
+                lblNightPrice.Text = "Precio (Noche)";
+                AlcoholPricesPanel.Visible = false;
             }
 
             if ((ProductType) CbProductType.SelectedItem == ProductType.Alcohol ||
                 (ProductType) CbProductType.SelectedItem == ProductType.Cerveza ||
-                (ProductType) CbProductType.SelectedItem == ProductType.Refresco)
+                (ProductType) CbProductType.SelectedItem == ProductType.Refresco ||
+                (ProductType) CbProductType.SelectedItem == ProductType.Cafes)
             {
                 panelShowInMainView.Visible = true;
             }
@@ -298,7 +140,6 @@ namespace Kiwi.Tpv.App.Forms
         #endregion
 
         #region Methods 
-
 
         private void Search()
         {
@@ -365,9 +206,17 @@ namespace Kiwi.Tpv.App.Forms
                 TxtProductId.Text = _selectedProduct.Id.ToString();
                 CbProductType.SelectedItem = _selectedProduct.Type;
                 CbProductSubType.SelectedItem = _selectedProduct.SubType;
-                TxtProductName.Text = _selectedProduct.Name;             
+                TxtProductName.Text = _selectedProduct.Name;        
+                
                 TxtSaleNightPrice.Text = _selectedProduct.SaleNightPrice.ToString(CultureInfo.InvariantCulture);
                 TxtSaleDayPrice.Text = _selectedProduct.SaleDayPrice.ToString(CultureInfo.InvariantCulture);
+
+                TxtSaleCupNightPrice.Text = _selectedProduct.SaleCupNightPrice.ToString(CultureInfo.InvariantCulture);
+                TxtSaleCupDayPrice.Text = _selectedProduct.SaleCupDayPrice.ToString(CultureInfo.InvariantCulture);
+
+                TxtSaleShotNightPrice.Text = _selectedProduct.SaleShotNightPrice.ToString(CultureInfo.InvariantCulture);
+                TxtSaleShotDayPrice.Text = _selectedProduct.SaleShotDayPrice.ToString(CultureInfo.InvariantCulture);
+
                 TxtPurchasePrice.Text = _selectedProduct.PurchasePrice.ToString(CultureInfo.InvariantCulture);
                 txtSaleUnits.Text = _selectedProduct.SaleUnits.ToString(CultureInfo.InvariantCulture);
                 txtPurchaseUnits.Text = _selectedProduct.PurchaseUnits.ToString(CultureInfo.InvariantCulture);
@@ -389,10 +238,28 @@ namespace Kiwi.Tpv.App.Forms
                     pictureBoxProductImage.Text = String.Empty;
                 }
 
-                CbProductSubType.Visible = _selectedProduct.Type == ProductType.Alcohol;
                 panelShowInMainView.Visible = _selectedProduct.Type == ProductType.Alcohol ||
                                               _selectedProduct.Type == ProductType.Cerveza ||
-                                              _selectedProduct.Type == ProductType.Refresco;
+                                              _selectedProduct.Type == ProductType.Refresco ||
+                                              _selectedProduct.Type == ProductType.Cafes;
+
+
+                if ((ProductType)CbProductType.SelectedItem == ProductType.Alcohol)
+                {
+                    CbProductSubType.Visible = true;
+                    lblDayPrice.Text = "Precio combi. (Día)";
+                    lblNightPrice.Text = "Precio combi. (Noche)";
+                    AlcoholPricesPanel.Visible = true;
+                }
+                else
+                {
+                    CbProductSubType.Visible = false;
+                    CbProductSubType.SelectedItem = ProductSubType.Generico;
+                    lblDayPrice.Text = "Precio (Día)";
+                    lblNightPrice.Text = "Precio (Noche)";
+                    AlcoholPricesPanel.Visible = false;
+                }
+
             }
             catch (Exception ex)
             {
@@ -406,12 +273,21 @@ namespace Kiwi.Tpv.App.Forms
             _selectedProduct.Type = (ProductType) CbProductType.SelectedItem;
             _selectedProduct.SubType = (ProductSubType?) CbProductSubType.SelectedItem ?? ProductSubType.Generico;
             _selectedProduct.Name = TxtProductName.Text;
+
             if (pictureBoxProductImage.BackgroundImage != null)
             {
                 _selectedProduct.Image = Common.ImageToBytes(pictureBoxProductImage.BackgroundImage);
             }
+
             _selectedProduct.SaleNightPrice = Convert.ToDouble(TxtSaleNightPrice.Text.Replace('.', ','));
             _selectedProduct.SaleDayPrice = Convert.ToDouble(TxtSaleDayPrice.Text.Replace('.', ','));
+
+            _selectedProduct.SaleCupNightPrice = Convert.ToDouble(TxtSaleCupNightPrice.Text.Replace('.', ','));
+            _selectedProduct.SaleCupDayPrice = Convert.ToDouble(TxtSaleCupDayPrice.Text.Replace('.', ','));
+
+            _selectedProduct.SaleShotNightPrice = Convert.ToDouble(TxtSaleShotNightPrice.Text.Replace('.', ','));
+            _selectedProduct.SaleShotDayPrice = Convert.ToDouble(TxtSaleShotDayPrice.Text.Replace('.', ','));
+
             _selectedProduct.SaleTaxType = (TaxType) cbSaleTaxTypes.SelectedItem;
             _selectedProduct.PurchasePrice = Convert.ToDouble(TxtPurchasePrice.Text.Replace('.', ','));
             _selectedProduct.PurchaseTaxType = (TaxType) cbPurchaseTaxTypes.SelectedItem;
@@ -430,7 +306,132 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
+        #region Numeric TextBox Validations
 
+        private void NumericKeyPressValidation(object sender, KeyPressEventArgs e)
+        {
+            var textBox = (MetroTextBox)sender;
+            // Si el carácter pulsado no es un carácter válido se anula
+            e.Handled = !char.IsDigit(e.KeyChar) // No es dígito
+                        && !char.IsControl(e.KeyChar) // No es carácter de control (backspace)
+                        &&
+                        (e.KeyChar != SignoDecimal // No es signo decimal o es la 1ª posición o ya hay un signo decimal
+                         || textBox.SelectionStart == 0
+                         || textBox.Text.Contains(SignoDecimal.ToString()));
+        }
+
+        private void NumericTextChangedValidation(object sender, EventArgs e)
+        {
+            var textBox = (MetroTextBox)sender;
+            // Comprueba si el valor del TextBox se ajusta a un valor válido
+            if (Regex.IsMatch(textBox.Text, @"^(?:\d+\.?\d*)?$"))
+            {
+                // Si es válido se almacena el valor actual en la variable privada
+                _prevTextBoxValue = textBox.Text;
+            }
+            else
+            {
+                // Si no es válido se recupera el valor de la variable privada con el valor anterior
+                // Calcula el nº de caracteres después del cursor para dejar el cursor en la misma posición
+                var charsAfterCursor = textBox.Text.Length - textBox.SelectionStart - textBox.SelectionLength;
+                // Recupera el valor anterior
+                textBox.Text = _prevTextBoxValue;
+                // Posiciona el cursor en la misma posición
+                textBox.SelectionStart = Math.Max(0, textBox.Text.Length - charsAfterCursor);
+            }
+        }
+
+        private void TxtPurchasePrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void TxtPurchasePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSalePrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void TxtSalePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleDayPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleDayPrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void txtSaleUnits_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void txtSaleUnits_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void txtPurchaseUnits_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void txtPurchaseUnits_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleCupNightPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleCupNightPrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void TxtSaleCupDayPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleCupDayPrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void TxtSaleShotNightPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleShotNightPrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        private void TxtSaleShotDayPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NumericKeyPressValidation(sender, e);
+        }
+
+        private void TxtSaleShotDayPrice_TextChanged(object sender, EventArgs e)
+        {
+            NumericTextChangedValidation(sender, e);
+        }
+
+        #endregion
 
     }
 }

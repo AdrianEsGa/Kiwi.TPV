@@ -66,6 +66,10 @@ namespace Kiwi.Tpv.App
                 flowLayoutPanelSoda.AutoSize = true;
                 flowLayoutPanelSoda.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
+                flowLayoutPanelCafes.AutoScroll = false;
+                flowLayoutPanelCafes.AutoSize = true;
+                flowLayoutPanelCafes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
                 flowLayoutPanelVarious.AutoScroll = false;
                 flowLayoutPanelVarious.AutoSize = true;
                 flowLayoutPanelVarious.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -164,7 +168,6 @@ namespace Kiwi.Tpv.App
                     productType = ProductType.Vinos;
 
                 else productType = ProductType.Varios;
-
 
 
                 ViewController.ShowPopUp();
@@ -369,6 +372,7 @@ namespace Kiwi.Tpv.App
             {
                 flowLayoutPanelAlcohol.Controls.Clear();
                 flowLayoutPanelSoda.Controls.Clear();
+                flowLayoutPanelCafes.Controls.Clear();
                 flowLayoutPanelVarious.Controls.Clear();
 
                 _products = ProductController.GetAllActive();
@@ -418,6 +422,9 @@ namespace Kiwi.Tpv.App
                 case ProductType.Cerveza:
                     flowLayoutPanelSoda.Controls.Add(btn);
                     break;
+                case ProductType.Cafes:
+                    flowLayoutPanelCafes.Controls.Add(btn);
+                    break;
 
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -450,6 +457,9 @@ namespace Kiwi.Tpv.App
                     break;
                 case ProductType.Cerveza:
                     flowLayoutPanelSoda.Controls.Add(btn);
+                    break;
+                case ProductType.Cafes:
+                    flowLayoutPanelCafes.Controls.Add(btn);
                     break;
             }
         }
@@ -745,14 +755,42 @@ namespace Kiwi.Tpv.App
 
         public void AddProductToSale(Product selectedProduct)
         {
+
+            var alcoholModeType = AlcoholModeTypes.Combined;
+
             if (AppGlobal.Sale == null)
             {
                 AppGlobal.Sale = new Sale();
             }
+
+            if (selectedProduct.Type == ProductType.Alcohol)
+            {
+                ViewController.ShowPopUp();
+                var frmAlcoholModeTypes = new frmAlcoholModeTypes();
+                frmAlcoholModeTypes.ShowDialog();
+                alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
+
+                switch (alcoholModeType)
+                {
+                    case AlcoholModeTypes.Combined:
+                        selectedProduct.Name = "COMBI. " + selectedProduct.Name;
+                        break;
+
+                    case AlcoholModeTypes.Cup:
+                        selectedProduct.Name = "COPA " + selectedProduct.Name;
+                        break;
+
+                    case AlcoholModeTypes.Shot:
+                        selectedProduct.Name = "CHUPITO " + selectedProduct.Name;
+                        break;
+                }
+
+                ViewController.HidePopUp();
+            }
           
             AppGlobal.Sale.Station = AppGlobal.Station;
             AppGlobal.Sale.Table = AppGlobal.Table;
-            AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode);
+            AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);
             RefreshScreen();
         }
 

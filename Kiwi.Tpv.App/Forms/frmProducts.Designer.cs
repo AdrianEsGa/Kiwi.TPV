@@ -43,7 +43,7 @@ namespace Kiwi.Tpv.App.Forms
             this.label3 = new MetroFramework.Controls.MetroLabel();
             this.TxtPurchasePrice = new MetroFramework.Controls.MetroTextBox();
             this.cbPurchaseTaxTypes = new MetroFramework.Controls.MetroComboBox();
-            this.lblPriceNight = new MetroFramework.Controls.MetroLabel();
+            this.lblNightPrice = new MetroFramework.Controls.MetroLabel();
             this.TxtSaleNightPrice = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new MetroFramework.Controls.MetroLabel();
             this.label7 = new MetroFramework.Controls.MetroLabel();
@@ -60,16 +60,27 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSearch = new MetroFramework.Controls.MetroTile();
             this.tabProducts = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageFicha = new MetroFramework.Controls.MetroTabPage();
+            this.SalePanel = new MetroFramework.Controls.MetroPanel();
+            this.AlcoholPricesPanel = new MetroFramework.Controls.MetroPanel();
+            this.lblShotDayPrice = new MetroFramework.Controls.MetroLabel();
+            this.TxtSaleShotNightPrice = new MetroFramework.Controls.MetroTextBox();
+            this.TxtSaleShotDayPrice = new MetroFramework.Controls.MetroTextBox();
+            this.lblShotNightPrice = new MetroFramework.Controls.MetroLabel();
+            this.lblCupNightPrice = new MetroFramework.Controls.MetroLabel();
+            this.TxtSaleCupNightPrice = new MetroFramework.Controls.MetroTextBox();
+            this.TxtSaleCupDayPrice = new MetroFramework.Controls.MetroTextBox();
+            this.lblCupDayPrice = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblDayPrice = new MetroFramework.Controls.MetroLabel();
+            this.TxtSaleDayPrice = new MetroFramework.Controls.MetroTextBox();
+            this.PurchasePanel = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panelShowInMainView = new MetroFramework.Controls.MetroPanel();
             this.chkShowInMainView = new MetroFramework.Controls.MetroToggle();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.TxtSaleDayPrice = new MetroFramework.Controls.MetroTextBox();
             this.pictureBoxProductImage = new MetroFramework.Controls.MetroButton();
             this.TxtProductName = new MetroFramework.Controls.MetroTextBox();
             this.TxtProductId = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.chkActive = new MetroFramework.Controls.MetroToggle();
             this.metroTabPageBusqueda = new MetroFramework.Controls.MetroTabPage();
             this.DataGridViewProducts = new MetroFramework.Controls.MetroGrid();
@@ -92,6 +103,9 @@ namespace Kiwi.Tpv.App.Forms
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabProducts.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
+            this.SalePanel.SuspendLayout();
+            this.AlcoholPricesPanel.SuspendLayout();
+            this.PurchasePanel.SuspendLayout();
             this.panelShowInMainView.SuspendLayout();
             this.metroTabPageBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
@@ -128,7 +142,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtPurchaseUnits.CustomButton.UseSelectable = true;
             this.txtPurchaseUnits.CustomButton.Visible = false;
             this.txtPurchaseUnits.Lines = new string[0];
-            this.txtPurchaseUnits.Location = new System.Drawing.Point(434, 311);
+            this.txtPurchaseUnits.Location = new System.Drawing.Point(122, 104);
             this.txtPurchaseUnits.MaxLength = 6;
             this.txtPurchaseUnits.Name = "txtPurchaseUnits";
             this.txtPurchaseUnits.PasswordChar = '\0';
@@ -149,7 +163,7 @@ namespace Kiwi.Tpv.App.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 251);
+            this.label2.Location = new System.Drawing.Point(25, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 19);
             this.label2.TabIndex = 60;
@@ -158,7 +172,7 @@ namespace Kiwi.Tpv.App.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 282);
+            this.label1.Location = new System.Drawing.Point(25, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 19);
             this.label1.TabIndex = 61;
@@ -167,7 +181,7 @@ namespace Kiwi.Tpv.App.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(337, 313);
+            this.label3.Location = new System.Drawing.Point(25, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 19);
             this.label3.TabIndex = 66;
@@ -190,7 +204,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtPurchasePrice.CustomButton.UseSelectable = true;
             this.TxtPurchasePrice.CustomButton.Visible = false;
             this.TxtPurchasePrice.Lines = new string[0];
-            this.TxtPurchasePrice.Location = new System.Drawing.Point(434, 248);
+            this.TxtPurchasePrice.Location = new System.Drawing.Point(122, 41);
             this.TxtPurchasePrice.MaxLength = 6;
             this.TxtPurchasePrice.Name = "TxtPurchasePrice";
             this.TxtPurchasePrice.PasswordChar = '\0';
@@ -213,20 +227,20 @@ namespace Kiwi.Tpv.App.Forms
             this.cbPurchaseTaxTypes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPurchaseTaxTypes.FormattingEnabled = true;
             this.cbPurchaseTaxTypes.ItemHeight = 23;
-            this.cbPurchaseTaxTypes.Location = new System.Drawing.Point(434, 276);
+            this.cbPurchaseTaxTypes.Location = new System.Drawing.Point(122, 69);
             this.cbPurchaseTaxTypes.Name = "cbPurchaseTaxTypes";
             this.cbPurchaseTaxTypes.Size = new System.Drawing.Size(131, 29);
             this.cbPurchaseTaxTypes.TabIndex = 63;
             this.cbPurchaseTaxTypes.UseSelectable = true;
             // 
-            // lblPriceNight
+            // lblNightPrice
             // 
-            this.lblPriceNight.AutoSize = true;
-            this.lblPriceNight.Location = new System.Drawing.Point(13, 251);
-            this.lblPriceNight.Name = "lblPriceNight";
-            this.lblPriceNight.Size = new System.Drawing.Size(85, 19);
-            this.lblPriceNight.TabIndex = 48;
-            this.lblPriceNight.Text = "Precio noche";
+            this.lblNightPrice.AutoSize = true;
+            this.lblNightPrice.Location = new System.Drawing.Point(12, 40);
+            this.lblNightPrice.Name = "lblNightPrice";
+            this.lblNightPrice.Size = new System.Drawing.Size(96, 19);
+            this.lblNightPrice.TabIndex = 48;
+            this.lblNightPrice.Text = "Precio (Noche)";
             // 
             // TxtSaleNightPrice
             // 
@@ -235,7 +249,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.TxtSaleNightPrice.CustomButton.Image = null;
-            this.TxtSaleNightPrice.CustomButton.Location = new System.Drawing.Point(111, 2);
+            this.TxtSaleNightPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
             this.TxtSaleNightPrice.CustomButton.Name = "";
             this.TxtSaleNightPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.TxtSaleNightPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -244,7 +258,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleNightPrice.CustomButton.UseSelectable = true;
             this.TxtSaleNightPrice.CustomButton.Visible = false;
             this.TxtSaleNightPrice.Lines = new string[0];
-            this.TxtSaleNightPrice.Location = new System.Drawing.Point(151, 248);
+            this.TxtSaleNightPrice.Location = new System.Drawing.Point(155, 37);
             this.TxtSaleNightPrice.MaxLength = 6;
             this.TxtSaleNightPrice.Name = "TxtSaleNightPrice";
             this.TxtSaleNightPrice.PasswordChar = '\0';
@@ -253,7 +267,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleNightPrice.SelectionLength = 0;
             this.TxtSaleNightPrice.SelectionStart = 0;
             this.TxtSaleNightPrice.ShortcutsEnabled = true;
-            this.TxtSaleNightPrice.Size = new System.Drawing.Size(131, 22);
+            this.TxtSaleNightPrice.Size = new System.Drawing.Size(56, 22);
             this.TxtSaleNightPrice.TabIndex = 49;
             this.TxtSaleNightPrice.UseSelectable = true;
             this.TxtSaleNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -264,7 +278,7 @@ namespace Kiwi.Tpv.App.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 347);
+            this.label4.Location = new System.Drawing.Point(217, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 19);
             this.label4.TabIndex = 64;
@@ -274,7 +288,7 @@ namespace Kiwi.Tpv.App.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 315);
+            this.label7.Location = new System.Drawing.Point(12, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 19);
             this.label7.TabIndex = 58;
@@ -287,7 +301,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtSaleUnits.CustomButton.Image = null;
-            this.txtSaleUnits.CustomButton.Location = new System.Drawing.Point(111, 2);
+            this.txtSaleUnits.CustomButton.Location = new System.Drawing.Point(22, 2);
             this.txtSaleUnits.CustomButton.Name = "";
             this.txtSaleUnits.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.txtSaleUnits.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -296,7 +310,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtSaleUnits.CustomButton.UseSelectable = true;
             this.txtSaleUnits.CustomButton.Visible = false;
             this.txtSaleUnits.Lines = new string[0];
-            this.txtSaleUnits.Location = new System.Drawing.Point(151, 345);
+            this.txtSaleUnits.Location = new System.Drawing.Point(352, 101);
             this.txtSaleUnits.MaxLength = 6;
             this.txtSaleUnits.Name = "txtSaleUnits";
             this.txtSaleUnits.PasswordChar = '\0';
@@ -305,7 +319,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtSaleUnits.SelectionLength = 0;
             this.txtSaleUnits.SelectionStart = 0;
             this.txtSaleUnits.ShortcutsEnabled = true;
-            this.txtSaleUnits.Size = new System.Drawing.Size(131, 22);
+            this.txtSaleUnits.Size = new System.Drawing.Size(42, 22);
             this.txtSaleUnits.TabIndex = 65;
             this.txtSaleUnits.UseSelectable = true;
             this.txtSaleUnits.Visible = false;
@@ -320,9 +334,9 @@ namespace Kiwi.Tpv.App.Forms
             this.cbSaleTaxTypes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbSaleTaxTypes.FormattingEnabled = true;
             this.cbSaleTaxTypes.ItemHeight = 23;
-            this.cbSaleTaxTypes.Location = new System.Drawing.Point(151, 308);
+            this.cbSaleTaxTypes.Location = new System.Drawing.Point(155, 94);
             this.cbSaleTaxTypes.Name = "cbSaleTaxTypes";
-            this.cbSaleTaxTypes.Size = new System.Drawing.Size(131, 29);
+            this.cbSaleTaxTypes.Size = new System.Drawing.Size(56, 29);
             this.cbSaleTaxTypes.TabIndex = 59;
             this.cbSaleTaxTypes.UseSelectable = true;
             // 
@@ -444,34 +458,20 @@ namespace Kiwi.Tpv.App.Forms
             this.tabProducts.Location = new System.Drawing.Point(23, 69);
             this.tabProducts.Name = "tabProducts";
             this.tabProducts.SelectedIndex = 0;
-            this.tabProducts.Size = new System.Drawing.Size(865, 488);
+            this.tabProducts.Size = new System.Drawing.Size(904, 488);
             this.tabProducts.TabIndex = 90;
             this.tabProducts.UseSelectable = true;
             // 
             // metroTabPageFicha
             // 
+            this.metroTabPageFicha.Controls.Add(this.SalePanel);
+            this.metroTabPageFicha.Controls.Add(this.PurchasePanel);
             this.metroTabPageFicha.Controls.Add(this.panelShowInMainView);
-            this.metroTabPageFicha.Controls.Add(this.metroLabel3);
-            this.metroTabPageFicha.Controls.Add(this.TxtSaleDayPrice);
             this.metroTabPageFicha.Controls.Add(this.pictureBoxProductImage);
             this.metroTabPageFicha.Controls.Add(this.TxtProductName);
             this.metroTabPageFicha.Controls.Add(this.TxtProductId);
-            this.metroTabPageFicha.Controls.Add(this.metroLabel2);
-            this.metroTabPageFicha.Controls.Add(this.metroLabel1);
-            this.metroTabPageFicha.Controls.Add(this.txtPurchaseUnits);
-            this.metroTabPageFicha.Controls.Add(this.lblPriceNight);
-            this.metroTabPageFicha.Controls.Add(this.label2);
             this.metroTabPageFicha.Controls.Add(this.chkActive);
-            this.metroTabPageFicha.Controls.Add(this.label1);
-            this.metroTabPageFicha.Controls.Add(this.TxtSaleNightPrice);
-            this.metroTabPageFicha.Controls.Add(this.label3);
-            this.metroTabPageFicha.Controls.Add(this.TxtPurchasePrice);
-            this.metroTabPageFicha.Controls.Add(this.label4);
-            this.metroTabPageFicha.Controls.Add(this.cbPurchaseTaxTypes);
-            this.metroTabPageFicha.Controls.Add(this.label7);
             this.metroTabPageFicha.Controls.Add(this.CbProductSubType);
-            this.metroTabPageFicha.Controls.Add(this.txtSaleUnits);
-            this.metroTabPageFicha.Controls.Add(this.cbSaleTaxTypes);
             this.metroTabPageFicha.Controls.Add(this.btnNew);
             this.metroTabPageFicha.Controls.Add(this.btnSave);
             this.metroTabPageFicha.Controls.Add(this.lblActive);
@@ -486,12 +486,308 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageFicha.HorizontalScrollbarSize = 10;
             this.metroTabPageFicha.Location = new System.Drawing.Point(4, 38);
             this.metroTabPageFicha.Name = "metroTabPageFicha";
-            this.metroTabPageFicha.Size = new System.Drawing.Size(857, 446);
+            this.metroTabPageFicha.Size = new System.Drawing.Size(896, 446);
             this.metroTabPageFicha.TabIndex = 0;
             this.metroTabPageFicha.Text = "Ficha";
             this.metroTabPageFicha.VerticalScrollbarBarColor = true;
             this.metroTabPageFicha.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageFicha.VerticalScrollbarSize = 10;
+            // 
+            // SalePanel
+            // 
+            this.SalePanel.Controls.Add(this.AlcoholPricesPanel);
+            this.SalePanel.Controls.Add(this.metroLabel1);
+            this.SalePanel.Controls.Add(this.cbSaleTaxTypes);
+            this.SalePanel.Controls.Add(this.txtSaleUnits);
+            this.SalePanel.Controls.Add(this.lblDayPrice);
+            this.SalePanel.Controls.Add(this.label7);
+            this.SalePanel.Controls.Add(this.TxtSaleDayPrice);
+            this.SalePanel.Controls.Add(this.label4);
+            this.SalePanel.Controls.Add(this.TxtSaleNightPrice);
+            this.SalePanel.Controls.Add(this.lblNightPrice);
+            this.SalePanel.HorizontalScrollbarBarColor = true;
+            this.SalePanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.SalePanel.HorizontalScrollbarSize = 10;
+            this.SalePanel.Location = new System.Drawing.Point(5, 184);
+            this.SalePanel.Name = "SalePanel";
+            this.SalePanel.Size = new System.Drawing.Size(634, 174);
+            this.SalePanel.TabIndex = 102;
+            this.SalePanel.VerticalScrollbarBarColor = true;
+            this.SalePanel.VerticalScrollbarHighlightOnWheel = false;
+            this.SalePanel.VerticalScrollbarSize = 10;
+            // 
+            // AlcoholPricesPanel
+            // 
+            this.AlcoholPricesPanel.Controls.Add(this.lblShotDayPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.TxtSaleShotNightPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.TxtSaleShotDayPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.lblShotNightPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.lblCupNightPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.TxtSaleCupNightPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.TxtSaleCupDayPrice);
+            this.AlcoholPricesPanel.Controls.Add(this.lblCupDayPrice);
+            this.AlcoholPricesPanel.HorizontalScrollbarBarColor = true;
+            this.AlcoholPricesPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.AlcoholPricesPanel.HorizontalScrollbarSize = 10;
+            this.AlcoholPricesPanel.Location = new System.Drawing.Point(212, 34);
+            this.AlcoholPricesPanel.Name = "AlcoholPricesPanel";
+            this.AlcoholPricesPanel.Size = new System.Drawing.Size(413, 64);
+            this.AlcoholPricesPanel.TabIndex = 103;
+            this.AlcoholPricesPanel.VerticalScrollbarBarColor = true;
+            this.AlcoholPricesPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.AlcoholPricesPanel.VerticalScrollbarSize = 10;
+            this.AlcoholPricesPanel.Visible = false;
+            // 
+            // lblShotDayPrice
+            // 
+            this.lblShotDayPrice.AutoSize = true;
+            this.lblShotDayPrice.Location = new System.Drawing.Point(203, 35);
+            this.lblShotDayPrice.Name = "lblShotDayPrice";
+            this.lblShotDayPrice.Size = new System.Drawing.Size(124, 19);
+            this.lblShotDayPrice.TabIndex = 104;
+            this.lblShotDayPrice.Text = "Precio chupito (Día)";
+            // 
+            // TxtSaleShotNightPrice
+            // 
+            this.TxtSaleShotNightPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleShotNightPrice.CustomButton.Image = null;
+            this.TxtSaleShotNightPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleShotNightPrice.CustomButton.Name = "";
+            this.TxtSaleShotNightPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleShotNightPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleShotNightPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleShotNightPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleShotNightPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleShotNightPrice.CustomButton.Visible = false;
+            this.TxtSaleShotNightPrice.Lines = new string[0];
+            this.TxtSaleShotNightPrice.Location = new System.Drawing.Point(348, 2);
+            this.TxtSaleShotNightPrice.MaxLength = 6;
+            this.TxtSaleShotNightPrice.Name = "TxtSaleShotNightPrice";
+            this.TxtSaleShotNightPrice.PasswordChar = '\0';
+            this.TxtSaleShotNightPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleShotNightPrice.SelectedText = "";
+            this.TxtSaleShotNightPrice.SelectionLength = 0;
+            this.TxtSaleShotNightPrice.SelectionStart = 0;
+            this.TxtSaleShotNightPrice.ShortcutsEnabled = true;
+            this.TxtSaleShotNightPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleShotNightPrice.TabIndex = 103;
+            this.TxtSaleShotNightPrice.UseSelectable = true;
+            this.TxtSaleShotNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleShotNightPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleShotNightPrice.TextChanged += new System.EventHandler(this.TxtSaleShotNightPrice_TextChanged);
+            this.TxtSaleShotNightPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleShotNightPrice_KeyPress);
+            // 
+            // TxtSaleShotDayPrice
+            // 
+            this.TxtSaleShotDayPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleShotDayPrice.CustomButton.Image = null;
+            this.TxtSaleShotDayPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleShotDayPrice.CustomButton.Name = "";
+            this.TxtSaleShotDayPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleShotDayPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleShotDayPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleShotDayPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleShotDayPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleShotDayPrice.CustomButton.Visible = false;
+            this.TxtSaleShotDayPrice.Lines = new string[0];
+            this.TxtSaleShotDayPrice.Location = new System.Drawing.Point(348, 30);
+            this.TxtSaleShotDayPrice.MaxLength = 6;
+            this.TxtSaleShotDayPrice.Name = "TxtSaleShotDayPrice";
+            this.TxtSaleShotDayPrice.PasswordChar = '\0';
+            this.TxtSaleShotDayPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleShotDayPrice.SelectedText = "";
+            this.TxtSaleShotDayPrice.SelectionLength = 0;
+            this.TxtSaleShotDayPrice.SelectionStart = 0;
+            this.TxtSaleShotDayPrice.ShortcutsEnabled = true;
+            this.TxtSaleShotDayPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleShotDayPrice.TabIndex = 105;
+            this.TxtSaleShotDayPrice.UseSelectable = true;
+            this.TxtSaleShotDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleShotDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleShotDayPrice.TextChanged += new System.EventHandler(this.TxtSaleShotDayPrice_TextChanged);
+            this.TxtSaleShotDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleShotDayPrice_KeyPress);
+            // 
+            // lblShotNightPrice
+            // 
+            this.lblShotNightPrice.AutoSize = true;
+            this.lblShotNightPrice.Location = new System.Drawing.Point(203, 3);
+            this.lblShotNightPrice.Name = "lblShotNightPrice";
+            this.lblShotNightPrice.Size = new System.Drawing.Size(143, 19);
+            this.lblShotNightPrice.TabIndex = 102;
+            this.lblShotNightPrice.Text = "Precio chupito (Noche)";
+            // 
+            // lblCupNightPrice
+            // 
+            this.lblCupNightPrice.AutoSize = true;
+            this.lblCupNightPrice.Location = new System.Drawing.Point(6, 6);
+            this.lblCupNightPrice.Name = "lblCupNightPrice";
+            this.lblCupNightPrice.Size = new System.Drawing.Size(129, 19);
+            this.lblCupNightPrice.TabIndex = 98;
+            this.lblCupNightPrice.Text = "Precio copa (Noche)";
+            // 
+            // TxtSaleCupNightPrice
+            // 
+            this.TxtSaleCupNightPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleCupNightPrice.CustomButton.Image = null;
+            this.TxtSaleCupNightPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleCupNightPrice.CustomButton.Name = "";
+            this.TxtSaleCupNightPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleCupNightPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleCupNightPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleCupNightPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleCupNightPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleCupNightPrice.CustomButton.Visible = false;
+            this.TxtSaleCupNightPrice.Lines = new string[0];
+            this.TxtSaleCupNightPrice.Location = new System.Drawing.Point(141, 5);
+            this.TxtSaleCupNightPrice.MaxLength = 6;
+            this.TxtSaleCupNightPrice.Name = "TxtSaleCupNightPrice";
+            this.TxtSaleCupNightPrice.PasswordChar = '\0';
+            this.TxtSaleCupNightPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleCupNightPrice.SelectedText = "";
+            this.TxtSaleCupNightPrice.SelectionLength = 0;
+            this.TxtSaleCupNightPrice.SelectionStart = 0;
+            this.TxtSaleCupNightPrice.ShortcutsEnabled = true;
+            this.TxtSaleCupNightPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleCupNightPrice.TabIndex = 99;
+            this.TxtSaleCupNightPrice.UseSelectable = true;
+            this.TxtSaleCupNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleCupNightPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleCupNightPrice.TextChanged += new System.EventHandler(this.TxtSaleCupNightPrice_TextChanged);
+            this.TxtSaleCupNightPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleCupNightPrice_KeyPress);
+            // 
+            // TxtSaleCupDayPrice
+            // 
+            this.TxtSaleCupDayPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleCupDayPrice.CustomButton.Image = null;
+            this.TxtSaleCupDayPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleCupDayPrice.CustomButton.Name = "";
+            this.TxtSaleCupDayPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleCupDayPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleCupDayPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleCupDayPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleCupDayPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleCupDayPrice.CustomButton.Visible = false;
+            this.TxtSaleCupDayPrice.Lines = new string[0];
+            this.TxtSaleCupDayPrice.Location = new System.Drawing.Point(141, 33);
+            this.TxtSaleCupDayPrice.MaxLength = 6;
+            this.TxtSaleCupDayPrice.Name = "TxtSaleCupDayPrice";
+            this.TxtSaleCupDayPrice.PasswordChar = '\0';
+            this.TxtSaleCupDayPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleCupDayPrice.SelectedText = "";
+            this.TxtSaleCupDayPrice.SelectionLength = 0;
+            this.TxtSaleCupDayPrice.SelectionStart = 0;
+            this.TxtSaleCupDayPrice.ShortcutsEnabled = true;
+            this.TxtSaleCupDayPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleCupDayPrice.TabIndex = 101;
+            this.TxtSaleCupDayPrice.UseSelectable = true;
+            this.TxtSaleCupDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleCupDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleCupDayPrice.TextChanged += new System.EventHandler(this.TxtSaleCupDayPrice_TextChanged);
+            this.TxtSaleCupDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleCupDayPrice_KeyPress);
+            // 
+            // lblCupDayPrice
+            // 
+            this.lblCupDayPrice.AutoSize = true;
+            this.lblCupDayPrice.Location = new System.Drawing.Point(6, 38);
+            this.lblCupDayPrice.Name = "lblCupDayPrice";
+            this.lblCupDayPrice.Size = new System.Drawing.Size(110, 19);
+            this.lblCupDayPrice.TabIndex = 100;
+            this.lblCupDayPrice.Text = "Precio copa (Día)";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.Location = new System.Drawing.Point(6, 9);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel1.TabIndex = 91;
+            this.metroLabel1.Text = "Ventas";
+            // 
+            // lblDayPrice
+            // 
+            this.lblDayPrice.AutoSize = true;
+            this.lblDayPrice.Location = new System.Drawing.Point(12, 72);
+            this.lblDayPrice.Name = "lblDayPrice";
+            this.lblDayPrice.Size = new System.Drawing.Size(77, 19);
+            this.lblDayPrice.TabIndex = 96;
+            this.lblDayPrice.Text = "Precio (Día)";
+            // 
+            // TxtSaleDayPrice
+            // 
+            this.TxtSaleDayPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleDayPrice.CustomButton.Image = null;
+            this.TxtSaleDayPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleDayPrice.CustomButton.Name = "";
+            this.TxtSaleDayPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleDayPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleDayPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleDayPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleDayPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleDayPrice.CustomButton.Visible = false;
+            this.TxtSaleDayPrice.Lines = new string[0];
+            this.TxtSaleDayPrice.Location = new System.Drawing.Point(155, 67);
+            this.TxtSaleDayPrice.MaxLength = 6;
+            this.TxtSaleDayPrice.Name = "TxtSaleDayPrice";
+            this.TxtSaleDayPrice.PasswordChar = '\0';
+            this.TxtSaleDayPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleDayPrice.SelectedText = "";
+            this.TxtSaleDayPrice.SelectionLength = 0;
+            this.TxtSaleDayPrice.SelectionStart = 0;
+            this.TxtSaleDayPrice.ShortcutsEnabled = true;
+            this.TxtSaleDayPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleDayPrice.TabIndex = 97;
+            this.TxtSaleDayPrice.UseSelectable = true;
+            this.TxtSaleDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleDayPrice.TextChanged += new System.EventHandler(this.TxtSaleDayPrice_TextChanged);
+            this.TxtSaleDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleDayPrice_KeyPress);
+            // 
+            // PurchasePanel
+            // 
+            this.PurchasePanel.Controls.Add(this.cbPurchaseTaxTypes);
+            this.PurchasePanel.Controls.Add(this.TxtPurchasePrice);
+            this.PurchasePanel.Controls.Add(this.label3);
+            this.PurchasePanel.Controls.Add(this.label1);
+            this.PurchasePanel.Controls.Add(this.label2);
+            this.PurchasePanel.Controls.Add(this.txtPurchaseUnits);
+            this.PurchasePanel.Controls.Add(this.metroLabel2);
+            this.PurchasePanel.HorizontalScrollbarBarColor = true;
+            this.PurchasePanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.PurchasePanel.HorizontalScrollbarSize = 10;
+            this.PurchasePanel.Location = new System.Drawing.Point(735, 345);
+            this.PurchasePanel.Name = "PurchasePanel";
+            this.PurchasePanel.Size = new System.Drawing.Size(100, 46);
+            this.PurchasePanel.TabIndex = 101;
+            this.PurchasePanel.VerticalScrollbarBarColor = true;
+            this.PurchasePanel.VerticalScrollbarHighlightOnWheel = false;
+            this.PurchasePanel.VerticalScrollbarSize = 10;
+            this.PurchasePanel.Visible = false;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(13, 13);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel2.TabIndex = 92;
+            this.metroLabel2.Text = "Compras";
             // 
             // panelShowInMainView
             // 
@@ -527,51 +823,9 @@ namespace Kiwi.Tpv.App.Forms
             this.metroLabel4.TabIndex = 98;
             this.metroLabel4.Text = "Principal";
             // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(13, 283);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel3.TabIndex = 96;
-            this.metroLabel3.Text = "Precio día";
-            // 
-            // TxtSaleDayPrice
-            // 
-            this.TxtSaleDayPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            // 
-            // 
-            // 
-            this.TxtSaleDayPrice.CustomButton.Image = null;
-            this.TxtSaleDayPrice.CustomButton.Location = new System.Drawing.Point(111, 2);
-            this.TxtSaleDayPrice.CustomButton.Name = "";
-            this.TxtSaleDayPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
-            this.TxtSaleDayPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtSaleDayPrice.CustomButton.TabIndex = 1;
-            this.TxtSaleDayPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtSaleDayPrice.CustomButton.UseSelectable = true;
-            this.TxtSaleDayPrice.CustomButton.Visible = false;
-            this.TxtSaleDayPrice.Lines = new string[0];
-            this.TxtSaleDayPrice.Location = new System.Drawing.Point(151, 278);
-            this.TxtSaleDayPrice.MaxLength = 6;
-            this.TxtSaleDayPrice.Name = "TxtSaleDayPrice";
-            this.TxtSaleDayPrice.PasswordChar = '\0';
-            this.TxtSaleDayPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtSaleDayPrice.SelectedText = "";
-            this.TxtSaleDayPrice.SelectionLength = 0;
-            this.TxtSaleDayPrice.SelectionStart = 0;
-            this.TxtSaleDayPrice.ShortcutsEnabled = true;
-            this.TxtSaleDayPrice.Size = new System.Drawing.Size(131, 22);
-            this.TxtSaleDayPrice.TabIndex = 97;
-            this.TxtSaleDayPrice.UseSelectable = true;
-            this.TxtSaleDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtSaleDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtSaleDayPrice.TextChanged += new System.EventHandler(this.TxtSaleDayPrice_TextChanged);
-            this.TxtSaleDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleDayPrice_KeyPress);
-            // 
             // pictureBoxProductImage
             // 
-            this.pictureBoxProductImage.Location = new System.Drawing.Point(588, 33);
+            this.pictureBoxProductImage.Location = new System.Drawing.Point(645, 33);
             this.pictureBoxProductImage.Name = "pictureBoxProductImage";
             this.pictureBoxProductImage.Size = new System.Drawing.Size(247, 217);
             this.pictureBoxProductImage.TabIndex = 95;
@@ -643,26 +897,6 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtProductId.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtProductId.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(325, 220);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
-            this.metroLabel2.TabIndex = 92;
-            this.metroLabel2.Text = "Compras";
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(5, 220);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(52, 19);
-            this.metroLabel1.TabIndex = 91;
-            this.metroLabel1.Text = "Ventas";
-            // 
             // chkActive
             // 
             this.chkActive.AutoSize = true;
@@ -681,7 +915,7 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageBusqueda.HorizontalScrollbarSize = 10;
             this.metroTabPageBusqueda.Location = new System.Drawing.Point(4, 38);
             this.metroTabPageBusqueda.Name = "metroTabPageBusqueda";
-            this.metroTabPageBusqueda.Size = new System.Drawing.Size(857, 446);
+            this.metroTabPageBusqueda.Size = new System.Drawing.Size(896, 446);
             this.metroTabPageBusqueda.TabIndex = 1;
             this.metroTabPageBusqueda.Text = "Búsqueda";
             this.metroTabPageBusqueda.VerticalScrollbarBarColor = true;
@@ -875,7 +1109,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Location = new System.Drawing.Point(853, 20);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -898,7 +1132,7 @@ namespace Kiwi.Tpv.App.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(902, 576);
+            this.ClientSize = new System.Drawing.Size(942, 576);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabProducts);
@@ -913,6 +1147,12 @@ namespace Kiwi.Tpv.App.Forms
             this.tabProducts.ResumeLayout(false);
             this.metroTabPageFicha.ResumeLayout(false);
             this.metroTabPageFicha.PerformLayout();
+            this.SalePanel.ResumeLayout(false);
+            this.SalePanel.PerformLayout();
+            this.AlcoholPricesPanel.ResumeLayout(false);
+            this.AlcoholPricesPanel.PerformLayout();
+            this.PurchasePanel.ResumeLayout(false);
+            this.PurchasePanel.PerformLayout();
             this.panelShowInMainView.ResumeLayout(false);
             this.panelShowInMainView.PerformLayout();
             this.metroTabPageBusqueda.ResumeLayout(false);
@@ -932,7 +1172,7 @@ namespace Kiwi.Tpv.App.Forms
         private MetroFramework.Controls.MetroLabel label3;
         private MetroFramework.Controls.MetroTextBox TxtPurchasePrice;
         private MetroFramework.Controls.MetroComboBox cbPurchaseTaxTypes;
-        private MetroFramework.Controls.MetroLabel lblPriceNight;
+        private MetroFramework.Controls.MetroLabel lblNightPrice;
         private MetroFramework.Controls.MetroTextBox TxtSaleNightPrice;
         private MetroFramework.Controls.MetroLabel label4;
         private MetroFramework.Controls.MetroLabel label7;
@@ -959,7 +1199,7 @@ namespace Kiwi.Tpv.App.Forms
         private MetroTextBox TxtProductId;
         private MetroTextBox TxtProductName;
         private MetroButton pictureBoxProductImage;
-        private MetroLabel metroLabel3;
+        private MetroLabel lblDayPrice;
         private MetroTextBox TxtSaleDayPrice;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -980,6 +1220,16 @@ namespace Kiwi.Tpv.App.Forms
         private MetroToggle chkShowInMainView;
         private MetroLabel metroLabel4;
         private MetroPanel panelShowInMainView;
-
+        private MetroPanel SalePanel;
+        private MetroPanel PurchasePanel;
+        private MetroLabel lblCupDayPrice;
+        private MetroTextBox TxtSaleCupDayPrice;
+        private MetroTextBox TxtSaleCupNightPrice;
+        private MetroLabel lblCupNightPrice;
+        private MetroLabel lblShotDayPrice;
+        private MetroTextBox TxtSaleShotDayPrice;
+        private MetroTextBox TxtSaleShotNightPrice;
+        private MetroLabel lblShotNightPrice;
+        private MetroPanel AlcoholPricesPanel;
     }
 }

@@ -23,6 +23,10 @@
         public double PurchaseUnits { get; set; }
         public double SaleDayPrice { get; set; }
         public double SaleNightPrice { get; set; }
+        public double SaleCupDayPrice { get; set; }
+        public double SaleCupNightPrice { get; set; }
+        public double SaleShotDayPrice { get; set; }
+        public double SaleShotNightPrice { get; set; }
         public bool ShowInMainView { get; set; }
         public byte[] Image { get; set; }
         public string ImagePath { get; set; }
@@ -69,5 +73,13 @@
         Ginebra = 3,
         Vodka = 4,
         Generico = 9999,
+    }
+
+    public enum AlcoholModeTypes
+    {
+        Combined = 1,
+        Cup = 2,
+        Shot = 3,
+        Default = 4
     }
 }

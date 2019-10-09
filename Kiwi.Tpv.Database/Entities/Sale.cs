@@ -27,18 +27,18 @@ namespace Kiwi.Tpv.Database.Entities
         public bool Paid { get; set; }
         public bool Ticket { get; set; }
 
-        public void Add(Product product, SaleMode saleMode)
+        public void Add(Product product, SaleMode saleMode, AlcoholModeTypes alcoholModeType)
         {
-            var price = saleMode == SaleMode.Day ? product.SaleDayPrice : product.SaleNightPrice;
-
+            var finalPrice = GetFinalPrice(product, saleMode, alcoholModeType);
+    
             foreach (var detail in Details)
                 if (detail.Product.Id == product.Id && detail.Product.Type == product.Type &&
                     // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    detail.Price == price && detail.TaxPercentaje == product.SaleTaxType.Percentaje)
+                    detail.Price == finalPrice && detail.TaxPercentaje == product.SaleTaxType.Percentaje)
                 {
                     detail.Quantity += product.Quantity;
-                    detail.Price = price;
-                    detail.Total = Math.Round(detail.Quantity * price, 2);
+                    detail.Price = finalPrice;
+                    detail.Total = Math.Round(detail.Quantity * finalPrice, 2);
                     detail.SubTotal = Math.Round(detail.Total / (product.SaleTaxType.Percentaje / 100 + 1), 2);
                     detail.TaxPercentaje = product.SaleTaxType.Percentaje;
                     detail.Tax = detail.Total - detail.SubTotal;           
@@ -50,7 +50,7 @@ namespace Kiwi.Tpv.Database.Entities
                 Sale = this,
                 Product = product,
                 Quantity = product.Quantity,
-                Price = price
+                Price = finalPrice
             };
 
             saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
@@ -112,6 +112,29 @@ namespace Kiwi.Tpv.Database.Entities
         public double GetTotalTax()
         {
             return Details.Sum(detail => detail.Tax);
+        }
+
+        private double GetFinalPrice(Product product, SaleMode saleMode, AlcoholModeTypes alcoholModeType)
+        {
+            var finalPrice = 0.0;
+            if (product.Type == ProductType.Alcohol && alcoholModeType != AlcoholModeTypes.Default && alcoholModeType != AlcoholModeTypes.Combined)
+            {
+                switch (alcoholModeType)
+                {
+                    case AlcoholModeTypes.Cup:
+                        finalPrice = saleMode == SaleMode.Day ? product.SaleCupDayPrice : product.SaleCupNightPrice;
+                        break;
+                    case AlcoholModeTypes.Shot:
+                        finalPrice = saleMode == SaleMode.Day ? product.SaleShotDayPrice : product.SaleCupNightPrice;
+                        break;
+                }
+            }
+            else
+            {
+                finalPrice = saleMode == SaleMode.Day ? product.SaleDayPrice : product.SaleNightPrice;
+            }
+
+            return finalPrice;
         }
 
         public override bool Equals(object obj)

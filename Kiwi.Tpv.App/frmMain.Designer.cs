@@ -92,9 +92,10 @@ namespace Kiwi.Tpv.App
             this.lblTableBar = new MetroFramework.Controls.MetroLabel();
             this.ProductsPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanelVarious = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelCafes = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelSoda = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelAlcohol = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelVarious = new System.Windows.Forms.FlowLayoutPanel();
             this.TimerWatch = new System.Windows.Forms.Timer(this.components);
             this.SystemTimer = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -826,29 +827,32 @@ namespace Kiwi.Tpv.App
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelVarious, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelCafes, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelSoda, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelAlcohol, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanelVarious, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 570);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // flowLayoutPanelVarious
+            // flowLayoutPanelCafes
             // 
-            this.flowLayoutPanelVarious.AutoScroll = true;
-            this.flowLayoutPanelVarious.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanelVarious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanelVarious.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelVarious.Location = new System.Drawing.Point(3, 516);
-            this.flowLayoutPanelVarious.Name = "flowLayoutPanelVarious";
-            this.flowLayoutPanelVarious.Size = new System.Drawing.Size(648, 51);
-            this.flowLayoutPanelVarious.TabIndex = 2;
+            this.flowLayoutPanelCafes.AutoScroll = true;
+            this.flowLayoutPanelCafes.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelCafes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.flowLayoutPanelCafes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelCafes.Location = new System.Drawing.Point(3, 459);
+            this.flowLayoutPanelCafes.Name = "flowLayoutPanelCafes";
+            this.flowLayoutPanelCafes.Size = new System.Drawing.Size(648, 51);
+            this.flowLayoutPanelCafes.TabIndex = 3;
             // 
             // flowLayoutPanelSoda
             // 
@@ -856,7 +860,7 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelSoda.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanelSoda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.flowLayoutPanelSoda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelSoda.Location = new System.Drawing.Point(3, 288);
+            this.flowLayoutPanelSoda.Location = new System.Drawing.Point(3, 231);
             this.flowLayoutPanelSoda.Name = "flowLayoutPanelSoda";
             this.flowLayoutPanelSoda.Size = new System.Drawing.Size(648, 222);
             this.flowLayoutPanelSoda.TabIndex = 1;
@@ -869,8 +873,19 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelAlcohol.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelAlcohol.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelAlcohol.Name = "flowLayoutPanelAlcohol";
-            this.flowLayoutPanelAlcohol.Size = new System.Drawing.Size(648, 279);
+            this.flowLayoutPanelAlcohol.Size = new System.Drawing.Size(648, 222);
             this.flowLayoutPanelAlcohol.TabIndex = 0;
+            // 
+            // flowLayoutPanelVarious
+            // 
+            this.flowLayoutPanelVarious.AutoScroll = true;
+            this.flowLayoutPanelVarious.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelVarious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.flowLayoutPanelVarious.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelVarious.Location = new System.Drawing.Point(3, 516);
+            this.flowLayoutPanelVarious.Name = "flowLayoutPanelVarious";
+            this.flowLayoutPanelVarious.Size = new System.Drawing.Size(648, 51);
+            this.flowLayoutPanelVarious.TabIndex = 2;
             // 
             // TimerWatch
             // 
@@ -999,6 +1014,7 @@ namespace Kiwi.Tpv.App
         private System.Windows.Forms.DataGridViewButtonColumn RemoveOne;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveAll;
         private MetroTile btnCommands;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCafes;
     }
 }
 
