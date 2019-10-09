@@ -820,9 +820,7 @@ namespace Kiwi.Tpv.App
         {
             btnCancel.Enabled = !AppGlobal.Sale.Ticket; ;
             DataGridViewSelectedProducts.Enabled = !AppGlobal.Sale.Ticket;
-            flowLayoutPanelAlcohol.Enabled = !AppGlobal.Sale.Ticket;
-            flowLayoutPanelSoda.Enabled = !AppGlobal.Sale.Ticket;
-            flowLayoutPanelVarious.Enabled = !AppGlobal.Sale.Ticket;
+            TableLayoutProducts.Enabled = !AppGlobal.Sale.Ticket;
         }
 
         private void FinalizeSale()
