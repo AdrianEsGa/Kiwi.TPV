@@ -109,6 +109,8 @@ namespace Kiwi.Tpv.App
 
         private void ButtonProduct_Click(object sender, EventArgs e)
         {
+            AlcoholModeTypes alcoholModeType = AlcoholModeTypes.Default;
+
             Product product;
             var btn = (Button) sender;
 
@@ -125,7 +127,7 @@ namespace Kiwi.Tpv.App
                 }
                 product = frmBottle.Bottle;
              
-                AddProductToSale(product);
+                AddProductToSale(product, alcoholModeType);
                 RefreshScreen();
                 ViewController.HidePopUp();
 
@@ -180,13 +182,11 @@ namespace Kiwi.Tpv.App
 
             product = (Product) btn.Tag;
             product.Quantity = 1;
-            AddProductToSale(product);
 
             if (AppGlobal.Company.CombinationControl && product.Type == ProductType.Alcohol)
             {
                 ViewController.ShowPopUp();
 
-                var alcoholModeType = AlcoholModeTypes.Combined;
                 var frmAlcoholModeTypes = new frmAlcoholModeTypes();
                 frmAlcoholModeTypes.ShowDialog();
                 alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
@@ -214,7 +214,9 @@ namespace Kiwi.Tpv.App
 
                 ViewController.HidePopUp();
             }
-
+          
+            AddProductToSale(product, alcoholModeType);
+          
             RefreshScreen();
         }
 
@@ -279,11 +281,11 @@ namespace Kiwi.Tpv.App
             }
 
             if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0 ||
-                senderGrid.Columns[e.ColumnIndex].Name != "RemoveAll") return;
+                senderGrid.Columns[e.ColumnIndex].Name != "AddOne") return;
             if (DataGridViewSelectedProducts.CurrentRow != null)
                 saleDetail = (SaleDetail)DataGridViewSelectedProducts.CurrentRow.DataBoundItem;
 
-            AppGlobal.Sale.RemoveAll(saleDetail);
+            AppGlobal.Sale.AddOneUnit(saleDetail);
             RefreshScreen();
         }
 
@@ -781,10 +783,8 @@ namespace Kiwi.Tpv.App
             }
         }
 
-        public void AddProductToSale(Product selectedProduct)
+        public void AddProductToSale(Product selectedProduct, AlcoholModeTypes alcoholModeType)
         {
-
-            var alcoholModeType = AlcoholModeTypes.Combined;
 
             if (AppGlobal.Sale == null)
             {
@@ -796,7 +796,7 @@ namespace Kiwi.Tpv.App
             AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);    
         }
 
-        private void RefreshScreen()
+        public void RefreshScreen()
         {
             try
             {

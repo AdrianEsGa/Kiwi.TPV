@@ -27,6 +27,7 @@
         public double SaleCupNightPrice { get; set; }
         public double SaleShotDayPrice { get; set; }
         public double SaleShotNightPrice { get; set; }
+        public double SaleCombinedPrice { get; set; }
         public bool ShowInMainView { get; set; }
         public byte[] Image { get; set; }
         public string ImagePath { get; set; }

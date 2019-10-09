@@ -12,8 +12,8 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             const string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
-                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
-                "FROM Products WHERE Active = 1 AND ShowInMainView = 1 ORDER BY Type, SubType";
+                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice " +
+                "FROM Products WHERE Active = 1 AND ShowInMainView = 1 ORDER BY Type, SubType, Name";
             var products = new List<Product>();
 
             try
@@ -33,6 +33,11 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),
+                                    SaleCupNightPrice = Convert.ToDouble(reader["SaleCupNightPrice"]),
+                                    SaleShotDayPrice = Convert.ToDouble(reader["SaleShotDayPrice"]),
+                                    SaleShotNightPrice = Convert.ToDouble(reader["SaleShotNightPrice"]),
+                                    SaleCombinedPrice = Convert.ToDouble(reader["SaleCombinedPrice"]),
                                     Type = (ProductType) reader["Type"],
                                     SubType = (ProductSubType)reader["SubType"],
                                     Active = (bool) reader["Active"],
@@ -70,8 +75,9 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             const string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
-                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, ImagePath  " +
-                "FROM Products ORDER BY Type, SubType";
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, ImagePath, " +
+                "SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice  " +
+                "FROM Products ORDER BY Type, SubType, Name";
             var products = new List<Product>();
 
             try
@@ -92,6 +98,11 @@ namespace Kiwi.Tpv.Database.Repositories
                                     ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),
+                                    SaleCupNightPrice = Convert.ToDouble(reader["SaleCupNightPrice"]),
+                                    SaleShotDayPrice = Convert.ToDouble(reader["SaleShotDayPrice"]),
+                                    SaleShotNightPrice = Convert.ToDouble(reader["SaleShotNightPrice"]),
+                                    SaleCombinedPrice = Convert.ToDouble(reader["SaleCombinedPrice"]),
                                     Type = (ProductType) reader["Type"],
                                     SubType = (ProductSubType)reader["SubType"],
                                     Active = (bool) reader["Active"],
@@ -129,8 +140,9 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
-                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
-                "FROM Products WHERE Active = 1 AND Type = " + (int) type + " ORDER BY Type, SubType";
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, " +
+                "SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice " +
+                "FROM Products WHERE Active = 1 AND Type = " + (int) type + " ORDER BY Type, SubType, Name";
 
             var products = new List<Product>();
 
@@ -151,6 +163,11 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),
+                                    SaleCupNightPrice = Convert.ToDouble(reader["SaleCupNightPrice"]),
+                                    SaleShotDayPrice = Convert.ToDouble(reader["SaleShotDayPrice"]),
+                                    SaleShotNightPrice = Convert.ToDouble(reader["SaleShotNightPrice"]),
+                                    SaleCombinedPrice = Convert.ToDouble(reader["SaleCombinedPrice"]),
                                     Type = (ProductType) reader["Type"],
                                     SubType = (ProductSubType)reader["SubType"],
                                     Active = (bool) reader["Active"],
@@ -188,8 +205,9 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
-                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
-                "FROM Products WHERE Active = 1 AND ShowInMainView = 0 AND Type = " + (int)type + " ORDER BY Type, SubType";
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, " +
+                "SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice " +
+                "FROM Products WHERE Active = 1 AND ShowInMainView = 0 AND Type = " + (int)type + " ORDER BY Type, SubType, Name";
 
             var products = new List<Product>();
 
@@ -210,6 +228,11 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),
+                                    SaleCupNightPrice = Convert.ToDouble(reader["SaleCupNightPrice"]),
+                                    SaleShotDayPrice = Convert.ToDouble(reader["SaleShotDayPrice"]),
+                                    SaleShotNightPrice = Convert.ToDouble(reader["SaleShotNightPrice"]),
+                                    SaleCombinedPrice = Convert.ToDouble(reader["SaleCombinedPrice"]),
                                     Type = (ProductType)reader["Type"],
                                     SubType = (ProductSubType)reader["SubType"],
                                     Active = (bool)reader["Active"],
@@ -250,13 +273,14 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = product.Id == 0
-                        ? "INSERT INTO Products (Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView) " +
-                          "VALUES (@Name, @Image, @SalePrice, @SaleDayPrice, @Type, @SubType, @Active, @SaleTaxPercentaje, @SaleUnits, @PurchaseUnits, @PurchasePrice, @PurchaseTaxPercentaje, @ShowInMainView) SELECT Scope_Identity()"
+                        ? "INSERT INTO Products (Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice) " +
+                          "VALUES (@Name, @Image, @SalePrice, @SaleDayPrice, @Type, @SubType, @Active, @SaleTaxPercentaje, @SaleUnits, @PurchaseUnits, @PurchasePrice, @PurchaseTaxPercentaje, @ShowInMainView, @SaleCupDayPrice, @SaleCupNightPrice, @SaleShotDayPrice, @SaleShotNightPrice, @SaleCombinedPrice) SELECT Scope_Identity()"
                         : "UPDATE Products " +
                           "SET Name = @Name, Image = @Image, SalePrice = @SalePrice, SaleDayPrice = @SaleDayPrice, " +
                           "Type = @Type, SubType = @SubType, Active = @Active, SaleTaxPercentaje = @SaleTaxPercentaje, " +
                           "SaleUnits = @SaleUnits, PurchaseUnits = @PurchaseUnits, " +
-                          "PurchasePrice = @PurchasePrice, PurchaseTaxPercentaje = @PurchaseTaxPercentaje, ShowInMainView = @ShowInMainView " +
+                          "PurchasePrice = @PurchasePrice, PurchaseTaxPercentaje = @PurchaseTaxPercentaje, ShowInMainView = @ShowInMainView, " +
+                          "SaleCupDayPrice = @SaleCupDayPrice, SaleCupNightPrice = @SaleCupNightPrice, SaleShotDayPrice = @SaleShotDayPrice, SaleShotNightPrice = @SaleShotNightPrice, SaleCombinedPrice = @SaleCombinedPrice " +
                           "WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
@@ -268,6 +292,11 @@ namespace Kiwi.Tpv.Database.Repositories
 
                         command.Parameters.AddWithValue("@SalePrice", product.SaleNightPrice);
                         command.Parameters.AddWithValue("@SaleDayPrice", product.SaleDayPrice);
+                        command.Parameters.AddWithValue("@SaleCupDayPrice", product.SaleCupDayPrice);
+                        command.Parameters.AddWithValue("@SaleCupNightPrice", product.SaleCupNightPrice);
+                        command.Parameters.AddWithValue("@SaleShotDayPrice", product.SaleShotDayPrice);
+                        command.Parameters.AddWithValue("@SaleShotNightPrice", product.SaleShotNightPrice);
+                        command.Parameters.AddWithValue("@SaleCombinedPrice", product.SaleCombinedPrice);
                         command.Parameters.AddWithValue("@Type", product.Type);
                         command.Parameters.AddWithValue("@SubType", product.SubType);
                         command.Parameters.AddWithValue("@Active", product.Active);
@@ -322,7 +351,8 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             const string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, SaleTaxPercentaje, SaleUnits, " +
-                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView " +
+                "PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, " +
+                "SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice " +
                 "FROM Products WHERE Id = @ProductId";
 
             var product = new Product();
@@ -346,6 +376,11 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
+                                    SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),
+                                    SaleCupNightPrice = Convert.ToDouble(reader["SaleCupNightPrice"]),
+                                    SaleShotDayPrice = Convert.ToDouble(reader["SaleShotDayPrice"]),
+                                    SaleShotNightPrice = Convert.ToDouble(reader["SaleShotNightPrice"]),
+                                    SaleCombinedPrice = Convert.ToDouble(reader["SaleCombinedPrice"]),
                                     Type = (ProductType)reader["Type"],
                                     SubType = (ProductSubType)reader["SubType"],
                                     Active = (bool)reader["Active"],

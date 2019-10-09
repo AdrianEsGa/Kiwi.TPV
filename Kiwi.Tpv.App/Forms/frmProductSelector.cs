@@ -106,9 +106,10 @@ namespace Kiwi.Tpv.App.Forms
             SelectedProduct = (Product)btn.Tag;
             SelectedProduct.Quantity = 1;
 
-            if (_combination) {SelectedProduct.SaleDayPrice = 0; SelectedProduct.SaleNightPrice = 0; }
+            if (_combination) {SelectedProduct.SaleDayPrice = SelectedProduct.SaleCombinedPrice; SelectedProduct.SaleNightPrice = SelectedProduct.SaleCombinedPrice; }
           
-            FrmMain.Instance.AddProductToSale(SelectedProduct);
+            FrmMain.Instance.AddProductToSale(SelectedProduct, AlcoholModeTypes.Default);
+            FrmMain.Instance.RefreshScreen();
             if (_combination) Close();
         }
 

@@ -32,9 +32,9 @@ namespace Kiwi.Tpv.App.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducts));
             this.CbProductSubType = new MetroFramework.Controls.MetroComboBox();
             this.txtPurchaseUnits = new MetroFramework.Controls.MetroTextBox();
@@ -101,6 +101,9 @@ namespace Kiwi.Tpv.App.Forms
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.TxtSaleCombinedPrice = new MetroFramework.Controls.MetroTextBox();
+            this.SodaPrices = new MetroFramework.Controls.MetroPanel();
             this.tabProducts.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
             this.SalePanel.SuspendLayout();
@@ -110,6 +113,7 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.SodaPrices.SuspendLayout();
             this.SuspendLayout();
             // 
             // CbProductSubType
@@ -236,7 +240,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblNightPrice
             // 
             this.lblNightPrice.AutoSize = true;
-            this.lblNightPrice.Location = new System.Drawing.Point(12, 40);
+            this.lblNightPrice.Location = new System.Drawing.Point(13, 69);
             this.lblNightPrice.Name = "lblNightPrice";
             this.lblNightPrice.Size = new System.Drawing.Size(96, 19);
             this.lblNightPrice.TabIndex = 48;
@@ -258,7 +262,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleNightPrice.CustomButton.UseSelectable = true;
             this.TxtSaleNightPrice.CustomButton.Visible = false;
             this.TxtSaleNightPrice.Lines = new string[0];
-            this.TxtSaleNightPrice.Location = new System.Drawing.Point(155, 37);
+            this.TxtSaleNightPrice.Location = new System.Drawing.Point(153, 72);
             this.TxtSaleNightPrice.MaxLength = 6;
             this.TxtSaleNightPrice.Name = "TxtSaleNightPrice";
             this.TxtSaleNightPrice.PasswordChar = '\0';
@@ -278,7 +282,7 @@ namespace Kiwi.Tpv.App.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(217, 101);
+            this.label4.Location = new System.Drawing.Point(303, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 19);
             this.label4.TabIndex = 64;
@@ -288,7 +292,7 @@ namespace Kiwi.Tpv.App.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 104);
+            this.label7.Location = new System.Drawing.Point(13, 36);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 19);
             this.label7.TabIndex = 58;
@@ -310,7 +314,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtSaleUnits.CustomButton.UseSelectable = true;
             this.txtSaleUnits.CustomButton.Visible = false;
             this.txtSaleUnits.Lines = new string[0];
-            this.txtSaleUnits.Location = new System.Drawing.Point(352, 101);
+            this.txtSaleUnits.Location = new System.Drawing.Point(438, 137);
             this.txtSaleUnits.MaxLength = 6;
             this.txtSaleUnits.Name = "txtSaleUnits";
             this.txtSaleUnits.PasswordChar = '\0';
@@ -334,7 +338,7 @@ namespace Kiwi.Tpv.App.Forms
             this.cbSaleTaxTypes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbSaleTaxTypes.FormattingEnabled = true;
             this.cbSaleTaxTypes.ItemHeight = 23;
-            this.cbSaleTaxTypes.Location = new System.Drawing.Point(155, 94);
+            this.cbSaleTaxTypes.Location = new System.Drawing.Point(153, 34);
             this.cbSaleTaxTypes.Name = "cbSaleTaxTypes";
             this.cbSaleTaxTypes.Size = new System.Drawing.Size(56, 29);
             this.cbSaleTaxTypes.TabIndex = 59;
@@ -396,7 +400,7 @@ namespace Kiwi.Tpv.App.Forms
             this.btnNew.ActiveControl = null;
             this.btnNew.BackColor = System.Drawing.SystemColors.Control;
             this.btnNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnNew.Location = new System.Drawing.Point(508, 397);
+            this.btnNew.Location = new System.Drawing.Point(493, 395);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(105, 48);
             this.btnNew.Style = MetroFramework.MetroColorStyle.Blue;
@@ -411,7 +415,7 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.ActiveControl = null;
             this.btnSave.BackColor = System.Drawing.SystemColors.Control;
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSave.Location = new System.Drawing.Point(730, 397);
+            this.btnSave.Location = new System.Drawing.Point(715, 395);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 48);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Green;
@@ -426,7 +430,7 @@ namespace Kiwi.Tpv.App.Forms
             this.btnRemove.ActiveControl = null;
             this.btnRemove.BackColor = System.Drawing.SystemColors.Control;
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnRemove.Location = new System.Drawing.Point(619, 397);
+            this.btnRemove.Location = new System.Drawing.Point(604, 395);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(105, 48);
             this.btnRemove.Style = MetroFramework.MetroColorStyle.Red;
@@ -458,7 +462,7 @@ namespace Kiwi.Tpv.App.Forms
             this.tabProducts.Location = new System.Drawing.Point(23, 69);
             this.tabProducts.Name = "tabProducts";
             this.tabProducts.SelectedIndex = 0;
-            this.tabProducts.Size = new System.Drawing.Size(904, 488);
+            this.tabProducts.Size = new System.Drawing.Size(824, 488);
             this.tabProducts.TabIndex = 90;
             this.tabProducts.UseSelectable = true;
             // 
@@ -486,7 +490,7 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageFicha.HorizontalScrollbarSize = 10;
             this.metroTabPageFicha.Location = new System.Drawing.Point(4, 38);
             this.metroTabPageFicha.Name = "metroTabPageFicha";
-            this.metroTabPageFicha.Size = new System.Drawing.Size(896, 446);
+            this.metroTabPageFicha.Size = new System.Drawing.Size(816, 446);
             this.metroTabPageFicha.TabIndex = 0;
             this.metroTabPageFicha.Text = "Ficha";
             this.metroTabPageFicha.VerticalScrollbarBarColor = true;
@@ -495,6 +499,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // SalePanel
             // 
+            this.SalePanel.Controls.Add(this.SodaPrices);
             this.SalePanel.Controls.Add(this.AlcoholPricesPanel);
             this.SalePanel.Controls.Add(this.metroLabel1);
             this.SalePanel.Controls.Add(this.cbSaleTaxTypes);
@@ -508,9 +513,9 @@ namespace Kiwi.Tpv.App.Forms
             this.SalePanel.HorizontalScrollbarBarColor = true;
             this.SalePanel.HorizontalScrollbarHighlightOnWheel = false;
             this.SalePanel.HorizontalScrollbarSize = 10;
-            this.SalePanel.Location = new System.Drawing.Point(5, 184);
+            this.SalePanel.Location = new System.Drawing.Point(5, 194);
             this.SalePanel.Name = "SalePanel";
-            this.SalePanel.Size = new System.Drawing.Size(634, 174);
+            this.SalePanel.Size = new System.Drawing.Size(640, 183);
             this.SalePanel.TabIndex = 102;
             this.SalePanel.VerticalScrollbarBarColor = true;
             this.SalePanel.VerticalScrollbarHighlightOnWheel = false;
@@ -529,9 +534,9 @@ namespace Kiwi.Tpv.App.Forms
             this.AlcoholPricesPanel.HorizontalScrollbarBarColor = true;
             this.AlcoholPricesPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.AlcoholPricesPanel.HorizontalScrollbarSize = 10;
-            this.AlcoholPricesPanel.Location = new System.Drawing.Point(212, 34);
+            this.AlcoholPricesPanel.Location = new System.Drawing.Point(215, 67);
             this.AlcoholPricesPanel.Name = "AlcoholPricesPanel";
-            this.AlcoholPricesPanel.Size = new System.Drawing.Size(413, 64);
+            this.AlcoholPricesPanel.Size = new System.Drawing.Size(410, 64);
             this.AlcoholPricesPanel.TabIndex = 103;
             this.AlcoholPricesPanel.VerticalScrollbarBarColor = true;
             this.AlcoholPricesPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -563,7 +568,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleShotNightPrice.CustomButton.UseSelectable = true;
             this.TxtSaleShotNightPrice.CustomButton.Visible = false;
             this.TxtSaleShotNightPrice.Lines = new string[0];
-            this.TxtSaleShotNightPrice.Location = new System.Drawing.Point(348, 2);
+            this.TxtSaleShotNightPrice.Location = new System.Drawing.Point(348, 5);
             this.TxtSaleShotNightPrice.MaxLength = 6;
             this.TxtSaleShotNightPrice.Name = "TxtSaleShotNightPrice";
             this.TxtSaleShotNightPrice.PasswordChar = '\0';
@@ -596,7 +601,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleShotDayPrice.CustomButton.UseSelectable = true;
             this.TxtSaleShotDayPrice.CustomButton.Visible = false;
             this.TxtSaleShotDayPrice.Lines = new string[0];
-            this.TxtSaleShotDayPrice.Location = new System.Drawing.Point(348, 30);
+            this.TxtSaleShotDayPrice.Location = new System.Drawing.Point(348, 33);
             this.TxtSaleShotDayPrice.MaxLength = 6;
             this.TxtSaleShotDayPrice.Name = "TxtSaleShotDayPrice";
             this.TxtSaleShotDayPrice.PasswordChar = '\0';
@@ -616,7 +621,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblShotNightPrice
             // 
             this.lblShotNightPrice.AutoSize = true;
-            this.lblShotNightPrice.Location = new System.Drawing.Point(203, 3);
+            this.lblShotNightPrice.Location = new System.Drawing.Point(203, 5);
             this.lblShotNightPrice.Name = "lblShotNightPrice";
             this.lblShotNightPrice.Size = new System.Drawing.Size(143, 19);
             this.lblShotNightPrice.TabIndex = 102;
@@ -625,7 +630,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblCupNightPrice
             // 
             this.lblCupNightPrice.AutoSize = true;
-            this.lblCupNightPrice.Location = new System.Drawing.Point(6, 6);
+            this.lblCupNightPrice.Location = new System.Drawing.Point(3, 2);
             this.lblCupNightPrice.Name = "lblCupNightPrice";
             this.lblCupNightPrice.Size = new System.Drawing.Size(129, 19);
             this.lblCupNightPrice.TabIndex = 98;
@@ -647,7 +652,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleCupNightPrice.CustomButton.UseSelectable = true;
             this.TxtSaleCupNightPrice.CustomButton.Visible = false;
             this.TxtSaleCupNightPrice.Lines = new string[0];
-            this.TxtSaleCupNightPrice.Location = new System.Drawing.Point(141, 5);
+            this.TxtSaleCupNightPrice.Location = new System.Drawing.Point(137, 5);
             this.TxtSaleCupNightPrice.MaxLength = 6;
             this.TxtSaleCupNightPrice.Name = "TxtSaleCupNightPrice";
             this.TxtSaleCupNightPrice.PasswordChar = '\0';
@@ -680,7 +685,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleCupDayPrice.CustomButton.UseSelectable = true;
             this.TxtSaleCupDayPrice.CustomButton.Visible = false;
             this.TxtSaleCupDayPrice.Lines = new string[0];
-            this.TxtSaleCupDayPrice.Location = new System.Drawing.Point(141, 33);
+            this.TxtSaleCupDayPrice.Location = new System.Drawing.Point(137, 33);
             this.TxtSaleCupDayPrice.MaxLength = 6;
             this.TxtSaleCupDayPrice.Name = "TxtSaleCupDayPrice";
             this.TxtSaleCupDayPrice.PasswordChar = '\0';
@@ -700,7 +705,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblCupDayPrice
             // 
             this.lblCupDayPrice.AutoSize = true;
-            this.lblCupDayPrice.Location = new System.Drawing.Point(6, 38);
+            this.lblCupDayPrice.Location = new System.Drawing.Point(3, 35);
             this.lblCupDayPrice.Name = "lblCupDayPrice";
             this.lblCupDayPrice.Size = new System.Drawing.Size(110, 19);
             this.lblCupDayPrice.TabIndex = 100;
@@ -719,7 +724,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblDayPrice
             // 
             this.lblDayPrice.AutoSize = true;
-            this.lblDayPrice.Location = new System.Drawing.Point(12, 72);
+            this.lblDayPrice.Location = new System.Drawing.Point(13, 102);
             this.lblDayPrice.Name = "lblDayPrice";
             this.lblDayPrice.Size = new System.Drawing.Size(77, 19);
             this.lblDayPrice.TabIndex = 96;
@@ -741,7 +746,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleDayPrice.CustomButton.UseSelectable = true;
             this.TxtSaleDayPrice.CustomButton.Visible = false;
             this.TxtSaleDayPrice.Lines = new string[0];
-            this.TxtSaleDayPrice.Location = new System.Drawing.Point(155, 67);
+            this.TxtSaleDayPrice.Location = new System.Drawing.Point(153, 103);
             this.TxtSaleDayPrice.MaxLength = 6;
             this.TxtSaleDayPrice.Name = "TxtSaleDayPrice";
             this.TxtSaleDayPrice.PasswordChar = '\0';
@@ -770,7 +775,7 @@ namespace Kiwi.Tpv.App.Forms
             this.PurchasePanel.HorizontalScrollbarBarColor = true;
             this.PurchasePanel.HorizontalScrollbarHighlightOnWheel = false;
             this.PurchasePanel.HorizontalScrollbarSize = 10;
-            this.PurchasePanel.Location = new System.Drawing.Point(735, 345);
+            this.PurchasePanel.Location = new System.Drawing.Point(129, 397);
             this.PurchasePanel.Name = "PurchasePanel";
             this.PurchasePanel.Size = new System.Drawing.Size(100, 46);
             this.PurchasePanel.TabIndex = 101;
@@ -825,9 +830,9 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // pictureBoxProductImage
             // 
-            this.pictureBoxProductImage.Location = new System.Drawing.Point(645, 33);
+            this.pictureBoxProductImage.Location = new System.Drawing.Point(565, 33);
             this.pictureBoxProductImage.Name = "pictureBoxProductImage";
-            this.pictureBoxProductImage.Size = new System.Drawing.Size(247, 217);
+            this.pictureBoxProductImage.Size = new System.Drawing.Size(161, 155);
             this.pictureBoxProductImage.TabIndex = 95;
             this.pictureBoxProductImage.Text = "Imagen";
             this.pictureBoxProductImage.UseSelectable = true;
@@ -915,7 +920,7 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageBusqueda.HorizontalScrollbarSize = 10;
             this.metroTabPageBusqueda.Location = new System.Drawing.Point(4, 38);
             this.metroTabPageBusqueda.Name = "metroTabPageBusqueda";
-            this.metroTabPageBusqueda.Size = new System.Drawing.Size(896, 446);
+            this.metroTabPageBusqueda.Size = new System.Drawing.Size(816, 446);
             this.metroTabPageBusqueda.TabIndex = 1;
             this.metroTabPageBusqueda.Text = "Búsqueda";
             this.metroTabPageBusqueda.VerticalScrollbarBarColor = true;
@@ -930,14 +935,14 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.DataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -955,14 +960,14 @@ namespace Kiwi.Tpv.App.Forms
             this.saleUnitsDataGridViewTextBoxColumn,
             this.purchaseUnitsDataGridViewTextBoxColumn});
             this.DataGridViewProducts.DataSource = this.productBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle20;
             this.DataGridViewProducts.EnableHeadersVisualStyles = false;
             this.DataGridViewProducts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -971,20 +976,20 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.Name = "DataGridViewProducts";
             this.DataGridViewProducts.ReadOnly = true;
             this.DataGridViewProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.DataGridViewProducts.RowHeadersVisible = false;
             this.DataGridViewProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewProducts.RowTemplate.Height = 40;
             this.DataGridViewProducts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewProducts.Size = new System.Drawing.Size(854, 440);
+            this.DataGridViewProducts.Size = new System.Drawing.Size(815, 440);
             this.DataGridViewProducts.TabIndex = 3;
             this.DataGridViewProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewProducts_CellDoubleClick);
             // 
@@ -1109,7 +1114,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(853, 20);
+            this.btnClose.Location = new System.Drawing.Point(777, 20);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -1127,12 +1132,68 @@ namespace Kiwi.Tpv.App.Forms
             this.dataGridViewTextBoxColumn1.HeaderText = "Subtipo";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(4, 3);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel3.TabIndex = 104;
+            this.metroLabel3.Text = "Precio combi.";
+            // 
+            // TxtSaleCombinedPrice
+            // 
+            this.TxtSaleCombinedPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtSaleCombinedPrice.CustomButton.Image = null;
+            this.TxtSaleCombinedPrice.CustomButton.Location = new System.Drawing.Point(36, 2);
+            this.TxtSaleCombinedPrice.CustomButton.Name = "";
+            this.TxtSaleCombinedPrice.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.TxtSaleCombinedPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtSaleCombinedPrice.CustomButton.TabIndex = 1;
+            this.TxtSaleCombinedPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtSaleCombinedPrice.CustomButton.UseSelectable = true;
+            this.TxtSaleCombinedPrice.CustomButton.Visible = false;
+            this.TxtSaleCombinedPrice.Lines = new string[0];
+            this.TxtSaleCombinedPrice.Location = new System.Drawing.Point(144, 3);
+            this.TxtSaleCombinedPrice.MaxLength = 6;
+            this.TxtSaleCombinedPrice.Name = "TxtSaleCombinedPrice";
+            this.TxtSaleCombinedPrice.PasswordChar = '\0';
+            this.TxtSaleCombinedPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtSaleCombinedPrice.SelectedText = "";
+            this.TxtSaleCombinedPrice.SelectionLength = 0;
+            this.TxtSaleCombinedPrice.SelectionStart = 0;
+            this.TxtSaleCombinedPrice.ShortcutsEnabled = true;
+            this.TxtSaleCombinedPrice.Size = new System.Drawing.Size(56, 22);
+            this.TxtSaleCombinedPrice.TabIndex = 105;
+            this.TxtSaleCombinedPrice.UseSelectable = true;
+            this.TxtSaleCombinedPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtSaleCombinedPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // SodaPrices
+            // 
+            this.SodaPrices.Controls.Add(this.metroLabel3);
+            this.SodaPrices.Controls.Add(this.TxtSaleCombinedPrice);
+            this.SodaPrices.HorizontalScrollbarBarColor = true;
+            this.SodaPrices.HorizontalScrollbarHighlightOnWheel = false;
+            this.SodaPrices.HorizontalScrollbarSize = 10;
+            this.SodaPrices.Location = new System.Drawing.Point(9, 132);
+            this.SodaPrices.Name = "SodaPrices";
+            this.SodaPrices.Size = new System.Drawing.Size(215, 29);
+            this.SodaPrices.TabIndex = 106;
+            this.SodaPrices.VerticalScrollbarBarColor = true;
+            this.SodaPrices.VerticalScrollbarHighlightOnWheel = false;
+            this.SodaPrices.VerticalScrollbarSize = 10;
+            this.SodaPrices.Visible = false;
+            // 
             // FrmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(942, 576);
+            this.ClientSize = new System.Drawing.Size(860, 576);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabProducts);
@@ -1158,6 +1219,8 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            this.SodaPrices.ResumeLayout(false);
+            this.SodaPrices.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1231,5 +1294,8 @@ namespace Kiwi.Tpv.App.Forms
         private MetroTextBox TxtSaleShotNightPrice;
         private MetroLabel lblShotNightPrice;
         private MetroPanel AlcoholPricesPanel;
+        private MetroPanel SodaPrices;
+        private MetroLabel metroLabel3;
+        private MetroTextBox TxtSaleCombinedPrice;
     }
 }

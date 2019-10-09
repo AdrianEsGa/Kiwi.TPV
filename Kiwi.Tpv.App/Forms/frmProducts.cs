@@ -76,20 +76,27 @@ namespace Kiwi.Tpv.App.Forms
 
         private void CbProductType_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if ((ProductType) CbProductType.SelectedItem == ProductType.Alcohol)
+            switch ((ProductType)CbProductType.SelectedItem)
             {
-                CbProductSubType.Visible = true;
-                lblDayPrice.Text = "Precio combi. (Día)";
-                lblNightPrice.Text = "Precio combi. (Noche)";
-                AlcoholPricesPanel.Visible = true;
-            }
-            else
-            {
-                CbProductSubType.Visible = false;
-                CbProductSubType.SelectedItem = ProductSubType.Generico;
-                lblDayPrice.Text = "Precio (Día)";
-                lblNightPrice.Text = "Precio (Noche)";
-                AlcoholPricesPanel.Visible = false;
+                case ProductType.Alcohol:
+                    CbProductSubType.Visible = true;
+                    lblDayPrice.Text = "Precio combi. (Día)";
+                    lblNightPrice.Text = "Precio combi. (Noche)";
+                    AlcoholPricesPanel.Visible = true;
+                    SodaPrices.Visible = false;
+                    break;
+                case ProductType.Refresco:
+                    SodaPrices.Visible = true;
+                    AlcoholPricesPanel.Visible = false;
+                    break;
+                default:
+                    CbProductSubType.Visible = false;
+                    CbProductSubType.SelectedItem = ProductSubType.Generico;
+                    lblDayPrice.Text = "Precio (Día)";
+                    lblNightPrice.Text = "Precio (Noche)";
+                    AlcoholPricesPanel.Visible = false;
+                    SodaPrices.Visible = false;
+                    break;
             }
 
             if ((ProductType) CbProductType.SelectedItem == ProductType.Alcohol ||
@@ -217,6 +224,8 @@ namespace Kiwi.Tpv.App.Forms
                 TxtSaleShotNightPrice.Text = _selectedProduct.SaleShotNightPrice.ToString(CultureInfo.InvariantCulture);
                 TxtSaleShotDayPrice.Text = _selectedProduct.SaleShotDayPrice.ToString(CultureInfo.InvariantCulture);
 
+                TxtSaleCombinedPrice.Text = _selectedProduct.SaleCombinedPrice.ToString(CultureInfo.InvariantCulture);
+
                 TxtPurchasePrice.Text = _selectedProduct.PurchasePrice.ToString(CultureInfo.InvariantCulture);
                 txtSaleUnits.Text = _selectedProduct.SaleUnits.ToString(CultureInfo.InvariantCulture);
                 txtPurchaseUnits.Text = _selectedProduct.PurchaseUnits.ToString(CultureInfo.InvariantCulture);
@@ -244,20 +253,30 @@ namespace Kiwi.Tpv.App.Forms
                                               _selectedProduct.Type == ProductType.Cafes;
 
 
-                if ((ProductType)CbProductType.SelectedItem == ProductType.Alcohol)
+                if (CbProductType.SelectedItem != null)
                 {
-                    CbProductSubType.Visible = true;
-                    lblDayPrice.Text = "Precio combi. (Día)";
-                    lblNightPrice.Text = "Precio combi. (Noche)";
-                    AlcoholPricesPanel.Visible = true;
-                }
-                else
-                {
-                    CbProductSubType.Visible = false;
-                    CbProductSubType.SelectedItem = ProductSubType.Generico;
-                    lblDayPrice.Text = "Precio (Día)";
-                    lblNightPrice.Text = "Precio (Noche)";
-                    AlcoholPricesPanel.Visible = false;
+                    switch ((ProductType) CbProductType.SelectedItem)
+                    {
+                        case ProductType.Alcohol:
+                            CbProductSubType.Visible = true;
+                            lblDayPrice.Text = "Precio combi. (Día)";
+                            lblNightPrice.Text = "Precio combi. (Noche)";
+                            AlcoholPricesPanel.Visible = true;
+                            SodaPrices.Visible = false;
+                            break;
+                        case ProductType.Refresco:
+                            SodaPrices.Visible = true;
+                            AlcoholPricesPanel.Visible = false;
+                            break;
+                        default:
+                            CbProductSubType.Visible = false;
+                            CbProductSubType.SelectedItem = ProductSubType.Generico;
+                            lblDayPrice.Text = "Precio (Día)";
+                            lblNightPrice.Text = "Precio (Noche)";
+                            AlcoholPricesPanel.Visible = false;
+                            SodaPrices.Visible = false;
+                            break;
+                    }
                 }
 
             }
@@ -287,6 +306,8 @@ namespace Kiwi.Tpv.App.Forms
 
             _selectedProduct.SaleShotNightPrice = Convert.ToDouble(TxtSaleShotNightPrice.Text.Replace('.', ','));
             _selectedProduct.SaleShotDayPrice = Convert.ToDouble(TxtSaleShotDayPrice.Text.Replace('.', ','));
+
+            _selectedProduct.SaleCombinedPrice = Convert.ToDouble(TxtSaleCombinedPrice.Text.Replace('.', ','));
 
             _selectedProduct.SaleTaxType = (TaxType) cbSaleTaxTypes.SelectedItem;
             _selectedProduct.PurchasePrice = Convert.ToDouble(TxtPurchasePrice.Text.Replace('.', ','));

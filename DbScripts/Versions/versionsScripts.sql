@@ -101,3 +101,16 @@ GO
 ALTER TABLE Products ADD Image VARBINARY(MAX)
 GO
 ALTER TABLE Companies ADD TicketReport VARCHAR(200)
+GO
+ALTER TABLE Products ADD SaleCupDayPrice MONEY
+GO
+ALTER TABLE Products ADD SaleCupNightPrice MONEY
+GO
+ALTER TABLE Products ADD SaleShotDayPrice MONEY
+GO
+ALTER TABLE Products ADD SaleShotNightPrice MONEY 
+GO
+ALTER TABLE Products ADD SaleCombinedPrice MONEY 
+GO
+UPDATE Products SET  SaleCupDayPrice = 0,SaleCupNightPrice = 0,SaleShotDayPrice = 0,SaleShotNightPrice = 0,SaleCombinedPrice = 0
+
