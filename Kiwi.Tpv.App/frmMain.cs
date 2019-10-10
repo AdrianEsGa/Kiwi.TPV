@@ -41,6 +41,11 @@ namespace Kiwi.Tpv.App
             _worker.DoWork += DoWork;
             _worker.RunWorkerCompleted += RunWorkerCompleted;
             SelectBar();
+
+            DataGridViewSelectedProducts.DefaultCellStyle.SelectionBackColor =
+                DataGridViewSelectedProducts.DefaultCellStyle.BackColor;
+            DataGridViewSelectedProducts.DefaultCellStyle.SelectionForeColor =
+                DataGridViewSelectedProducts.DefaultCellStyle.ForeColor;
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -83,7 +88,7 @@ namespace Kiwi.Tpv.App
                 PaintEmployees();
                 TestPrinter();
 
-                lblDayNight.Text = "Día";
+                lblDayNight.Text = "DÍA";
                 AppGlobal.SaleMode = SaleMode.Day;
 
                 if (AppGlobal.AppGeneralConfig.SystemJoke)
@@ -345,13 +350,13 @@ namespace Kiwi.Tpv.App
 
         private void btnDayMode_Click(object sender, EventArgs e)
         {
-            lblDayNight.Text = "Día";
+            lblDayNight.Text = "DÍA";
             AppGlobal.SaleMode = SaleMode.Day;
         }
 
         private void btnNightMode_Click(object sender, EventArgs e)
         {
-            lblDayNight.Text = "Noche";
+            lblDayNight.Text = "NOCHE";
             AppGlobal.SaleMode = SaleMode.Night;
         }
 
