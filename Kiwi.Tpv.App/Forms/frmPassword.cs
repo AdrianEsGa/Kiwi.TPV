@@ -23,12 +23,13 @@ namespace Kiwi.Tpv.App.Forms
         private void FrmPassword_Load(object sender, EventArgs e)
         {
             txtPassword.Select();
+            ViewController.ShowWindowKeyboard();
         }
 
         private void ValidatePassword()
         {
             if (AppGlobal.AppGeneralConfig.AdminPassword.Trim() != txtPassword.Text.Trim()) return;
-            ValidPassword = true;
+            ValidPassword = true;         
             Close();
         }
 
@@ -41,6 +42,16 @@ namespace Kiwi.Tpv.App.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void FrmPassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
         }
     }
 }

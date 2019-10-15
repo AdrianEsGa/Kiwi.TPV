@@ -24,7 +24,8 @@ namespace Kiwi.Tpv.App.Forms
         private void FrmEmployees_Load(object sender, EventArgs e)
         {
             LoadData();
-            tabEmployees.SelectedTab = tabEmployees.TabPages[0];
+            tabEmployees.SelectedTab = tabEmployees.TabPages[0];        
+            TxtName.Validated += TxtName_Validated;
         }
 
         #region Events
@@ -80,6 +81,11 @@ namespace Kiwi.Tpv.App.Forms
             pictureBoxImage.BackgroundImage = Image.FromFile(file.FileName);
             pictureBoxImage.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxImage.Text = String.Empty;
+        }
+
+        private void TxtName_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
         }
 
         #endregion
@@ -176,5 +182,14 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
+        private void TxtName_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void FrmEmployees_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
     }
 }

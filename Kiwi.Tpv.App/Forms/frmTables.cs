@@ -71,6 +71,31 @@ namespace Kiwi.Tpv.App.Forms
             Save();
         }
 
+        private void txtCode_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtCode_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtTableName_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtTableName_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void FrmTables_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
         #endregion
 
         #region Methods 
@@ -161,6 +186,9 @@ namespace Kiwi.Tpv.App.Forms
             return true;
         }
 
+
         #endregion
+
+
     }
 }

@@ -107,16 +107,6 @@ namespace Kiwi.Tpv.App.Forms
             picBoxAppLogo.Image = null;
         }
 
-        private void cbActualStation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroTabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -138,6 +128,24 @@ namespace Kiwi.Tpv.App.Forms
         {
             picBoxReportsLocalImage.Image = null;
         }
+
+        private void BtnSelectReportTicket_Click(object sender, EventArgs e)
+        {
+            var file = new OpenFileDialog
+            {
+                InitialDirectory = Directory.GetCurrentDirectory(),
+                Filter = Resources.ReportExtensionFilter
+            };
+
+            if (file.ShowDialog() == DialogResult.OK)
+                TxtTicketReport.Text = file.FileName;
+        }
+
+        private void btnImageUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateController.UpdateImages();
+        }
+
         #endregion
 
         #region Methods
@@ -236,21 +244,93 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
-        private void btnImageUpdate_Click(object sender, EventArgs e)
+        #region Window Keyboard Events
+
+        private void TxtCompanyName_Click(object sender, EventArgs e)
         {
-            UpdateController.UpdateImages();
+            ViewController.ShowWindowKeyboard();
         }
 
-        private void BtnSelectReportTicket_Click(object sender, EventArgs e)
+        private void TxtCompanyName_Validated(object sender, EventArgs e)
         {
-            var file = new OpenFileDialog
-            {
-                InitialDirectory = Directory.GetCurrentDirectory(),
-                Filter = Resources.ReportExtensionFilter
-            };
-
-            if (file.ShowDialog() == DialogResult.OK)
-                TxtTicketReport.Text = file.FileName;
+            ViewController.HideWindowKeyboard();
         }
+
+        private void txtCompanyCif_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtCompanyCif_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtTicketReport_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtTicketReport_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void FrmConfiguration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void txtAdminPassword_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtAdminPassword_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void txtProductButtonsDimension_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtProductButtonsDimension_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void txtEmployeeButtonsDimension_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtEmployeeButtonsDimension_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void txtTableButtonsDimensions_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void txtTableButtonsDimensions_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtBackImagePath_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtBackImagePath_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+       #endregion
     }
 }

@@ -54,6 +54,9 @@ namespace Kiwi.Tpv.App.Forms
             this.txtEmployeeButtonsDimension = new MetroFramework.Controls.MetroTextBox();
             this.label5 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.BtnSelectReportTicket = new MetroFramework.Controls.MetroButton();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.TxtTicketReport = new MetroFramework.Controls.MetroTextBox();
             this.btnRemoveCompanyLocalImage = new MetroFramework.Controls.MetroTile();
             this.picBoxReportsLocalImage = new System.Windows.Forms.PictureBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -93,9 +96,6 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.TxtTicketReport = new MetroFramework.Controls.MetroTextBox();
-            this.BtnSelectReportTicket = new MetroFramework.Controls.MetroButton();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -117,7 +117,7 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.Controls.Add(this.metroTabPage4);
             this.tabConfig.Location = new System.Drawing.Point(23, 69);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.SelectedIndex = 1;
+            this.tabConfig.SelectedIndex = 0;
             this.tabConfig.Size = new System.Drawing.Size(856, 433);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.UseSelectable = true;
@@ -194,6 +194,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtTableButtonsDimensions.UseSelectable = true;
             this.txtTableButtonsDimensions.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtTableButtonsDimensions.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTableButtonsDimensions.Click += new System.EventHandler(this.txtTableButtonsDimensions_Click);
+            this.txtTableButtonsDimensions.Validated += new System.EventHandler(this.txtTableButtonsDimensions_Validated);
             // 
             // metroLabel2
             // 
@@ -270,6 +272,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtAdminPassword.UseSelectable = true;
             this.txtAdminPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtAdminPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAdminPassword.Click += new System.EventHandler(this.txtAdminPassword_Click);
+            this.txtAdminPassword.Validated += new System.EventHandler(this.txtAdminPassword_Validated);
             // 
             // btnOpenBackImage
             // 
@@ -320,6 +324,8 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtBackImagePath.UseSelectable = true;
             this.TxtBackImagePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtBackImagePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBackImagePath.Click += new System.EventHandler(this.TxtBackImagePath_Click);
+            this.TxtBackImagePath.Validated += new System.EventHandler(this.TxtBackImagePath_Validated);
             // 
             // txtProductButtonsDimension
             // 
@@ -351,6 +357,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtProductButtonsDimension.UseSelectable = true;
             this.txtProductButtonsDimension.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtProductButtonsDimension.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtProductButtonsDimension.Click += new System.EventHandler(this.txtProductButtonsDimension_Click);
+            this.txtProductButtonsDimension.Validated += new System.EventHandler(this.txtProductButtonsDimension_Validated);
             // 
             // txtEmployeeButtonsDimension
             // 
@@ -382,6 +390,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtEmployeeButtonsDimension.UseSelectable = true;
             this.txtEmployeeButtonsDimension.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEmployeeButtonsDimension.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtEmployeeButtonsDimension.Click += new System.EventHandler(this.txtEmployeeButtonsDimension_Click);
+            this.txtEmployeeButtonsDimension.Validated += new System.EventHandler(this.txtEmployeeButtonsDimension_Validated);
             // 
             // label5
             // 
@@ -426,7 +436,57 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
-            this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
+            // 
+            // BtnSelectReportTicket
+            // 
+            this.BtnSelectReportTicket.Location = new System.Drawing.Point(509, 140);
+            this.BtnSelectReportTicket.Name = "BtnSelectReportTicket";
+            this.BtnSelectReportTicket.Size = new System.Drawing.Size(26, 23);
+            this.BtnSelectReportTicket.TabIndex = 79;
+            this.BtnSelectReportTicket.UseSelectable = true;
+            this.BtnSelectReportTicket.Click += new System.EventHandler(this.BtnSelectReportTicket_Click);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(3, 140);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(42, 19);
+            this.metroLabel3.TabIndex = 77;
+            this.metroLabel3.Text = "Ticket";
+            // 
+            // TxtTicketReport
+            // 
+            this.TxtTicketReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.TxtTicketReport.CustomButton.Image = null;
+            this.TxtTicketReport.CustomButton.Location = new System.Drawing.Point(337, 2);
+            this.TxtTicketReport.CustomButton.Name = "";
+            this.TxtTicketReport.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtTicketReport.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtTicketReport.CustomButton.TabIndex = 1;
+            this.TxtTicketReport.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtTicketReport.CustomButton.UseSelectable = true;
+            this.TxtTicketReport.CustomButton.Visible = false;
+            this.TxtTicketReport.Lines = new string[0];
+            this.TxtTicketReport.Location = new System.Drawing.Point(147, 141);
+            this.TxtTicketReport.MaxLength = 10;
+            this.TxtTicketReport.Name = "TxtTicketReport";
+            this.TxtTicketReport.PasswordChar = '\0';
+            this.TxtTicketReport.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtTicketReport.SelectedText = "";
+            this.TxtTicketReport.SelectionLength = 0;
+            this.TxtTicketReport.SelectionStart = 0;
+            this.TxtTicketReport.ShortcutsEnabled = true;
+            this.TxtTicketReport.Size = new System.Drawing.Size(355, 20);
+            this.TxtTicketReport.TabIndex = 78;
+            this.TxtTicketReport.UseSelectable = true;
+            this.TxtTicketReport.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtTicketReport.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtTicketReport.Click += new System.EventHandler(this.TxtTicketReport_Click);
+            this.TxtTicketReport.Validated += new System.EventHandler(this.TxtTicketReport_Validated);
             // 
             // btnRemoveCompanyLocalImage
             // 
@@ -557,6 +617,8 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtCompanyName.UseSelectable = true;
             this.TxtCompanyName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCompanyName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtCompanyName.Click += new System.EventHandler(this.TxtCompanyName_Click);
+            this.TxtCompanyName.Validated += new System.EventHandler(this.TxtCompanyName_Validated);
             // 
             // picBoxAppLogo
             // 
@@ -615,6 +677,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtCompanyCif.UseSelectable = true;
             this.txtCompanyCif.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCompanyCif.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCompanyCif.Click += new System.EventHandler(this.txtCompanyCif_Click);
+            this.txtCompanyCif.Validated += new System.EventHandler(this.txtCompanyCif_Validated);
             // 
             // btnSelectCompanyReportsLogo
             // 
@@ -772,7 +836,6 @@ namespace Kiwi.Tpv.App.Forms
             this.cbActualStation.Size = new System.Drawing.Size(217, 29);
             this.cbActualStation.TabIndex = 4;
             this.cbActualStation.UseSelectable = true;
-            this.cbActualStation.SelectedIndexChanged += new System.EventHandler(this.cbActualStation_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -952,55 +1015,6 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 140);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel3.TabIndex = 77;
-            this.metroLabel3.Text = "Ticket";
-            // 
-            // TxtTicketReport
-            // 
-            this.TxtTicketReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            // 
-            // 
-            // 
-            this.TxtTicketReport.CustomButton.Image = null;
-            this.TxtTicketReport.CustomButton.Location = new System.Drawing.Point(337, 2);
-            this.TxtTicketReport.CustomButton.Name = "";
-            this.TxtTicketReport.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtTicketReport.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtTicketReport.CustomButton.TabIndex = 1;
-            this.TxtTicketReport.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtTicketReport.CustomButton.UseSelectable = true;
-            this.TxtTicketReport.CustomButton.Visible = false;
-            this.TxtTicketReport.Lines = new string[0];
-            this.TxtTicketReport.Location = new System.Drawing.Point(147, 141);
-            this.TxtTicketReport.MaxLength = 10;
-            this.TxtTicketReport.Name = "TxtTicketReport";
-            this.TxtTicketReport.PasswordChar = '\0';
-            this.TxtTicketReport.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtTicketReport.SelectedText = "";
-            this.TxtTicketReport.SelectionLength = 0;
-            this.TxtTicketReport.SelectionStart = 0;
-            this.TxtTicketReport.ShortcutsEnabled = true;
-            this.TxtTicketReport.Size = new System.Drawing.Size(355, 20);
-            this.TxtTicketReport.TabIndex = 78;
-            this.TxtTicketReport.UseSelectable = true;
-            this.TxtTicketReport.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtTicketReport.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // BtnSelectReportTicket
-            // 
-            this.BtnSelectReportTicket.Location = new System.Drawing.Point(509, 140);
-            this.BtnSelectReportTicket.Name = "BtnSelectReportTicket";
-            this.BtnSelectReportTicket.Size = new System.Drawing.Size(26, 23);
-            this.BtnSelectReportTicket.TabIndex = 79;
-            this.BtnSelectReportTicket.UseSelectable = true;
-            this.BtnSelectReportTicket.Click += new System.EventHandler(this.BtnSelectReportTicket_Click);
-            // 
             // FrmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1018,6 +1032,7 @@ namespace Kiwi.Tpv.App.Forms
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Configuración";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConfiguration_FormClosed);
             this.Load += new System.EventHandler(this.frmConfiguration_Load);
             this.tabConfig.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);

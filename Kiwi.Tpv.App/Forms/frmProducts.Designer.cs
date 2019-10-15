@@ -32,9 +32,9 @@ namespace Kiwi.Tpv.App.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducts));
             this.CbProductSubType = new MetroFramework.Controls.MetroComboBox();
             this.txtPurchaseUnits = new MetroFramework.Controls.MetroTextBox();
@@ -277,7 +277,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleNightPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleNightPrice.TextChanged += new System.EventHandler(this.TxtSalePrice_TextChanged);
+            this.TxtSaleNightPrice.Click += new System.EventHandler(this.TxtSaleNightPrice_Click);
             this.TxtSaleNightPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSalePrice_KeyPress);
+            this.TxtSaleNightPrice.Validated += new System.EventHandler(this.TxtSaleNightPrice_Validated);
             // 
             // label4
             // 
@@ -576,6 +578,8 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleCombinedPrice.UseSelectable = true;
             this.TxtSaleCombinedPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleCombinedPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSaleCombinedPrice.Click += new System.EventHandler(this.TxtSaleCombinedPrice_Click);
+            this.TxtSaleCombinedPrice.Validated += new System.EventHandler(this.TxtSaleCombinedPrice_Validated);
             // 
             // AlcoholPricesPanel
             // 
@@ -639,7 +643,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleShotNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleShotNightPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleShotNightPrice.TextChanged += new System.EventHandler(this.TxtSaleShotNightPrice_TextChanged);
+            this.TxtSaleShotNightPrice.Click += new System.EventHandler(this.TxtSaleShotNightPrice_Click);
             this.TxtSaleShotNightPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleShotNightPrice_KeyPress);
+            this.TxtSaleShotNightPrice.Validated += new System.EventHandler(this.TxtSaleShotNightPrice_Validated);
             // 
             // TxtSaleShotDayPrice
             // 
@@ -672,7 +678,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleShotDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleShotDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleShotDayPrice.TextChanged += new System.EventHandler(this.TxtSaleShotDayPrice_TextChanged);
+            this.TxtSaleShotDayPrice.Click += new System.EventHandler(this.TxtSaleShotDayPrice_Click);
             this.TxtSaleShotDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleShotDayPrice_KeyPress);
+            this.TxtSaleShotDayPrice.Validated += new System.EventHandler(this.TxtSaleShotDayPrice_Validated);
             // 
             // lblShotNightPrice
             // 
@@ -723,7 +731,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleCupNightPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleCupNightPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleCupNightPrice.TextChanged += new System.EventHandler(this.TxtSaleCupNightPrice_TextChanged);
+            this.TxtSaleCupNightPrice.Click += new System.EventHandler(this.TxtSaleCupNightPrice_Click);
             this.TxtSaleCupNightPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleCupNightPrice_KeyPress);
+            this.TxtSaleCupNightPrice.Validated += new System.EventHandler(this.TxtSaleCupNightPrice_Validated);
             // 
             // TxtSaleCupDayPrice
             // 
@@ -756,7 +766,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleCupDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleCupDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleCupDayPrice.TextChanged += new System.EventHandler(this.TxtSaleCupDayPrice_TextChanged);
+            this.TxtSaleCupDayPrice.Click += new System.EventHandler(this.TxtSaleCupDayPrice_Click);
             this.TxtSaleCupDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleCupDayPrice_KeyPress);
+            this.TxtSaleCupDayPrice.Validated += new System.EventHandler(this.TxtSaleCupDayPrice_Validated);
             // 
             // lblCupDayPrice
             // 
@@ -817,7 +829,9 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleDayPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtSaleDayPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtSaleDayPrice.TextChanged += new System.EventHandler(this.TxtSaleDayPrice_TextChanged);
+            this.TxtSaleDayPrice.Click += new System.EventHandler(this.TxtSaleDayPrice_Click);
             this.TxtSaleDayPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSaleDayPrice_KeyPress);
+            this.TxtSaleDayPrice.Validated += new System.EventHandler(this.TxtSaleDayPrice_Validated);
             // 
             // PurchasePanel
             // 
@@ -924,6 +938,8 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtProductName.UseSelectable = true;
             this.TxtProductName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtProductName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtProductName.Click += new System.EventHandler(this.TxtProductName_Click);
+            this.TxtProductName.Validated += new System.EventHandler(this.TxtProductName_Validated);
             // 
             // TxtProductId
             // 
@@ -991,14 +1007,14 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.DataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -1016,14 +1032,14 @@ namespace Kiwi.Tpv.App.Forms
             this.saleUnitsDataGridViewTextBoxColumn,
             this.purchaseUnitsDataGridViewTextBoxColumn});
             this.DataGridViewProducts.DataSource = this.productBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle50;
             this.DataGridViewProducts.EnableHeadersVisualStyles = false;
             this.DataGridViewProducts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -1032,14 +1048,14 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.Name = "DataGridViewProducts";
             this.DataGridViewProducts.ReadOnly = true;
             this.DataGridViewProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.DataGridViewProducts.RowHeadersVisible = false;
             this.DataGridViewProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewProducts.RowTemplate.Height = 40;
@@ -1204,6 +1220,7 @@ namespace Kiwi.Tpv.App.Forms
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Productos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmProducts_FormClosed);
             this.Load += new System.EventHandler(this.FrmProducts_Load);
             this.tabProducts.ResumeLayout(false);
             this.metroTabPageFicha.ResumeLayout(false);

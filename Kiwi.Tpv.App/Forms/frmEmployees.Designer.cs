@@ -117,6 +117,7 @@
             this.TxtName.UseSelectable = true;
             this.TxtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtName.Click += new System.EventHandler(this.TxtName_Click);
             // 
             // TxtId
             // 
@@ -394,6 +395,7 @@
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Empleados";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEmployees_FormClosed);
             this.Load += new System.EventHandler(this.FrmEmployees_Load);
             this.tabEmployees.ResumeLayout(false);
             this.metroTabPageFicha.ResumeLayout(false);

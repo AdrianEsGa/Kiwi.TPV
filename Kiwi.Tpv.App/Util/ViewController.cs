@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using MetroFramework;
 using MetroFramework.Components;
@@ -8,6 +11,7 @@ namespace Kiwi.Tpv.App.Util
 {
     public static class ViewController
     {
+        private static Process _windowKeyboard = null;
         private static readonly FrmPopUp FrmPopUp = new FrmPopUp() {Opacity = 0.8, ShowInTaskbar = false};
 
         public static void ShowPopUp()
@@ -54,6 +58,33 @@ namespace Kiwi.Tpv.App.Util
         {
             MetroMessageBox.Show(AppGlobal.MainForm, message, "Ooouuu shit!!", MessageBoxButtons.OK,
                   MessageBoxIcon.Error);
+        }
+
+        public static void ShowWindowKeyboard()
+        {
+            try
+            {
+                _windowKeyboard =  Process.Start("osk.exe");
+            }
+            catch (Exception)
+            {
+                //ignored
+            }
+        }
+
+        public static void HideWindowKeyboard()
+        {
+            try
+            {
+                _windowKeyboard.Kill();
+                _windowKeyboard.Close();
+                _windowKeyboard.Dispose();
+                _windowKeyboard = null;
+            }
+            catch (Exception)
+            {
+                //ignored
+            }
         }
     }
 }

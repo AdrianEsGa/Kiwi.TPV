@@ -50,6 +50,10 @@ namespace Kiwi.Tpv.App.Forms
             _selectedProduct = new Product();
             BindingToControls();
             tabProducts.SelectedTab = tabProducts.TabPages[0];
+
+
+
+
         }
 
         #region Events
@@ -142,6 +146,11 @@ namespace Kiwi.Tpv.App.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmProducts_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
         }
 
         #endregion
@@ -327,7 +336,7 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
-        #region Numeric TextBox Validations
+        #region Numeric TextBox Validations And Window Keyboard
 
         private void NumericKeyPressValidation(object sender, KeyPressEventArgs e)
         {
@@ -452,7 +461,89 @@ namespace Kiwi.Tpv.App.Forms
             NumericTextChangedValidation(sender, e);
         }
 
+        private void TxtProductName_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleNightPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleDayPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleCupNightPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleCupDayPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleShotNightPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleShotDayPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtSaleCombinedPrice_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowWindowKeyboard();
+        }
+
+        private void TxtProductName_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleNightPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleDayPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleCupNightPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleCupDayPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleShotNightPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleShotDayPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+        private void TxtSaleCombinedPrice_Validated(object sender, EventArgs e)
+        {
+            ViewController.HideWindowKeyboard();
+        }
+
+
         #endregion
+
 
     }
 }

@@ -82,6 +82,7 @@
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnClose
@@ -118,6 +119,7 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Contraseña";
             this.TransparencyKey = System.Drawing.Color.Cornsilk;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPassword_FormClosed);
             this.Load += new System.EventHandler(this.FrmPassword_Load);
             this.ResumeLayout(false);
 
