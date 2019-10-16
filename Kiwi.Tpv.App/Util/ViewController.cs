@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using MetroFramework;
@@ -11,7 +10,7 @@ namespace Kiwi.Tpv.App.Util
 {
     public static class ViewController
     {
-        private static Process _windowKeyboard = null;
+        private static Process _windowKeyboard;
         private static readonly FrmPopUp FrmPopUp = new FrmPopUp() {Opacity = 0.8, ShowInTaskbar = false};
 
         public static void ShowPopUp()
@@ -64,7 +63,8 @@ namespace Kiwi.Tpv.App.Util
         {
             try
             {
-                _windowKeyboard =  Process.Start("osk.exe");
+                // _windowKeyboard =  Process.Start("osk.exe");
+                _windowKeyboard = Process.Start(@"C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe");
             }
             catch (Exception)
             {

@@ -4,8 +4,6 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Management;
 using System.Runtime.InteropServices;
-using System.Management.Instrumentation;
-
 
 namespace Kiwi.Tpv.App.Util
 {

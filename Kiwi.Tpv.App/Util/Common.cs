@@ -2,10 +2,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using Kiwi.Tpv.App.Forms;
-using MetroFramework;
-using MetroFramework.Components;
-using MetroFramework.Forms;
 
 namespace Kiwi.Tpv.App.Util
 {

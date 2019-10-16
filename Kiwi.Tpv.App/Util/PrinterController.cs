@@ -13,8 +13,6 @@ namespace Kiwi.Tpv.App.Util
 {
     public static class PrinterController
     {
-
-
         public static void PrintSale(Sale saleToPrint)
         {
             try
