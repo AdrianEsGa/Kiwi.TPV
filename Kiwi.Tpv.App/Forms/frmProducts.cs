@@ -161,6 +161,13 @@ namespace Kiwi.Tpv.App.Forms
         {
             DataGridViewProducts.DataSource = ProductController.GetAll();
             DataGridViewProducts.ClearSelection();
+
+            foreach (var column in DataGridViewProducts.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
+
             tabProducts.SelectedTab = tabProducts.TabPages[1];
         }
 

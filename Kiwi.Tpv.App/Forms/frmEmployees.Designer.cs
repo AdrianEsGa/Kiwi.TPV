@@ -48,11 +48,12 @@
             this.chkActive = new MetroFramework.Controls.MetroToggle();
             this.metroTabPageBusqueda = new MetroFramework.Controls.MetroTabPage();
             this.DataGridViewEmployees = new MetroFramework.Controls.MetroGrid();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new MetroFramework.Controls.MetroTile();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabEmployees.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
             this.metroTabPageBusqueda.SuspendLayout();
@@ -214,7 +215,7 @@
             this.tabEmployees.Controls.Add(this.metroTabPageBusqueda);
             this.tabEmployees.Location = new System.Drawing.Point(23, 69);
             this.tabEmployees.Name = "tabEmployees";
-            this.tabEmployees.SelectedIndex = 0;
+            this.tabEmployees.SelectedIndex = 1;
             this.tabEmployees.Size = new System.Drawing.Size(865, 488);
             this.tabEmployees.TabIndex = 53;
             this.tabEmployees.UseSelectable = true;
@@ -298,6 +299,7 @@
             this.DataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
+            this.EmployeeImage,
             this.nameDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.DataGridViewEmployees.DataSource = this.employeeBindingSource;
@@ -334,31 +336,6 @@
             this.DataGridViewEmployees.TabIndex = 2;
             this.DataGridViewEmployees.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployees_CellDoubleClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.activeDataGridViewCheckBoxColumn.Width = 45;
-            // 
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Employee);
@@ -377,6 +354,41 @@
             this.btnClose.UseSelectable = true;
             this.btnClose.UseTileImage = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // EmployeeImage
+            // 
+            this.EmployeeImage.DataPropertyName = "Image";
+            this.EmployeeImage.HeaderText = "";
+            this.EmployeeImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.EmployeeImage.Name = "EmployeeImage";
+            this.EmployeeImage.ReadOnly = true;
+            this.EmployeeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EmployeeImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.activeDataGridViewCheckBoxColumn.Width = 45;
             // 
             // FrmEmployees
             // 
@@ -424,11 +436,12 @@
         private MetroFramework.Controls.MetroToggle chkActive;
         private MetroFramework.Controls.MetroTile btnClose;
         private MetroFramework.Controls.MetroGrid DataGridViewEmployees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imagePathDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private MetroFramework.Controls.MetroButton pictureBoxImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn EmployeeImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
     }
 }

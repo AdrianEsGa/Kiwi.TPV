@@ -15,11 +15,6 @@ namespace Kiwi.Tpv.App.Forms
             ViewController.SetSkin(this);
         }
 
-        private void frmAlcoholModeTypes_Load(object sender, EventArgs e)
-        {
-         
-        }
-
         private void BtnCombined_Click(object sender, EventArgs e)
         {
             SelectedAlcoholModeType = AlcoholModeTypes.Combined;

@@ -32,9 +32,9 @@ namespace Kiwi.Tpv.App.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTables));
             this.lblActive = new MetroFramework.Controls.MetroLabel();
             this.LblProductName = new MetroFramework.Controls.MetroLabel();
@@ -53,14 +53,14 @@ namespace Kiwi.Tpv.App.Forms
             this.chkActive = new MetroFramework.Controls.MetroToggle();
             this.metroTabPageBusqueda = new MetroFramework.Controls.MetroTabPage();
             this.DataGridViewTables = new MetroFramework.Controls.MetroGrid();
+            this.barTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.barTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.tabTables.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
             this.metroTabPageBusqueda.SuspendLayout();
@@ -227,7 +227,7 @@ namespace Kiwi.Tpv.App.Forms
             this.tabTables.Controls.Add(this.metroTabPageBusqueda);
             this.tabTables.Location = new System.Drawing.Point(23, 69);
             this.tabTables.Name = "tabTables";
-            this.tabTables.SelectedIndex = 0;
+            this.tabTables.SelectedIndex = 1;
             this.tabTables.Size = new System.Drawing.Size(865, 488);
             this.tabTables.TabIndex = 90;
             this.tabTables.UseSelectable = true;
@@ -349,14 +349,14 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewTables.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewTables.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.DataGridViewTables.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewTables.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewTables.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewTables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -366,14 +366,14 @@ namespace Kiwi.Tpv.App.Forms
             this.locationDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.DataGridViewTables.DataSource = this.barTableBindingSource;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewTables.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewTables.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridViewTables.EnableHeadersVisualStyles = false;
             this.DataGridViewTables.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewTables.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -382,14 +382,14 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewTables.Name = "DataGridViewTables";
             this.DataGridViewTables.ReadOnly = true;
             this.DataGridViewTables.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewTables.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewTables.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewTables.RowHeadersVisible = false;
             this.DataGridViewTables.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewTables.RowTemplate.Height = 40;
@@ -398,6 +398,25 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewTables.Size = new System.Drawing.Size(854, 440);
             this.DataGridViewTables.TabIndex = 4;
             this.DataGridViewTables.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTables_CellDoubleClick);
+            // 
+            // barTableBindingSource
+            // 
+            this.barTableBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.BarTable);
+            // 
+            // btnClose
+            // 
+            this.btnClose.ActiveControl = null;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
+            this.btnClose.TabIndex = 91;
+            this.btnClose.TileImage = ((System.Drawing.Image)(resources.GetObject("btnClose.TileImage")));
+            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseTileImage = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -409,11 +428,11 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // codeDataGridViewTextBoxColumn
             // 
-            this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
             this.codeDataGridViewTextBoxColumn.HeaderText = "Número";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codeDataGridViewTextBoxColumn.Width = 70;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -441,30 +460,11 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // activeDataGridViewCheckBoxColumn
             // 
-            this.activeDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
             this.activeDataGridViewCheckBoxColumn.HeaderText = "Activa";
             this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // barTableBindingSource
-            // 
-            this.barTableBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.BarTable);
-            // 
-            // btnClose
-            // 
-            this.btnClose.ActiveControl = null;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 62);
-            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
-            this.btnClose.TabIndex = 91;
-            this.btnClose.TileImage = ((System.Drawing.Image)(resources.GetObject("btnClose.TileImage")));
-            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.UseSelectable = true;
-            this.btnClose.UseTileImage = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.activeDataGridViewCheckBoxColumn.Width = 45;
             // 
             // FrmTables
             // 
@@ -521,6 +521,5 @@ namespace Kiwi.Tpv.App.Forms
         private DataGridViewTextBoxColumn imagePathDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
-
     }
 }

@@ -84,8 +84,7 @@
             this.Name = "frmAlcoholModeTypes";
             this.Resizable = false;
             this.ShowInTaskbar = false;
-            this.Text = "Servido como:";
-            this.Load += new System.EventHandler(this.frmAlcoholModeTypes_Load);
+            this.Text = "Servido como ";
             this.ResumeLayout(false);
 
         }

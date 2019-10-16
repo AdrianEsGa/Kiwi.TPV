@@ -29,11 +29,18 @@ namespace Kiwi.Tpv.App.Forms
         }
 
         #region Events
-    
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DataGridViewEmployees.DataSource = EmployeeController.GetAll();
             DataGridViewEmployees.ClearSelection();
+
+            foreach (var column in DataGridViewEmployees.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
+
             tabEmployees.SelectedTab = tabEmployees.TabPages[1];
         }
 
