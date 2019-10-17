@@ -253,16 +253,6 @@ namespace Kiwi.Tpv.App.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
-        /// </summary>
-        internal static System.Drawing.Icon Licoure19 {
-            get {
-                object obj = ResourceManager.GetObject("Licoure19", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Operación no realizada..
         /// </summary>
         internal static string OperacionNoOk {

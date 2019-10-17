@@ -10,7 +10,7 @@ namespace Kiwi.Tpv.App.Forms
     public partial class FrmCommands : MetroForm
     {
         private Command _selectedCommand;
-        private int _dataGridViewCommandsLastaSelectedIndex = 0;
+        private int _dataGridViewCommandsLastaSelectedIndex;
 
         public FrmCommands()
         {
@@ -173,7 +173,7 @@ namespace Kiwi.Tpv.App.Forms
                    newSale.Add(commandDetail.Product, AppGlobal.SaleMode, AlcoholModeTypes.Default);
                 }
 
-                SalesController.SaveOrUpdate(newSale);
+                SalesController.SaveOrUpdate(newSale);           
                 PrinterController.PrintSale(newSale);
             }
             catch (Exception ex)

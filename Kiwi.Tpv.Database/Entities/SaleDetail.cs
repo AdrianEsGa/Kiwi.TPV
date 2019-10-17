@@ -1,5 +1,6 @@
 ﻿namespace Kiwi.Tpv.Database.Entities
 {
+
     public class SaleDetail
     {
         public int Id { get; set; }
@@ -12,6 +13,9 @@
         public double Tax { get; set; }
         public double Total { get; set; }
         public bool IsBottle { get; set; }
+        public byte[] ProductImage => Product.Image;
+        public string TotalString => Total.ToString("F");
+
 
         public override bool Equals(object obj)
         {

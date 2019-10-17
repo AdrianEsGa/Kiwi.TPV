@@ -318,7 +318,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Licoure19.ico" />
     <None Include="Resources\loader.gif" />
     <None Include="Resources\Ok.png" />
     <None Include="Resources\NoOk.png" />

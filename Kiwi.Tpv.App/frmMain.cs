@@ -806,6 +806,12 @@ namespace Kiwi.Tpv.App
             if (AppGlobal.Sale != null && AppGlobal.Sale.Details.Count != 0)
             DataGridViewSelectedProducts.DataSource = AppGlobal.Sale.Details;
             DataGridViewSelectedProducts.ClearSelection();
+
+            foreach (var column in DataGridViewSelectedProducts.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
         }
 
         private void RefreshScreenInfo()

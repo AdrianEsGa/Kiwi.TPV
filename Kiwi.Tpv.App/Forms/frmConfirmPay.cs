@@ -193,7 +193,7 @@ namespace Kiwi.Tpv.App.Forms
         private bool IsPosibleToMakeJokeSale()
         {
             return AppGlobal.Sale.Id == 0 && AppGlobal.JokeSystemActive && AppGlobal.Sale.PayType == PayType.Cash &&
-                   AppGlobal.Sale.Total > 0;
+                   AppGlobal.Sale.Total > 0 && !AppGlobal.Sale.Ticket;
         }
         #endregion
 
