@@ -95,8 +95,6 @@ namespace Kiwi.Tpv.App.Forms
         {
             var btn = (Button)sender;
             SelectedTable = (BarTable)btn.Tag;
- 
-
             Close();
         }
 

@@ -9,9 +9,5 @@ namespace Kiwi.Tpv.App.Forms
         {
             InitializeComponent();
         }
-
-        private void FrmPopUp_Load(object sender, System.EventArgs e)
-        {         
-        }
     }
 }

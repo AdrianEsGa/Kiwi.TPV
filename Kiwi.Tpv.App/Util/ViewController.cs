@@ -5,6 +5,7 @@ using Kiwi.Tpv.App.Forms;
 using MetroFramework;
 using MetroFramework.Components;
 using MetroFramework.Forms;
+using NLog;
 
 namespace Kiwi.Tpv.App.Util
 {
@@ -55,8 +56,8 @@ namespace Kiwi.Tpv.App.Util
 
         public static void ShowError(string message)
         {
-            MetroMessageBox.Show(AppGlobal.MainForm, message, "Ooouuu shit!!", MessageBoxButtons.OK,
-                  MessageBoxIcon.Error);
+            NLog.Instance.Error(message);
+            MetroMessageBox.Show(AppGlobal.MainForm, message, "Ooouuu shit!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void ShowWindowKeyboard()
