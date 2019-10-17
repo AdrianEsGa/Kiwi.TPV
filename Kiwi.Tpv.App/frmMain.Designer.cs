@@ -77,21 +77,6 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelEmployees = new System.Windows.Forms.FlowLayoutPanel();
             this.SaleDetailsPanel = new System.Windows.Forms.Panel();
             this.DataGridViewSelectedProducts = new MetroFramework.Controls.MetroGrid();
-            this.SaleInfoPanel = new MetroFramework.Controls.MetroPanel();
-            this.lblDayNight = new MetroFramework.Controls.MetroLabel();
-            this.lblTicket = new MetroFramework.Controls.MetroLabel();
-            this.lblSaleId = new MetroFramework.Controls.MetroLabel();
-            this.lblTableBar = new MetroFramework.Controls.MetroLabel();
-            this.ProductsPanel = new System.Windows.Forms.Panel();
-            this.TableLayoutProducts = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanelCafes = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelSoda = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelAlcohol = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelVarious = new System.Windows.Forms.FlowLayoutPanel();
-            this.TimerWatch = new System.Windows.Forms.Timer(this.components);
-            this.SystemTimer = new System.Windows.Forms.Timer(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -106,6 +91,21 @@ namespace Kiwi.Tpv.App
             this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RemoveOne = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AddOne = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SaleInfoPanel = new MetroFramework.Controls.MetroPanel();
+            this.lblDayNight = new MetroFramework.Controls.MetroLabel();
+            this.lblTicket = new MetroFramework.Controls.MetroLabel();
+            this.lblSaleId = new MetroFramework.Controls.MetroLabel();
+            this.lblTableBar = new MetroFramework.Controls.MetroLabel();
+            this.ProductsPanel = new System.Windows.Forms.Panel();
+            this.TableLayoutProducts = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanelCafes = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelSoda = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelAlcohol = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelVarious = new System.Windows.Forms.FlowLayoutPanel();
+            this.TimerWatch = new System.Windows.Forms.Timer(this.components);
+            this.SystemTimer = new System.Windows.Forms.Timer(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeadPanel.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -122,10 +122,10 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.SuspendLayout();
             this.SaleDetailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectedProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SaleInfoPanel.SuspendLayout();
             this.ProductsPanel.SuspendLayout();
             this.TableLayoutProducts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // HeadPanel
@@ -643,6 +643,154 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSelectedProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellClick);
             this.DataGridViewSelectedProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // saleDataGridViewTextBoxColumn
+            // 
+            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
+            this.saleDataGridViewTextBoxColumn.HeaderText = "Sale";
+            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
+            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saleDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ProductImage
+            // 
+            this.ProductImage.DataPropertyName = "ProductImage";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ProductImage.HeaderText = "";
+            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.ReadOnly = true;
+            this.ProductImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductImage.Width = 50;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subTotalDataGridViewTextBoxColumn
+            // 
+            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.HeaderText = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
+            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subTotalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxPercentajeDataGridViewTextBoxColumn
+            // 
+            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
+            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxDataGridViewTextBoxColumn
+            // 
+            this.taxDataGridViewTextBoxColumn.DataPropertyName = "Tax";
+            this.taxDataGridViewTextBoxColumn.HeaderText = "Tax";
+            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
+            this.taxDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Visible = false;
+            this.totalDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // TotalString
+            // 
+            this.TotalString.DataPropertyName = "TotalString";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalString.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TotalString.HeaderText = "Total";
+            this.TotalString.Name = "TotalString";
+            this.TotalString.ReadOnly = true;
+            this.TotalString.Width = 50;
+            // 
+            // isBottleDataGridViewCheckBoxColumn
+            // 
+            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
+            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // RemoveOne
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RemoveOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveOne.HeaderText = "";
+            this.RemoveOne.Name = "RemoveOne";
+            this.RemoveOne.ReadOnly = true;
+            this.RemoveOne.Text = "-";
+            this.RemoveOne.UseColumnTextForButtonValue = true;
+            this.RemoveOne.Width = 60;
+            // 
+            // AddOne
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddOne.DefaultCellStyle = dataGridViewCellStyle8;
+            this.AddOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddOne.HeaderText = "";
+            this.AddOne.Name = "AddOne";
+            this.AddOne.ReadOnly = true;
+            this.AddOne.Text = "+";
+            this.AddOne.UseColumnTextForButtonValue = true;
+            this.AddOne.Width = 60;
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
+            // 
             // SaleInfoPanel
             // 
             this.SaleInfoPanel.Controls.Add(this.lblDayNight);
@@ -805,154 +953,6 @@ namespace Kiwi.Tpv.App
             this.dataGridViewTextBoxColumn1.HeaderText = "Producto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // saleDataGridViewTextBoxColumn
-            // 
-            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
-            this.saleDataGridViewTextBoxColumn.HeaderText = "Sale";
-            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
-            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // ProductImage
-            // 
-            this.ProductImage.DataPropertyName = "ProductImage";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ProductImage.HeaderText = "";
-            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ProductImage.Name = "ProductImage";
-            this.ProductImage.ReadOnly = true;
-            this.ProductImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductImage.Width = 50;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // subTotalDataGridViewTextBoxColumn
-            // 
-            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.HeaderText = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
-            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subTotalDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // taxPercentajeDataGridViewTextBoxColumn
-            // 
-            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
-            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // taxDataGridViewTextBoxColumn
-            // 
-            this.taxDataGridViewTextBoxColumn.DataPropertyName = "Tax";
-            this.taxDataGridViewTextBoxColumn.HeaderText = "Tax";
-            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
-            this.taxDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalDataGridViewTextBoxColumn.Visible = false;
-            this.totalDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // TotalString
-            // 
-            this.TotalString.DataPropertyName = "TotalString";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalString.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TotalString.HeaderText = "Total";
-            this.TotalString.Name = "TotalString";
-            this.TotalString.ReadOnly = true;
-            this.TotalString.Width = 50;
-            // 
-            // isBottleDataGridViewCheckBoxColumn
-            // 
-            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
-            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // RemoveOne
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
-            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle7;
-            this.RemoveOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveOne.HeaderText = "";
-            this.RemoveOne.Name = "RemoveOne";
-            this.RemoveOne.ReadOnly = true;
-            this.RemoveOne.Text = "-";
-            this.RemoveOne.UseColumnTextForButtonValue = true;
-            this.RemoveOne.Width = 60;
-            // 
-            // AddOne
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.AddOne.DefaultCellStyle = dataGridViewCellStyle8;
-            this.AddOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddOne.HeaderText = "";
-            this.AddOne.Name = "AddOne";
-            this.AddOne.ReadOnly = true;
-            this.AddOne.Text = "+";
-            this.AddOne.UseColumnTextForButtonValue = true;
-            this.AddOne.Width = 60;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -991,12 +991,12 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.ResumeLayout(false);
             this.SaleDetailsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectedProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.SaleInfoPanel.ResumeLayout(false);
             this.SaleInfoPanel.PerformLayout();
             this.ProductsPanel.ResumeLayout(false);
             this.ProductsPanel.PerformLayout();
             this.TableLayoutProducts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

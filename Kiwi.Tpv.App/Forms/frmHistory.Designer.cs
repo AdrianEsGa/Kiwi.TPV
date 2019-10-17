@@ -132,7 +132,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndDate.Location = new System.Drawing.Point(397, 135);
-            this.dtpEndDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpEndDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(246, 29);
             this.dtpEndDate.TabIndex = 1;
@@ -141,7 +141,7 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.dtpInitDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInitDate.Location = new System.Drawing.Point(397, 82);
-            this.dtpInitDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpInitDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpInitDate.Name = "dtpInitDate";
             this.dtpInitDate.Size = new System.Drawing.Size(246, 29);
             this.dtpInitDate.TabIndex = 0;
@@ -494,7 +494,7 @@ namespace Kiwi.Tpv.App.Forms
             this.dataGridViewEmployees.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.dataGridViewEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewEmployees.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            this.dataGridViewEmployees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridViewEmployees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -589,7 +589,7 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.DataGridViewProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            this.DataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.DataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -619,7 +619,7 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewProducts.MultiSelect = false;
             this.DataGridViewProducts.Name = "DataGridViewProducts";
             this.DataGridViewProducts.ReadOnly = true;
-            this.DataGridViewProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
