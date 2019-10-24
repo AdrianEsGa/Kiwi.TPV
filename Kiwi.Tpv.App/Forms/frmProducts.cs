@@ -309,10 +309,7 @@ namespace Kiwi.Tpv.App.Forms
             _selectedProduct.SubType = (ProductSubType?) CbProductSubType.SelectedItem ?? ProductSubType.Generico;
             _selectedProduct.Name = TxtProductName.Text;
 
-            if (pictureBoxProductImage.BackgroundImage != null)
-            {
-                _selectedProduct.Image = Common.ImageToBytes(pictureBoxProductImage.BackgroundImage);
-            }
+            _selectedProduct.Image = pictureBoxProductImage.BackgroundImage != null ? Common.ImageToBytes(pictureBoxProductImage.BackgroundImage) : null;
 
             _selectedProduct.SaleNightPrice = Convert.ToDouble(TxtSaleNightPrice.Text.Replace('.', ','));
             _selectedProduct.SaleDayPrice = Convert.ToDouble(TxtSaleDayPrice.Text.Replace('.', ','));
@@ -549,8 +546,12 @@ namespace Kiwi.Tpv.App.Forms
         }
 
 
+
         #endregion
 
-
+        private void BtnRemoveImage_Click(object sender, EventArgs e)
+        {
+            pictureBoxProductImage.BackgroundImage = null;
+        }
     }
 }

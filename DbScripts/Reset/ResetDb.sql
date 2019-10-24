@@ -15,9 +15,9 @@ DBCC CHECKIDENT ('CommandDetails', RESEED, 0);
 DBCC CHECKIDENT ('Commands', RESEED, 0);  
 
 
---delete from BarTables
---DBCC CHECKIDENT ('BarTables', RESEED, 0);  
+delete from BarTables
+DBCC CHECKIDENT ('BarTables', RESEED, 0);  
 
 
---delete from Employees
---DBCC CHECKIDENT ('Employees', RESEED, 0);  
+delete from Employees
+DBCC CHECKIDENT ('Employees', RESEED, 0);  

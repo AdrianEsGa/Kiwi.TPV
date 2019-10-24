@@ -173,12 +173,7 @@ namespace Kiwi.Tpv.App.Forms
         private void BindingFromControls()
         {
             _selectedEmployee.Name = TxtName.Text;
-
-            if (pictureBoxImage.BackgroundImage != null)
-            {
-                _selectedEmployee.Image = Common.ImageToBytes(pictureBoxImage.BackgroundImage);
-            }
-
+            _selectedEmployee.Image = pictureBoxImage.BackgroundImage != null ? Common.ImageToBytes(pictureBoxImage.BackgroundImage) : null;
             _selectedEmployee.Active = chkActive.Checked;
         }
 
@@ -197,6 +192,11 @@ namespace Kiwi.Tpv.App.Forms
         private void FrmEmployees_FormClosed(object sender, FormClosedEventArgs e)
         {
             ViewController.HideWindowKeyboard();
+        }
+
+        private void BtnRemoveImage_Click(object sender, EventArgs e)
+        {
+            pictureBoxImage.BackgroundImage = null;
         }
     }
 }
