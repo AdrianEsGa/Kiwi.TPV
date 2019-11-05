@@ -7,6 +7,7 @@ namespace Kiwi.Tpv.Database.Entities
     {
         public int Id { get; set; }
         public Employee Employee { get; set; }
+        public byte[] EmployeeImage => Employee.Image;
         public BarTable Table { get; set; }
         public Station Station { get; set; }
         public DateTime Date { get; set; }

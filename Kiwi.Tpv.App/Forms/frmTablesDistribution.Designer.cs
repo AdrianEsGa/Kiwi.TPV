@@ -62,9 +62,9 @@
             this.panelButons.HorizontalScrollbarBarColor = true;
             this.panelButons.HorizontalScrollbarHighlightOnWheel = false;
             this.panelButons.HorizontalScrollbarSize = 10;
-            this.panelButons.Location = new System.Drawing.Point(20, 541);
+            this.panelButons.Location = new System.Drawing.Point(20, 632);
             this.panelButons.Name = "panelButons";
-            this.panelButons.Size = new System.Drawing.Size(862, 44);
+            this.panelButons.Size = new System.Drawing.Size(1030, 44);
             this.panelButons.TabIndex = 88;
             this.panelButons.VerticalScrollbarBarColor = true;
             this.panelButons.VerticalScrollbarHighlightOnWheel = false;
@@ -107,7 +107,7 @@
             this.panelDistribution.HorizontalScrollbarSize = 10;
             this.panelDistribution.Location = new System.Drawing.Point(20, 85);
             this.panelDistribution.Name = "panelDistribution";
-            this.panelDistribution.Size = new System.Drawing.Size(862, 455);
+            this.panelDistribution.Size = new System.Drawing.Size(1030, 541);
             this.panelDistribution.TabIndex = 89;
             this.panelDistribution.VerticalScrollbarBarColor = true;
             this.panelDistribution.VerticalScrollbarHighlightOnWheel = false;
@@ -117,7 +117,7 @@
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Location = new System.Drawing.Point(980, 17);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 605);
+            this.ClientSize = new System.Drawing.Size(1070, 696);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelDistribution);

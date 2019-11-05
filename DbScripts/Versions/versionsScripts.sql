@@ -113,4 +113,120 @@ GO
 ALTER TABLE Products ADD SaleCombinedPrice MONEY 
 GO
 UPDATE Products SET  SaleCupDayPrice = 0,SaleCupNightPrice = 0,SaleShotDayPrice = 0,SaleShotNightPrice = 0,SaleCombinedPrice = 0
+GO
+
+
+ALTER TABLE [dbo].[Commands] DROP CONSTRAINT [FK_Commands_Stations]
+GO
+
+ALTER TABLE [dbo].[Commands] DROP CONSTRAINT [FK_Commands_Employees]
+GO
+
+ALTER TABLE [dbo].[Commands] DROP CONSTRAINT [FK_Commands_BarTables]
+GO
+
+/****** Object:  Table [dbo].[Commands]    Script Date: 05/11/2019 18:48:44 ******/
+DROP TABLE [dbo].[Commands]
+GO
+
+/****** Object:  Table [dbo].[Commands]    Script Date: 05/11/2019 18:48:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Commands](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[BarTableId] [int] NOT NULL,
+	[StationId] [int] NULL,
+	[Date] [datetime] NOT NULL,
+	[Status] [tinyint] NOT NULL,
+ CONSTRAINT [PK_Commands] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Commands]  WITH CHECK ADD  CONSTRAINT [FK_Commands_BarTables] FOREIGN KEY([BarTableId])
+REFERENCES [dbo].[BarTables] ([Id])
+GO
+
+ALTER TABLE [dbo].[Commands] CHECK CONSTRAINT [FK_Commands_BarTables]
+GO
+
+ALTER TABLE [dbo].[Commands]  WITH CHECK ADD  CONSTRAINT [FK_Commands_Employees] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employees] ([Id])
+GO
+
+ALTER TABLE [dbo].[Commands] CHECK CONSTRAINT [FK_Commands_Employees]
+GO
+
+ALTER TABLE [dbo].[Commands]  WITH CHECK ADD  CONSTRAINT [FK_Commands_Stations] FOREIGN KEY([StationId])
+REFERENCES [dbo].[Stations] ([Id])
+GO
+
+ALTER TABLE [dbo].[Commands] CHECK CONSTRAINT [FK_Commands_Stations]
+GO
+
+
+
+ALTER TABLE [dbo].[CommandDetails] DROP CONSTRAINT [FK_CommandDetails_Products1]
+GO
+
+ALTER TABLE [dbo].[CommandDetails] DROP CONSTRAINT [FK_CommandDetails_Products]
+GO
+
+ALTER TABLE [dbo].[CommandDetails] DROP CONSTRAINT [FK_CommandDetails_Commands]
+GO
+
+/****** Object:  Table [dbo].[CommandDetails]    Script Date: 05/11/2019 18:48:53 ******/
+DROP TABLE [dbo].[CommandDetails]
+GO
+
+/****** Object:  Table [dbo].[CommandDetails]    Script Date: 05/11/2019 18:48:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CommandDetails](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CommandId] [int] NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[CombinedProductId] [int] NULL,
+ CONSTRAINT [PK_CommandDetails] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[CommandDetails]  WITH CHECK ADD  CONSTRAINT [FK_CommandDetails_Commands] FOREIGN KEY([CommandId])
+REFERENCES [dbo].[Commands] ([Id])
+GO
+
+ALTER TABLE [dbo].[CommandDetails] CHECK CONSTRAINT [FK_CommandDetails_Commands]
+GO
+
+ALTER TABLE [dbo].[CommandDetails]  WITH CHECK ADD  CONSTRAINT [FK_CommandDetails_Products] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([Id])
+GO
+
+ALTER TABLE [dbo].[CommandDetails] CHECK CONSTRAINT [FK_CommandDetails_Products]
+GO
+
+ALTER TABLE [dbo].[CommandDetails]  WITH CHECK ADD  CONSTRAINT [FK_CommandDetails_Products1] FOREIGN KEY([CombinedProductId])
+REFERENCES [dbo].[Products] ([Id])
+GO
+
+ALTER TABLE [dbo].[CommandDetails] CHECK CONSTRAINT [FK_CommandDetails_Products1]
+GO
+
 

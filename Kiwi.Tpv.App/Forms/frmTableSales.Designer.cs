@@ -38,6 +38,7 @@
             this.btnPayAllSales = new MetroFramework.Controls.MetroTile();
             this.btnNewSale = new MetroFramework.Controls.MetroTile();
             this.DataGridViewTableSales = new MetroFramework.Controls.MetroGrid();
+            this.txtTotalPending = new MetroFramework.Controls.MetroTile();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
             this.paidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ticketDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtTotalPending = new MetroFramework.Controls.MetroTile();
             this.panelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTableSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
@@ -60,7 +60,7 @@
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Location = new System.Drawing.Point(980, 17);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -79,9 +79,9 @@
             this.panelButtons.HorizontalScrollbarBarColor = true;
             this.panelButtons.HorizontalScrollbarHighlightOnWheel = false;
             this.panelButtons.HorizontalScrollbarSize = 10;
-            this.panelButtons.Location = new System.Drawing.Point(20, 521);
+            this.panelButtons.Location = new System.Drawing.Point(20, 612);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(862, 64);
+            this.panelButtons.Size = new System.Drawing.Size(1030, 64);
             this.panelButtons.TabIndex = 57;
             this.panelButtons.VerticalScrollbarBarColor = true;
             this.panelButtons.VerticalScrollbarHighlightOnWheel = false;
@@ -94,7 +94,7 @@
             this.btnPayAllSales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
             this.btnPayAllSales.Location = new System.Drawing.Point(1, 3);
             this.btnPayAllSales.Name = "btnPayAllSales";
-            this.btnPayAllSales.Size = new System.Drawing.Size(416, 58);
+            this.btnPayAllSales.Size = new System.Drawing.Size(508, 58);
             this.btnPayAllSales.Style = MetroFramework.MetroColorStyle.Orange;
             this.btnPayAllSales.TabIndex = 6;
             this.btnPayAllSales.Text = "Cobrar Todo";
@@ -107,9 +107,9 @@
             this.btnNewSale.ActiveControl = null;
             this.btnNewSale.BackColor = System.Drawing.Color.White;
             this.btnNewSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnNewSale.Location = new System.Drawing.Point(443, 3);
+            this.btnNewSale.Location = new System.Drawing.Point(522, 3);
             this.btnNewSale.Name = "btnNewSale";
-            this.btnNewSale.Size = new System.Drawing.Size(416, 58);
+            this.btnNewSale.Size = new System.Drawing.Size(508, 58);
             this.btnNewSale.Style = MetroFramework.MetroColorStyle.Green;
             this.btnNewSale.TabIndex = 5;
             this.btnNewSale.Text = "Nueva Venta";
@@ -173,12 +173,27 @@
             this.DataGridViewTableSales.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewTableSales.RowHeadersVisible = false;
             this.DataGridViewTableSales.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridViewTableSales.RowTemplate.Height = 40;
+            this.DataGridViewTableSales.RowTemplate.Height = 60;
             this.DataGridViewTableSales.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewTableSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewTableSales.Size = new System.Drawing.Size(862, 401);
+            this.DataGridViewTableSales.Size = new System.Drawing.Size(1030, 521);
             this.DataGridViewTableSales.TabIndex = 3;
             this.DataGridViewTableSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTableSales_CellDoubleClick);
+            // 
+            // txtTotalPending
+            // 
+            this.txtTotalPending.ActiveControl = null;
+            this.txtTotalPending.BackColor = System.Drawing.Color.White;
+            this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.txtTotalPending.Location = new System.Drawing.Point(199, 26);
+            this.txtTotalPending.Name = "txtTotalPending";
+            this.txtTotalPending.Size = new System.Drawing.Size(756, 43);
+            this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
+            this.txtTotalPending.TabIndex = 58;
+            this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
+            this.txtTotalPending.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.txtTotalPending.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.txtTotalPending.UseSelectable = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -272,25 +287,11 @@
             // 
             this.saleBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Sale);
             // 
-            // txtTotalPending
-            // 
-            this.txtTotalPending.ActiveControl = null;
-            this.txtTotalPending.BackColor = System.Drawing.Color.White;
-            this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.txtTotalPending.Location = new System.Drawing.Point(199, 26);
-            this.txtTotalPending.Name = "txtTotalPending";
-            this.txtTotalPending.Size = new System.Drawing.Size(613, 35);
-            this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
-            this.txtTotalPending.TabIndex = 58;
-            this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
-            this.txtTotalPending.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.txtTotalPending.UseSelectable = true;
-            // 
             // FrmTableSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 605);
+            this.ClientSize = new System.Drawing.Size(1070, 696);
             this.ControlBox = false;
             this.Controls.Add(this.txtTotalPending);
             this.Controls.Add(this.panelButtons);

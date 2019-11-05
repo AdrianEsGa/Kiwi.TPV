@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
@@ -100,6 +101,12 @@ namespace Kiwi.Tpv.App.Forms
                 DataGridViewCommands.DataSource =
                     CommandController.GetPendingOrInProcessWithStation(AppGlobal.Station);
 
+                foreach (var column in DataGridViewCommands.Columns)
+                {
+                    if (column is DataGridViewImageColumn)
+                        (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+                }
+
                 if (DataGridViewCommands.Rows.Count > 0)
                 {
                     DataGridViewCommands.ClearSelection();
@@ -132,6 +139,12 @@ namespace Kiwi.Tpv.App.Forms
 
             _dataGridViewCommandsLastaSelectedIndex = DataGridViewCommands.CurrentCell.RowIndex;
             DataGridViewCommandDetails.DataSource = _selectedCommand.Details;
+
+            foreach (var column in DataGridViewCommandDetails.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
 
             EstablishButtonAction();
         }
