@@ -101,11 +101,7 @@ namespace Kiwi.Tpv.App.Forms
                 DataGridViewCommands.DataSource =
                     CommandController.GetPendingOrInProcessWithStation(AppGlobal.Station);
 
-                foreach (var column in DataGridViewCommands.Columns)
-                {
-                    if (column is DataGridViewImageColumn)
-                        (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
-                }
+                HideDatagridViewDefaultImages();
 
                 if (DataGridViewCommands.Rows.Count > 0)
                 {
@@ -140,11 +136,7 @@ namespace Kiwi.Tpv.App.Forms
             _dataGridViewCommandsLastaSelectedIndex = DataGridViewCommands.CurrentCell.RowIndex;
             DataGridViewCommandDetails.DataSource = _selectedCommand.Details;
 
-            foreach (var column in DataGridViewCommandDetails.Columns)
-            {
-                if (column is DataGridViewImageColumn)
-                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
-            }
+            HideDatagridViewDefaultImages();
 
             EstablishButtonAction();
         }
@@ -192,6 +184,22 @@ namespace Kiwi.Tpv.App.Forms
             catch (Exception ex)
             {
                 ViewController.ShowError(ex.Message);
+            }
+        }
+
+        private void HideDatagridViewDefaultImages()
+        {
+
+            foreach (var column in DataGridViewCommands.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
+
+            foreach (var column in DataGridViewCommandDetails.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
             }
         }
 

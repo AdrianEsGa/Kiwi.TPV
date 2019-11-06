@@ -133,6 +133,35 @@ namespace Kiwi.Tpv.Database.Repositories
             return commandDetails;
         }
 
-        
+        internal static bool HasGetPendingOrInProcessWithStation(Station station)
+        {
+
+            const string strSql =
+                "SELECT TOP 1 1 " +
+                "FROM Commands " +
+                "WHERE Status = 0 OR (Status = 1 AND StationId = @StationId) ORDER BY Status DESC";
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var commandSql = new SqlCommand(strSql, connection))
+                    {
+                        commandSql.Parameters.AddWithValue("@StationId", station.Id);
+
+                        connection.Open();
+                        using (var reader = commandSql.ExecuteReader())
+                        {
+                            return reader.Read();                      
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
     }
 }

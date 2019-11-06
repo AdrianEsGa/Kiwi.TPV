@@ -14,6 +14,8 @@ using MetroFramework;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kiwi.Tpv.App
 {
@@ -22,6 +24,7 @@ namespace Kiwi.Tpv.App
         private List<Employee> _employees;
         private List<Product> _products;
         private BackgroundWorker _worker;
+        private bool _hasPendingCommands;
 
         private static FrmMain _instance;
         public static FrmMain Instance { get { return _instance; } }
@@ -46,6 +49,7 @@ namespace Kiwi.Tpv.App
                 DataGridViewSelectedProducts.DefaultCellStyle.BackColor;
             DataGridViewSelectedProducts.DefaultCellStyle.SelectionForeColor =
                 DataGridViewSelectedProducts.DefaultCellStyle.ForeColor;
+     
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -912,8 +916,8 @@ namespace Kiwi.Tpv.App
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

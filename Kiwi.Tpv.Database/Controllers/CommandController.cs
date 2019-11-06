@@ -32,5 +32,18 @@ namespace Kiwi.Tpv.Database.Controllers
                 throw ex;
             }
         }
+
+        public static bool HastPendingOrInProcessWithStation(Station station)
+        {
+            try
+            {
+                return CommandRepository.HasGetPendingOrInProcessWithStation(station);
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
     }
 }

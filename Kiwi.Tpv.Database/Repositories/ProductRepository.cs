@@ -75,7 +75,7 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             const string strSql =
                 "SELECT Id, Name, Image, SalePrice, SaleDayPrice, Type, SubType, Active, " +
-                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, ImagePath, " +
+                "SaleTaxPercentaje, SaleUnits, PurchaseUnits, PurchasePrice, PurchaseTaxPercentaje, ShowInMainView, " +
                 "SaleCupDayPrice, SaleCupNightPrice, SaleShotDayPrice, SaleShotNightPrice, SaleCombinedPrice  " +
                 "FROM Products ORDER BY Type, SubType, Name";
             var products = new List<Product>();
@@ -95,7 +95,6 @@ namespace Kiwi.Tpv.Database.Repositories
                                 {
                                     Id = Convert.ToInt32(reader["Id"]),
                                     Name = reader["Name"].ToString(),
-                                    ImagePath = reader["ImagePath"].ToString(),
                                     SaleNightPrice = Convert.ToDouble(reader["SalePrice"]),
                                     SaleDayPrice = Convert.ToDouble(reader["SaleDayPrice"]),
                                     SaleCupDayPrice = Convert.ToDouble(reader["SaleCupDayPrice"]),

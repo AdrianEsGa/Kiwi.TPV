@@ -13,6 +13,7 @@ namespace Kiwi.Tpv.App.Util
     {
         private static Process _windowKeyboard;
         private static readonly FrmPopUp FrmPopUp = new FrmPopUp() {Opacity = 0.8, ShowInTaskbar = false};
+        public static MetroStyleManager SkinManager;
 
         public static void ShowPopUp()
         {
@@ -34,7 +35,7 @@ namespace Kiwi.Tpv.App.Util
 
         public static void SetSkin(MetroForm form)
         {
-            var skinManager = new MetroStyleManager
+            SkinManager = new MetroStyleManager
             {
                 Owner = form,
                 Style = MetroColorStyle.Red
