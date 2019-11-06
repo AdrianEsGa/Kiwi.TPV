@@ -75,7 +75,7 @@
             this.btnSave.ActiveControl = null;
             this.btnSave.BackColor = System.Drawing.SystemColors.Control;
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSave.Location = new System.Drawing.Point(754, 5);
+            this.btnSave.Location = new System.Drawing.Point(922, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 36);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Green;
@@ -90,7 +90,7 @@
             this.btnRemove.ActiveControl = null;
             this.btnRemove.BackColor = System.Drawing.SystemColors.Control;
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnRemove.Location = new System.Drawing.Point(643, 5);
+            this.btnRemove.Location = new System.Drawing.Point(811, 5);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(105, 36);
             this.btnRemove.Style = MetroFramework.MetroColorStyle.Red;

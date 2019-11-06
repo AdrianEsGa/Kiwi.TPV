@@ -39,7 +39,6 @@ namespace Kiwi.Tpv.App.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguration));
             this.tabConfig = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.btnImageUpdate = new MetroFramework.Controls.MetroTile();
             this.txtTableButtonsDimensions = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.chkShowJokeReport = new System.Windows.Forms.CheckBox();
@@ -124,7 +123,6 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.btnImageUpdate);
             this.metroTabPage1.Controls.Add(this.txtTableButtonsDimensions);
             this.metroTabPage1.Controls.Add(this.metroLabel2);
             this.metroTabPage1.Controls.Add(this.chkShowJokeReport);
@@ -149,20 +147,6 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // btnImageUpdate
-            // 
-            this.btnImageUpdate.ActiveControl = null;
-            this.btnImageUpdate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnImageUpdate.Location = new System.Drawing.Point(28, 329);
-            this.btnImageUpdate.Name = "btnImageUpdate";
-            this.btnImageUpdate.Size = new System.Drawing.Size(121, 41);
-            this.btnImageUpdate.Style = MetroFramework.MetroColorStyle.Green;
-            this.btnImageUpdate.TabIndex = 60;
-            this.btnImageUpdate.Text = "Image Update";
-            this.btnImageUpdate.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnImageUpdate.UseSelectable = true;
-            this.btnImageUpdate.Click += new System.EventHandler(this.btnImageUpdate_Click);
             // 
             // txtTableButtonsDimensions
             // 
@@ -1110,7 +1094,6 @@ namespace Kiwi.Tpv.App.Forms
         private MetroTile btnSelectCompanyLocalImage;
         private MetroTextBox txtTableButtonsDimensions;
         private MetroLabel metroLabel2;
-        private MetroTile btnImageUpdate;
         private MetroLabel metroLabel3;
         private MetroTextBox TxtTicketReport;
         private MetroButton BtnSelectReportTicket;
