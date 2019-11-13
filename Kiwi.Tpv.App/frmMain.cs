@@ -785,8 +785,9 @@ namespace Kiwi.Tpv.App
                 AppGlobal.Sale = new Sale();
             }
           
-            AppGlobal.Sale.Station = AppGlobal.Station;
+        
             AppGlobal.Sale.Table = AppGlobal.Table;
+            AppGlobal.Sale.Station = AppGlobal.Station;
             AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);    
         }
 
