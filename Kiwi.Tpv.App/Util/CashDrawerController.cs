@@ -14,7 +14,8 @@ namespace Kiwi.Tpv.App.Util
             {
                 var pUnmanagedBytes = Marshal.AllocCoTaskMem(5);
                 Marshal.Copy(AppOpenCashDrawerCommand, 0, pUnmanagedBytes, 5);
-                RawPrinterHelper.SendBytesToPrinter("EPSON TM-T20II Receipt", pUnmanagedBytes, 5);
+                //RawPrinterHelper.SendBytesToPrinter("EPSON TM-T20II Receipt", pUnmanagedBytes, 5);
+                RawPrinterHelper.SendBytesToPrinter(AppGlobal.Station.PrintterComPort, pUnmanagedBytes, 5);
                 Marshal.FreeCoTaskMem(pUnmanagedBytes);
             }
             catch (Exception ex)

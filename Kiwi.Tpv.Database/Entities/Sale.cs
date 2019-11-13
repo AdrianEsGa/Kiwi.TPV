@@ -116,21 +116,27 @@ namespace Kiwi.Tpv.Database.Entities
         private double GetFinalPrice(Product product, SaleMode saleMode, AlcoholModeTypes alcoholModeType)
         {
             var finalPrice = 0.0;
-            if (product.Type == ProductType.Alcohol && alcoholModeType != AlcoholModeTypes.Default && alcoholModeType != AlcoholModeTypes.Combined)
+
+            switch (product.Type)
             {
-                switch (alcoholModeType)
-                {
-                    case AlcoholModeTypes.Cup:
-                        finalPrice = saleMode == SaleMode.Day ? product.SaleCupDayPrice : product.SaleCupNightPrice;
-                        break;
-                    case AlcoholModeTypes.Shot:
-                        finalPrice = saleMode == SaleMode.Day ? product.SaleShotDayPrice : product.SaleCupNightPrice;
-                        break;
-                }
-            }
-            else
-            {
-                finalPrice = saleMode == SaleMode.Day ? product.SaleDayPrice : product.SaleNightPrice;
+                case ProductType.Botella:
+                    finalPrice = product.SalePrice;
+                    break;
+                case ProductType.Alcohol when alcoholModeType != AlcoholModeTypes.Default && alcoholModeType != AlcoholModeTypes.Combined:
+                    switch (alcoholModeType)
+                    {
+                        case AlcoholModeTypes.Cup:
+                            finalPrice = saleMode == SaleMode.Day ? product.SaleCupDayPrice : product.SaleCupNightPrice;
+                            break;
+                        case AlcoholModeTypes.Shot:
+                            finalPrice = saleMode == SaleMode.Day ? product.SaleShotDayPrice : product.SaleCupNightPrice;
+                            break;
+                    }
+                    break;
+
+                default:
+                    finalPrice = saleMode == SaleMode.Day ? product.SaleDayPrice : product.SaleNightPrice;
+                    break;
             }
 
             return finalPrice;
