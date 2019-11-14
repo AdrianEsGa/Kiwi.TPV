@@ -2,45 +2,29 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
 using MetroFramework;
 using MetroFramework.Controls;
-using MetroFramework.Forms;
 
-namespace Kiwi.Tpv.App.Forms
+namespace Kiwi.Tpv.App.Util
 {
-    public partial class FrmEmployeeSelector : MetroForm
+    public static class MainViewEmployeeButtonsController
     {
-        private List<Employee> _activeEmployees;
-        public Employee SelectedEmployee;
+        private static List<Employee> _employees = new List<Employee>();
 
-        public FrmEmployeeSelector()
-        {
-            InitializeComponent();
-            ViewController.SetSkin(this);
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void frmEmployeeSelector_Load(object sender, EventArgs e)
-        {
-            PaintEmployees();
-        }
-
-        private void PaintEmployees()
+        public static void PaintEmployees()
         {
             try
             {
-                flowLayoutPanelEmployees.Controls.Clear();
 
-                _activeEmployees = EmployeeController.GetAllActive();
+                FrmMain.Instance.flowLayoutPanelEmployees.Controls.Clear();
 
-                foreach (var employee in _activeEmployees)
+                InitializeFlowLayouts();
+
+                _employees = EmployeeController.GetAllActive();
+
+                foreach (var employee in _employees)
                 {
 
                     if (employee.Image != null)
@@ -59,7 +43,14 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
-        private void PaintEmployeeImageButtons(Employee employee)
+        private static void InitializeFlowLayouts()
+        {
+            FrmMain.Instance.flowLayoutPanelEmployees.AutoScroll = false;
+            FrmMain.Instance.flowLayoutPanelEmployees.AutoSize = true;
+            FrmMain.Instance.flowLayoutPanelEmployees.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
+        private static void PaintEmployeeImageButtons(Employee employee)
         {
             var btn = new MetroButton
             {
@@ -69,11 +60,11 @@ namespace Kiwi.Tpv.App.Forms
                 BackgroundImage = Common.BytesToImage(employee.Image),
                 BackgroundImageLayout = ImageLayout.Stretch
             };
-            btn.Click += ButtonEmployee_Click;
-            flowLayoutPanelEmployees.Controls.Add(btn);
+            btn.Click += FrmMain.Instance.ButtonEmployee_Click;
+            FrmMain.Instance.flowLayoutPanelEmployees.Controls.Add(btn);
         }
 
-        private void PaintEmployeeButtons(Employee employee)
+        private static void PaintEmployeeButtons(Employee employee)
         {
             var btn = new Button
             {
@@ -87,16 +78,8 @@ namespace Kiwi.Tpv.App.Forms
                 Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular)
             };
 
-
-            btn.Click += ButtonEmployee_Click;
-            flowLayoutPanelEmployees.Controls.Add(btn);
-        }
-
-        private void ButtonEmployee_Click(object sender, EventArgs e)
-        {
-            var btn = (Button)sender;
-            SelectedEmployee = (Employee)btn.Tag;
-            Close();
+            btn.Click += FrmMain.Instance.ButtonEmployee_Click;
+            FrmMain.Instance.flowLayoutPanelEmployees.Controls.Add(btn);
         }
     }
 }

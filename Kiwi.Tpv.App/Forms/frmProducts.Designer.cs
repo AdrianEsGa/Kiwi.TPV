@@ -63,6 +63,7 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSearch = new MetroFramework.Controls.MetroTile();
             this.tabProducts = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageFicha = new MetroFramework.Controls.MetroTabPage();
+            this.BtnRemoveImage = new MetroFramework.Controls.MetroButton();
             this.SalePanel = new MetroFramework.Controls.MetroPanel();
             this.SodaPrices = new MetroFramework.Controls.MetroPanel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -81,7 +82,6 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtSaleDayPrice = new MetroFramework.Controls.MetroTextBox();
             this.PurchasePanel = new MetroFramework.Controls.MetroPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.panelShowInMainView = new MetroFramework.Controls.MetroPanel();
             this.chkShowInMainView = new MetroFramework.Controls.MetroToggle();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.pictureBoxProductImage = new MetroFramework.Controls.MetroButton();
@@ -108,14 +108,12 @@ namespace Kiwi.Tpv.App.Forms
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnRemoveImage = new MetroFramework.Controls.MetroButton();
             this.tabProducts.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
             this.SalePanel.SuspendLayout();
             this.SodaPrices.SuspendLayout();
             this.AlcoholPricesPanel.SuspendLayout();
             this.PurchasePanel.SuspendLayout();
-            this.panelShowInMainView.SuspendLayout();
             this.metroTabPageBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -475,10 +473,11 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPageFicha
             // 
+            this.metroTabPageFicha.Controls.Add(this.chkShowInMainView);
+            this.metroTabPageFicha.Controls.Add(this.metroLabel4);
             this.metroTabPageFicha.Controls.Add(this.BtnRemoveImage);
             this.metroTabPageFicha.Controls.Add(this.SalePanel);
             this.metroTabPageFicha.Controls.Add(this.PurchasePanel);
-            this.metroTabPageFicha.Controls.Add(this.panelShowInMainView);
             this.metroTabPageFicha.Controls.Add(this.pictureBoxProductImage);
             this.metroTabPageFicha.Controls.Add(this.TxtProductName);
             this.metroTabPageFicha.Controls.Add(this.TxtProductId);
@@ -504,6 +503,17 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPageFicha.VerticalScrollbarBarColor = true;
             this.metroTabPageFicha.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageFicha.VerticalScrollbarSize = 10;
+            // 
+            // BtnRemoveImage
+            // 
+            this.BtnRemoveImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnRemoveImage.Location = new System.Drawing.Point(694, 208);
+            this.BtnRemoveImage.Name = "BtnRemoveImage";
+            this.BtnRemoveImage.Size = new System.Drawing.Size(67, 31);
+            this.BtnRemoveImage.TabIndex = 103;
+            this.BtnRemoveImage.Text = "X";
+            this.BtnRemoveImage.UseSelectable = true;
+            this.BtnRemoveImage.Click += new System.EventHandler(this.BtnRemoveImage_Click);
             // 
             // SalePanel
             // 
@@ -870,25 +880,10 @@ namespace Kiwi.Tpv.App.Forms
             this.metroLabel2.TabIndex = 92;
             this.metroLabel2.Text = "Compras";
             // 
-            // panelShowInMainView
-            // 
-            this.panelShowInMainView.Controls.Add(this.chkShowInMainView);
-            this.panelShowInMainView.Controls.Add(this.metroLabel4);
-            this.panelShowInMainView.HorizontalScrollbarBarColor = true;
-            this.panelShowInMainView.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelShowInMainView.HorizontalScrollbarSize = 10;
-            this.panelShowInMainView.Location = new System.Drawing.Point(278, 143);
-            this.panelShowInMainView.Name = "panelShowInMainView";
-            this.panelShowInMainView.Size = new System.Drawing.Size(207, 35);
-            this.panelShowInMainView.TabIndex = 100;
-            this.panelShowInMainView.VerticalScrollbarBarColor = true;
-            this.panelShowInMainView.VerticalScrollbarHighlightOnWheel = false;
-            this.panelShowInMainView.VerticalScrollbarSize = 10;
-            // 
             // chkShowInMainView
             // 
             this.chkShowInMainView.AutoSize = true;
-            this.chkShowInMainView.Location = new System.Drawing.Point(124, 4);
+            this.chkShowInMainView.Location = new System.Drawing.Point(383, 147);
             this.chkShowInMainView.Name = "chkShowInMainView";
             this.chkShowInMainView.Size = new System.Drawing.Size(80, 17);
             this.chkShowInMainView.TabIndex = 99;
@@ -898,7 +893,7 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 4);
+            this.metroLabel4.Location = new System.Drawing.Point(262, 147);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(59, 19);
             this.metroLabel4.TabIndex = 98;
@@ -1229,17 +1224,6 @@ namespace Kiwi.Tpv.App.Forms
             this.dataGridViewTextBoxColumn1.HeaderText = "Subtipo";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // BtnRemoveImage
-            // 
-            this.BtnRemoveImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BtnRemoveImage.Location = new System.Drawing.Point(694, 208);
-            this.BtnRemoveImage.Name = "BtnRemoveImage";
-            this.BtnRemoveImage.Size = new System.Drawing.Size(67, 31);
-            this.BtnRemoveImage.TabIndex = 103;
-            this.BtnRemoveImage.Text = "X";
-            this.BtnRemoveImage.UseSelectable = true;
-            this.BtnRemoveImage.Click += new System.EventHandler(this.BtnRemoveImage_Click);
-            // 
             // FrmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1269,8 +1253,6 @@ namespace Kiwi.Tpv.App.Forms
             this.AlcoholPricesPanel.PerformLayout();
             this.PurchasePanel.ResumeLayout(false);
             this.PurchasePanel.PerformLayout();
-            this.panelShowInMainView.ResumeLayout(false);
-            this.panelShowInMainView.PerformLayout();
             this.metroTabPageBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
@@ -1321,7 +1303,6 @@ namespace Kiwi.Tpv.App.Forms
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private MetroToggle chkShowInMainView;
         private MetroLabel metroLabel4;
-        private MetroPanel panelShowInMainView;
         private MetroPanel SalePanel;
         private MetroPanel PurchasePanel;
         private MetroLabel lblCupDayPrice;

@@ -11,11 +11,8 @@ using Kiwi.Tpv.Database;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
 using MetroFramework;
-using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Kiwi.Tpv.App
 {
@@ -38,8 +35,10 @@ namespace Kiwi.Tpv.App
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            Initialize();
             AppGlobal.MainForm = this;
+
+            Initialize();
+        
             _worker = new BackgroundWorker();
             _worker.DoWork += DoWork;
             _worker.RunWorkerCompleted += RunWorkerCompleted;
@@ -63,60 +62,9 @@ namespace Kiwi.Tpv.App
             PrintSaleTicket();
         }
 
-        private void Initialize()
-        {
-            try
-            {
-                flowLayoutPanelAlcohol.AutoScroll = false;
-                flowLayoutPanelAlcohol.AutoSize = true;
-                flowLayoutPanelAlcohol.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                flowLayoutPanelSoda.AutoScroll = false;
-                flowLayoutPanelSoda.AutoSize = true;
-                flowLayoutPanelSoda.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                flowLayoutPanelCafes.AutoScroll = false;
-                flowLayoutPanelCafes.AutoSize = true;
-                flowLayoutPanelCafes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                flowLayoutPanelVarious.AutoScroll = false;
-                flowLayoutPanelVarious.AutoSize = true;
-                flowLayoutPanelVarious.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                flowLayoutPanelEmployees.AutoScroll = false;
-                flowLayoutPanelEmployees.AutoSize = true;
-                flowLayoutPanelEmployees.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-                InitializeConfiguration();
-                PaintProducts();
-                PaintEmployees();
-                TestPrinter();
-
-                lblDayNight.Text = "DÍA";
-                AppGlobal.SaleMode = SaleMode.Day;
-
-                if (AppGlobal.AppGeneralConfig.SystemJoke)
-                    SystemTimer.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                ViewController.ShowError(ex.Message);
-            }
-
-            try
-            {
-                picBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
-                picBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;           
-            }
-            catch
-            {
-                // ignored
-            }
-        }
-
         #region General Events
 
-        private void ButtonProduct_Click(object sender, EventArgs e)
+        internal void ButtonProduct_Click(object sender, EventArgs e)
         {
             AlcoholModeTypes alcoholModeType = AlcoholModeTypes.Default;
 
@@ -214,7 +162,7 @@ namespace Kiwi.Tpv.App
             RefreshScreen();
         }
 
-        private void ButtonEmployee_Click(object sender, EventArgs e)
+        internal void ButtonEmployee_Click(object sender, EventArgs e)
         {
             if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0 || AppGlobal.Sale.TotalPriceDetails() == 0) return;
 
@@ -388,338 +336,39 @@ namespace Kiwi.Tpv.App
 
         #region Private Events
 
-        #region Paint Methods
-
-        private void PaintProducts()
+        private void Initialize()
         {
             try
             {
-                flowLayoutPanelAlcohol.Controls.Clear();
-                flowLayoutPanelSoda.Controls.Clear();
-                flowLayoutPanelCafes.Controls.Clear();
-                flowLayoutPanelVarious.Controls.Clear();
 
-                _products = ProductController.GetAllActive();
+                InitializeConfiguration();
 
-                foreach (var product in _products)
-                {
-                    if (product.Image != null)
-                    {
-                        PaintProductTiles(product);
-                    }
-                    else
-                    {
-                        PaintProductButtons(product);
-                    }
-                }
+                MainViewProductButtonsController.PaintProducts();
+                MainViewEmployeeButtonsController.PaintEmployees();
 
-                PaintProductBottleTile();
-                PaintProductExtraTiles();
+                TestPrinter();
+
+                lblDayNight.Text = "DÍA";
+                AppGlobal.SaleMode = SaleMode.Day;
+
+                if (AppGlobal.AppGeneralConfig.SystemJoke)
+                    SystemTimer.Enabled = true;
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+
+            try
+            {
+                picBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
+                picBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
             {
                 // ignored
             }
         }
-
-        private void PaintProductTiles(Product product)
-        {
-            var btn = new MetroButton
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = product,
-                BackgroundImage = Common.BytesToImage(product.Image),
-                BackgroundImageLayout = ImageLayout.Stretch
-            };
-
-            btn.Click += ButtonProduct_Click;
-
-            switch (product.Type)
-            {
-                case ProductType.Alcohol:
-                    flowLayoutPanelAlcohol.Controls.Add(btn);
-                    break;
-                case ProductType.Refresco:
-                    flowLayoutPanelSoda.Controls.Add(btn);
-                    break;
-                case ProductType.Cerveza:
-                    flowLayoutPanelSoda.Controls.Add(btn);
-                    break;
-                case ProductType.Cafes:
-                    flowLayoutPanelCafes.Controls.Add(btn);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private void PaintProductButtons(Product product)
-        {
-            var btn = new MetroTile
-            {
-                Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Text = product.Name,
-                Tag = product,
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btn.Click += ButtonProduct_Click;
-
-            switch (product.Type)
-            {
-                case ProductType.Alcohol:
-                    flowLayoutPanelAlcohol.Controls.Add(btn);
-                    break;
-                case ProductType.Refresco:
-                    flowLayoutPanelSoda.Controls.Add(btn);
-                    break;
-                case ProductType.Cerveza:
-                    flowLayoutPanelSoda.Controls.Add(btn);
-                    break;
-                case ProductType.Cafes:
-                    flowLayoutPanelCafes.Controls.Add(btn);
-                    break;
-            }
-        }
-
-        private void PaintProductBottleTile()
-        {
-            //Create button botella
-            var btnBottle = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Bottle",
-                Text = Resources.Botella,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnBottle.Click += ButtonProduct_Click;
-
-            flowLayoutPanelAlcohol.Controls.Add(btnBottle);
-        }
-
-        private void PaintProductExtraTiles()
-        {
-            //Create button Alcohol
-            var btnAlcohol = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Alcohol",
-                Text = "Alcohol",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnAlcohol.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnAlcohol);
-
-            //Create button Refrescos
-            var btnRefrescos = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Refrescos",
-                Text = "Refrescos",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnRefrescos.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnRefrescos);
-
-            //Create button Cervezas
-            var btnCervezas = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Cervezas",
-                Text = "Cervezas",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnCervezas.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnCervezas);
-
-            //Create button Cafes
-            var btnCafes = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Cafes",
-                Text = "Cafés",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnCafes.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnCafes);
-
-            //Create button Tes
-            var btnTes = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Tes",
-                Text = "Tés",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnTes.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnTes);
-
-            //Create button Cocktails
-            var btnCocktails = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Cocktails",
-                Text = "Cocktails",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnCocktails.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnCocktails);
-
-            //Create button Infusiones
-            var btnInfusiones = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Infusiones",
-                Text = "Infusiones",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnInfusiones.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnInfusiones);
-
-            //Create button Infusiones
-            var btnVinos = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Vinos",
-                Text = "Vinos",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnVinos.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnVinos);
-
-            //Create button Varios
-            var btnVarios = new MetroTile()
-            {
-                Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                Tag = "Varios",
-                Text = "Varios",
-                TileTextFontWeight = MetroTileTextWeight.Regular,
-                TileTextFontSize = MetroTileTextSize.Small,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btnVarios.Click += ButtonProduct_Click;
-
-            flowLayoutPanelVarious.Controls.Add(btnVarios);
-        }
-
-        private void PaintEmployees()
-        {
-            try
-            {
-                flowLayoutPanelEmployees.Controls.Clear();
-
-                _employees = EmployeeController.GetAllActive();
-
-                foreach (var employee in _employees)
-                {
-
-                    if (employee.Image != null)
-                    {
-                        PaintEmployeeButtons(employee);
-                    }
-                    else
-                    {
-                        PaintEmployeeTiles(employee);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                // ignored
-            }
-        }
-
-        private void PaintEmployeeButtons(Employee employee)
-        {
-            var btn = new MetroButton
-            {
-                Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Tag = employee,
-                BackgroundImage = Common.BytesToImage(employee.Image),
-                BackgroundImageLayout = ImageLayout.Stretch
-            };
-            btn.Click += ButtonEmployee_Click;
-            flowLayoutPanelEmployees.Controls.Add(btn);
-        }
-
-        private void PaintEmployeeTiles(Employee employee)
-        {
-            var btn = new MetroTile
-            {
-                Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Text = employee.Name,
-                Tag = employee,
-                Style = MetroColorStyle.Silver,
-                TextAlign = ContentAlignment.TopLeft,
-            };
-
-            btn.Click += ButtonEmployee_Click;
-            flowLayoutPanelEmployees.Controls.Add(btn);
-        }
-
-        #endregion
 
         private void TestPrinter()
         {
@@ -916,7 +565,6 @@ namespace Kiwi.Tpv.App
                 ViewController.ShowError(ex.Message);
             }
         }
-
 
         #endregion
 

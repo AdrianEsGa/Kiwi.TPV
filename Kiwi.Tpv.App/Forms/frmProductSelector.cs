@@ -68,7 +68,7 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new MetroButton
                     {
-                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension + 25,
+                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                         Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                         Tag = product,
                         BackgroundImage = Common.BytesToImage(product.Image),
@@ -81,16 +81,16 @@ namespace Kiwi.Tpv.App.Forms
                 }
                 else
                 {
-                    var btn = new MetroTile
+                    var btn = new Button
                     {
-                        Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension + 25,
-                        Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                        TileTextFontWeight = MetroTileTextWeight.Regular,
-                        TileTextFontSize = MetroTileTextSize.Small,
+                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                        Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
                         Text = product.Name,
                         Tag = product,
-                        Style = MetroColorStyle.Silver,
-                        TextAlign = ContentAlignment.TopLeft,
+                        BackColor = Color.DimGray,
+                        ForeColor = Color.White,
+                        FlatStyle = FlatStyle.Flat,
+                        Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular)
                     };
 
                     btn.Click += ButtonProduct_Click;

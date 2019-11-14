@@ -217,9 +217,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Configurations\Settings.cs" />
     <Compile Include="Util\Exportations\ExportationToExcel.cs" />
+    <Compile Include="Util\MainViewEmployeeButtonsController.cs" />
     <Compile Include="Util\NLog.cs" />
     <Compile Include="Util\PrinterController.cs" />
     <Compile Include="Util\RawPrinterHelper.cs" />
+    <Compile Include="Util\MainViewProductButtonsController.cs" />
     <Compile Include="Util\ViewController.cs" />
     <Content Include="kiwiLogo.ico" />
     <Content Include="Reports\SaleTicket.rdlc">

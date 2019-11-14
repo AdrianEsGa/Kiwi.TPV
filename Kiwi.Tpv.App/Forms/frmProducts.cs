@@ -102,19 +102,6 @@ namespace Kiwi.Tpv.App.Forms
                     SodaPrices.Visible = false;
                     break;
             }
-
-            if ((ProductType) CbProductType.SelectedItem == ProductType.Alcohol ||
-                (ProductType) CbProductType.SelectedItem == ProductType.Cerveza ||
-                (ProductType) CbProductType.SelectedItem == ProductType.Refresco ||
-                (ProductType) CbProductType.SelectedItem == ProductType.Cafes)
-            {
-                panelShowInMainView.Visible = true;
-            }
-            else
-            {
-                panelShowInMainView.Visible = false;
-                chkShowInMainView.Checked = false;
-            }
         }
 
         private void DataGridViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -262,12 +249,6 @@ namespace Kiwi.Tpv.App.Forms
                     pictureBoxProductImage.BackgroundImageLayout = ImageLayout.Center;
                     pictureBoxProductImage.Text = String.Empty;
                 }
-
-                panelShowInMainView.Visible = _selectedProduct.Type == ProductType.Alcohol ||
-                                              _selectedProduct.Type == ProductType.Cerveza ||
-                                              _selectedProduct.Type == ProductType.Refresco ||
-                                              _selectedProduct.Type == ProductType.Cafes;
-
 
                 if (CbProductType.SelectedItem != null)
                 {
