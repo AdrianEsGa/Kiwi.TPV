@@ -34,16 +34,16 @@ namespace Kiwi.Tpv.App
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -77,10 +77,21 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelEmployees = new System.Windows.Forms.FlowLayoutPanel();
             this.SaleDetailsPanel = new System.Windows.Forms.Panel();
             this.DataGridViewSelectedProducts = new MetroFramework.Controls.MetroGrid();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RemoveOne = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AddOne = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SaleInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.lblDayNight = new MetroFramework.Controls.MetroLabel();
             this.lblTicket = new MetroFramework.Controls.MetroLabel();
@@ -101,17 +112,6 @@ namespace Kiwi.Tpv.App
             this.TimerWatch = new System.Windows.Forms.Timer(this.components);
             this.SystemTimer = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HeadPanel.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -128,10 +128,10 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.SuspendLayout();
             this.SaleDetailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectedProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SaleInfoPanel.SuspendLayout();
             this.ProductsPanel.SuspendLayout();
             this.TableLayoutProducts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // HeadPanel
@@ -586,14 +586,14 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSelectedProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewSelectedProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DataGridViewSelectedProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSelectedProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewSelectedProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewSelectedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewSelectedProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -611,14 +611,14 @@ namespace Kiwi.Tpv.App
             this.RemoveOne,
             this.AddOne});
             this.DataGridViewSelectedProducts.DataSource = this.saleDetailBindingSource;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewSelectedProducts.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewSelectedProducts.DefaultCellStyle = dataGridViewCellStyle9;
             this.DataGridViewSelectedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewSelectedProducts.EnableHeadersVisualStyles = false;
             this.DataGridViewSelectedProducts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -628,14 +628,14 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSelectedProducts.Name = "DataGridViewSelectedProducts";
             this.DataGridViewSelectedProducts.ReadOnly = true;
             this.DataGridViewSelectedProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSelectedProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewSelectedProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.DataGridViewSelectedProducts.RowHeadersVisible = false;
             this.DataGridViewSelectedProducts.RowHeadersWidth = 70;
             this.DataGridViewSelectedProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -649,13 +649,29 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSelectedProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellClick);
             this.DataGridViewSelectedProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // saleDataGridViewTextBoxColumn
+            // 
+            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
+            this.saleDataGridViewTextBoxColumn.HeaderText = "Sale";
+            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
+            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saleDataGridViewTextBoxColumn.Visible = false;
+            // 
             // ProductImage
             // 
             this.ProductImage.DataPropertyName = "ProductImage";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.NullValue = null;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(2);
-            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle2;
             this.ProductImage.HeaderText = "";
             this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ProductImage.Name = "ProductImage";
@@ -664,23 +680,97 @@ namespace Kiwi.Tpv.App
             this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ProductImage.Width = 50;
             // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 37;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subTotalDataGridViewTextBoxColumn
+            // 
+            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.HeaderText = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
+            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subTotalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxPercentajeDataGridViewTextBoxColumn
+            // 
+            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
+            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxDataGridViewTextBoxColumn
+            // 
+            this.taxDataGridViewTextBoxColumn.DataPropertyName = "Tax";
+            this.taxDataGridViewTextBoxColumn.HeaderText = "Tax";
+            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
+            this.taxDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Visible = false;
+            this.totalDataGridViewTextBoxColumn.Width = 50;
+            // 
             // TotalString
             // 
             this.TotalString.DataPropertyName = "TotalString";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalString.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalString.DefaultCellStyle = dataGridViewCellStyle6;
             this.TotalString.HeaderText = "Total";
             this.TotalString.Name = "TotalString";
             this.TotalString.ReadOnly = true;
             this.TotalString.Width = 50;
             // 
+            // isBottleDataGridViewCheckBoxColumn
+            // 
+            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
+            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
+            // 
             // RemoveOne
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Red;
-            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle7;
             this.RemoveOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RemoveOne.HeaderText = "";
             this.RemoveOne.Name = "RemoveOne";
@@ -691,10 +781,10 @@ namespace Kiwi.Tpv.App
             // 
             // AddOne
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.AddOne.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddOne.DefaultCellStyle = dataGridViewCellStyle8;
             this.AddOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddOne.HeaderText = "";
             this.AddOne.Name = "AddOne";
@@ -702,6 +792,10 @@ namespace Kiwi.Tpv.App
             this.AddOne.Text = "+";
             this.AddOne.UseColumnTextForButtonValue = true;
             this.AddOne.Width = 61;
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
             // 
             // SaleInfoPanel
             // 
@@ -942,100 +1036,6 @@ namespace Kiwi.Tpv.App
             this.dataGridViewTextBoxColumn1.HeaderText = "Producto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // saleDataGridViewTextBoxColumn
-            // 
-            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
-            this.saleDataGridViewTextBoxColumn.HeaderText = "Sale";
-            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
-            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 37;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // subTotalDataGridViewTextBoxColumn
-            // 
-            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.HeaderText = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
-            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subTotalDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // taxPercentajeDataGridViewTextBoxColumn
-            // 
-            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
-            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // taxDataGridViewTextBoxColumn
-            // 
-            this.taxDataGridViewTextBoxColumn.DataPropertyName = "Tax";
-            this.taxDataGridViewTextBoxColumn.HeaderText = "Tax";
-            this.taxDataGridViewTextBoxColumn.Name = "taxDataGridViewTextBoxColumn";
-            this.taxDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalDataGridViewTextBoxColumn.Visible = false;
-            this.totalDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // isBottleDataGridViewCheckBoxColumn
-            // 
-            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
-            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1074,12 +1074,12 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.ResumeLayout(false);
             this.SaleDetailsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectedProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.SaleInfoPanel.ResumeLayout(false);
             this.SaleInfoPanel.PerformLayout();
             this.ProductsPanel.ResumeLayout(false);
             this.ProductsPanel.PerformLayout();
             this.TableLayoutProducts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

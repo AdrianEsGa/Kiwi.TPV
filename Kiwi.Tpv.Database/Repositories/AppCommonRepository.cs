@@ -11,7 +11,7 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             const string strSql =
                 "SELECT AdminPassword, ProductButtonsDimensions, EmployeeButtonsDimensions, TableButtonsDimensions, BackgroundImage, " +
-                "SystemJoke, JokeInit, JokeEnd, JokeInterval, ShowJokeReport " +
+                "SystemJoke, JokeInit, JokeEnd, JokeInterval, ShowJokeReport, ServerStationId, DbBackupFilePath " +
                 "FROM AppGeneralConfig";
             var appGeneralConfig = new AppGeneralConfig();
 
@@ -25,6 +25,7 @@ namespace Kiwi.Tpv.Database.Repositories
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
+                            {
                                 appGeneralConfig = new AppGeneralConfig
                                 {
                                     AdminPassword = reader["AdminPassword"].ToString(),
@@ -36,8 +37,16 @@ namespace Kiwi.Tpv.Database.Repositories
                                     JokeInit = int.Parse(reader["JokeInit"].ToString()),
                                     JokeEnd = int.Parse(reader["JokeEnd"].ToString()),
                                     JokeInterval = int.Parse(reader["JokeInterval"].ToString()),
-                                    ShowJokeReport = (bool) reader["ShowJokeReport"]
+                                    ShowJokeReport = (bool) reader["ShowJokeReport"],
+
+                                    DbBackupFilePath = reader["DbBackupFilePath"].ToString()
                                 };
+                                if (reader["ServerStationId"] != DBNull.Value)
+                                {
+                                    appGeneralConfig.ServerStation =
+                                        StationRepository.GetById((int) reader["ServerStationId"]);
+                                }
+                            }
                         }
                     }
                 }
@@ -64,7 +73,9 @@ namespace Kiwi.Tpv.Database.Repositories
                         "EmployeeButtonsDimensions = @EmployeeButtonsDimensions, " +
                         "TableButtonsDimensions = @TableButtonsDimensions, " +
                         "BackgroundImage = @BackgroundImage, " +
-                        "ShowJokeReport = @ShowJokeReport";
+                        "ShowJokeReport = @ShowJokeReport," +
+                        "ServerStationId = @ServerStationId," +
+                        "DbBackupFilePath = @DbBackupFilePath";
 
                     using (var command = new SqlCommand(strSql, connection))
                     {
@@ -78,6 +89,17 @@ namespace Kiwi.Tpv.Database.Repositories
                             appGeneralConfig.TableButtonsDimension);
                         command.Parameters.AddWithValue("@BackgroundImage", appGeneralConfig.BackgroundImage);
                         command.Parameters.AddWithValue("@ShowJokeReport", appGeneralConfig.ShowJokeReport);
+
+                        if (appGeneralConfig.ServerStation != null)
+                        {
+                            command.Parameters.AddWithValue("@ServerStationId", appGeneralConfig.ServerStation.Id);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@ServerStationId", DBNull.Value);
+                        }
+
+                        command.Parameters.AddWithValue("@DbBackupFilePath", appGeneralConfig.DbBackupFilePath);
                         connection.Open();
                         command.ExecuteNonQuery();
                     }

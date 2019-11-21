@@ -7,6 +7,42 @@ namespace Kiwi.Tpv.Database.Repositories
 {
     internal static class StationRepository
     {
+        internal static Station GetById(int id)
+        {
+            const string strSql = "SELECT Id, Code, Name, PrintterComPort FROM Stations WHERE Id = @Id";
+            var station = new Station();
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                station = new Station
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Code = Convert.ToInt32(reader["Code"]),
+                                    Name = reader["Name"].ToString(),
+                                    PrintterComPort = reader["PrintterComPort"].ToString()
+                                };
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+
+            return station;
+        }
         internal static Station GetByCode(int code)
         {
             const string strSql = "SELECT Id, Code, Name, PrintterComPort FROM Stations WHERE Code = @Code";

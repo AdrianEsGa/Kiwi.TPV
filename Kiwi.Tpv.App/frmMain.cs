@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using Kiwi.Tpv.App.Properties;
@@ -10,6 +11,7 @@ using Kiwi.Tpv.App.Util.Configurations;
 using Kiwi.Tpv.Database;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
+using Kiwi.Tpv.Database.Repositories;
 using MetroFramework;
 using MetroFramework.Forms;
 using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
@@ -21,6 +23,7 @@ namespace Kiwi.Tpv.App
         private List<Employee> _employees;
         private List<Product> _products;
         private BackgroundWorker _worker;
+        private BackgroundWorker _dbBackupWorker;
         private bool _hasPendingCommands;
 
         private static FrmMain _instance;
@@ -42,13 +45,32 @@ namespace Kiwi.Tpv.App
             _worker = new BackgroundWorker();
             _worker.DoWork += DoWork;
             _worker.RunWorkerCompleted += RunWorkerCompleted;
+
+            _dbBackupWorker = new BackgroundWorker();
+            _dbBackupWorker.DoWork += DbBackup_DoWork;
+            _dbBackupWorker.RunWorkerCompleted += DbBackup_RunWorkerCompleted;
+
+
             SelectBar();
 
             DataGridViewSelectedProducts.DefaultCellStyle.SelectionBackColor =
                 DataGridViewSelectedProducts.DefaultCellStyle.BackColor;
             DataGridViewSelectedProducts.DefaultCellStyle.SelectionForeColor =
                 DataGridViewSelectedProducts.DefaultCellStyle.ForeColor;
-     
+
+            ViewController.ShowPopUpWithSpinner();
+            _dbBackupWorker.RunWorkerAsync();
+
+        }
+
+        private void DbBackup_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ViewController.HidePopUp();
+        }
+
+        private void DbBackup_DoWork(object sender, DoWorkEventArgs e)
+        {
+            GenerateDbBackup();
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -325,6 +347,7 @@ namespace Kiwi.Tpv.App
             try
             {
                 SaveSale();
+                _dbBackupWorker.RunWorkerAsync();
             }
             catch (Exception ex)
             {
@@ -340,7 +363,7 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-
+              
                 InitializeConfiguration();
 
                 MainViewProductButtonsController.PaintProducts();
@@ -544,9 +567,16 @@ namespace Kiwi.Tpv.App
 
         private void SaveSale()
         {
-            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0) return;
+            try
+            {
+                if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0) return;
 
-            SalesController.SaveOrUpdate(AppGlobal.Sale);         
+                SalesController.SaveOrUpdate(AppGlobal.Sale);
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
         }
 
         private void PrintSaleTicket()
@@ -560,6 +590,50 @@ namespace Kiwi.Tpv.App
                 PrinterController.PrintSale(AppGlobal.Sale);
 
             }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
+        private void GenerateDbBackup()
+        {
+            try
+            {
+                if (AppGlobal.AppGeneralConfig.ServerStation != null)
+                {
+                    if (AppGlobal.AppGeneralConfig.ServerStation.Id == AppGlobal.Station.Id)
+                    {
+                        if (string.IsNullOrEmpty(AppGlobal.AppGeneralConfig.DbBackupFilePath) ||
+                            !Directory.Exists(AppGlobal.AppGeneralConfig.DbBackupFilePath))
+                        {
+                            ViewController.ShowWarning(
+                                "No existe configuración del sistema de copia de seguridad o la ruta configurada no es accesible.");
+                            return;
+                        }
+
+                        var builder = new System.Data.SqlClient.SqlConnectionStringBuilder(GlobalDb.ConnectionString);
+
+                        var dbBackupFile = AppGlobal.AppGeneralConfig.DbBackupFilePath + "\\" + builder.InitialCatalog + "_Backup.bak";
+                        if (File.Exists(dbBackupFile))
+                        {
+                            File.Delete(dbBackupFile);
+                        }
+
+                        var strSQL =
+                            @"DECLARE @BackupLocation NVARCHAR(2000) = '" + dbBackupFile + "'" +
+                            " BACKUP DATABASE " + builder.InitialCatalog + 
+                            " TO DISK = @BackupLocation; ";
+
+                        DbManagementRepository.ExecuteSql(strSQL);
+                    }
+                }
+                else
+                {
+                    ViewController.ShowWarning(
+                        "No se ha configurado el punto de venta servidor.");
+                }
+            }     
             catch (Exception ex)
             {
                 ViewController.ShowError(ex.Message);

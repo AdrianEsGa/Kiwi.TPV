@@ -12,5 +12,8 @@
         public int JokeEnd { get; set; }
         public int JokeInterval { get; set; }
         public bool ShowJokeReport { get; set; }
+        public Station ServerStation { get; set; }
+        public string DbBackupFilePath { get; set; }
+
     }
 }

@@ -146,6 +146,17 @@ namespace Kiwi.Tpv.App.Forms
             UpdateController.UpdateImages();
         }
 
+        private void btnDbBackupFilePath_Click(object sender, EventArgs e)
+        {
+            var folderDialog = new FolderBrowserDialog { ShowNewFolderButton = true };
+
+            var result = folderDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtDbBackupFilePath.Text = folderDialog.SelectedPath;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -154,6 +165,7 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
+                var stations = StationController.GetAll();
                 txtAdminPassword.Text = AppGlobal.AppGeneralConfig.AdminPassword;
                 txtProductButtonsDimension.Text = AppGlobal.AppGeneralConfig.ProductButtonsDimension.ToString();
                 txtEmployeeButtonsDimension.Text = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension.ToString();
@@ -161,15 +173,30 @@ namespace Kiwi.Tpv.App.Forms
                 TxtBackImagePath.Text = AppGlobal.AppGeneralConfig.BackgroundImage;
                 chkShowJokeReport.Checked = AppGlobal.AppGeneralConfig.ShowJokeReport;
 
+                cmbServerStation.DataSource = stations;
+                if (AppGlobal.AppGeneralConfig.ServerStation != null)
+                {
+                    cmbServerStation.SelectedIndex =
+                        cmbServerStation.FindStringExact(AppGlobal.AppGeneralConfig.ServerStation.Name);
+                }
+                else
+                {
+                    cmbServerStation.SelectedItem = null;
+                    cmbServerStation.Text = string.Empty;
+                }
+
+                btnDbBackupFilePath.Enabled = AppGlobal.AppGeneralConfig.ServerStation != null;
+                txtDbBackupFilePath.Text = AppGlobal.AppGeneralConfig.DbBackupFilePath;
+
                 TxtCompanyName.Text = AppGlobal.Company.Name;
                 txtCompanyCif.Text = AppGlobal.Company.Cif;
                 chkCombinationControl.Checked = AppGlobal.Company.CombinationControl;
                 TxtTicketReport.Text = AppGlobal.Company.TicketReport;
 
-                DataGridViewStations.DataSource = StationController.GetAll();
+                txtActualStation.Text = AppGlobal.Station.Name;
+               
+                DataGridViewStations.DataSource = stations;
                 DataGridViewStations.ClearSelection();
-                cbActualStation.DataSource = StationController.GetAll();
-                cbActualStation.SelectedIndex = cbActualStation.FindStringExact(AppGlobal.Station.ToString());
 
                 cbPrinter.DataSource = RawPrinterHelper.GetPrinters();
                 cbPrinter.SelectedIndex = cbPrinter.FindStringExact(AppGlobal.Station.PrintterComPort);
@@ -204,17 +231,15 @@ namespace Kiwi.Tpv.App.Forms
                     Convert.ToInt16(txtTableButtonsDimensions.Text.Trim());
                 AppGlobal.AppGeneralConfig.BackgroundImage = TxtBackImagePath.Text.Trim();
                 AppGlobal.AppGeneralConfig.ShowJokeReport = chkShowJokeReport.Checked;
+                AppGlobal.AppGeneralConfig.ServerStation = (Station) cmbServerStation.SelectedItem;
+                AppGlobal.AppGeneralConfig.DbBackupFilePath = txtDbBackupFilePath.Text;
                 AppCommonController.SaveOrUpdate(AppGlobal.AppGeneralConfig);
 
-
-                var station = (Station) cbActualStation.SelectedItem;
-                Settings.StationCode = station.Code.ToString();
-                GlobalConfigurationRepository.Save();
-
                 if (cbPrinter.SelectedItem != null)
-                    station.PrintterComPort = cbPrinter.SelectedItem.ToString();
+                    AppGlobal.Station.PrintterComPort = cbPrinter.SelectedItem.ToString();
+ 
 
-                StationController.Update(station);
+                StationController.Update(AppGlobal.Station);
 
                 AppGlobal.Company.Name = TxtCompanyName.Text.Trim();
                 AppGlobal.Company.Cif = txtCompanyCif.Text.Trim();
@@ -235,11 +260,15 @@ namespace Kiwi.Tpv.App.Forms
 
         }
 
+        private void cmbServerStation_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            btnDbBackupFilePath.Enabled = true;
+        }
+
         private void btnTestPrintter_Click(object sender, EventArgs e)
         {
             PrinterController.PrintSale(new Sale());
         }
-
 
 
         #endregion
@@ -331,6 +360,8 @@ namespace Kiwi.Tpv.App.Forms
             ViewController.HideWindowKeyboard();
         }
 
-       #endregion
+
+        #endregion
+
     }
 }

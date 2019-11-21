@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Util;
@@ -15,6 +14,7 @@ namespace Kiwi.Tpv.App.Forms
         public Sale SelectedSale;
         private readonly BarTable _selectedTable;
         private List<Sale> _pendingSales;
+        private Sale _selectedSale;
 
         public FrmTableSales()
         {
@@ -77,6 +77,33 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
+        private void PaySelectedSale()
+        {
+            try
+            {
+                var frmEmployeeSelector = new FrmEmployeeSelector();
+                frmEmployeeSelector.ShowDialog();
+
+                if (frmEmployeeSelector.SelectedEmployee != null)
+                {
+                    AppGlobal.Sale.Employee = frmEmployeeSelector.SelectedEmployee;
+                    _selectedSale.Employee = frmEmployeeSelector.SelectedEmployee;
+                    AppGlobal.Sale = _selectedSale;
+                    var frmConfirmPay = new FrmConfirmPay(true);
+                    frmConfirmPay.ShowDialog();
+                    frmConfirmPay.Dispose();
+                    AppGlobal.Sale = new Sale();
+                    Close();
+                }
+
+                frmEmployeeSelector.Dispose();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
         private void PayAllSales()
         {
             try
@@ -110,5 +137,21 @@ namespace Kiwi.Tpv.App.Forms
         }
 
         #endregion
+
+        private void DataGridViewTableSales_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridViewTableSales.CurrentRow == null) return;
+
+            _selectedSale = (Sale)DataGridViewTableSales.CurrentRow.DataBoundItem;
+
+            if (_selectedSale == null) return;
+
+            DataGridViewTableSaleDetails.DataSource = _selectedSale.Details;
+        }
+
+        private void btnPaySelectedSale_Click(object sender, EventArgs e)
+        {
+            PaySelectedSale();
+        }
     }
 }
