@@ -38,6 +38,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTableSales));
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.panelButtons = new MetroFramework.Controls.MetroPanel();
+            this.btnPaySelectedSale = new MetroFramework.Controls.MetroTile();
             this.btnPayAllSales = new MetroFramework.Controls.MetroTile();
             this.btnNewSale = new MetroFramework.Controls.MetroTile();
             this.DataGridViewTableSales = new MetroFramework.Controls.MetroGrid();
@@ -55,7 +56,6 @@
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtTotalPending = new MetroFramework.Controls.MetroTile();
             this.DataGridViewTableSaleDetails = new MetroFramework.Controls.MetroGrid();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -68,7 +68,7 @@
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.totalStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPaySelectedSale = new MetroFramework.Controls.MetroTile();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTableSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
@@ -108,6 +108,21 @@
             this.panelButtons.VerticalScrollbarHighlightOnWheel = false;
             this.panelButtons.VerticalScrollbarSize = 10;
             // 
+            // btnPaySelectedSale
+            // 
+            this.btnPaySelectedSale.ActiveControl = null;
+            this.btnPaySelectedSale.BackColor = System.Drawing.Color.White;
+            this.btnPaySelectedSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnPaySelectedSale.Location = new System.Drawing.Point(3, 3);
+            this.btnPaySelectedSale.Name = "btnPaySelectedSale";
+            this.btnPaySelectedSale.Size = new System.Drawing.Size(293, 58);
+            this.btnPaySelectedSale.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnPaySelectedSale.TabIndex = 7;
+            this.btnPaySelectedSale.Text = "Cobrar seleccionada";
+            this.btnPaySelectedSale.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnPaySelectedSale.UseSelectable = true;
+            this.btnPaySelectedSale.Click += new System.EventHandler(this.btnPaySelectedSale_Click);
+            // 
             // btnPayAllSales
             // 
             this.btnPayAllSales.ActiveControl = null;
@@ -140,6 +155,7 @@
             // 
             // DataGridViewTableSales
             // 
+            this.DataGridViewTableSales.AllowUserToAddRows = false;
             this.DataGridViewTableSales.AllowUserToResizeRows = false;
             this.DataGridViewTableSales.AutoGenerateColumns = false;
             this.DataGridViewTableSales.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -311,6 +327,7 @@
             // 
             // DataGridViewTableSaleDetails
             // 
+            this.DataGridViewTableSaleDetails.AllowUserToAddRows = false;
             this.DataGridViewTableSaleDetails.AllowUserToResizeRows = false;
             this.DataGridViewTableSaleDetails.AutoGenerateColumns = false;
             this.DataGridViewTableSaleDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -371,10 +388,6 @@
             this.DataGridViewTableSaleDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewTableSaleDetails.Size = new System.Drawing.Size(1030, 255);
             this.DataGridViewTableSaleDetails.TabIndex = 59;
-            // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -473,20 +486,9 @@
             this.totalStringDataGridViewTextBoxColumn.ReadOnly = true;
             this.totalStringDataGridViewTextBoxColumn.Width = 130;
             // 
-            // btnPaySelectedSale
+            // saleDetailBindingSource
             // 
-            this.btnPaySelectedSale.ActiveControl = null;
-            this.btnPaySelectedSale.BackColor = System.Drawing.Color.White;
-            this.btnPaySelectedSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnPaySelectedSale.Location = new System.Drawing.Point(3, 3);
-            this.btnPaySelectedSale.Name = "btnPaySelectedSale";
-            this.btnPaySelectedSale.Size = new System.Drawing.Size(293, 58);
-            this.btnPaySelectedSale.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnPaySelectedSale.TabIndex = 7;
-            this.btnPaySelectedSale.Text = "Cobrar seleccionada";
-            this.btnPaySelectedSale.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnPaySelectedSale.UseSelectable = true;
-            this.btnPaySelectedSale.Click += new System.EventHandler(this.btnPaySelectedSale_Click);
+            this.saleDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleDetail);
             // 
             // FrmTableSales
             // 

@@ -48,7 +48,7 @@ namespace Kiwi.Tpv.App.Util
 
         }
 
-        private static void InitializeFlowLayouts()
+        public static void InitializeFlowLayouts()
         {
             FrmMain.Instance.flowLayoutPanelAlcohol.AutoScroll = false;
             FrmMain.Instance.flowLayoutPanelAlcohol.AutoSize = true;

@@ -78,6 +78,7 @@
             // 
             // DataGridViewCommands
             // 
+            this.DataGridViewCommands.AllowUserToAddRows = false;
             this.DataGridViewCommands.AllowUserToResizeRows = false;
             this.DataGridViewCommands.AutoGenerateColumns = false;
             this.DataGridViewCommands.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -190,6 +191,7 @@
             // 
             // DataGridViewCommandDetails
             // 
+            this.DataGridViewCommandDetails.AllowUserToAddRows = false;
             this.DataGridViewCommandDetails.AllowUserToResizeRows = false;
             this.DataGridViewCommandDetails.AutoGenerateColumns = false;
             this.DataGridViewCommandDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));

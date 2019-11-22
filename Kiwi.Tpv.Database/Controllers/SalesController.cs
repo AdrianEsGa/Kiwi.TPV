@@ -39,7 +39,7 @@ namespace Kiwi.Tpv.Database.Controllers
         {
             try
             {
-                sale.Total = sale.TotalPriceDetails();
+               sale.Total = sale.TotalPriceDetails();
                sale.Date = DateTime.Now;
                sale.Tax = sale.GetTotalTax();
                return SalesRepository.SaveOrUpdate(sale);

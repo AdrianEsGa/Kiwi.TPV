@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using Kiwi.Tpv.App.Properties;
@@ -24,13 +25,13 @@ namespace Kiwi.Tpv.App
         private List<Product> _products;
         private BackgroundWorker _worker;
         private BackgroundWorker _dbBackupWorker;
-        private bool _hasPendingCommands;
 
         private static FrmMain _instance;
         public static FrmMain Instance { get { return _instance; } }
 
         public FrmMain()
         {
+
             InitializeComponent();
             _instance = this;
             ViewController.SetSkin(this);
@@ -50,7 +51,6 @@ namespace Kiwi.Tpv.App
             _dbBackupWorker.DoWork += DbBackup_DoWork;
             _dbBackupWorker.RunWorkerCompleted += DbBackup_RunWorkerCompleted;
 
-
             SelectBar();
 
             DataGridViewSelectedProducts.DefaultCellStyle.SelectionBackColor =
@@ -61,16 +61,9 @@ namespace Kiwi.Tpv.App
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
 
-        }
 
-        private void DbBackup_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            ViewController.HidePopUp();
-        }
 
-        private void DbBackup_DoWork(object sender, DoWorkEventArgs e)
-        {
-            GenerateDbBackup();
+
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -82,6 +75,16 @@ namespace Kiwi.Tpv.App
         private void DoWork(object sender, DoWorkEventArgs e)
         {
             PrintSaleTicket();
+        }
+
+        private void DbBackup_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ViewController.HidePopUp();
+        }
+
+        private void DbBackup_DoWork(object sender, DoWorkEventArgs e)
+        {
+            GenerateDbBackup();
         }
 
         #region General Events
@@ -280,13 +283,22 @@ namespace Kiwi.Tpv.App
 
         private void timerWatch_Tick(object sender, EventArgs e)
         {
+
             lblDateTime.Text = DateTime.Now.ToString("F").ToUpper();
 
             var actualHour = DateTime.Now.Hour;
 
-            if (actualHour >= AppGlobal.AppGeneralConfig.JokeInit && actualHour < AppGlobal.AppGeneralConfig.JokeEnd)
-                AppGlobal.JokeSystemActive = true;
-            else AppGlobal.JokeSystemActive = false;
+            if (AppGlobal.AppGeneralConfig.SystemJoke)
+            {
+                if (actualHour >= AppGlobal.AppGeneralConfig.JokeInit && actualHour < AppGlobal.AppGeneralConfig.JokeEnd)
+                    AppGlobal.JokeSystemActive = true;
+                else AppGlobal.JokeSystemActive = false;
+            }
+            else
+            {
+                AppGlobal.JokeSystemActive = false;
+            }
+          
         }
 
         private void SystemTimer_Tick(object sender, EventArgs e)
@@ -363,7 +375,7 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-              
+
                 InitializeConfiguration();
 
                 MainViewProductButtonsController.PaintProducts();
@@ -376,6 +388,9 @@ namespace Kiwi.Tpv.App
 
                 if (AppGlobal.AppGeneralConfig.SystemJoke)
                     SystemTimer.Enabled = true;
+
+                FormBorderStyle = FormBorderStyle.Sizable;
+                FormBorderStyle = FormBorderStyle.None;
             }
             catch (Exception ex)
             {
@@ -569,7 +584,7 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-                if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0) return;
+                if (AppGlobal.Sale == null || (AppGlobal.Sale.Details.Count == 0 && AppGlobal.Sale.Id == 0)) return;
 
                 SalesController.SaveOrUpdate(AppGlobal.Sale);
             }
@@ -640,7 +655,12 @@ namespace Kiwi.Tpv.App
             }
         }
 
+
         #endregion
 
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
+
+        }
     }
 }
