@@ -54,6 +54,27 @@ namespace Kiwi.Tpv.App.Forms
             PayAllSales();
         }
 
+        private void btnPaySelectedSale_Click(object sender, EventArgs e)
+        {
+            PaySelectedSale();
+        }
+
+        private void btnMoveAllToOtherTable_Click(object sender, EventArgs e)
+        {
+            MoveAllSalesToOtherTable();
+        }
+
+        private void DataGridViewTableSales_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridViewTableSales.CurrentRow == null) return;
+
+            _selectedSale = (Sale)DataGridViewTableSales.CurrentRow.DataBoundItem;
+
+            if (_selectedSale == null) return;
+
+            DataGridViewTableSaleDetails.DataSource = _selectedSale.Details;
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -69,6 +90,7 @@ namespace Kiwi.Tpv.App.Forms
             {
                 _pendingSales = SalesController.GetPendingsByTable(_selectedTable);
                 DataGridViewTableSales.DataSource = _pendingSales;
+                DataGridViewTableSaleDetails.DataSource = null;
                 txtTotalPending.Text = _selectedTable.Name + " - Total: " + _pendingSales.Sum(pendingSale => pendingSale.Total).ToString("F") + " €"; 
             }
             catch (Exception ex)
@@ -136,22 +158,33 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
+        private void MoveAllSalesToOtherTable()
+        {
+
+            try
+            {
+                var frmTablesDistribution = new FrmTablesDistribution(FrmTablesDistribution.WindowMode.TableSelection);
+                frmTablesDistribution.ShowDialog();
+
+                if (frmTablesDistribution.SelectedTable == null) return;
+
+                foreach (var pendingSale in _pendingSales)
+                {
+                    pendingSale.Table = frmTablesDistribution.SelectedTable;
+                    SalesController.SaveOrUpdate(pendingSale);
+                }
+
+                frmTablesDistribution.Dispose();
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
         #endregion
 
-        private void DataGridViewTableSales_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (DataGridViewTableSales.CurrentRow == null) return;
-
-            _selectedSale = (Sale)DataGridViewTableSales.CurrentRow.DataBoundItem;
-
-            if (_selectedSale == null) return;
-
-            DataGridViewTableSaleDetails.DataSource = _selectedSale.Details;
-        }
-
-        private void btnPaySelectedSale_Click(object sender, EventArgs e)
-        {
-            PaySelectedSale();
-        }
     }
 }

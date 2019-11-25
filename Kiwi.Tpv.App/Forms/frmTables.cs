@@ -57,7 +57,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnDistribucion_Click(object sender, EventArgs e)
         {
-            var frmTablesDistribution = new FrmTablesDistribution(true);
+            var frmTablesDistribution = new FrmTablesDistribution(FrmTablesDistribution.WindowMode.Administration);
             frmTablesDistribution.ShowDialog();
         }
 

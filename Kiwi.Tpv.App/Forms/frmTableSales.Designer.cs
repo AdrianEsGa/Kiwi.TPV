@@ -38,6 +38,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTableSales));
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.panelButtons = new MetroFramework.Controls.MetroPanel();
+            this.btnMoveAllToOtherTable = new MetroFramework.Controls.MetroTile();
             this.btnPaySelectedSale = new MetroFramework.Controls.MetroTile();
             this.btnPayAllSales = new MetroFramework.Controls.MetroTile();
             this.btnNewSale = new MetroFramework.Controls.MetroTile();
@@ -93,6 +94,7 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.Controls.Add(this.btnMoveAllToOtherTable);
             this.panelButtons.Controls.Add(this.btnPaySelectedSale);
             this.panelButtons.Controls.Add(this.btnPayAllSales);
             this.panelButtons.Controls.Add(this.btnNewSale);
@@ -108,6 +110,21 @@
             this.panelButtons.VerticalScrollbarHighlightOnWheel = false;
             this.panelButtons.VerticalScrollbarSize = 10;
             // 
+            // btnMoveAllToOtherTable
+            // 
+            this.btnMoveAllToOtherTable.ActiveControl = null;
+            this.btnMoveAllToOtherTable.BackColor = System.Drawing.Color.White;
+            this.btnMoveAllToOtherTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnMoveAllToOtherTable.Location = new System.Drawing.Point(641, 3);
+            this.btnMoveAllToOtherTable.Name = "btnMoveAllToOtherTable";
+            this.btnMoveAllToOtherTable.Size = new System.Drawing.Size(190, 58);
+            this.btnMoveAllToOtherTable.Style = MetroFramework.MetroColorStyle.Pink;
+            this.btnMoveAllToOtherTable.TabIndex = 8;
+            this.btnMoveAllToOtherTable.Text = "Mover todo a otra mesa";
+            this.btnMoveAllToOtherTable.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnMoveAllToOtherTable.UseSelectable = true;
+            this.btnMoveAllToOtherTable.Click += new System.EventHandler(this.btnMoveAllToOtherTable_Click);
+            // 
             // btnPaySelectedSale
             // 
             this.btnPaySelectedSale.ActiveControl = null;
@@ -115,7 +132,7 @@
             this.btnPaySelectedSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
             this.btnPaySelectedSale.Location = new System.Drawing.Point(3, 3);
             this.btnPaySelectedSale.Name = "btnPaySelectedSale";
-            this.btnPaySelectedSale.Size = new System.Drawing.Size(293, 58);
+            this.btnPaySelectedSale.Size = new System.Drawing.Size(190, 58);
             this.btnPaySelectedSale.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnPaySelectedSale.TabIndex = 7;
             this.btnPaySelectedSale.Text = "Cobrar seleccionada";
@@ -128,9 +145,9 @@
             this.btnPayAllSales.ActiveControl = null;
             this.btnPayAllSales.BackColor = System.Drawing.Color.White;
             this.btnPayAllSales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnPayAllSales.Location = new System.Drawing.Point(368, 3);
+            this.btnPayAllSales.Location = new System.Drawing.Point(199, 3);
             this.btnPayAllSales.Name = "btnPayAllSales";
-            this.btnPayAllSales.Size = new System.Drawing.Size(293, 58);
+            this.btnPayAllSales.Size = new System.Drawing.Size(190, 58);
             this.btnPayAllSales.Style = MetroFramework.MetroColorStyle.Orange;
             this.btnPayAllSales.TabIndex = 6;
             this.btnPayAllSales.Text = "Cobrar todas";
@@ -143,9 +160,9 @@
             this.btnNewSale.ActiveControl = null;
             this.btnNewSale.BackColor = System.Drawing.Color.White;
             this.btnNewSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnNewSale.Location = new System.Drawing.Point(733, 3);
+            this.btnNewSale.Location = new System.Drawing.Point(837, 3);
             this.btnNewSale.Name = "btnNewSale";
-            this.btnNewSale.Size = new System.Drawing.Size(293, 58);
+            this.btnNewSale.Size = new System.Drawing.Size(190, 58);
             this.btnNewSale.Style = MetroFramework.MetroColorStyle.Green;
             this.btnNewSale.TabIndex = 5;
             this.btnNewSale.Text = "Nueva venta";
@@ -556,5 +573,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isBottleDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalStringDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroTile btnMoveAllToOtherTable;
     }
 }

@@ -543,7 +543,7 @@ namespace Kiwi.Tpv.App
             {
                 SaveSale();
 
-                var frmTablesDistribution = new FrmTablesDistribution(false);
+                var frmTablesDistribution = new FrmTablesDistribution(FrmTablesDistribution.WindowMode.SaleSelection);
                 frmTablesDistribution.ShowDialog();
 
                 if (frmTablesDistribution.SelectedTable != null)

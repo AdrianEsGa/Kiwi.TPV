@@ -15,19 +15,26 @@ namespace Kiwi.Tpv.App.Forms
     public partial class FrmTablesDistribution : MetroForm
     {
         private List<BarTable> _tablesDistributed;
-        private readonly bool _adminMode;
+        private readonly WindowMode _windowMode;
         public BarTable SelectedTable;
 
-        public FrmTablesDistribution(bool adminMode)
+        public enum WindowMode
+        {
+            Administration = 1,
+            TableSelection = 2,
+            SaleSelection = 3
+        }      
+
+        public FrmTablesDistribution(WindowMode windowMode)
         {
             InitializeComponent();
             ViewController.SetSkin(this);
-            _adminMode = adminMode;
+            _windowMode = windowMode;
         }
 
         private void frmTablesDistribution_Load(object sender, EventArgs e)
         {
-            panelButons.Visible = _adminMode;
+            panelButons.Visible = _windowMode == WindowMode.Administration;
             LoadData();
         }
 
@@ -70,7 +77,6 @@ namespace Kiwi.Tpv.App.Forms
                 BarTablesController.RemoveDistribution(SelectedTable);
                 _tablesDistributed.Remove(SelectedTable);
                 LoadData();
-
                 ViewController.ShowAsterisk(@"Mesa eliminada de la distribución satisfactoriamente.");
             }
             catch (Exception ex)
@@ -93,28 +99,44 @@ namespace Kiwi.Tpv.App.Forms
                     SelectedTable = (BarTable)((MetroButton) sender).Tag;
                 }
 
-                if (_adminMode) return;
 
-                if (BarTablesController.HasPendingSales(SelectedTable))
+         
+                switch (_windowMode)
                 {
-                    var frmTableSales = new FrmTableSales(SelectedTable);
-                    frmTableSales.ShowDialog();
-
-                    if (frmTableSales.SelectedSale != null)
-                    {
-                        AppGlobal.Sale = frmTableSales.SelectedSale;
-                        frmTableSales.Dispose();
+                    case WindowMode.Administration:
                         Close();
-                    }
-                    else
-                    {
-                        LoadData();
-                    }
-                }
-                else
-                {
-                    AppGlobal.Sale = new Sale();
-                    Close();
+                        break;
+
+                    case WindowMode.TableSelection:
+                        Close();
+                        break;
+
+                    case WindowMode.SaleSelection:
+                        if (BarTablesController.HasPendingSales(SelectedTable))
+                        {
+                            var frmTableSales = new FrmTableSales(SelectedTable);
+                            frmTableSales.ShowDialog();
+
+                            if (frmTableSales.SelectedSale != null)
+                            {
+                                AppGlobal.Sale = frmTableSales.SelectedSale;
+                                frmTableSales.Dispose();
+                                Close();
+                            }
+                            else
+                            {
+                                LoadData();
+                            }
+                        }
+                        else
+                        {
+                            AppGlobal.Sale = new Sale();
+                            Close();
+                        }
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
             catch (Exception ex)
@@ -209,7 +231,9 @@ namespace Kiwi.Tpv.App.Forms
                             Location = new Point(Convert.ToInt32(location[0]), Convert.ToInt32(location[1]))
                         };
 
-                        btn.Draggable(_adminMode);
+                        if (_windowMode == WindowMode.Administration)
+                          btn.Draggable(true);
+
                         btn.Click += ButtonTable_Click;
 
                         panelDistribution.Controls.Add(btn);
@@ -227,7 +251,9 @@ namespace Kiwi.Tpv.App.Forms
                             Location = new Point(Convert.ToInt32(location[0]), Convert.ToInt32(location[1]))
                         };
 
-                        btn.Draggable(_adminMode);
+                        if (_windowMode == WindowMode.Administration)
+                            btn.Draggable(true);
+
                         btn.Click += ButtonTable_Click;
 
                         panelDistribution.Controls.Add(btn);
