@@ -90,6 +90,7 @@ namespace Kiwi.Tpv.App.Forms
                     SodaPrices.Visible = false;
                     break;
                 case ProductType.Refresco:
+                    CbProductSubType.Visible = false;
                     SodaPrices.Visible = true;
                     AlcoholPricesPanel.Visible = false;
                     break;
@@ -263,6 +264,7 @@ namespace Kiwi.Tpv.App.Forms
                             break;
                         case ProductType.Refresco:
                             SodaPrices.Visible = true;
+                            CbProductSubType.Visible = false;
                             AlcoholPricesPanel.Visible = false;
                             break;
                         default:
