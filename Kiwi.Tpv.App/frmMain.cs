@@ -61,9 +61,6 @@ namespace Kiwi.Tpv.App
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
 
-
-
-
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

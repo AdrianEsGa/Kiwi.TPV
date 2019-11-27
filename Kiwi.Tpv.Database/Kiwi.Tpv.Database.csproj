@@ -48,6 +48,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
+    <Compile Include="Controllers\SaleOrdersController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TaxTypeController.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Purchase.cs" />
     <Compile Include="Entities\PurchaseDetail.cs" />
+    <Compile Include="Entities\SaleOrderDetail.cs" />
+    <Compile Include="Entities\SaleOrder.cs" />
     <Compile Include="Entities\Sale.cs" />
     <Compile Include="Entities\SaleDetail.cs" />
     <Compile Include="Entities\Station.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Repositories\DbManagementRepository.cs" />
     <Compile Include="Repositories\PurchasesRepository.cs" />
     <Compile Include="Repositories\Reports\ReportRepository.cs" />
+    <Compile Include="Repositories\SaleOrdersRepository.cs" />
     <Compile Include="Repositories\TaxTypeRepository.cs" />
     <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
