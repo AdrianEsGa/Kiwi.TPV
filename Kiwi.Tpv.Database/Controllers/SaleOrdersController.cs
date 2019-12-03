@@ -8,6 +8,7 @@ namespace Kiwi.Tpv.Database.Controllers
     public static class SaleOrdersController
     {
 
+
         public static List<SaleOrder> GetPendingsByTable(BarTable table)
         {
             try
@@ -47,5 +48,30 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
+        public static SaleOrder GetById(int id)
+        {
+            try
+            {
+                return SaleOrdersRepository.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        public static void Remove(SaleOrder saleOrder)
+        {
+            try
+            {
+                SaleOrdersRepository.Remove(saleOrder);
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Kiwi.Tpv.Database.DTOs;
 using Kiwi.Tpv.Database.Entities;
 
 namespace Kiwi.Tpv.Database.Repositories
@@ -15,7 +14,7 @@ namespace Kiwi.Tpv.Database.Repositories
             const string strSql =
                 "SELECT Id, StationId, Date " +
                 "FROM SaleOrders " +
-                "WHERE BarTableId = @BarTableId AND Paid = 0";
+                "WHERE BarTableId = @BarTableId";
 
             try
             {
@@ -104,7 +103,7 @@ namespace Kiwi.Tpv.Database.Repositories
             var saleOrderDetails = new List<SaleOrderDetail>();
 
             const string strSql =
-                "SELECT Id, SaleOrderId, ProductId, Quantity, Price " +
+                "SELECT Id, SaleOrderId, ProductId, Quantity, Price, TaxPercentaje " +
                 "FROM SaleOrderDetails " +
                 "WHERE SaleOrderId = @SaleOrderId";
 
@@ -126,6 +125,7 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Id = Convert.ToInt32(reader["Id"]),                              
                                     Product = ProductRepository.GetById(Convert.ToInt32(reader["ProductId"])),                                
                                     Quantity = Convert.ToInt32(reader["Quantity"]),
+                                    TaxPercentaje = Convert.ToDouble(reader["TaxPercentaje"]),
                                     Price = Convert.ToDouble(reader["Price"]),                               
                                 });
                             }
@@ -146,6 +146,13 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             try
             {
+
+                if (saleOrder.Details.Count == 0)
+                {
+                    Remove(saleOrder);
+                    return new SaleOrder();
+                }
+
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
 
@@ -164,6 +171,8 @@ namespace Kiwi.Tpv.Database.Repositories
                     {
                         command.Transaction = transaction;
                         command.Parameters.AddWithValue("@StationId", saleOrder.Station.Id);
+
+                        command.Parameters.AddWithValue("@Date",  DateTime.Now);
 
                         if (saleOrder.Table == null)
                             command.Parameters.AddWithValue("@BarTableId", DBNull.Value);
@@ -187,8 +196,8 @@ namespace Kiwi.Tpv.Database.Repositories
                     }
 
                     strSql =
-                        "INSERT INTO SaleDetails (SaleOrderId, ProductId, Quantity, Price) " +
-                        "VALUES (@SaleOrderId, @ProductId, @Quantity, @Price) SELECT Scope_Identity()";
+                        "INSERT INTO SaleOrderDetails (SaleOrderId, ProductId, Quantity, Price, TaxPercentaje) " +
+                        "VALUES (@SaleOrderId, @ProductId, @Quantity, @Price, @TaxPercentaje) SELECT Scope_Identity()";
 
                     foreach (var detail in saleOrder.Details)
                         using (var command = new SqlCommand(strSql, connection))
@@ -198,6 +207,7 @@ namespace Kiwi.Tpv.Database.Repositories
                             command.Parameters.AddWithValue("@ProductId", detail.Product.Id);
                             command.Parameters.AddWithValue("@Quantity", detail.Quantity);
                             command.Parameters.AddWithValue("@Price", detail.Price);
+                            command.Parameters.AddWithValue("@TaxPercentaje", detail.TaxPercentaje);
                             detail.Id = Convert.ToInt32(command.ExecuteScalar());
                         }
 
@@ -210,6 +220,94 @@ namespace Kiwi.Tpv.Database.Repositories
                 // ReSharper disable once PossibleIntendedRethrow
                 throw ex;
             }
+        }
+
+        public static void Remove(SaleOrder saleOrder)
+        {
+            string strSql;
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {          
+                   connection.Open();
+
+                    var transaction = connection.BeginTransaction();
+                    strSql = "DELETE FROM SaleOrderDetails WHERE SaleOrderId = @SaleOrderId";
+
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Transaction = transaction;
+                        command.Parameters.AddWithValue("@SaleOrderId", saleOrder.Id);
+                        command.ExecuteNonQuery();
+                    }
+
+                    strSql = "DELETE FROM SaleOrders WHERE Id = @Id";
+
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Transaction = transaction;
+                        command.Parameters.AddWithValue("@Id", saleOrder.Id);
+                        command.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        public static SaleOrder GetById(int id)
+        {
+            var saleOrder = new SaleOrder();
+
+            const string strSql =
+                "SELECT Id, Date, StationId, BarTableId " +
+                "FROM SaleOrders " +
+                "WHERE Id = @Id";
+
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                saleOrder = new SaleOrder()
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Station = StationRepository.GetById(Convert.ToInt32(reader["StationId"])),                               
+                                    Date = Convert.ToDateTime(reader["Date"]),                    
+                                };
+
+                                if (reader["BarTableId"] != DBNull.Value)
+                                    saleOrder.Table =
+                                        BarTablesRepository.GetById(Convert.ToInt32(reader["BarTableId"]));
+
+                                saleOrder.Details = GetDetails(saleOrder);
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+
+            return saleOrder;
         }
     }
 }

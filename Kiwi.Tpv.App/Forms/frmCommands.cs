@@ -58,12 +58,12 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
-        private void TimerRefresh_Tick(object sender, System.EventArgs e)
+        private void TimerRefresh_Tick(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void DataGridViewCommands_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        private void DataGridViewCommands_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -77,12 +77,12 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
     
-        private void btnClose_Click(object sender, System.EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void FrmCommands_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        private void FrmCommands_FormClosing(object sender, FormClosingEventArgs e)
         {
             TimerRefresh.Stop();
             TimerRefresh.Enabled = false;
@@ -164,22 +164,21 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                var newSale = new Sale
+                var newSaleOrder = new SaleOrder
                 {
                     Date = DateTime.Now,
                     Station = AppGlobal.Station,
                     Table = _selectedCommand.Table,
-                    Ticket = true
                 };
 
                 foreach (var commandDetail in _selectedCommand.Details)
                 {
-                   commandDetail.Product.Quantity = commandDetail.Quantity; 
-                   newSale.Add(commandDetail.Product, AppGlobal.SaleMode, AlcoholModeTypes.Default);
+                   commandDetail.Product.Quantity = commandDetail.Quantity;
+                    newSaleOrder.Add(commandDetail.Product, AppGlobal.SaleMode, AlcoholModeTypes.Default);
                 }
 
-                SalesController.SaveOrUpdate(newSale);           
-                PrinterController.PrintSale(newSale);
+                SaleOrdersController.SaveOrUpdate(newSaleOrder);           
+                PrinterController.PrintSaleOrder(newSaleOrder);
             }
             catch (Exception ex)
             {

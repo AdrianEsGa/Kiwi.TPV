@@ -94,41 +94,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\frmAlcoholModeTypes.cs">
+    <Compile Include="Forms\FrmAlcoholModeTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAlcoholModeTypes.Designer.cs">
-      <DependentUpon>frmAlcoholModeTypes.cs</DependentUpon>
+    <Compile Include="Forms\FrmAlcoholModeTypes.Designer.cs">
+      <DependentUpon>FrmAlcoholModeTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCommands.cs">
+    <Compile Include="Forms\FrmCommands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCommands.Designer.cs">
-      <DependentUpon>frmCommands.cs</DependentUpon>
+    <Compile Include="Forms\FrmCommands.Designer.cs">
+      <DependentUpon>FrmCommands.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEmployeeSelector.cs">
+    <Compile Include="Forms\FrmEmployeeSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmEmployeeSelector.Designer.cs">
-      <DependentUpon>frmEmployeeSelector.cs</DependentUpon>
+    <Compile Include="Forms\FrmEmployeeSelector.Designer.cs">
+      <DependentUpon>FrmEmployeeSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTables.cs">
+    <Compile Include="Forms\FrmTables.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTables.Designer.cs">
-      <DependentUpon>frmTables.cs</DependentUpon>
+    <Compile Include="Forms\FrmTables.Designer.cs">
+      <DependentUpon>FrmTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmConfiguration.cs">
+    <Compile Include="Forms\FrmConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmConfiguration.Designer.cs">
-      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    <Compile Include="Forms\FrmConfiguration.Designer.cs">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMenu.cs">
+    <Compile Include="Forms\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <Compile Include="Forms\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmPopUp.cs">
       <SubType>Form</SubType>
@@ -136,74 +136,74 @@
     <Compile Include="Forms\FrmPopUp.Designer.cs">
       <DependentUpon>FrmPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmProductSelector.cs">
+    <Compile Include="Forms\FrmProductSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmProductSelector.Designer.cs">
-      <DependentUpon>frmProductSelector.cs</DependentUpon>
+    <Compile Include="Forms\FrmProductSelector.Designer.cs">
+      <DependentUpon>FrmProductSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTableSales.cs">
+    <Compile Include="Forms\FrmTableSaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTableSales.Designer.cs">
-      <DependentUpon>frmTableSales.cs</DependentUpon>
+    <Compile Include="Forms\FrmTableSaleOrders.Designer.cs">
+      <DependentUpon>FrmTableSaleOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTablesDistribution.cs">
+    <Compile Include="Forms\FrmTablesDistribution.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTablesDistribution.Designer.cs">
-      <DependentUpon>frmTablesDistribution.cs</DependentUpon>
+    <Compile Include="Forms\FrmTablesDistribution.Designer.cs">
+      <DependentUpon>FrmTablesDistribution.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTablesSelector.cs">
+    <Compile Include="Forms\FrmTablesSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTablesSelector.Designer.cs">
-      <DependentUpon>frmTablesSelector.cs</DependentUpon>
+    <Compile Include="Forms\FrmTablesSelector.Designer.cs">
+      <DependentUpon>FrmTablesSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateController.cs" />
     <Compile Include="Util\Common.cs" />
     <Compile Include="Util\CashDrawerController.cs" />
-    <Compile Include="Forms\frmBottle.cs">
+    <Compile Include="Forms\FrmBottle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmBottle.Designer.cs">
-      <DependentUpon>frmBottle.cs</DependentUpon>
+    <Compile Include="Forms\FrmBottle.Designer.cs">
+      <DependentUpon>FrmBottle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmConfirmPay.cs">
+    <Compile Include="Forms\FrmConfirmPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmConfirmPay.Designer.cs">
-      <DependentUpon>frmConfirmPay.cs</DependentUpon>
+    <Compile Include="Forms\FrmConfirmPay.Designer.cs">
+      <DependentUpon>FrmConfirmPay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEmployees.cs">
+    <Compile Include="Forms\FrmEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmEmployees.Designer.cs">
-      <DependentUpon>frmEmployees.cs</DependentUpon>
+    <Compile Include="Forms\FrmEmployees.Designer.cs">
+      <DependentUpon>FrmEmployees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmHistory.cs">
+    <Compile Include="Forms\FrmHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmHistory.Designer.cs">
-      <DependentUpon>frmHistory.cs</DependentUpon>
+    <Compile Include="Forms\FrmHistory.Designer.cs">
+      <DependentUpon>FrmHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPassword.cs">
+    <Compile Include="Forms\FrmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPassword.Designer.cs">
-      <DependentUpon>frmPassword.cs</DependentUpon>
+    <Compile Include="Forms\FrmPassword.Designer.cs">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmProducts.cs">
+    <Compile Include="Forms\FrmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmProducts.Designer.cs">
-      <DependentUpon>frmProducts.cs</DependentUpon>
+    <Compile Include="Forms\FrmProducts.Designer.cs">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmReportViewer.cs">
+    <Compile Include="Forms\FrmReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmReportViewer.Designer.cs">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    <Compile Include="Forms\FrmReportViewer.Designer.cs">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -239,64 +239,66 @@
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.CommandDetail.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Sale.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.SaleDetail.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.SaleOrder.datasource" />
+    <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.SaleOrderDetail.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Station.datasource" />
     <None Include="Properties\DataSources\Kiwi.Tpv.Database.Entities.Table.datasource" />
     <None Include="Resources\icoClose.png" />
     <None Include="Resources\icoMinimize.png" />
     <None Include="Resources\icoMaximize.png" />
-    <EmbeddedResource Include="Forms\frmAlcoholModeTypes.resx">
-      <DependentUpon>frmAlcoholModeTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAlcoholModeTypes.resx">
+      <DependentUpon>FrmAlcoholModeTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCommands.resx">
-      <DependentUpon>frmCommands.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmCommands.resx">
+      <DependentUpon>FrmCommands.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmEmployeeSelector.resx">
-      <DependentUpon>frmEmployeeSelector.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmEmployeeSelector.resx">
+      <DependentUpon>FrmEmployeeSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTables.resx">
-      <DependentUpon>frmTables.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmTables.resx">
+      <DependentUpon>FrmTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBottle.resx">
-      <DependentUpon>frmBottle.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmBottle.resx">
+      <DependentUpon>FrmBottle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmConfiguration.resx">
-      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmConfiguration.resx">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmConfirmPay.resx">
-      <DependentUpon>frmConfirmPay.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmConfirmPay.resx">
+      <DependentUpon>FrmConfirmPay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmEmployees.resx">
-      <DependentUpon>frmEmployees.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmEmployees.resx">
+      <DependentUpon>FrmEmployees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmHistory.resx">
-      <DependentUpon>frmHistory.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmHistory.resx">
+      <DependentUpon>FrmHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPassword.resx">
-      <DependentUpon>frmPassword.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmPassword.resx">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPopUp.resx">
       <DependentUpon>FrmPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmProducts.resx">
-      <DependentUpon>frmProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmProducts.resx">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmProductSelector.resx">
-      <DependentUpon>frmProductSelector.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmProductSelector.resx">
+      <DependentUpon>FrmProductSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmReportViewer.resx">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmReportViewer.resx">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTableSales.resx">
-      <DependentUpon>frmTableSales.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmTableSaleOrders.resx">
+      <DependentUpon>FrmTableSaleOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTablesDistribution.resx">
-      <DependentUpon>frmTablesDistribution.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmTablesDistribution.resx">
+      <DependentUpon>FrmTablesDistribution.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTablesSelector.resx">
-      <DependentUpon>frmTablesSelector.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmTablesSelector.resx">
+      <DependentUpon>FrmTablesSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

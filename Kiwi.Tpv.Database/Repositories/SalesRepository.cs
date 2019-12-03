@@ -8,110 +8,6 @@ namespace Kiwi.Tpv.Database.Repositories
 {
     internal static class SalesRepository
     {
-        internal static List<Sale> GetPendingsByTable(BarTable table)
-        {
-            var sales = new List<Sale>();
-
-            const string strSql =
-                "SELECT Id, StationId, Date, Total, Disscount, Tax, PayType, Ticket " +
-                "FROM Sales " +
-                "WHERE BarTableId = @BarTableId AND Paid = 0";
-
-            try
-            {
-                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
-                {
-                    using (var command = new SqlCommand(strSql, connection))
-                    {
-                        command.Parameters.AddWithValue("@BarTableId", table.Id);
-
-                        connection.Open();
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                var sale = new Sale()
-                                {
-                                    Id = Convert.ToInt32(reader["Id"]),
-                                    Station = StationRepository.GetByCode(Convert.ToInt32(reader["StationId"])),
-                                    Date = Convert.ToDateTime(reader["Date"]),
-                                    Total = Convert.ToDouble(reader["Total"]),
-                                    Disscount = Convert.ToDouble(reader["Disscount"]),
-                                    Tax = Convert.ToDouble(reader["Tax"]),
-                                    Table = table,
-                                    Paid = false,
-                                    Ticket = (bool)reader["Ticket"],
-                                  
-                                };
-                                sale.Details = GetDetails(sale);
-                                sales.Add(sale);                            
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // ReSharper disable once PossibleIntendedRethrow
-                throw ex;
-            }
-
-            return sales;
-        }
-
-        internal static Sale GetPendingByStationAndBar(Station station)
-        {
-            var sale = new Sale();
-
-            const string strSql =
-                "SELECT Id, Date, Total, Disscount, Tax, PayType, Ticket " +
-                "FROM Sales " +
-                "WHERE StationId = @StationId AND BarTableId IS NULL AND Paid = 0";
-
-            try
-            {
-                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
-                {
-                    using (var command = new SqlCommand(strSql, connection))
-                    {
-                        command.Parameters.AddWithValue("@StationId", station.Id);
-
-                        connection.Open();
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                sale = new Sale()
-                                {
-                                    Id = Convert.ToInt32(reader["Id"]),
-                                    Station = station,
-                                    Date = Convert.ToDateTime(reader["Date"]),
-                                    Total = Convert.ToDouble(reader["Total"]),
-                                    Disscount = Convert.ToDouble(reader["Disscount"]),
-                                    Tax = Convert.ToDouble(reader["Tax"]),
-                                    Table = null,
-                                    Paid = false,
-                                    Ticket = (bool)reader["Ticket"]       
-                                };
-
-                                sale.Details = GetDetails(sale);
-                            }
-
-
-                        }
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                // ReSharper disable once PossibleIntendedRethrow
-                throw ex;
-            }
-
-            return sale;
-        }
-
         private static List<SaleDetail> GetDetails(Sale sale)
         {
             var saleDetails = new List<SaleDetail>();
@@ -170,10 +66,10 @@ namespace Kiwi.Tpv.Database.Repositories
 
 
                     var strSql = sale.Id == 0
-                        ? "INSERT INTO Sales (StationId, EmployeeId, Date, Total, Disscount, Tax, PayType, BarTableId, Paid, Ticket) " +
-                          "VALUES (@StationId, @EmployeeId, @Date, @Total, @Disscount, @Tax, @PayType, @BarTableId, @Paid, @Ticket) SELECT Scope_Identity()"
+                        ? "INSERT INTO Sales (StationId, EmployeeId, Date, Total, Disscount, Tax, PayType, BarTableId) " +
+                          "VALUES (@StationId, @EmployeeId, @Date, @Total, @Disscount, @Tax, @PayType, @BarTableId) SELECT Scope_Identity()"
                         : "UPDATE Sales SET StationId = @StationId, EmployeeId = @EmployeeId, Date = @Date, Total = @Total, Disscount = @Disscount," +
-                         " Tax = @Tax , PayType = @PayType, BarTableId = @BarTableId, Paid = @Paid, Ticket = @Ticket WHERE Id = @SaleId";
+                         " Tax = @Tax , PayType = @PayType, BarTableId = @BarTableId WHERE Id = @SaleId";
 
 
                     connection.Open();
@@ -198,8 +94,6 @@ namespace Kiwi.Tpv.Database.Repositories
                         command.Parameters.AddWithValue("@Disscount", sale.Disscount);
                         command.Parameters.AddWithValue("@Tax", sale.Tax);
                         command.Parameters.AddWithValue("@PayType", (int) sale.PayType);
-                        command.Parameters.AddWithValue("@Paid", sale.Paid);
-                        command.Parameters.AddWithValue("@Ticket", sale.Ticket);
                         command.Parameters.AddWithValue("@SaleId", sale.Id);
 
                         if (sale.Id == 0)
@@ -306,8 +200,7 @@ namespace Kiwi.Tpv.Database.Repositories
             }
         }
 
-        internal static List<ProductHistoryDto> GetTotalsByProduct(string stationIds, DateTime initDate,
-            DateTime endDate)
+        internal static List<ProductHistoryDto> GetTotalsByProduct(string stationIds, DateTime initDate, DateTime endDate)
         {
             var productHistory = new List<ProductHistoryDto>();
 
@@ -366,8 +259,7 @@ namespace Kiwi.Tpv.Database.Repositories
             return productHistory;
         }
 
-        internal static List<EmployeeHistoryDto> GetTotalsByEmployee(string stationIds, DateTime initDate,
-            DateTime endDate)
+        internal static List<EmployeeHistoryDto> GetTotalsByEmployee(string stationIds, DateTime initDate, DateTime endDate)
         {
             var employeeHistory = new List<EmployeeHistoryDto>();
 
@@ -437,8 +329,7 @@ namespace Kiwi.Tpv.Database.Repositories
             return employeeHistory;
         }
 
-        private static List<double> GetTotalRealAndDisscountByEmployee(string stationIds, DateTime initDate,
-            DateTime endDate, int employeeId)
+        private static List<double> GetTotalRealAndDisscountByEmployee(string stationIds, DateTime initDate, DateTime endDate, int employeeId)
         {
             var totalRealDisscount = new List<double>();
             try
@@ -488,8 +379,7 @@ namespace Kiwi.Tpv.Database.Repositories
             return totalRealDisscount;
         }
 
-        private static double GetTotalInvitedByEmployee(string stationIds, DateTime initDate,
-            DateTime endDate, int employeeId)
+        private static double GetTotalInvitedByEmployee(string stationIds, DateTime initDate, DateTime endDate, int employeeId)
         {
             double totalInvited = 0;
             try

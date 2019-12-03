@@ -1,6 +1,6 @@
 ﻿namespace Kiwi.Tpv.App.Forms
 {
-    partial class frmAlcoholModeTypes
+    partial class FrmAlcoholModeTypes
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
-            this.Name = "frmAlcoholModeTypes";
+            this.Name = "FrmAlcoholModeTypes";
             this.Resizable = false;
             this.ShowInTaskbar = false;
             this.Text = "Servido como ";

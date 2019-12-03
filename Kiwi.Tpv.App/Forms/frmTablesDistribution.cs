@@ -99,8 +99,6 @@ namespace Kiwi.Tpv.App.Forms
                     SelectedTable = (BarTable)((MetroButton) sender).Tag;
                 }
 
-
-         
                 switch (_windowMode)
                 {
                     case WindowMode.Administration:
@@ -114,23 +112,24 @@ namespace Kiwi.Tpv.App.Forms
                     case WindowMode.SaleSelection:
                         if (BarTablesController.HasPendingSales(SelectedTable))
                         {
-                            var frmTableSales = new FrmTableSales(SelectedTable);
+                            var frmTableSales = new FrmTableSaleOrders(SelectedTable);
                             frmTableSales.ShowDialog();
 
-                            if (frmTableSales.SelectedSale != null)
+                            if (frmTableSales.SelectedSaleOrder != null)
                             {
-                                AppGlobal.Sale = frmTableSales.SelectedSale;
+                                AppGlobal.SaleOrder = frmTableSales.SelectedSaleOrder;
                                 frmTableSales.Dispose();
                                 Close();
                             }
                             else
                             {
+                                SelectedTable = null;
                                 LoadData();
                             }
                         }
                         else
                         {
-                            AppGlobal.Sale = new Sale();
+                            AppGlobal.SaleOrder = new SaleOrder();
                             Close();
                         }
 

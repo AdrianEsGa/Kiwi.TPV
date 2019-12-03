@@ -5,11 +5,11 @@ using MetroFramework.Forms;
 
 namespace Kiwi.Tpv.App.Forms
 {
-    public partial class frmAlcoholModeTypes : MetroForm
+    public partial class FrmAlcoholModeTypes : MetroForm
     {
         public AlcoholModeTypes SelectedAlcoholModeType;
 
-        public frmAlcoholModeTypes()
+        public FrmAlcoholModeTypes()
         {
             InitializeComponent();
             ViewController.SetSkin(this);

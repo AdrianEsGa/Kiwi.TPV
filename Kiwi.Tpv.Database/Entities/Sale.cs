@@ -10,8 +10,6 @@ namespace Kiwi.Tpv.Database.Entities
         {
             Id = 0;
             Details = new List<SaleDetail>();
-            Paid = false;
-            Ticket = false;
         }
 
         public int Id { get; set; }
@@ -24,122 +22,15 @@ namespace Kiwi.Tpv.Database.Entities
         public PayType PayType { get; set; }
         public List<SaleDetail> Details { get; set; }
         public BarTable Table { get; set; }
-        public bool Paid { get; set; }
-        public bool Ticket { get; set; }
-
-        public void Add(Product product, SaleMode saleMode, AlcoholModeTypes alcoholModeType)
-        {
-            var finalPrice = GetFinalPrice(product, saleMode, alcoholModeType);
-    
-            foreach (var detail in Details)
-                if (detail.Product.Id == product.Id && detail.Product.Type == product.Type &&
-                    // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    detail.Price == finalPrice && detail.TaxPercentaje == product.SaleTaxType.Percentaje)
-                {
-                    detail.Quantity += product.Quantity;
-                    detail.Price = finalPrice;
-                    detail.Total = Math.Round(detail.Quantity * finalPrice, 2);
-                    detail.SubTotal = Math.Round(detail.Total / (product.SaleTaxType.Percentaje / 100 + 1), 2);
-                    detail.TaxPercentaje = product.SaleTaxType.Percentaje;
-                    detail.Tax = detail.Total - detail.SubTotal;           
-                    return;
-                }
-
-            var saleDetail = new SaleDetail
-            {
-                Sale = this,
-                Product = product,
-                Quantity = product.Quantity,
-                Price = finalPrice
-            };
-
-            saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
-            saleDetail.SubTotal =  Math.Round(saleDetail.Total / (product.SaleTaxType.Percentaje / 100 + 1), 2);
-            saleDetail.TaxPercentaje = product.SaleTaxType.Percentaje;
-            saleDetail.Tax = saleDetail.Total - saleDetail.SubTotal;  
-
-            if (product.Type == ProductType.Botella)
-                saleDetail.IsBottle = true;
-
-            Details.Add(saleDetail);
-        }
 
         public double TotalPriceDetails()
         {
             return (Details.Sum(detail => detail.Total)) - Disscount;
         }
 
-        public void RemoveOneUnit(SaleDetail saleDetail)
-        {
-            if (saleDetail.Quantity > 1)
-            {
-                saleDetail.Quantity -= 1;
-                saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
-                saleDetail.SubTotal = Math.Round(saleDetail.Total / (saleDetail.TaxPercentaje / 100 + 1), 2);
-                saleDetail.TaxPercentaje = saleDetail.TaxPercentaje;
-                saleDetail.Tax = saleDetail.Total - saleDetail.SubTotal;
-            }
-            else
-            {
-                Details.Remove(saleDetail);
-            }
-        }
-
-        public void AddOneUnit(SaleDetail saleDetail)
-        {
-            saleDetail.Quantity += 1;
-            saleDetail.Total = Math.Round(saleDetail.Quantity * saleDetail.Price, 2);
-            saleDetail.SubTotal = Math.Round(saleDetail.Total / (saleDetail.TaxPercentaje / 100 + 1), 2);
-            saleDetail.TaxPercentaje = saleDetail.TaxPercentaje;
-            saleDetail.Tax = saleDetail.Total - saleDetail.SubTotal;
-        }
-
-        public void RemoveAll(SaleDetail saleDetail)
-        {
-            foreach (var detail in Details)
-            {
-                if (detail.Product.Id != saleDetail.Product.Id || detail.Product.Type != saleDetail.Product.Type ||
-                    // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    detail.Product.SalePrice != saleDetail.Product.SalePrice)
-                    continue;
-
-                Details.Remove(detail);
-                return;
-            }
-        }
-
         public double GetTotalTax()
         {
             return Details.Sum(detail => detail.Tax);
-        }
-
-        private double GetFinalPrice(Product product, SaleMode saleMode, AlcoholModeTypes alcoholModeType)
-        {
-            var finalPrice = 0.0;
-
-            switch (product.Type)
-            {
-                case ProductType.Botella:
-                    finalPrice = product.SalePrice;
-                    break;
-                case ProductType.Alcohol when alcoholModeType != AlcoholModeTypes.Default && alcoholModeType != AlcoholModeTypes.Combined:
-                    switch (alcoholModeType)
-                    {
-                        case AlcoholModeTypes.Cup:
-                            finalPrice = saleMode == SaleMode.Day ? product.SaleCupDayPrice : product.SaleCupNightPrice;
-                            break;
-                        case AlcoholModeTypes.Shot:
-                            finalPrice = saleMode == SaleMode.Day ? product.SaleShotDayPrice : product.SaleCupNightPrice;
-                            break;
-                    }
-                    break;
-
-                default:
-                    finalPrice = saleMode == SaleMode.Day ? product.SaleDayPrice : product.SaleNightPrice;
-                    break;
-            }
-
-            return finalPrice;
         }
 
         public override bool Equals(object obj)

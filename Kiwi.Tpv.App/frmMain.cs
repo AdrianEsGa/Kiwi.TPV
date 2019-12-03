@@ -53,10 +53,10 @@ namespace Kiwi.Tpv.App
 
             SelectBar();
 
-            DataGridViewSelectedProducts.DefaultCellStyle.SelectionBackColor =
-                DataGridViewSelectedProducts.DefaultCellStyle.BackColor;
-            DataGridViewSelectedProducts.DefaultCellStyle.SelectionForeColor =
-                DataGridViewSelectedProducts.DefaultCellStyle.ForeColor;
+            DataGridViewSaleOrderDetails.DefaultCellStyle.SelectionBackColor =
+                DataGridViewSaleOrderDetails.DefaultCellStyle.BackColor;
+            DataGridViewSaleOrderDetails.DefaultCellStyle.SelectionForeColor =
+                DataGridViewSaleOrderDetails.DefaultCellStyle.ForeColor;
 
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
@@ -166,7 +166,7 @@ namespace Kiwi.Tpv.App
             {
                 ViewController.ShowPopUp();
 
-                var frmAlcoholModeTypes = new frmAlcoholModeTypes();
+                var frmAlcoholModeTypes = new FrmAlcoholModeTypes();
                 frmAlcoholModeTypes.ShowDialog();
                 alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
 
@@ -186,25 +186,22 @@ namespace Kiwi.Tpv.App
 
         internal void ButtonEmployee_Click(object sender, EventArgs e)
         {
-            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0 || AppGlobal.Sale.TotalPriceDetails() == 0) return;
+            if (AppGlobal.SaleOrder == null || AppGlobal.SaleOrder.Details.Count == 0 || AppGlobal.SaleOrder.Total == 0) return;
 
             var btn = (Button) sender;
-            AppGlobal.Sale.Employee = (Employee) btn.Tag;
 
             ViewController.ShowPopUp();
-            var frmConfirmPay = new FrmConfirmPay(false);
+            var frmConfirmPay = new FrmConfirmPay((Employee)btn.Tag, AppGlobal.SaleOrder);
             frmConfirmPay.ShowDialog();
-            ViewController.HidePopUp();
-
-            if (!frmConfirmPay.OperationFinalized) return;
-              FinalizeSale();
-
+            ViewController.HidePopUp();             
             RefreshScreen();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FinalizeSale();
+            SaleOrdersController.Remove(AppGlobal.SaleOrder);
+            AppGlobal.SaleOrder = new SaleOrder();
+            RefreshScreen();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -225,36 +222,38 @@ namespace Kiwi.Tpv.App
 
         private void DataGridViewSelectedProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataGridViewSelectedProducts.CurrentRow == null) return;
-            DataGridViewSelectedProducts.ClearSelection();
+            if (DataGridViewSaleOrderDetails.CurrentRow == null) return;
+            DataGridViewSaleOrderDetails.ClearSelection();
         }
 
         private void DataGridViewSelectedProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var saleDetail = new SaleDetail();
+            var saleOrderDetail = new SaleOrderDetail();
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0 && senderGrid.Columns[e.ColumnIndex].Name == "RemoveOne")
             {
-                if (DataGridViewSelectedProducts.CurrentRow != null)
-                    saleDetail = (SaleDetail)DataGridViewSelectedProducts.CurrentRow.DataBoundItem;
+                if (DataGridViewSaleOrderDetails.CurrentRow != null)
+                    saleOrderDetail = (SaleOrderDetail)DataGridViewSaleOrderDetails.CurrentRow.DataBoundItem;
 
-                AppGlobal.Sale.RemoveOneUnit(saleDetail);
+                AppGlobal.SaleOrder.RemoveOneUnit(saleOrderDetail);
                 RefreshScreen();
             }
 
             if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0 ||
                 senderGrid.Columns[e.ColumnIndex].Name != "AddOne") return;
-            if (DataGridViewSelectedProducts.CurrentRow != null)
-                saleDetail = (SaleDetail)DataGridViewSelectedProducts.CurrentRow.DataBoundItem;
+            if (DataGridViewSaleOrderDetails.CurrentRow != null)
+                saleOrderDetail = (SaleOrderDetail)DataGridViewSaleOrderDetails.CurrentRow.DataBoundItem;
 
-            AppGlobal.Sale.AddOneUnit(saleDetail);
+            AppGlobal.SaleOrder.AddOneUnit(saleOrderDetail);
             RefreshScreen();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            SaveSale();
+            GenerateDbBackup();
             Close();
         }
 
@@ -314,7 +313,7 @@ namespace Kiwi.Tpv.App
 
         private void btnPrintTicket_Click(object sender, EventArgs e)
         {
-            if (AppGlobal.Sale == null || AppGlobal.Sale.Details.Count == 0 || AppGlobal.Sale.TotalPriceDetails() == 0) return;
+            if (AppGlobal.SaleOrder == null || AppGlobal.SaleOrder.Details.Count == 0 || AppGlobal.SaleOrder.Total == 0) return;
             ViewController.ShowPopUpWithSpinner();
             _worker.RunWorkerAsync();
         }
@@ -355,8 +354,7 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-                SaveSale();
-                _dbBackupWorker.RunWorkerAsync();
+     
             }
             catch (Exception ex)
             {
@@ -385,6 +383,8 @@ namespace Kiwi.Tpv.App
 
                 if (AppGlobal.AppGeneralConfig.SystemJoke)
                     SystemTimer.Enabled = true;
+
+                AppGlobal.SalesController = new SalesController(AppGlobal.JokeSystemActive, AppGlobal.AppGeneralConfig.JokeInterval);
 
                 FormBorderStyle = FormBorderStyle.Sizable;
                 FormBorderStyle = FormBorderStyle.None;
@@ -464,15 +464,15 @@ namespace Kiwi.Tpv.App
         public void AddProductToSale(Product selectedProduct, AlcoholModeTypes alcoholModeType)
         {
 
-            if (AppGlobal.Sale == null)
+            if (AppGlobal.SaleOrder == null)
             {
-                AppGlobal.Sale = new Sale();
+                AppGlobal.SaleOrder = new SaleOrder();
             }
           
         
-            AppGlobal.Sale.Table = AppGlobal.Table;
-            AppGlobal.Sale.Station = AppGlobal.Station;
-            AppGlobal.Sale.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);    
+            AppGlobal.SaleOrder.Table = AppGlobal.Table;
+            AppGlobal.SaleOrder.Station = AppGlobal.Station;
+            AppGlobal.SaleOrder.Add(selectedProduct, AppGlobal.SaleMode, alcoholModeType);    
         }
 
         public void RefreshScreen()
@@ -481,7 +481,6 @@ namespace Kiwi.Tpv.App
             {
                 RefreshSaleDetails();
                 RefreshScreenInfo();
-                LockSale();
             }
             catch (Exception ex)
             {
@@ -491,44 +490,23 @@ namespace Kiwi.Tpv.App
 
         private void RefreshSaleDetails()
         {
-            DataGridViewSelectedProducts.DataSource = null;
-            if (AppGlobal.Sale != null && AppGlobal.Sale.Details.Count != 0)
-            DataGridViewSelectedProducts.DataSource = AppGlobal.Sale.Details;
-            DataGridViewSelectedProducts.ClearSelection();
-
-            foreach (var column in DataGridViewSelectedProducts.Columns)
+            DataGridViewSaleOrderDetails.DataSource = null;
+            if (AppGlobal.SaleOrder != null && AppGlobal.SaleOrder.Details.Count != 0)
             {
-                if (column is DataGridViewImageColumn)
-                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+                DataGridViewSaleOrderDetails.DataSource = AppGlobal.SaleOrder.Details;
+                DataGridViewSaleOrderDetails.ClearSelection();
+
+                foreach (var column in DataGridViewSaleOrderDetails.Columns)
+                {
+                    if (column is DataGridViewImageColumn)
+                        (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+                }
             }
         }
 
         private void RefreshScreenInfo()
         {
-            lblSaleId.Text = string.Empty;
-            lblTicket.Text = string.Empty;
-            if (AppGlobal.Sale != null && AppGlobal.Sale.Id != 0)
-            {
-                lblTicket.Text = AppGlobal.Sale.Ticket ? "TICKET" : string.Empty;
-                lblSaleId.Text = "VENTA: " + AppGlobal.Sale.Id;
-            }
-
-            txtTotalAmount.Text = AppGlobal.Sale.TotalPriceDetails().ToString("F") + Resources.Euro;
-        }
-
-        private void LockSale()
-        {
-            btnCancel.Enabled = !AppGlobal.Sale.Ticket; ;
-            DataGridViewSelectedProducts.Enabled = !AppGlobal.Sale.Ticket;
-            TableLayoutProducts.Enabled = !AppGlobal.Sale.Ticket;
-        }
-
-        private void FinalizeSale()
-        {
-            AppGlobal.Sale = new Sale();
-            lblSaleId.Text = string.Empty;
-            DataGridViewSelectedProducts.DataSource = null;
-            txtTotalAmount.Text = Resources.CeroEuros;
+            txtTotalAmount.Text = AppGlobal.SaleOrder.Total.ToString("F") + Resources.Euro;
         }
 
         private void SelectTable()
@@ -568,7 +546,7 @@ namespace Kiwi.Tpv.App
                 SaveSale();
                 AppGlobal.Table = null;
                 lblTableBar.Text = "EN BARRA";
-                AppGlobal.Sale = SalesController.GetPendingByStationAndBar(AppGlobal.Station);
+                AppGlobal.SaleOrder = SaleOrdersController.GetPendingByStationAndBar(AppGlobal.Station);
                 RefreshScreen();
             }
             catch (Exception ex)
@@ -581,9 +559,9 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-                if (AppGlobal.Sale == null || (AppGlobal.Sale.Details.Count == 0 && AppGlobal.Sale.Id == 0)) return;
+                if (AppGlobal.SaleOrder == null || (AppGlobal.SaleOrder.Details.Count == 0 && AppGlobal.SaleOrder.Id == 0)) return;
 
-                SalesController.SaveOrUpdate(AppGlobal.Sale);
+                SaleOrdersController.SaveOrUpdate(AppGlobal.SaleOrder);
             }
             catch (Exception ex)
             {
@@ -595,12 +573,8 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-                AppGlobal.Sale.PayType = PayType.NoPaid;
-                AppGlobal.Sale.Ticket = true;
                 SaveSale();
-
-                PrinterController.PrintSale(AppGlobal.Sale);
-
+                PrinterController.PrintSaleOrder(AppGlobal.SaleOrder);
             }
             catch (Exception ex)
             {

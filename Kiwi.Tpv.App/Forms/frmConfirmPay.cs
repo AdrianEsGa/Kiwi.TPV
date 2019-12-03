@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
@@ -10,15 +11,27 @@ namespace Kiwi.Tpv.App.Forms
 {
     public partial class FrmConfirmPay : MetroForm
     {
+       
+        private SaleOrder _allSaleOrder;
+        private SaleOrder _individualSaleOrder;
         private BackgroundWorker _worker;
-        public bool OperationFinalized;
-        private readonly bool _masivePay;
+        private bool _printTicket;
+        private readonly Employee _employee;
+        private bool _confirmationSuccess;
+        private PayMode _payMode = PayMode.All;
 
-        public FrmConfirmPay(bool masivePay)
+        private SaleOrder FinalSaleOrder
+        {
+            get { return _payMode == PayMode.Individual ? _individualSaleOrder : _allSaleOrder; }
+        }
+
+        public FrmConfirmPay(Employee employee, SaleOrder saleOrder)
         {
             InitializeComponent();
-            ViewController.SetSkin(this);
-            _masivePay = masivePay;
+            ViewController.SetSkin(this);     
+            _employee = employee;
+            _allSaleOrder = saleOrder;
+            SaleOrdersController.SaveOrUpdate(_allSaleOrder);
         }
 
         private void FrmConfirmPay_Load(object sender, EventArgs e)
@@ -33,12 +46,17 @@ namespace Kiwi.Tpv.App.Forms
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (!_masivePay)
-            {
-                ViewController.HidePopUp();
-            }
+            if (!_confirmationSuccess) return;
 
-            Close();
+            if (_payMode == PayMode.Individual)
+            {
+                FinalizeProductSelection();
+            }
+            else
+            {
+                AppGlobal.SaleOrder = new SaleOrder();
+                Close();
+            }
         }
 
         private void DoWork(object sender, DoWorkEventArgs e)
@@ -58,14 +76,14 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            OperationFinalized = false;
+            AppGlobal.SaleOrder = SaleOrdersController.GetById(_allSaleOrder.Id);
             Close();
         }
 
         private void btnConfirmCash_Click(object sender, EventArgs e)
         {
-            AppGlobal.Sale.PayType = PayType.Cash;
-            AppGlobal.Sale.Ticket = false;
+            FinalSaleOrder.PayType = PayType.Cash;
+            _printTicket = false;
             ViewController.ShowPopUpWithSpinner();
             if (!_worker.IsBusy)
             _worker.RunWorkerAsync();
@@ -73,8 +91,8 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnConfirmCreditCard_Click(object sender, EventArgs e)
         {
-            AppGlobal.Sale.PayType = PayType.CreditCard;
-            AppGlobal.Sale.Ticket = false;
+            FinalSaleOrder.PayType = PayType.CreditCard;
+            _printTicket = false;
             ViewController.ShowPopUpWithSpinner();
             if(!_worker.IsBusy)
             _worker.RunWorkerAsync();
@@ -82,8 +100,8 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnConfirmCashTicket_Click(object sender, EventArgs e)
         {
-            AppGlobal.Sale.PayType = PayType.Cash;
-            AppGlobal.Sale.Ticket = true;
+            FinalSaleOrder.PayType = PayType.Cash;
+            _printTicket = true;
             ViewController.ShowPopUpWithSpinner();
             if (!_worker.IsBusy)
             _worker.RunWorkerAsync();
@@ -91,24 +109,79 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnConfirmCreditCardTicket_Click(object sender, EventArgs e)
         {
-            AppGlobal.Sale.PayType = PayType.CreditCard;
-            AppGlobal.Sale.Ticket = true;
+            FinalSaleOrder.PayType = PayType.CreditCard;
+            _printTicket = true;
             ViewController.ShowPopUpWithSpinner();
             if(!_worker.IsBusy)
             _worker.RunWorkerAsync();
         }
 
+        private void DataGridViewSaleOrderDetails_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+            var selectedSaleOrderDetail = (SaleOrderDetail) DataGridViewSaleOrderDetails.CurrentRow?.DataBoundItem;
+
+            if (selectedSaleOrderDetail == null) return;
+
+            SelectProduct(selectedSaleOrderDetail);
+
+        }
+
+        private void btnRemoveProductSelection_Click(object sender, EventArgs e)
+        {
+            FinalizeProductSelection();
+        }
         #endregion
 
         #region Methods
+
+        private void SelectProduct(SaleOrderDetail saleOrderDetail)
+        {
+            if (_payMode == PayMode.All && _allSaleOrder.Details.Count == 1 && saleOrderDetail.Quantity == 1)
+            {
+                return;
+            }
+
+            if (_payMode == PayMode.All)
+            {
+                _individualSaleOrder = _allSaleOrder.Copy();
+                _payMode = PayMode.Individual;
+                PanelProductsToPay.Visible = true;
+            }
+
+            _allSaleOrder.RemoveOneUnit(saleOrderDetail);
+
+            var selectionSaleOrderDetail = saleOrderDetail.Copy();
+
+            _individualSaleOrder.AddOneUnit(selectionSaleOrderDetail);
+
+            RefreshDataGridViews();
+            RefreshTotal();
+        }
+
+        private void RefreshDataGridViews()
+        {
+
+            DataGridViewSaleOrderDetails.DataSource = null;
+            DataGridViewSaleOrderDetails.DataSource = _allSaleOrder.Details;
+
+            if (_payMode == PayMode.All) return;
+
+            DataGridViewSelectionSaleOrderDetails.DataSource = null;
+            DataGridViewSelectionSaleOrderDetails.DataSource = _individualSaleOrder.Details;
+        }
+
+        private void RefreshTotal()
+        { 
+            txtTotalToPay.Text = FinalSaleOrder.Total.ToString("F") + Resources.Euro;
+        }
 
         private void Initialize()
         {
             try
             {
-                AppGlobal.Sale.Total = AppGlobal.Sale.TotalPriceDetails();
-                AppGlobal.Sale.Disscount = 0;
-                txtTotalToPay.Text = AppGlobal.Sale.Total.ToString("F") + Resources.Euro;
+                DataGridViewSaleOrderDetails.DataSource = _allSaleOrder.Details;
+                DataGridViewSaleOrderDetails.ClearSelection();
+                txtTotalToPay.Text = _allSaleOrder.Total.ToString("F") + Resources.Euro;
             }
             catch (Exception ex)
             {
@@ -120,39 +193,29 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                var isJoke = false;
+                _confirmationSuccess = false;
 
-                AppGlobal.Sale.Paid = true;
+                _allSaleOrder.Employee = _employee;
 
-                if (IsPosibleToMakeJokeSale())
-                {
-                    if (AppGlobal.JokeSystemCounter == AppGlobal.AppGeneralConfig.JokeInterval)
-                        isJoke = true;
-                    else AppGlobal.JokeSystemCounter++;
-                }
+                if (_payMode == PayMode.Individual)
+                    _individualSaleOrder.Employee = _employee;
 
-                if (isJoke)
-                {
-                    SalesController.SaveOrUpdateJoke(AppGlobal.Sale);
-                    AppGlobal.JokeSystemCounter = 1;
-                }
-                else
-                {
-                    SalesController.SaveOrUpdate(AppGlobal.Sale);
-                }
+                var paySaleOrder = _payMode == PayMode.Individual ? _individualSaleOrder : _allSaleOrder;
+                var pendingSaleOrder = _payMode == PayMode.Individual ? _allSaleOrder : null;
+     
+                var confirmedSale = AppGlobal.SalesController.MakeSale(paySaleOrder, pendingSaleOrder, _printTicket);
 
-                if (AppGlobal.Sale.Ticket && !isJoke)
-                {
-                    PrinterController.PrintSale(AppGlobal.Sale);
-                }
-
-                if (Math.Abs(AppGlobal.Sale.Total) > 0 && AppGlobal.Sale.PayType == PayType.Cash)
+                if (AppGlobal.SalesController.PrintTicket)               
+                    PrinterController.PrintSale(confirmedSale);
+                
+                if (AppGlobal.SalesController.OpenCashDrawer)
                     CashDrawerController.Open();
 
-                OperationFinalized = true;
+                _confirmationSuccess = true;
             }
             catch (Exception ex)
             {
+                _confirmationSuccess = false;
                 ViewController.ShowError(ex.Message);
             }
         }
@@ -161,10 +224,9 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                if (AppGlobal.Sale.Total < 1) return;
-                AppGlobal.Sale.Total -= 1;
-                AppGlobal.Sale.Disscount = AppGlobal.Sale.Disscount + 1;
-                txtTotalToPay.Text = AppGlobal.Sale.Total + Resources.Euro;
+                if (FinalSaleOrder.Total < 1) return;
+                FinalSaleOrder.Disscount = FinalSaleOrder.Disscount + 1;
+                txtTotalToPay.Text = FinalSaleOrder.Total.ToString("F") + Resources.Euro;
             }
             catch (Exception ex)
             {
@@ -176,10 +238,9 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                AppGlobal.Sale.Total = 0;
-                AppGlobal.Sale.Disscount = AppGlobal.Sale.TotalPriceDetails();
-                AppGlobal.Sale.PayType = PayType.Cash;
-                AppGlobal.Sale.Ticket = false;
+                FinalSaleOrder.Disscount = FinalSaleOrder.Total;
+                FinalSaleOrder.PayType = PayType.Cash;
+
                 ViewController.ShowPopUpWithSpinner();
                 if (!_worker.IsBusy)
                 _worker.RunWorkerAsync();
@@ -190,12 +251,23 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
-        private bool IsPosibleToMakeJokeSale()
+        private void FinalizeProductSelection()
         {
-            return AppGlobal.Sale.Id == 0 && AppGlobal.JokeSystemActive && AppGlobal.Sale.PayType == PayType.Cash &&
-                   AppGlobal.Sale.Total > 0 && !AppGlobal.Sale.Ticket;
+            PanelProductsToPay.Visible = false;
+            _payMode = PayMode.All;
+            _allSaleOrder = SaleOrdersController.GetById(_allSaleOrder.Id);
+            RefreshDataGridViews();
+            RefreshTotal();
         }
+
         #endregion
+
+
+        private enum PayMode
+        {
+            All = 1,
+            Individual = 2
+        }
 
     }
 }

@@ -265,7 +265,7 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             var hastPendingSales = false;
             const string strSql =
-                "SELECT TOP 1 1 FROM Sales WHERE BarTableId = @BarTableId AND Paid = 0";
+                "SELECT TOP 1 1 FROM SaleOrders WHERE BarTableId = @BarTableId";
 
             try
             {
@@ -295,7 +295,10 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             double totalPending = 0;
             const string strSql =
-                "SELECT SUM(Total) AS TotalPending FROM Sales WHERE BarTableId = @BarTableId AND Paid = 0";
+                "SELECT SUM(Quantity * Price) As TotalPending " +
+                " FROM SaleOrders " +
+                " INNER JOIN SaleOrderDetails ON SaleOrders.Id = SaleOrderDetails.SaleOrderId " +
+                " WHERE SaleOrders.BarTableId = @BarTableId";
 
             try
             {

@@ -42,6 +42,35 @@ namespace Kiwi.Tpv.App.Util
             }
         }
 
+        public static void PrintSaleOrder(SaleOrder saleOrderToPrint)
+        {
+            try
+            {
+                var saleDetails = ReportRepository.GetSaleById(saleOrderToPrint.Id);
+                var reportViewer = new FrmReportViewer();
+                var report = reportViewer.reportViewer.LocalReport;
+                report.ReportPath = AppGlobal.Company.TicketReport;
+                report.DataSources.Clear();
+                report.DataSources.Add(new ReportDataSource
+                {
+                    Name = "SaleDetails",
+                    Value = saleDetails
+                });
+
+                report.DataSources.Add(new ReportDataSource
+                {
+                    Name = "Company",
+                    Value = new List<Company> { AppGlobal.Company }
+                });
+
+                PrintReport(report);
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
         private static void PrintReport(LocalReport report)
         {
             var pageSettings = new PageSettings
