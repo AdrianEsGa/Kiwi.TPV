@@ -89,9 +89,12 @@ namespace Kiwi.Tpv.Database.Controllers
                         Product = saleOrderDetail.Product,
                         Quantity = saleOrderDetail.Quantity,
                         TaxPercentaje = saleOrderDetail.TaxPercentaje,
-                        Total = saleOrderDetail.Quantity * saleOrderDetail.Price,
-
+                        Total = saleOrderDetail.Quantity * saleOrderDetail.Price,                    
                     };
+
+                    saleDetail.Tax = Math.Round(((saleDetail.TaxPercentaje + 100) / 100) / saleDetail.Total, 2);
+                    saleDetail.SubTotal = Math.Round(saleDetail.Total - saleDetail.Tax, 2);
+
                     sale.Details.Add(saleDetail);
                 }
 

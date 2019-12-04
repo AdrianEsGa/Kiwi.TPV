@@ -103,7 +103,7 @@ namespace Kiwi.Tpv.Database.Repositories
             var saleOrderDetails = new List<SaleOrderDetail>();
 
             const string strSql =
-                "SELECT Id, SaleOrderId, ProductId, Quantity, Price, TaxPercentaje " +
+                "SELECT Id, SaleOrderId, ProductId, Quantity, Price, TaxPercentaje, IsBottle " +
                 "FROM SaleOrderDetails " +
                 "WHERE SaleOrderId = @SaleOrderId";
 
@@ -126,7 +126,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Product = ProductRepository.GetById(Convert.ToInt32(reader["ProductId"])),                                
                                     Quantity = Convert.ToInt32(reader["Quantity"]),
                                     TaxPercentaje = Convert.ToDouble(reader["TaxPercentaje"]),
-                                    Price = Convert.ToDouble(reader["Price"]),                               
+                                    Price = Convert.ToDouble(reader["Price"]),
+                                    IsBottle = Convert.ToBoolean(reader["IsBottle"])
                                 });
                             }
                         }
@@ -196,8 +197,8 @@ namespace Kiwi.Tpv.Database.Repositories
                     }
 
                     strSql =
-                        "INSERT INTO SaleOrderDetails (SaleOrderId, ProductId, Quantity, Price, TaxPercentaje) " +
-                        "VALUES (@SaleOrderId, @ProductId, @Quantity, @Price, @TaxPercentaje) SELECT Scope_Identity()";
+                        "INSERT INTO SaleOrderDetails (SaleOrderId, ProductId, Quantity, Price, TaxPercentaje, IsBottle) " +
+                        "VALUES (@SaleOrderId, @ProductId, @Quantity, @Price, @TaxPercentaje, @IsBottle) SELECT Scope_Identity()";
 
                     foreach (var detail in saleOrder.Details)
                         using (var command = new SqlCommand(strSql, connection))
@@ -208,6 +209,7 @@ namespace Kiwi.Tpv.Database.Repositories
                             command.Parameters.AddWithValue("@Quantity", detail.Quantity);
                             command.Parameters.AddWithValue("@Price", detail.Price);
                             command.Parameters.AddWithValue("@TaxPercentaje", detail.TaxPercentaje);
+                            command.Parameters.AddWithValue("@IsBottle", detail.IsBottle);
                             detail.Id = Convert.ToInt32(command.ExecuteScalar());
                         }
 

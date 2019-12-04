@@ -48,32 +48,32 @@
             this.btnConfirmCreditCard = new MetroFramework.Controls.MetroTile();
             this.btnConfirmCashTicket = new MetroFramework.Controls.MetroTile();
             this.btnConfirmCreditCardTicket = new MetroFramework.Controls.MetroTile();
-            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataGridViewSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
+            this.DataGridViewAllSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PanelProductsToPay = new MetroFramework.Controls.MetroPanel();
             this.btnRemoveProductSelection = new MetroFramework.Controls.MetroTile();
-            this.DataGridViewSelectionSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.DataGridViewIndividualSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSaleOrderDetails)).BeginInit();
+            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).BeginInit();
             this.PanelProductsToPay.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectionSaleOrderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTotalToPay
@@ -222,21 +222,17 @@
             this.btnConfirmCreditCardTicket.UseSelectable = true;
             this.btnConfirmCreditCardTicket.Click += new System.EventHandler(this.btnConfirmCreditCardTicket_Click);
             // 
-            // saleOrderDetailBindingSource
+            // DataGridViewAllSaleOrderDetails
             // 
-            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
-            // 
-            // DataGridViewSaleOrderDetails
-            // 
-            this.DataGridViewSaleOrderDetails.AllowUserToAddRows = false;
-            this.DataGridViewSaleOrderDetails.AllowUserToDeleteRows = false;
-            this.DataGridViewSaleOrderDetails.AllowUserToResizeColumns = false;
-            this.DataGridViewSaleOrderDetails.AllowUserToResizeRows = false;
-            this.DataGridViewSaleOrderDetails.AutoGenerateColumns = false;
-            this.DataGridViewSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataGridViewSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DataGridViewSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewAllSaleOrderDetails.AllowUserToAddRows = false;
+            this.DataGridViewAllSaleOrderDetails.AllowUserToDeleteRows = false;
+            this.DataGridViewAllSaleOrderDetails.AllowUserToResizeColumns = false;
+            this.DataGridViewAllSaleOrderDetails.AllowUserToResizeRows = false;
+            this.DataGridViewAllSaleOrderDetails.AutoGenerateColumns = false;
+            this.DataGridViewAllSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewAllSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGridViewAllSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGridViewAllSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,9 +240,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataGridViewSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewAllSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridViewAllSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewAllSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductImage,
             this.idDataGridViewTextBoxColumn,
             this.productDataGridViewTextBoxColumn,
@@ -255,7 +251,7 @@
             this.TotalString,
             this.taxPercentajeDataGridViewTextBoxColumn,
             this.isBottleDataGridViewCheckBoxColumn});
-            this.DataGridViewSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
+            this.DataGridViewAllSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,15 +259,15 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DataGridViewSaleOrderDetails.EnableHeadersVisualStyles = false;
-            this.DataGridViewSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.DataGridViewSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewSaleOrderDetails.Location = new System.Drawing.Point(23, 69);
-            this.DataGridViewSaleOrderDetails.MultiSelect = false;
-            this.DataGridViewSaleOrderDetails.Name = "DataGridViewSaleOrderDetails";
-            this.DataGridViewSaleOrderDetails.ReadOnly = true;
-            this.DataGridViewSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewAllSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DataGridViewAllSaleOrderDetails.EnableHeadersVisualStyles = false;
+            this.DataGridViewAllSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.DataGridViewAllSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(23, 69);
+            this.DataGridViewAllSaleOrderDetails.MultiSelect = false;
+            this.DataGridViewAllSaleOrderDetails.Name = "DataGridViewAllSaleOrderDetails";
+            this.DataGridViewAllSaleOrderDetails.ReadOnly = true;
+            this.DataGridViewAllSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -279,18 +275,18 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.DataGridViewSaleOrderDetails.RowHeadersVisible = false;
-            this.DataGridViewSaleOrderDetails.RowHeadersWidth = 70;
-            this.DataGridViewSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridViewSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSaleOrderDetails.RowTemplate.Height = 47;
-            this.DataGridViewSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewSaleOrderDetails.Size = new System.Drawing.Size(496, 294);
-            this.DataGridViewSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
-            this.DataGridViewSaleOrderDetails.TabIndex = 9;
-            this.DataGridViewSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.DataGridViewSaleOrderDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSaleOrderDetails_CellClick);
+            this.DataGridViewAllSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataGridViewAllSaleOrderDetails.RowHeadersVisible = false;
+            this.DataGridViewAllSaleOrderDetails.RowHeadersWidth = 70;
+            this.DataGridViewAllSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewAllSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewAllSaleOrderDetails.RowTemplate.Height = 47;
+            this.DataGridViewAllSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewAllSaleOrderDetails.Size = new System.Drawing.Size(496, 294);
+            this.DataGridViewAllSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
+            this.DataGridViewAllSaleOrderDetails.TabIndex = 9;
+            this.DataGridViewAllSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.DataGridViewAllSaleOrderDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAllSaleOrderDetails_CellClick);
             // 
             // ProductImage
             // 
@@ -307,37 +303,6 @@
             this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ProductImage.Width = 50;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Unidades";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Visible = false;
-            // 
             // TotalString
             // 
             this.TotalString.DataPropertyName = "TotalString";
@@ -349,26 +314,10 @@
             this.TotalString.ReadOnly = true;
             this.TotalString.Width = 70;
             // 
-            // taxPercentajeDataGridViewTextBoxColumn
-            // 
-            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
-            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // isBottleDataGridViewCheckBoxColumn
-            // 
-            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
-            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
-            // 
             // PanelProductsToPay
             // 
             this.PanelProductsToPay.Controls.Add(this.btnRemoveProductSelection);
-            this.PanelProductsToPay.Controls.Add(this.DataGridViewSelectionSaleOrderDetails);
+            this.PanelProductsToPay.Controls.Add(this.DataGridViewIndividualSaleOrderDetails);
             this.PanelProductsToPay.Controls.Add(this.metroLabel1);
             this.PanelProductsToPay.HorizontalScrollbarBarColor = true;
             this.PanelProductsToPay.HorizontalScrollbarHighlightOnWheel = false;
@@ -398,17 +347,17 @@
             this.btnRemoveProductSelection.UseSelectable = true;
             this.btnRemoveProductSelection.Click += new System.EventHandler(this.btnRemoveProductSelection_Click);
             // 
-            // DataGridViewSelectionSaleOrderDetails
+            // DataGridViewIndividualSaleOrderDetails
             // 
-            this.DataGridViewSelectionSaleOrderDetails.AllowUserToAddRows = false;
-            this.DataGridViewSelectionSaleOrderDetails.AllowUserToDeleteRows = false;
-            this.DataGridViewSelectionSaleOrderDetails.AllowUserToResizeColumns = false;
-            this.DataGridViewSelectionSaleOrderDetails.AllowUserToResizeRows = false;
-            this.DataGridViewSelectionSaleOrderDetails.AutoGenerateColumns = false;
-            this.DataGridViewSelectionSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewSelectionSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataGridViewSelectionSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DataGridViewSelectionSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToAddRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToDeleteRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeColumns = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AutoGenerateColumns = false;
+            this.DataGridViewIndividualSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewIndividualSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -416,9 +365,9 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSelectionSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.DataGridViewSelectionSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewSelectionSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewIndividualSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewImageColumn1,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
@@ -427,7 +376,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewCheckBoxColumn1});
-            this.DataGridViewSelectionSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
+            this.DataGridViewIndividualSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,15 +384,15 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewSelectionSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DataGridViewSelectionSaleOrderDetails.EnableHeadersVisualStyles = false;
-            this.DataGridViewSelectionSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.DataGridViewSelectionSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewSelectionSaleOrderDetails.Location = new System.Drawing.Point(0, 22);
-            this.DataGridViewSelectionSaleOrderDetails.MultiSelect = false;
-            this.DataGridViewSelectionSaleOrderDetails.Name = "DataGridViewSelectionSaleOrderDetails";
-            this.DataGridViewSelectionSaleOrderDetails.ReadOnly = true;
-            this.DataGridViewSelectionSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridViewIndividualSaleOrderDetails.EnableHeadersVisualStyles = false;
+            this.DataGridViewIndividualSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.DataGridViewIndividualSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewIndividualSaleOrderDetails.Location = new System.Drawing.Point(0, 22);
+            this.DataGridViewIndividualSaleOrderDetails.MultiSelect = false;
+            this.DataGridViewIndividualSaleOrderDetails.Name = "DataGridViewIndividualSaleOrderDetails";
+            this.DataGridViewIndividualSaleOrderDetails.ReadOnly = true;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -451,27 +400,17 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSelectionSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.DataGridViewSelectionSaleOrderDetails.RowHeadersVisible = false;
-            this.DataGridViewSelectionSaleOrderDetails.RowHeadersWidth = 70;
-            this.DataGridViewSelectionSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridViewSelectionSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSelectionSaleOrderDetails.RowTemplate.Height = 47;
-            this.DataGridViewSelectionSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewSelectionSaleOrderDetails.Size = new System.Drawing.Size(496, 237);
-            this.DataGridViewSelectionSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
-            this.DataGridViewSelectionSaleOrderDetails.TabIndex = 3;
-            this.DataGridViewSelectionSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(149, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Selección de productos";
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersVisible = false;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidth = 70;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.Height = 47;
+            this.DataGridViewIndividualSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewIndividualSaleOrderDetails.Size = new System.Drawing.Size(496, 237);
+            this.DataGridViewIndividualSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
+            this.DataGridViewIndividualSaleOrderDetails.TabIndex = 3;
+            this.DataGridViewIndividualSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // dataGridViewImageColumn1
             // 
@@ -487,6 +426,27 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 70;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(0, 0);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(211, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Selección individual de productos";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -519,17 +479,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Visible = false;
             // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 70;
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "TaxPercentaje";
@@ -546,6 +495,57 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Visible = false;
             // 
+            // saleOrderDetailBindingSource
+            // 
+            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Unidades";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxPercentajeDataGridViewTextBoxColumn
+            // 
+            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
+            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // isBottleDataGridViewCheckBoxColumn
+            // 
+            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
+            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
+            // 
             // FrmConfirmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,7 +553,7 @@
             this.ClientSize = new System.Drawing.Size(1070, 696);
             this.ControlBox = false;
             this.Controls.Add(this.PanelProductsToPay);
-            this.Controls.Add(this.DataGridViewSaleOrderDetails);
+            this.Controls.Add(this.DataGridViewAllSaleOrderDetails);
             this.Controls.Add(this.txtTotalToPay);
             this.Controls.Add(this.btnConfirmCreditCardTicket);
             this.Controls.Add(this.btnConfirmCashTicket);
@@ -572,11 +572,11 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Realizar venta";
             this.Load += new System.EventHandler(this.FrmConfirmPay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSaleOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).EndInit();
             this.PanelProductsToPay.ResumeLayout(false);
             this.PanelProductsToPay.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSelectionSaleOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -592,7 +592,7 @@
         private MetroFramework.Controls.MetroTile btnConfirmCashTicket;
         private MetroFramework.Controls.MetroTile btnConfirmCreditCardTicket;
         private System.Windows.Forms.BindingSource saleOrderDetailBindingSource;
-        private MetroFramework.Controls.MetroGrid DataGridViewSaleOrderDetails;
+        private MetroFramework.Controls.MetroGrid DataGridViewAllSaleOrderDetails;
         private System.Windows.Forms.DataGridViewImageColumn ProductImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
@@ -603,7 +603,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isBottleDataGridViewCheckBoxColumn;
         private MetroFramework.Controls.MetroPanel PanelProductsToPay;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroGrid DataGridViewSelectionSaleOrderDetails;
+        private MetroFramework.Controls.MetroGrid DataGridViewIndividualSaleOrderDetails;
         private MetroFramework.Controls.MetroTile btnRemoveProductSelection;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

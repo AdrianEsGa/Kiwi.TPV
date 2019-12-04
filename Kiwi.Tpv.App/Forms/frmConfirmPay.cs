@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
@@ -22,7 +21,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private SaleOrder FinalSaleOrder
         {
-            get { return _payMode == PayMode.Individual ? _individualSaleOrder : _allSaleOrder; }
+            get { return _payMode == PayMode.All ? _allSaleOrder  : _individualSaleOrder; }
         }
 
         public FrmConfirmPay(Employee employee, SaleOrder saleOrder)
@@ -43,26 +42,6 @@ namespace Kiwi.Tpv.App.Forms
         }
 
         #region Events
-
-        private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (!_confirmationSuccess) return;
-
-            if (_payMode == PayMode.Individual)
-            {
-                FinalizeProductSelection();
-            }
-            else
-            {
-                AppGlobal.SaleOrder = new SaleOrder();
-                Close();
-            }
-        }
-
-        private void DoWork(object sender, DoWorkEventArgs e)
-        {
-            ConfirmPay();
-        }
 
         private void btnDisccount_Click(object sender, EventArgs e)
         {
@@ -116,43 +95,61 @@ namespace Kiwi.Tpv.App.Forms
             _worker.RunWorkerAsync();
         }
 
-        private void DataGridViewSaleOrderDetails_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        private void DataGridViewAllSaleOrderDetails_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            var selectedSaleOrderDetail = (SaleOrderDetail) DataGridViewSaleOrderDetails.CurrentRow?.DataBoundItem;
-
+            var selectedSaleOrderDetail = (SaleOrderDetail)DataGridViewAllSaleOrderDetails.CurrentRow?.DataBoundItem;
             if (selectedSaleOrderDetail == null) return;
-
             SelectProduct(selectedSaleOrderDetail);
-
         }
 
         private void btnRemoveProductSelection_Click(object sender, EventArgs e)
         {
             FinalizeProductSelection();
         }
+
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            ConfirmPay();
+        }
+
+        private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!_confirmationSuccess) return;
+
+            if (_payMode == PayMode.Individual)
+            {
+                FinalizeProductSelection();
+            }
+            else
+            {
+                AppGlobal.SaleOrder = new SaleOrder();
+                Close();
+            }
+        }
+
         #endregion
 
         #region Methods
 
         private void SelectProduct(SaleOrderDetail saleOrderDetail)
         {
-            if (_payMode == PayMode.All && _allSaleOrder.Details.Count == 1 && saleOrderDetail.Quantity == 1)
+            switch (_payMode)
             {
-                return;
-            }
+                case PayMode.All when _allSaleOrder.Details.Count == 1 && saleOrderDetail.Quantity == 1:
+                    return;
 
-            if (_payMode == PayMode.All)
-            {
-                _individualSaleOrder = _allSaleOrder.Copy();
-                _payMode = PayMode.Individual;
-                PanelProductsToPay.Visible = true;
+                case PayMode.All:
+                    _individualSaleOrder = _allSaleOrder.Copy();
+                    _payMode = PayMode.Individual;
+                    PanelProductsToPay.Visible = true;
+                    break;
             }
 
             _allSaleOrder.RemoveOneUnit(saleOrderDetail);
 
-            var selectionSaleOrderDetail = saleOrderDetail.Copy();
+            var individualSaleOrderDetail = saleOrderDetail.Copy();
 
-            _individualSaleOrder.AddOneUnit(selectionSaleOrderDetail);
+            _individualSaleOrder.AddOneUnit(individualSaleOrderDetail);
 
             RefreshDataGridViews();
             RefreshTotal();
@@ -161,13 +158,13 @@ namespace Kiwi.Tpv.App.Forms
         private void RefreshDataGridViews()
         {
 
-            DataGridViewSaleOrderDetails.DataSource = null;
-            DataGridViewSaleOrderDetails.DataSource = _allSaleOrder.Details;
+            DataGridViewAllSaleOrderDetails.DataSource = null;
+            DataGridViewAllSaleOrderDetails.DataSource = _allSaleOrder.Details;
 
             if (_payMode == PayMode.All) return;
 
-            DataGridViewSelectionSaleOrderDetails.DataSource = null;
-            DataGridViewSelectionSaleOrderDetails.DataSource = _individualSaleOrder.Details;
+            DataGridViewIndividualSaleOrderDetails.DataSource = null;
+            DataGridViewIndividualSaleOrderDetails.DataSource = _individualSaleOrder.Details;
         }
 
         private void RefreshTotal()
@@ -179,9 +176,9 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                DataGridViewSaleOrderDetails.DataSource = _allSaleOrder.Details;
-                DataGridViewSaleOrderDetails.ClearSelection();
-                txtTotalToPay.Text = _allSaleOrder.Total.ToString("F") + Resources.Euro;
+                DataGridViewAllSaleOrderDetails.DataSource = FinalSaleOrder.Details;
+                DataGridViewAllSaleOrderDetails.ClearSelection();
+                txtTotalToPay.Text = FinalSaleOrder.Total.ToString("F") + Resources.Euro;
             }
             catch (Exception ex)
             {
