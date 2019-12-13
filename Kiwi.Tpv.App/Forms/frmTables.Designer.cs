@@ -55,13 +55,16 @@ namespace Kiwi.Tpv.App.Forms
             this.chkActive = new MetroFramework.Controls.MetroToggle();
             this.metroTabPageBusqueda = new MetroFramework.Controls.MetroTabPage();
             this.DataGridViewTables = new MetroFramework.Controls.MetroGrid();
-            this.barTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new MetroFramework.Controls.MetroTile();
+            this.CbBarTableType = new MetroFramework.Controls.MetroComboBox();
+            this.LblProductType = new MetroFramework.Controls.MetroLabel();
+            this.barTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabTables.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
@@ -73,7 +76,7 @@ namespace Kiwi.Tpv.App.Forms
             // lblActive
             // 
             this.lblActive.AutoSize = true;
-            this.lblActive.Location = new System.Drawing.Point(5, 147);
+            this.lblActive.Location = new System.Drawing.Point(5, 197);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(44, 19);
             this.lblActive.TabIndex = 81;
@@ -82,7 +85,7 @@ namespace Kiwi.Tpv.App.Forms
             // LblProductName
             // 
             this.LblProductName.AutoSize = true;
-            this.LblProductName.Location = new System.Drawing.Point(5, 109);
+            this.LblProductName.Location = new System.Drawing.Point(5, 115);
             this.LblProductName.Name = "LblProductName";
             this.LblProductName.Size = new System.Drawing.Size(59, 19);
             this.LblProductName.TabIndex = 72;
@@ -113,7 +116,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtTableName.CustomButton.UseSelectable = true;
             this.TxtTableName.CustomButton.Visible = false;
             this.TxtTableName.Lines = new string[0];
-            this.TxtTableName.Location = new System.Drawing.Point(120, 109);
+            this.TxtTableName.Location = new System.Drawing.Point(120, 115);
             this.TxtTableName.MaxLength = 50;
             this.TxtTableName.Name = "TxtTableName";
             this.TxtTableName.PasswordChar = '\0';
@@ -236,6 +239,8 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPageFicha
             // 
+            this.metroTabPageFicha.Controls.Add(this.CbBarTableType);
+            this.metroTabPageFicha.Controls.Add(this.LblProductType);
             this.metroTabPageFicha.Controls.Add(this.btnDistribucion);
             this.metroTabPageFicha.Controls.Add(this.txtCode);
             this.metroTabPageFicha.Controls.Add(this.metroLabel1);
@@ -292,7 +297,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtCode.CustomButton.UseSelectable = true;
             this.txtCode.CustomButton.Visible = false;
             this.txtCode.Lines = new string[0];
-            this.txtCode.Location = new System.Drawing.Point(120, 72);
+            this.txtCode.Location = new System.Drawing.Point(120, 74);
             this.txtCode.MaxLength = 50;
             this.txtCode.Name = "txtCode";
             this.txtCode.PasswordChar = '\0';
@@ -312,7 +317,7 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(5, 72);
+            this.metroLabel1.Location = new System.Drawing.Point(5, 74);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(58, 19);
             this.metroLabel1.TabIndex = 94;
@@ -321,7 +326,7 @@ namespace Kiwi.Tpv.App.Forms
             // chkActive
             // 
             this.chkActive.AutoSize = true;
-            this.chkActive.Location = new System.Drawing.Point(120, 147);
+            this.chkActive.Location = new System.Drawing.Point(120, 199);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(80, 17);
             this.chkActive.TabIndex = 90;
@@ -366,6 +371,7 @@ namespace Kiwi.Tpv.App.Forms
             this.nameDataGridViewTextBoxColumn,
             this.imagePathDataGridViewTextBoxColumn,
             this.locationDataGridViewTextBoxColumn,
+            this.Type,
             this.activeDataGridViewCheckBoxColumn});
             this.DataGridViewTables.DataSource = this.barTableBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -401,10 +407,6 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewTables.TabIndex = 4;
             this.DataGridViewTables.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTables_CellDoubleClick);
             // 
-            // barTableBindingSource
-            // 
-            this.barTableBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.BarTable);
-            // 
             // btnClose
             // 
             this.btnClose.ActiveControl = null;
@@ -419,6 +421,33 @@ namespace Kiwi.Tpv.App.Forms
             this.btnClose.UseSelectable = true;
             this.btnClose.UseTileImage = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // CbBarTableType
+            // 
+            this.CbBarTableType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.CbBarTableType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbBarTableType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbBarTableType.FormattingEnabled = true;
+            this.CbBarTableType.ItemHeight = 23;
+            this.CbBarTableType.Location = new System.Drawing.Point(120, 156);
+            this.CbBarTableType.Name = "CbBarTableType";
+            this.CbBarTableType.Size = new System.Drawing.Size(152, 29);
+            this.CbBarTableType.TabIndex = 98;
+            this.CbBarTableType.UseSelectable = true;
+            // 
+            // LblProductType
+            // 
+            this.LblProductType.AutoSize = true;
+            this.LblProductType.ForeColor = System.Drawing.Color.Black;
+            this.LblProductType.Location = new System.Drawing.Point(5, 156);
+            this.LblProductType.Name = "LblProductType";
+            this.LblProductType.Size = new System.Drawing.Size(35, 19);
+            this.LblProductType.TabIndex = 97;
+            this.LblProductType.Text = "Tipo";
+            // 
+            // barTableBindingSource
+            // 
+            this.barTableBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.BarTable);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -464,6 +493,14 @@ namespace Kiwi.Tpv.App.Forms
             this.locationDataGridViewTextBoxColumn.ReadOnly = true;
             this.locationDataGridViewTextBoxColumn.Visible = false;
             // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Tipo";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 70;
+            // 
             // activeDataGridViewCheckBoxColumn
             // 
             this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
@@ -487,7 +524,7 @@ namespace Kiwi.Tpv.App.Forms
             this.Name = "FrmTables";
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "Mesas";
+            this.Text = "Mesas / Barra";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTables_FormClosed);
             this.Load += new System.EventHandler(this.FrmTables_Load);
             this.tabTables.ResumeLayout(false);
@@ -521,11 +558,14 @@ namespace Kiwi.Tpv.App.Forms
         private MetroTile btnDistribucion;
         private MetroGrid DataGridViewTables;
         private BindingSource barTableBindingSource;
+        private MetroComboBox CbBarTableType;
+        private MetroLabel LblProductType;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn imagePathDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Type;
         private DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
     }
 }

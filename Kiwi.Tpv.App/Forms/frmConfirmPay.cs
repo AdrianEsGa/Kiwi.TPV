@@ -259,7 +259,6 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
-
         private enum PayMode
         {
             All = 1,

@@ -129,7 +129,7 @@
             this.btnTables.Size = new System.Drawing.Size(185, 144);
             this.btnTables.Style = MetroFramework.MetroColorStyle.Orange;
             this.btnTables.TabIndex = 67;
-            this.btnTables.Text = "Mesas";
+            this.btnTables.Text = "Mesas / Barra";
             this.btnTables.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnTables.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnTables.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;

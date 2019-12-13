@@ -10,7 +10,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<BarTable> GetAllActive()
         {
             const string strSql =
-                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "SELECT Id, Code, Name, ImagePath, Location, Active, Type " +
                 "FROM BarTables WHERE Active = 1";
 
             var tables = new List<BarTable>();
@@ -33,7 +33,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Location = reader["Location"].ToString(),
-                                    Active = (bool)reader["Active"]
+                                    Active = (bool)reader["Active"],
+                                    Type = (BarTable.BarTableType) Convert.ToInt16(reader["Type"])
                                 });
                             }
 
@@ -52,7 +53,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<BarTable> GetAllActiveWithoutLocation()
         {
             const string strSql =
-                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "SELECT Id, Code, Name, ImagePath, Location, Active, Type " +
                 "FROM BarTables WHERE Active = 1 AND Location IS NULL";
 
             var tables = new List<BarTable>();
@@ -75,7 +76,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Location = reader["Location"].ToString(),
-                                    Active = (bool)reader["Active"]
+                                    Active = (bool)reader["Active"],
+                                    Type = (BarTable.BarTableType)Convert.ToInt16(reader["Type"])
                                 });
                             }
 
@@ -94,7 +96,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<BarTable> GetAllActiveWithLocation()
         {
             const string strSql =
-                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "SELECT Id, Code, Name, ImagePath, Location, Active, Type " +
                 "FROM BarTables WHERE Active = 1 AND Location IS NOT NULL";
 
             var tables = new List<BarTable>();
@@ -117,7 +119,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Location = reader["Location"].ToString(),
-                                    Active = (bool)reader["Active"]
+                                    Active = (bool)reader["Active"],
+                                    Type = (BarTable.BarTableType)Convert.ToInt16(reader["Type"])
                                 });
                             }
 
@@ -136,7 +139,7 @@ namespace Kiwi.Tpv.Database.Repositories
         internal static List<BarTable> GetAll()
         {
             const string strSql =
-                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "SELECT Id, Code, Name, ImagePath, Location, Active, Type " +
                 "FROM BarTables";
 
             var tables = new List<BarTable>();
@@ -159,7 +162,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Location = string.IsNullOrEmpty(reader["Location"].ToString()) ? null : reader["Location"].ToString(),
-                                    Active = (bool)reader["Active"]
+                                    Active = (bool)reader["Active"],
+                                    Type = (BarTable.BarTableType)Convert.ToInt16(reader["Type"])
                                 });
                             }
 
@@ -182,10 +186,10 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = table.Id == 0
-                        ? "INSERT INTO BarTables (Code, Name, Location, Active) " +
-                          "VALUES (@Code, @Name, @Location, @Active) SELECT Scope_Identity() "
+                        ? "INSERT INTO BarTables (Code, Name, Location, Active, Type) " +
+                          "VALUES (@Code, @Name, @Location, @Active, @Type) SELECT Scope_Identity() "
                         : "UPDATE BarTables " +
-                          "SET Code = @Code, Name = @Name, Location = @Location, Active = @Active " +
+                          "SET Code = @Code, Name = @Name, Location = @Location, Active = @Active, Type = @Type " +
                           "WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
@@ -198,6 +202,7 @@ namespace Kiwi.Tpv.Database.Repositories
                         else command.Parameters.AddWithValue("@Location", table.Location);
 
                         command.Parameters.AddWithValue("@Active", table.Active);
+                        command.Parameters.AddWithValue("@Type", (int) table.Type);
                         command.Parameters.AddWithValue("@Id", table.Id);
 
                         connection.Open();
@@ -331,7 +336,7 @@ namespace Kiwi.Tpv.Database.Repositories
         public static BarTable GetById(int id)
         {
             const string strSql =
-                "SELECT Id, Code, Name, ImagePath, Location, Active " +
+                "SELECT Id, Code, Name, ImagePath, Location, Active, Type " +
                 "FROM BarTables WHERE Id = @Id";
 
             var table = new BarTable();
@@ -356,7 +361,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     ImagePath = reader["ImagePath"].ToString(),
                                     Location = reader["Location"].ToString(),
-                                    Active = (bool) reader["Active"]
+                                    Active = (bool) reader["Active"],
+                                    Type = (BarTable.BarTableType)Convert.ToInt16(reader["Type"])
                                 };
                             }
 

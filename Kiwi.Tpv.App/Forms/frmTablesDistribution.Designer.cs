@@ -145,7 +145,7 @@
             this.Resizable = false;
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "Distribución de mesas";
+            this.Text = "Distribución del local";
             this.Load += new System.EventHandler(this.frmTablesDistribution_Load);
             this.panelButons.ResumeLayout(false);
             this.ResumeLayout(false);

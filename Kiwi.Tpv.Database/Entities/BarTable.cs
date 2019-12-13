@@ -1,4 +1,6 @@
-﻿namespace Kiwi.Tpv.Database.Entities
+﻿using System;
+
+namespace Kiwi.Tpv.Database.Entities
 {
     public class BarTable
     {
@@ -8,10 +10,18 @@
         public string ImagePath { get; set; }
         public string Location { get; set; }
         public bool Active { get; set; }
+        public BarTableType Type { get; set; }
 
         public override string ToString()
         {
             return "(" + Code +") " + Name;
+        }
+
+
+        public enum BarTableType
+        {
+            Barra = 1,
+            Mesa = 2
         }
     }
 }

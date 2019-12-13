@@ -54,7 +54,7 @@ namespace Kiwi.Tpv.Database.Controllers
                 else SaleOrdersController.SaveOrUpdate(pendingSaleOrder);
 
                 PrintTicket = printTicket && !isJoke;
-                OpenCashDrawer = Math.Abs(sale.Total) > 0 && sale.PayType == PayType.Cash;
+                OpenCashDrawer = Math.Abs(sale.Total) > 0;
 
                 return sale;
             }
@@ -129,8 +129,7 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
-        public static List<EmployeeHistoryDto> GetTotalsByEmployee(string stationIds, DateTime initDate,
-            DateTime endDate)
+        public static List<EmployeeHistoryDto> GetTotalsByEmployee(string stationIds, DateTime initDate, DateTime endDate)
         {
             try
             {

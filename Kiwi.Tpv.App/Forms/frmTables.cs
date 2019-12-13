@@ -24,6 +24,8 @@ namespace Kiwi.Tpv.App.Forms
             _selectedTable = new BarTable();
             BindingToControls();
             tabTables.SelectedTab = tabTables.TabPages[0];
+            CbBarTableType.Items.Add(BarTable.BarTableType.Barra);
+            CbBarTableType.Items.Add(BarTable.BarTableType.Mesa);
         }
 
         #region Events
@@ -169,6 +171,7 @@ namespace Kiwi.Tpv.App.Forms
             txtCode.Text = _selectedTable.Code.ToString();
             TxtTableName.Text = _selectedTable.Name;
             chkActive.Checked = _selectedTable.Active;
+            CbBarTableType.SelectedItem = _selectedTable.Type;
         }
 
         private void BindingFromControls()
@@ -176,6 +179,7 @@ namespace Kiwi.Tpv.App.Forms
             _selectedTable.Name = TxtTableName.Text;
             _selectedTable.Code = Convert.ToInt32(txtCode.Text);
             _selectedTable.Active = chkActive.Checked;
+            _selectedTable.Type = (BarTable.BarTableType)CbBarTableType.SelectedItem;
         }
 
         private bool ValidateData()
