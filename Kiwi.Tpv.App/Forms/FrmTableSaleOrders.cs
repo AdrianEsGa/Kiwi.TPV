@@ -64,6 +64,16 @@ namespace Kiwi.Tpv.App.Forms
             ShowSaleOrderDetails();
         }
 
+        private void btnAddProducts_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMoveToPendingSaleOrders_Click(object sender, EventArgs e)
+        {
+            MoveToPendingSaleOrders();
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             SelectedSaleOrder = null;
@@ -78,10 +88,13 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                _pendingSaleOrders = SaleOrdersController.GetPendingsByTable(_selectedTable);
+                DataGridViewTableSales.DataSource = null;
+                DataGridViewTableSaleDetails.DataSource = null;
 
+                _pendingSaleOrders = SaleOrdersController.GetByTable(_selectedTable, false);
+           
                 DataGridViewTableSales.DataSource = _pendingSaleOrders;
-
+        
                 if (DataGridViewTableSales.Rows.Count > 0)
                 {
                     DataGridViewTableSales.ClearSelection();
@@ -160,11 +173,32 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
+        private void MoveToPendingSaleOrders()
+        {
+            try
+            {
+                if (SelectedSaleOrder == null) return;
+
+                var frmComment = new FrmComment();
+                frmComment.ShowDialog();
+
+                if (!frmComment.Confirmed) return;
+
+                SelectedSaleOrder.IsPending = true;
+                SelectedSaleOrder.PendingComment = frmComment.Comment;
+                SaleOrdersController.SaveOrUpdate(SelectedSaleOrder);
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
+            }
+        }
+
         #endregion
 
-        private void btnAddProducts_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+
+
+
     }
 }

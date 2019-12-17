@@ -38,6 +38,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTableSaleOrders));
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.panelButtons = new MetroFramework.Controls.MetroPanel();
+            this.btnMoveToPendingSaleOrders = new MetroFramework.Controls.MetroTile();
+            this.btnAddProducts = new MetroFramework.Controls.MetroTile();
             this.btnMoveAllToOtherTable = new MetroFramework.Controls.MetroTile();
             this.btnPaySelectedSale = new MetroFramework.Controls.MetroTile();
             this.btnNewSale = new MetroFramework.Controls.MetroTile();
@@ -62,7 +64,6 @@
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAddProducts = new MetroFramework.Controls.MetroTile();
             this.panelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTableSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleOrderBindingSource)).BeginInit();
@@ -87,6 +88,7 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.Controls.Add(this.btnMoveToPendingSaleOrders);
             this.panelButtons.Controls.Add(this.btnAddProducts);
             this.panelButtons.Controls.Add(this.btnMoveAllToOtherTable);
             this.panelButtons.Controls.Add(this.btnPaySelectedSale);
@@ -103,14 +105,44 @@
             this.panelButtons.VerticalScrollbarHighlightOnWheel = false;
             this.panelButtons.VerticalScrollbarSize = 10;
             // 
+            // btnMoveToPendingSaleOrders
+            // 
+            this.btnMoveToPendingSaleOrders.ActiveControl = null;
+            this.btnMoveToPendingSaleOrders.BackColor = System.Drawing.Color.White;
+            this.btnMoveToPendingSaleOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnMoveToPendingSaleOrders.Location = new System.Drawing.Point(556, 3);
+            this.btnMoveToPendingSaleOrders.Name = "btnMoveToPendingSaleOrders";
+            this.btnMoveToPendingSaleOrders.Size = new System.Drawing.Size(153, 58);
+            this.btnMoveToPendingSaleOrders.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnMoveToPendingSaleOrders.TabIndex = 10;
+            this.btnMoveToPendingSaleOrders.Text = "Mover a pendientes";
+            this.btnMoveToPendingSaleOrders.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnMoveToPendingSaleOrders.UseSelectable = true;
+            this.btnMoveToPendingSaleOrders.Click += new System.EventHandler(this.btnMoveToPendingSaleOrders_Click);
+            // 
+            // btnAddProducts
+            // 
+            this.btnAddProducts.ActiveControl = null;
+            this.btnAddProducts.BackColor = System.Drawing.Color.White;
+            this.btnAddProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnAddProducts.Location = new System.Drawing.Point(169, 3);
+            this.btnAddProducts.Name = "btnAddProducts";
+            this.btnAddProducts.Size = new System.Drawing.Size(160, 58);
+            this.btnAddProducts.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.btnAddProducts.TabIndex = 9;
+            this.btnAddProducts.Text = "Añadir productos";
+            this.btnAddProducts.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnAddProducts.UseSelectable = true;
+            this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
+            // 
             // btnMoveAllToOtherTable
             // 
             this.btnMoveAllToOtherTable.ActiveControl = null;
             this.btnMoveAllToOtherTable.BackColor = System.Drawing.Color.White;
             this.btnMoveAllToOtherTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnMoveAllToOtherTable.Location = new System.Drawing.Point(641, 3);
+            this.btnMoveAllToOtherTable.Location = new System.Drawing.Point(715, 3);
             this.btnMoveAllToOtherTable.Name = "btnMoveAllToOtherTable";
-            this.btnMoveAllToOtherTable.Size = new System.Drawing.Size(190, 58);
+            this.btnMoveAllToOtherTable.Size = new System.Drawing.Size(153, 58);
             this.btnMoveAllToOtherTable.Style = MetroFramework.MetroColorStyle.Pink;
             this.btnMoveAllToOtherTable.TabIndex = 8;
             this.btnMoveAllToOtherTable.Text = "Mover a otra mesa";
@@ -125,7 +157,7 @@
             this.btnPaySelectedSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
             this.btnPaySelectedSale.Location = new System.Drawing.Point(3, 3);
             this.btnPaySelectedSale.Name = "btnPaySelectedSale";
-            this.btnPaySelectedSale.Size = new System.Drawing.Size(190, 58);
+            this.btnPaySelectedSale.Size = new System.Drawing.Size(160, 58);
             this.btnPaySelectedSale.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnPaySelectedSale.TabIndex = 7;
             this.btnPaySelectedSale.Text = "Cobrar";
@@ -138,9 +170,9 @@
             this.btnNewSale.ActiveControl = null;
             this.btnNewSale.BackColor = System.Drawing.Color.White;
             this.btnNewSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnNewSale.Location = new System.Drawing.Point(837, 3);
+            this.btnNewSale.Location = new System.Drawing.Point(874, 3);
             this.btnNewSale.Name = "btnNewSale";
-            this.btnNewSale.Size = new System.Drawing.Size(190, 58);
+            this.btnNewSale.Size = new System.Drawing.Size(153, 58);
             this.btnNewSale.Style = MetroFramework.MetroColorStyle.Green;
             this.btnNewSale.TabIndex = 5;
             this.btnNewSale.Text = "Nueva venta";
@@ -419,21 +451,6 @@
             // 
             this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
             // 
-            // btnAddProducts
-            // 
-            this.btnAddProducts.ActiveControl = null;
-            this.btnAddProducts.BackColor = System.Drawing.Color.White;
-            this.btnAddProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnAddProducts.Location = new System.Drawing.Point(199, 3);
-            this.btnAddProducts.Name = "btnAddProducts";
-            this.btnAddProducts.Size = new System.Drawing.Size(190, 58);
-            this.btnAddProducts.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.btnAddProducts.TabIndex = 9;
-            this.btnAddProducts.Text = "Añadir productos";
-            this.btnAddProducts.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnAddProducts.UseSelectable = true;
-            this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
-            // 
             // FrmTableSaleOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,7 +471,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "Pedidos pendientes";
+            this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.frmTableSaleOrders_Load);
             this.panelButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTableSales)).EndInit();
@@ -494,5 +511,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalStringDataGridViewTextBoxColumn;
         private MetroFramework.Controls.MetroTile btnAddProducts;
+        private MetroFramework.Controls.MetroTile btnMoveToPendingSaleOrders;
     }
 }

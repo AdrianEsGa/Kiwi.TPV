@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
-using System.Threading;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using Kiwi.Tpv.App.Properties;
@@ -523,7 +522,7 @@ namespace Kiwi.Tpv.App
 
                 if (frmTablesDistribution.SelectedTable != null)
                 {
-                    btnSelectBar.Enabled = true;
+                    FreeSaleOrderMenuItem.Enabled = true;
                     AppGlobal.Table = frmTablesDistribution.SelectedTable;
                     lblTableBar.Text = AppGlobal.Table.Name.ToUpper();               
                 }
@@ -542,11 +541,11 @@ namespace Kiwi.Tpv.App
         {
             try
             {
-                btnSelectBar.Enabled = false;
+                FreeSaleOrderMenuItem.Enabled = false;
                 SaveSale();
                 AppGlobal.Table = null;
-                lblTableBar.Text = "EN BARRA";
-                AppGlobal.SaleOrder = SaleOrdersController.GetPendingByStationAndBar(AppGlobal.Station);
+                lblTableBar.Text = "PEDIDO LIBRE";
+                AppGlobal.SaleOrder = SaleOrdersController.GetByStationAndBar(AppGlobal.Station, false);
                 RefreshScreen();
             }
             catch (Exception ex)
@@ -629,9 +628,70 @@ namespace Kiwi.Tpv.App
 
         #endregion
 
-        private void FrmMain_Shown(object sender, EventArgs e)
-        {
+        #region Menu Items
 
+        private void PricesSystemDayMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDayNight.Text = "DÍA";
+            AppGlobal.SaleMode = SaleMode.Day;
+        }
+
+        private void PricesSystemNightMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDayNight.Text = "NOCHE";
+            AppGlobal.SaleMode = SaleMode.Night;
+        }
+
+        private void AdministrationMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowPopUp();
+            var frmPassword = new FrmPassword();
+            frmPassword.ShowDialog();
+
+            if (frmPassword.ValidPassword)
+            {
+                var frmMenu = new FrmMenu();
+                frmMenu.ShowDialog();
+                Initialize();
+            }
+            ViewController.HidePopUp();
+        }
+
+        private void ComandasMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowPopUp();
+            var frmCommands = new FrmCommands();
+            frmCommands.ShowDialog();
+            ViewController.HidePopUp();
+        }
+
+        private void FreeSaleOrdersMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectBar();
+        }
+
+        private void BarTablesMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectTable();
+        }
+
+        private void PendingSaleOrdersMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowPopUp();
+            var frmPendingSaleOrders = new FrmPendingSaleOrders();
+            frmPendingSaleOrders.ShowDialog();
+            ViewController.HidePopUp();
+        }
+
+
+        #endregion
+
+        private void PDAComandasMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewController.ShowPopUp();
+            var frmCommands = new FrmCommands();
+            frmCommands.ShowDialog();
+            ViewController.HidePopUp();
         }
     }
 }

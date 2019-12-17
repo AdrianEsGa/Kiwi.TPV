@@ -65,7 +65,7 @@
             this.Movable = false;
             this.Name = "FrmTablesSelector";
             this.Resizable = false;
-            this.Text = "Seleccionar mesa";
+            this.Text = "Seleccionar mesa / barra";
             this.Load += new System.EventHandler(this.frmTablesSelector_Load);
             this.ResumeLayout(false);
 

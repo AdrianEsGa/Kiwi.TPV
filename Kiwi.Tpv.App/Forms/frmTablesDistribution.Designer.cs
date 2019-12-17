@@ -143,7 +143,6 @@
             this.Movable = false;
             this.Name = "FrmTablesDistribution";
             this.Resizable = false;
-            this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Distribución del local";
             this.Load += new System.EventHandler(this.frmTablesDistribution_Load);

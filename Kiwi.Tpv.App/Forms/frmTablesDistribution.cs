@@ -36,6 +36,7 @@ namespace Kiwi.Tpv.App.Forms
         {
             panelButons.Visible = _windowMode == WindowMode.Administration;
             LoadData();
+            BringToFront();
         }
 
         #region Events
@@ -89,28 +90,19 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                if (sender is MetroTile)
+                if (sender is Button)
                 {
-                    SelectedTable = (BarTable)((MetroTile)sender).Tag;
-                }
-
-                if (sender is MetroButton)
-                {
-                    SelectedTable = (BarTable)((MetroButton) sender).Tag;
+                    SelectedTable = (BarTable)((Button)sender).Tag;
                 }
 
                 switch (_windowMode)
                 {
-                    case WindowMode.Administration:
-                        Close();
-                        break;
-
                     case WindowMode.TableSelection:
                         Close();
                         break;
 
                     case WindowMode.SaleSelection:
-                        if (BarTablesController.HasPendingSales(SelectedTable))
+                        if (BarTablesController.HasSales(SelectedTable))
                         {
                             var frmTableSales = new FrmTableSaleOrders(SelectedTable);
                             frmTableSales.ShowDialog();
@@ -134,8 +126,6 @@ namespace Kiwi.Tpv.App.Forms
                         }
 
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
                 }
             }
             catch (Exception ex)
@@ -153,44 +143,34 @@ namespace Kiwi.Tpv.App.Forms
 
                 var selectedTable = frmTablesSelector.SelectedTable;
 
-                if (selectedTable != null)
+                if (selectedTable == null) return;
+                _tablesDistributed.Add(selectedTable);
+
+                var btn = new Button
                 {
-                    _tablesDistributed.Add(selectedTable);
+                    Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                    Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                    Text = selectedTable.Name,
+                    Tag = selectedTable,                    
+                    FlatStyle = FlatStyle.Flat,
+                    Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),                    
+                };
 
-                    if (File.Exists(selectedTable.ImagePath))
-                    {
-                        var btn = new MetroButton
-                        {
-                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Tag = selectedTable,
-                            BackgroundImage = Image.FromFile(selectedTable.ImagePath),
-                            BackgroundImageLayout = ImageLayout.Stretch
-                        };
-
-                        btn.Draggable(true);
-                        btn.Click += ButtonTable_Click;
-
-                        panelDistribution.Controls.Add(btn);
-                    }
-                    else
-                    {
-                        var btn = new MetroTile
-                        {
-                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Text = selectedTable.Name,
-                            Tag = selectedTable,
-                            Style = MetroColorStyle.Silver,
-                            TextAlign = ContentAlignment.TopLeft,
-                        };
-
-                        btn.Draggable(true);
-                        btn.Click += ButtonTable_Click;
-
-                        panelDistribution.Controls.Add(btn);
-                    }
+                if (selectedTable.Type == BarTable.BarTableType.Barra)
+                {
+                    btn.Width = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
+                    btn.Height = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
                 }
+                else
+                {
+                    btn.Width = AppGlobal.AppGeneralConfig.TableButtonsDimension;
+                    btn.Height = AppGlobal.AppGeneralConfig.TableButtonsDimension;
+                }
+
+                btn.Draggable(true);
+                btn.Click += ButtonTable_Click;
+
+                panelDistribution.Controls.Add(btn);
             }
             catch (Exception ex)
             {
@@ -209,54 +189,46 @@ namespace Kiwi.Tpv.App.Forms
 
                 foreach (var tableDistributed in _tablesDistributed)
                 {
-                    var hasPendingSales = BarTablesController.HasPendingSales(tableDistributed);
+                    var hasPendingSales = BarTablesController.HasSales(tableDistributed);
 
                     double totalPending = 0;
                     if (hasPendingSales)
                     {
-                        totalPending = BarTablesController.GetTotalPending(tableDistributed);
+                        totalPending = BarTablesController.GetSaleOrdersTotal(tableDistributed);
                     }
 
                     var location = tableDistributed.Location.Split(',');
-                    if (File.Exists(tableDistributed.ImagePath))
+
+                    var btn = new Button
                     {
-                        var btn = new MetroButton
-                        {
-                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Tag = tableDistributed,
-                            BackgroundImage = Image.FromFile(tableDistributed.ImagePath),
-                            BackgroundImageLayout = ImageLayout.Stretch,
-                            Location = new Point(Convert.ToInt32(location[0]), Convert.ToInt32(location[1]))
-                        };
+                        Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                        Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                        Text = tableDistributed.Name + Environment.NewLine + totalPending.ToString("F") + "€",
+                        Tag = tableDistributed,
+                        BackColor = hasPendingSales ? Color.FromArgb(209, 17, 65) : Color.FromArgb(0, 177, 89),
+                        ForeColor = Color.White,
+                        FlatStyle = FlatStyle.Flat,
+                        Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
+                        Location = new Point(Convert.ToInt32(location[0]), Convert.ToInt32(location[1]))
+                    };
 
-                        if (_windowMode == WindowMode.Administration)
-                          btn.Draggable(true);
-
-                        btn.Click += ButtonTable_Click;
-
-                        panelDistribution.Controls.Add(btn);
+                    if (tableDistributed.Type == BarTable.BarTableType.Barra)
+                    {
+                        btn.Width = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
+                        btn.Height = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
                     }
                     else
                     {
-                        var btn = new MetroTile
-                        {
-                            Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                            Text = tableDistributed.Name + Environment.NewLine + totalPending.ToString("F") + "€",
-                            Tag = tableDistributed,
-                            Style = hasPendingSales ? MetroColorStyle.Red : MetroColorStyle.Green,
-                            TextAlign = ContentAlignment.TopLeft,
-                            Location = new Point(Convert.ToInt32(location[0]), Convert.ToInt32(location[1]))
-                        };
-
-                        if (_windowMode == WindowMode.Administration)
-                            btn.Draggable(true);
-
-                        btn.Click += ButtonTable_Click;
-
-                        panelDistribution.Controls.Add(btn);
+                        btn.Width = AppGlobal.AppGeneralConfig.TableButtonsDimension;
+                        btn.Height = AppGlobal.AppGeneralConfig.TableButtonsDimension;
                     }
+
+                    if (_windowMode == WindowMode.Administration)
+                        btn.Draggable(true);
+
+                    btn.Click += ButtonTable_Click;
+
+                    panelDistribution.Controls.Add(btn);
                 }
             }
             catch (Exception ex)
@@ -272,23 +244,13 @@ namespace Kiwi.Tpv.App.Forms
                 var tablesToSave = new List<BarTable>();
                 foreach (var tableControl in panelDistribution.Controls)
                 {
-                    if (tableControl is MetroTile)
-                    {
-                        var tableButton = ((MetroTile) tableControl);
-                        var table = (BarTable) tableButton.Tag;
+                    if (!(tableControl is Button)) continue;
 
-                        table.Location = tableButton.Location.X + "," + tableButton.Location.Y;
-                        tablesToSave.Add(table);
-                    }
+                    var tableButton = ((Button) tableControl);
+                    var table = (BarTable) tableButton.Tag;
 
-                    if (tableControl is MetroButton)
-                    {
-                        var tableButton = ((MetroButton) tableControl);
-                        var table = (BarTable) tableButton.Tag;
-
-                        table.Location = tableButton.Location.X + "," + tableButton.Location.Y;
-                        tablesToSave.Add(table);
-                    }
+                    table.Location = tableButton.Location.X + "," + tableButton.Location.Y;
+                    tablesToSave.Add(table);
                 }
 
                 foreach (var tableToSave in tablesToSave)

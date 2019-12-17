@@ -106,11 +106,23 @@
     <Compile Include="Forms\FrmCommands.Designer.cs">
       <DependentUpon>FrmCommands.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmComment.Designer.cs">
+      <DependentUpon>FrmComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmEmployeeSelector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmEmployeeSelector.Designer.cs">
       <DependentUpon>FrmEmployeeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPendingSaleOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPendingSaleOrders.Designer.cs">
+      <DependentUpon>FrmPendingSaleOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmTables.cs">
       <SubType>Form</SubType>
@@ -252,8 +264,14 @@
     <EmbeddedResource Include="Forms\FrmCommands.resx">
       <DependentUpon>FrmCommands.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmComment.resx">
+      <DependentUpon>FrmComment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEmployeeSelector.resx">
       <DependentUpon>FrmEmployeeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPendingSaleOrders.resx">
+      <DependentUpon>FrmPendingSaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTables.resx">
       <DependentUpon>FrmTables.cs</DependentUpon>

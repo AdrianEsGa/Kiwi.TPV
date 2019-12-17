@@ -9,11 +9,11 @@ namespace Kiwi.Tpv.Database.Controllers
     {
 
 
-        public static List<SaleOrder> GetPendingsByTable(BarTable table)
+        public static List<SaleOrder> GetByTable(BarTable table, bool isPending)
         {
             try
             {
-                return SaleOrdersRepository.GetPendingsByTable(table);
+                return SaleOrdersRepository.GetByTable(table, isPending);
             }
             catch (Exception ex)
             {
@@ -22,11 +22,11 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
-        public static SaleOrder GetPendingByStationAndBar(Station station)
+        public static SaleOrder GetByStationAndBar(Station station, bool isPending)
         {
             try
             {
-                return SaleOrdersRepository.GetPendingByStationAndBar(station);
+                return SaleOrdersRepository.GetByStationAndBar(station, isPending);
             }
             catch (Exception ex)
             {
@@ -34,6 +34,20 @@ namespace Kiwi.Tpv.Database.Controllers
                 throw ex;
             }
         }
+
+        public static List<SaleOrder> GetAll(bool isPending)
+        {
+            try
+            {
+                return SaleOrdersRepository.GetAll(isPending);
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
 
         public static SaleOrder SaveOrUpdate(SaleOrder saleOrder)
         {

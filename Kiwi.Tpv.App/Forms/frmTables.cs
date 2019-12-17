@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
-using MetroFramework;
 using MetroFramework.Forms;
 
 
@@ -184,10 +183,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private bool ValidateData()
         {
-            if (string.IsNullOrEmpty(txtCode.Text)) return false;
-            if (string.IsNullOrEmpty(TxtTableName.Text)) return false;
-
-            return true;
+            return !string.IsNullOrEmpty(txtCode.Text);
         }
 
 

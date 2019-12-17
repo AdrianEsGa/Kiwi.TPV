@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
-using MetroFramework;
-using MetroFramework.Controls;
 using MetroFramework.Forms;
 
 namespace Kiwi.Tpv.App.Forms
@@ -57,37 +54,31 @@ namespace Kiwi.Tpv.App.Forms
 
                 if (_distributedTables != null && IsInDistributedPanel(table)) continue;
 
-                if (File.Exists(table.ImagePath))
-                {
-                    var btn = new MetroButton
-                    {
-                        Width = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                        Height = AppGlobal.AppGeneralConfig.TableButtonsDimension,
-                        Tag = table,
-                        BackgroundImage = Image.FromFile(table.ImagePath),
-                        BackgroundImageLayout = ImageLayout.Stretch
-                    };
-
-                    btn.Click += ButtonProduct_Click;
-
-                    flowLayoutPanelTables.Controls.Add(btn);
-                }
-                else
-                {
-                    var btn = new MetroTile
+                    var btn = new Button
                     {
                         Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                         Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
                         Text = table.Name,
                         Tag = table,
-                        Style = MetroColorStyle.Silver,
-                        TextAlign = ContentAlignment.TopLeft,
+                        FlatStyle = FlatStyle.Flat,
+                        Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
+                     
                     };
+
+                    if (table.Type == BarTable.BarTableType.Barra)
+                    {
+                        btn.Width = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
+                        btn.Height = (AppGlobal.AppGeneralConfig.TableButtonsDimension / 2) + 10;
+                    }
+                    else
+                    {
+                        btn.Width = AppGlobal.AppGeneralConfig.TableButtonsDimension;
+                        btn.Height = AppGlobal.AppGeneralConfig.TableButtonsDimension;
+                    }
 
                     btn.Click += ButtonProduct_Click;
 
-                    flowLayoutPanelTables.Controls.Add(btn);
-                } 
+                    flowLayoutPanelTables.Controls.Add(btn);              
             }
         }
 

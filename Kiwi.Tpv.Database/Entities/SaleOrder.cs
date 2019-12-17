@@ -15,6 +15,8 @@ namespace Kiwi.Tpv.Database.Entities
         public double Disscount { get; set; }
         public PayType PayType { get; set; }
         public Employee Employee { get; set; }
+        public bool IsPending { get; set; }
+        public string PendingComment { get; set; }
 
         public SaleOrder()
         {

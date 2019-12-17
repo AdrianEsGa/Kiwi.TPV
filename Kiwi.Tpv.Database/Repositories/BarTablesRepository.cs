@@ -266,11 +266,11 @@ namespace Kiwi.Tpv.Database.Repositories
             }
         }
 
-        public static bool HasPendingSales(BarTable table)
+        public static bool HasSaleOrders(BarTable table)
         {
             var hastPendingSales = false;
             const string strSql =
-                "SELECT TOP 1 1 FROM SaleOrders WHERE BarTableId = @BarTableId";
+                "SELECT TOP 1 1 FROM SaleOrders WHERE BarTableId = @BarTableId AND IsPending = 0";
 
             try
             {
@@ -296,14 +296,14 @@ namespace Kiwi.Tpv.Database.Repositories
             return hastPendingSales;
         }
 
-        public static double GetTotalPending(BarTable table)
+        public static double GetSaleOrdersTotal(BarTable table)
         {
             double totalPending = 0;
             const string strSql =
                 "SELECT SUM(Quantity * Price) As TotalPending " +
                 " FROM SaleOrders " +
                 " INNER JOIN SaleOrderDetails ON SaleOrders.Id = SaleOrderDetails.SaleOrderId " +
-                " WHERE SaleOrders.BarTableId = @BarTableId";
+                " WHERE SaleOrders.BarTableId = @BarTableId AND SaleOrders.IsPending = 0";
 
             try
             {

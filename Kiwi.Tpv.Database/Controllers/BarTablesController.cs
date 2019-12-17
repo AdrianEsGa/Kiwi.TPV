@@ -98,11 +98,11 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
-        public static bool HasPendingSales(BarTable table)
+        public static bool HasSales(BarTable table)
         {
             try
             {
-               return BarTablesRepository.HasPendingSales(table);
+               return BarTablesRepository.HasSaleOrders(table);
             }
             catch (Exception ex)
             {
@@ -111,11 +111,11 @@ namespace Kiwi.Tpv.Database.Controllers
             }
         }
 
-        public static double GetTotalPending(BarTable table)
+        public static double GetSaleOrdersTotal(BarTable table)
         {
             try
             {
-                return BarTablesRepository.GetTotalPending(table);
+                return BarTablesRepository.GetSaleOrdersTotal(table);
             }
             catch (Exception ex)
             {
