@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Kiwi.Tpv.App.Forms;
 using MetroFramework;
 using MetroFramework.Components;
+using MetroFramework.Drawing.Html;
 using MetroFramework.Forms;
 using NLog;
 
@@ -87,6 +88,24 @@ namespace Kiwi.Tpv.App.Util
             {
                 //ignored
             }
+        }
+
+        public static void ShowToolTip(string title, string message, Form parent, int x, int y, int delay)
+        {
+            var toolTip = new ToolTip
+            {
+                ToolTipTitle = title,
+                ToolTipIcon = ToolTipIcon.Info,
+                UseFading = true,
+                UseAnimation = true,
+                IsBalloon = true,
+                ShowAlways = true,
+                //AutoPopDelay = 5000,
+                //InitialDelay = 1000,
+                //ReshowDelay = 500
+            };
+
+            toolTip.Show(message, parent, x, y, delay);
         }
     }
 }

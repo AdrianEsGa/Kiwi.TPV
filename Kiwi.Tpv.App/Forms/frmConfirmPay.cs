@@ -133,6 +133,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private void SelectProduct(SaleOrderDetail saleOrderDetail)
         {
+
             switch (_payMode)
             {
                 case PayMode.All when _allSaleOrder.Details.Count == 1 && saleOrderDetail.Quantity == 1:
@@ -265,5 +266,10 @@ namespace Kiwi.Tpv.App.Forms
             Individual = 2
         }
 
+        private void FrmConfirmPay_Shown(object sender, EventArgs e)
+        {
+            ViewController.ShowToolTip("Venta individual", "Pulse sobre los productos deseados para realizar una venta individual.", this,
+                lblTooltip.Location.X, lblTooltip.Location.Y, 5000);
+        }
     }
 }

@@ -70,7 +70,8 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lblTooltip = new MetroFramework.Controls.MetroLabel();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.PanelProductsToPay.SuspendLayout();
@@ -547,15 +548,22 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Productos de venta individual";
             // 
-            // metroLabel2
+            // lblTooltip
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(23, 68);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(342, 19);
-            this.metroLabel2.TabIndex = 11;
-            this.metroLabel2.Text = "Selecciona productos para realizar una venta individual";
+            this.lblTooltip.AutoSize = true;
+            this.lblTooltip.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblTooltip.Location = new System.Drawing.Point(36, 68);
+            this.lblTooltip.Name = "lblTooltip";
+            this.lblTooltip.Size = new System.Drawing.Size(21, 19);
+            this.lblTooltip.TabIndex = 11;
+            this.lblTooltip.Text = "   ";
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.AutomaticDelay = 1000;
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Default;
             // 
             // FrmConfirmPay
             // 
@@ -563,7 +571,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 696);
             this.ControlBox = false;
-            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.PanelProductsToPay);
             this.Controls.Add(this.DataGridViewAllSaleOrderDetails);
             this.Controls.Add(this.txtTotalToPay);
@@ -584,6 +592,7 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Realizar venta";
             this.Load += new System.EventHandler(this.FrmConfirmPay_Load);
+            this.Shown += new System.EventHandler(this.FrmConfirmPay_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.PanelProductsToPay.ResumeLayout(false);
@@ -626,6 +635,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lblTooltip;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

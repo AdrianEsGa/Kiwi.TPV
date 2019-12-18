@@ -13,6 +13,7 @@ using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
 using Kiwi.Tpv.Database.Repositories;
 using MetroFramework;
+using MetroFramework.Components;
 using MetroFramework.Forms;
 using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
 
@@ -60,6 +61,8 @@ namespace Kiwi.Tpv.App
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
 
+
+           
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -201,22 +204,6 @@ namespace Kiwi.Tpv.App
             SaleOrdersController.Remove(AppGlobal.SaleOrder);
             AppGlobal.SaleOrder = new SaleOrder();
             RefreshScreen();
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            ViewController.ShowPopUp();
-            var frmPassword = new FrmPassword();
-            frmPassword.ShowDialog();
-
-            if (frmPassword.ValidPassword)
-            {
-                var frmMenu = new FrmMenu();
-                frmMenu.ShowDialog();
-                Initialize();
-            }
-            ViewController.HidePopUp();
-       
         }
 
         private void DataGridViewSelectedProducts_CellClick(object sender, DataGridViewCellEventArgs e)
