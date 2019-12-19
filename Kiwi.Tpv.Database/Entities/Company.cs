@@ -9,6 +9,7 @@
         public byte[] ReportsLogo { get; set; }
         public byte[] LocalImage { get; set; }
         public bool CombinationControl { get; set; }
+        public bool CombinationControlWithSoda { get; set; }
         public string TicketReport { get; set; }
 
         public override bool Equals(object obj)

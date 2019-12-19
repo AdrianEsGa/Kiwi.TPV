@@ -39,6 +39,11 @@ namespace Kiwi.Tpv.App.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguration));
             this.tabConfig = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.cmbServerStation = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.btnDbBackupFilePath = new MetroFramework.Controls.MetroButton();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txtDbBackupFilePath = new MetroFramework.Controls.MetroTextBox();
             this.txtTableButtonsDimensions = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.chkShowJokeReport = new System.Windows.Forms.CheckBox();
@@ -77,6 +82,11 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.txtActualStation = new MetroFramework.Controls.MetroTextBox();
             this.DataGridViewStations = new MetroFramework.Controls.MetroGrid();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printterComPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.btnTestPrintter = new MetroFramework.Controls.MetroTile();
@@ -90,16 +100,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
-            this.btnDbBackupFilePath = new MetroFramework.Controls.MetroButton();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.txtDbBackupFilePath = new MetroFramework.Controls.MetroTextBox();
-            this.cmbServerStation = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.printterComPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chkCombinationControlWithSoda = new System.Windows.Forms.CheckBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -108,9 +110,9 @@ namespace Kiwi.Tpv.App.Forms
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAppLogo)).BeginInit();
             this.metroTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabConfig
@@ -121,7 +123,7 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.Controls.Add(this.metroTabPage4);
             this.tabConfig.Location = new System.Drawing.Point(23, 69);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.SelectedIndex = 0;
+            this.tabConfig.SelectedIndex = 1;
             this.tabConfig.Size = new System.Drawing.Size(856, 433);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.UseSelectable = true;
@@ -157,6 +159,77 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // cmbServerStation
+            // 
+            this.cmbServerStation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cmbServerStation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbServerStation.FormattingEnabled = true;
+            this.cmbServerStation.ItemHeight = 23;
+            this.cmbServerStation.Location = new System.Drawing.Point(232, 275);
+            this.cmbServerStation.Name = "cmbServerStation";
+            this.cmbServerStation.Size = new System.Drawing.Size(217, 29);
+            this.cmbServerStation.TabIndex = 85;
+            this.cmbServerStation.UseSelectable = true;
+            this.cmbServerStation.SelectionChangeCommitted += new System.EventHandler(this.cmbServerStation_SelectionChangeCommitted);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(28, 275);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(149, 19);
+            this.metroLabel5.TabIndex = 84;
+            this.metroLabel5.Text = "Punto de venta servidor";
+            // 
+            // btnDbBackupFilePath
+            // 
+            this.btnDbBackupFilePath.Location = new System.Drawing.Point(458, 310);
+            this.btnDbBackupFilePath.Name = "btnDbBackupFilePath";
+            this.btnDbBackupFilePath.Size = new System.Drawing.Size(26, 23);
+            this.btnDbBackupFilePath.TabIndex = 83;
+            this.btnDbBackupFilePath.UseSelectable = true;
+            this.btnDbBackupFilePath.Click += new System.EventHandler(this.btnDbBackupFilePath_Click);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(28, 310);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(133, 19);
+            this.metroLabel4.TabIndex = 82;
+            this.metroLabel4.Text = "Ruta copia seguridad";
+            // 
+            // txtDbBackupFilePath
+            // 
+            // 
+            // 
+            // 
+            this.txtDbBackupFilePath.CustomButton.Image = null;
+            this.txtDbBackupFilePath.CustomButton.Location = new System.Drawing.Point(198, 1);
+            this.txtDbBackupFilePath.CustomButton.Name = "";
+            this.txtDbBackupFilePath.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDbBackupFilePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDbBackupFilePath.CustomButton.TabIndex = 1;
+            this.txtDbBackupFilePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDbBackupFilePath.CustomButton.UseSelectable = true;
+            this.txtDbBackupFilePath.CustomButton.Visible = false;
+            this.txtDbBackupFilePath.Enabled = false;
+            this.txtDbBackupFilePath.Lines = new string[0];
+            this.txtDbBackupFilePath.Location = new System.Drawing.Point(232, 310);
+            this.txtDbBackupFilePath.MaxLength = 32767;
+            this.txtDbBackupFilePath.Name = "txtDbBackupFilePath";
+            this.txtDbBackupFilePath.PasswordChar = '\0';
+            this.txtDbBackupFilePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDbBackupFilePath.SelectedText = "";
+            this.txtDbBackupFilePath.SelectionLength = 0;
+            this.txtDbBackupFilePath.SelectionStart = 0;
+            this.txtDbBackupFilePath.ShortcutsEnabled = true;
+            this.txtDbBackupFilePath.Size = new System.Drawing.Size(220, 23);
+            this.txtDbBackupFilePath.TabIndex = 81;
+            this.txtDbBackupFilePath.UseSelectable = true;
+            this.txtDbBackupFilePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDbBackupFilePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtTableButtonsDimensions
             // 
@@ -398,6 +471,8 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.chkCombinationControlWithSoda);
+            this.metroTabPage2.Controls.Add(this.metroLabel6);
             this.metroTabPage2.Controls.Add(this.BtnSelectReportTicket);
             this.metroTabPage2.Controls.Add(this.metroLabel3);
             this.metroTabPage2.Controls.Add(this.TxtTicketReport);
@@ -814,6 +889,42 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewStations.Size = new System.Drawing.Size(856, 189);
             this.DataGridViewStations.TabIndex = 4;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // printterComPortDataGridViewTextBoxColumn
+            // 
+            this.printterComPortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.printterComPortDataGridViewTextBoxColumn.DataPropertyName = "PrintterComPort";
+            this.printterComPortDataGridViewTextBoxColumn.HeaderText = "Puerto COM";
+            this.printterComPortDataGridViewTextBoxColumn.Name = "printterComPortDataGridViewTextBoxColumn";
+            this.printterComPortDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stationBindingSource
+            // 
+            this.stationBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Station);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -993,112 +1104,22 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnDbBackupFilePath
+            // chkCombinationControlWithSoda
             // 
-            this.btnDbBackupFilePath.Location = new System.Drawing.Point(458, 310);
-            this.btnDbBackupFilePath.Name = "btnDbBackupFilePath";
-            this.btnDbBackupFilePath.Size = new System.Drawing.Size(26, 23);
-            this.btnDbBackupFilePath.TabIndex = 83;
-            this.btnDbBackupFilePath.UseSelectable = true;
-            this.btnDbBackupFilePath.Click += new System.EventHandler(this.btnDbBackupFilePath_Click);
+            this.chkCombinationControlWithSoda.AutoSize = true;
+            this.chkCombinationControlWithSoda.Location = new System.Drawing.Point(427, 107);
+            this.chkCombinationControlWithSoda.Name = "chkCombinationControlWithSoda";
+            this.chkCombinationControlWithSoda.Size = new System.Drawing.Size(15, 14);
+            this.chkCombinationControlWithSoda.TabIndex = 81;
             // 
-            // metroLabel4
+            // metroLabel6
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(28, 310);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(133, 19);
-            this.metroLabel4.TabIndex = 82;
-            this.metroLabel4.Text = "Ruta copia seguridad";
-            // 
-            // txtDbBackupFilePath
-            // 
-            // 
-            // 
-            // 
-            this.txtDbBackupFilePath.CustomButton.Image = null;
-            this.txtDbBackupFilePath.CustomButton.Location = new System.Drawing.Point(198, 1);
-            this.txtDbBackupFilePath.CustomButton.Name = "";
-            this.txtDbBackupFilePath.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDbBackupFilePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDbBackupFilePath.CustomButton.TabIndex = 1;
-            this.txtDbBackupFilePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDbBackupFilePath.CustomButton.UseSelectable = true;
-            this.txtDbBackupFilePath.CustomButton.Visible = false;
-            this.txtDbBackupFilePath.Enabled = false;
-            this.txtDbBackupFilePath.Lines = new string[0];
-            this.txtDbBackupFilePath.Location = new System.Drawing.Point(232, 310);
-            this.txtDbBackupFilePath.MaxLength = 32767;
-            this.txtDbBackupFilePath.Name = "txtDbBackupFilePath";
-            this.txtDbBackupFilePath.PasswordChar = '\0';
-            this.txtDbBackupFilePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDbBackupFilePath.SelectedText = "";
-            this.txtDbBackupFilePath.SelectionLength = 0;
-            this.txtDbBackupFilePath.SelectionStart = 0;
-            this.txtDbBackupFilePath.ShortcutsEnabled = true;
-            this.txtDbBackupFilePath.Size = new System.Drawing.Size(220, 23);
-            this.txtDbBackupFilePath.TabIndex = 81;
-            this.txtDbBackupFilePath.UseSelectable = true;
-            this.txtDbBackupFilePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDbBackupFilePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // cmbServerStation
-            // 
-            this.cmbServerStation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cmbServerStation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbServerStation.FormattingEnabled = true;
-            this.cmbServerStation.ItemHeight = 23;
-            this.cmbServerStation.Location = new System.Drawing.Point(232, 275);
-            this.cmbServerStation.Name = "cmbServerStation";
-            this.cmbServerStation.Size = new System.Drawing.Size(217, 29);
-            this.cmbServerStation.TabIndex = 85;
-            this.cmbServerStation.UseSelectable = true;
-            this.cmbServerStation.SelectionChangeCommitted += new System.EventHandler(this.cmbServerStation_SelectionChangeCommitted);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(28, 275);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(149, 19);
-            this.metroLabel5.TabIndex = 84;
-            this.metroLabel5.Text = "Punto de venta servidor";
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Código";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // printterComPortDataGridViewTextBoxColumn
-            // 
-            this.printterComPortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.printterComPortDataGridViewTextBoxColumn.DataPropertyName = "PrintterComPort";
-            this.printterComPortDataGridViewTextBoxColumn.HeaderText = "Puerto COM";
-            this.printterComPortDataGridViewTextBoxColumn.Name = "printterComPortDataGridViewTextBoxColumn";
-            this.printterComPortDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stationBindingSource
-            // 
-            this.stationBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Station);
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(225, 102);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(196, 19);
+            this.metroLabel6.TabIndex = 80;
+            this.metroLabel6.Text = "Control combinados + Refresco";
             // 
             // FrmConfiguration
             // 
@@ -1130,10 +1151,10 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage3.ResumeLayout(false);
             this.metroTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage4.PerformLayout();
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1203,5 +1224,7 @@ namespace Kiwi.Tpv.App.Forms
         private MetroButton btnDbBackupFilePath;
         private MetroLabel metroLabel4;
         private MetroTextBox txtDbBackupFilePath;
+        private CheckBox chkCombinationControlWithSoda;
+        private MetroLabel metroLabel6;
     }
 }

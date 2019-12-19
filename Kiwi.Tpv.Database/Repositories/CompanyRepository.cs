@@ -14,7 +14,9 @@ namespace Kiwi.Tpv.Database.Repositories
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
                     var strSql = "UPDATE Companies " +
-                                 "SET Name = @Name, Cif = @Cif, AppLogo = @AppLogo, ReportsLogo = @ReportsLogo, CombinationControl = @CombinationControl, LocalImage = @LocalImage, TicketReport = @TicketReport " +
+                                 "SET Name = @Name, Cif = @Cif, AppLogo = @AppLogo, ReportsLogo = @ReportsLogo, " +
+                                 "CombinationControl = @CombinationControl, CombinationControlWithSoda = @CombinationControlWithSoda, " +
+                                 "LocalImage = @LocalImage, TicketReport = @TicketReport " +
                                  "WHERE CompanyId = @CompanyId";
 
                     using (var command = new SqlCommand(strSql, connection))
@@ -35,6 +37,7 @@ namespace Kiwi.Tpv.Database.Repositories
                         else command.Parameters.Add("@LocalImage", SqlDbType.VarBinary).Value = company.LocalImage;
 
                         command.Parameters.AddWithValue("@CombinationControl", company.CombinationControl);
+                        command.Parameters.AddWithValue("@CombinationControlWithSoda", company.CombinationControlWithSoda);
 
                         command.Parameters.AddWithValue("@TicketReport", company.TicketReport);
 
@@ -56,7 +59,7 @@ namespace Kiwi.Tpv.Database.Repositories
         {
             var company = new Company();
             const string strSql =
-                "SELECT CompanyId, Name, Cif, AppLogo, ReportsLogo, LocalImage, CombinationControl, TicketReport " +
+                "SELECT CompanyId, Name, Cif, AppLogo, ReportsLogo, LocalImage, CombinationControl, CombinationControlWithSoda, TicketReport " +
                 "FROM Companies WHERE CompanyId = @CompanyId";
 
             try
@@ -78,6 +81,7 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Name = reader["Name"].ToString(),
                                     Cif = reader["Cif"].ToString(),
                                     CombinationControl = (bool) reader["CombinationControl"],
+                                    CombinationControlWithSoda = (bool)reader["CombinationControlWithSoda"],
                                     TicketReport = reader["TicketReport"].ToString()
                                 };
 

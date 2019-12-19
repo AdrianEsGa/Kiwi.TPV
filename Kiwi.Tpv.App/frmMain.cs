@@ -13,7 +13,6 @@ using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
 using Kiwi.Tpv.Database.Repositories;
 using MetroFramework;
-using MetroFramework.Components;
 using MetroFramework.Forms;
 using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
 
@@ -51,7 +50,7 @@ namespace Kiwi.Tpv.App
             _dbBackupWorker.DoWork += DbBackup_DoWork;
             _dbBackupWorker.RunWorkerCompleted += DbBackup_RunWorkerCompleted;
 
-            SelectBar();
+            SelectFreeSaleOrder();
 
             DataGridViewSaleOrderDetails.DefaultCellStyle.SelectionBackColor =
                 DataGridViewSaleOrderDetails.DefaultCellStyle.BackColor;
@@ -172,7 +171,7 @@ namespace Kiwi.Tpv.App
                 frmAlcoholModeTypes.ShowDialog();
                 alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
 
-                if (alcoholModeType == AlcoholModeTypes.Combined)
+                if (alcoholModeType == AlcoholModeTypes.Combined && AppGlobal.Company.CombinationControlWithSoda)
                 {
                     var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
                     frmProductSelector.ShowDialog();
@@ -287,16 +286,6 @@ namespace Kiwi.Tpv.App
         {
         }
 
-        private void btnSelectTable_Click(object sender, EventArgs e)
-        {
-            SelectTable();
-        }
-
-        private void btnSelectBar_Click(object sender, EventArgs e)
-        {
-            SelectBar();
-        }
-
         private void btnPrintTicket_Click(object sender, EventArgs e)
         {
             if (AppGlobal.SaleOrder == null || AppGlobal.SaleOrder.Details.Count == 0 || AppGlobal.SaleOrder.Total == 0) return;
@@ -314,26 +303,6 @@ namespace Kiwi.Tpv.App
             {
                 ViewController.ShowError(ex.Message);
             }
-        }
-
-        private void btnDayMode_Click(object sender, EventArgs e)
-        {
-            lblDayNight.Text = "DÍA";
-            AppGlobal.SaleMode = SaleMode.Day;
-        }
-
-        private void btnNightMode_Click(object sender, EventArgs e)
-        {
-            lblDayNight.Text = "NOCHE";
-            AppGlobal.SaleMode = SaleMode.Night;
-        }
-
-        private void btnCommands_Click(object sender, EventArgs e)
-        {
-            ViewController.ShowPopUp();
-            var frmCommands = new FrmCommands();
-            frmCommands.ShowDialog();
-            ViewController.HidePopUp();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -495,7 +464,7 @@ namespace Kiwi.Tpv.App
             txtTotalAmount.Text = AppGlobal.SaleOrder.Total.ToString("F") + Resources.Euro;
         }
 
-        private void SelectTable()
+        private void SelectBarTable()
         {
 
             ViewController.ShowPopUp();
@@ -524,7 +493,7 @@ namespace Kiwi.Tpv.App
             ViewController.HidePopUp();
         }
 
-        private void SelectBar()
+        private void SelectFreeSaleOrder()
         {
             try
             {
@@ -612,7 +581,6 @@ namespace Kiwi.Tpv.App
             }
         }
 
-
         #endregion
 
         #region Menu Items
@@ -644,22 +612,14 @@ namespace Kiwi.Tpv.App
             ViewController.HidePopUp();
         }
 
-        private void ComandasMenuItem_Click(object sender, EventArgs e)
-        {
-            ViewController.ShowPopUp();
-            var frmCommands = new FrmCommands();
-            frmCommands.ShowDialog();
-            ViewController.HidePopUp();
-        }
-
         private void FreeSaleOrdersMenuItem_Click(object sender, EventArgs e)
         {
-            SelectBar();
+            SelectFreeSaleOrder();
         }
 
         private void BarTablesMenuItem_Click(object sender, EventArgs e)
         {
-            SelectTable();
+            SelectBarTable();
         }
 
         private void PendingSaleOrdersMenuItem_Click(object sender, EventArgs e)
@@ -669,10 +629,6 @@ namespace Kiwi.Tpv.App
             frmPendingSaleOrders.ShowDialog();
             ViewController.HidePopUp();
         }
-
-
-        #endregion
-
         private void PDAComandasMenuItem_Click(object sender, EventArgs e)
         {
             ViewController.ShowPopUp();
@@ -680,5 +636,9 @@ namespace Kiwi.Tpv.App
             frmCommands.ShowDialog();
             ViewController.HidePopUp();
         }
+
+        #endregion
+
+
     }
 }

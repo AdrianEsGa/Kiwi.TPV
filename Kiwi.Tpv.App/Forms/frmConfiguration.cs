@@ -191,6 +191,7 @@ namespace Kiwi.Tpv.App.Forms
                 TxtCompanyName.Text = AppGlobal.Company.Name;
                 txtCompanyCif.Text = AppGlobal.Company.Cif;
                 chkCombinationControl.Checked = AppGlobal.Company.CombinationControl;
+                chkCombinationControlWithSoda.Checked = AppGlobal.Company.CombinationControlWithSoda;
                 TxtTicketReport.Text = AppGlobal.Company.TicketReport;
 
                 txtActualStation.Text = AppGlobal.Station.Name;
@@ -244,6 +245,7 @@ namespace Kiwi.Tpv.App.Forms
                 AppGlobal.Company.Name = TxtCompanyName.Text.Trim();
                 AppGlobal.Company.Cif = txtCompanyCif.Text.Trim();
                 AppGlobal.Company.CombinationControl = chkCombinationControl.Checked;
+                AppGlobal.Company.CombinationControlWithSoda = chkCombinationControlWithSoda.Checked;
                 AppGlobal.Company.TicketReport = TxtTicketReport.Text;
                 AppGlobal.Company.AppLogo = Common.ImageToBytes(picBoxAppLogo.Image);
                 AppGlobal.Company.ReportsLogo = Common.ImageToBytes(picBoxReportsLogo.Image);

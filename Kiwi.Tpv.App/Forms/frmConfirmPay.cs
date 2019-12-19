@@ -268,8 +268,8 @@ namespace Kiwi.Tpv.App.Forms
 
         private void FrmConfirmPay_Shown(object sender, EventArgs e)
         {
-            ViewController.ShowToolTip("Venta individual", "Pulse sobre los productos deseados para realizar una venta individual.", this,
-                lblTooltip.Location.X, lblTooltip.Location.Y, 5000);
+            ViewController.ShowToolTip("¿Cobrar productos por separado?", "Simplemente pulse sobre los productos que desee cobrar.", this,
+                lblTooltip.Location.X, lblTooltip.Location.Y, 6000);
         }
     }
 }

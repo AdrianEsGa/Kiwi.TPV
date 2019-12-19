@@ -50,32 +50,31 @@
             this.btnConfirmCreditCardTicket = new MetroFramework.Controls.MetroTile();
             this.DataGridViewAllSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PanelProductsToPay = new MetroFramework.Controls.MetroPanel();
             this.btnRemoveProductSelection = new MetroFramework.Controls.MetroTile();
             this.DataGridViewIndividualSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblTooltip = new MetroFramework.Controls.MetroLabel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lblTooltip = new MetroFramework.Controls.MetroLabel();
-            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.PanelProductsToPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTotalToPay
@@ -265,7 +264,7 @@
             this.DataGridViewAllSaleOrderDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewAllSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewAllSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(23, 90);
+            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(25, 91);
             this.DataGridViewAllSaleOrderDetails.MultiSelect = false;
             this.DataGridViewAllSaleOrderDetails.Name = "DataGridViewAllSaleOrderDetails";
             this.DataGridViewAllSaleOrderDetails.ReadOnly = true;
@@ -305,37 +304,6 @@
             this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ProductImage.Width = 50;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Unidades";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Visible = false;
-            // 
             // TotalString
             // 
             this.TotalString.DataPropertyName = "TotalString";
@@ -346,26 +314,6 @@
             this.TotalString.Name = "TotalString";
             this.TotalString.ReadOnly = true;
             this.TotalString.Width = 70;
-            // 
-            // taxPercentajeDataGridViewTextBoxColumn
-            // 
-            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
-            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // isBottleDataGridViewCheckBoxColumn
-            // 
-            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
-            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // saleOrderDetailBindingSource
-            // 
-            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
             // 
             // PanelProductsToPay
             // 
@@ -480,6 +428,37 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 50;
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 70;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(0, 0);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(210, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Productos a cobrar por separado";
+            // 
+            // lblTooltip
+            // 
+            this.lblTooltip.AutoSize = true;
+            this.lblTooltip.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblTooltip.Location = new System.Drawing.Point(43, 50);
+            this.lblTooltip.Name = "lblTooltip";
+            this.lblTooltip.Size = new System.Drawing.Size(21, 19);
+            this.lblTooltip.TabIndex = 11;
+            this.lblTooltip.Text = "   ";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -511,17 +490,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Visible = false;
             // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 70;
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "TaxPercentaje";
@@ -538,32 +506,56 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Visible = false;
             // 
-            // metroLabel1
+            // saleOrderDetailBindingSource
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(190, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Productos de venta individual";
+            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
             // 
-            // lblTooltip
+            // idDataGridViewTextBoxColumn
             // 
-            this.lblTooltip.AutoSize = true;
-            this.lblTooltip.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTooltip.Location = new System.Drawing.Point(36, 68);
-            this.lblTooltip.Name = "lblTooltip";
-            this.lblTooltip.Size = new System.Drawing.Size(21, 19);
-            this.lblTooltip.TabIndex = 11;
-            this.lblTooltip.Text = "   ";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // metroToolTip1
+            // productDataGridViewTextBoxColumn
             // 
-            this.metroToolTip1.AutomaticDelay = 1000;
-            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroToolTip1.StyleManager = null;
-            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Unidades";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxPercentajeDataGridViewTextBoxColumn
+            // 
+            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
+            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // isBottleDataGridViewCheckBoxColumn
+            // 
+            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
+            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
             // 
             // FrmConfirmPay
             // 
@@ -594,10 +586,10 @@
             this.Load += new System.EventHandler(this.FrmConfirmPay_Load);
             this.Shown += new System.EventHandler(this.FrmConfirmPay_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.PanelProductsToPay.ResumeLayout(false);
             this.PanelProductsToPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,6 +628,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private MetroFramework.Controls.MetroLabel lblTooltip;
-        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }
