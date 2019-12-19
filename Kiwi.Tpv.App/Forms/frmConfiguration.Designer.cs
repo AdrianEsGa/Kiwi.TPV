@@ -58,6 +58,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtEmployeeButtonsDimension = new MetroFramework.Controls.MetroTextBox();
             this.label5 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.chkCombinationControlWithSoda = new System.Windows.Forms.CheckBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.BtnSelectReportTicket = new MetroFramework.Controls.MetroButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.TxtTicketReport = new MetroFramework.Controls.MetroTextBox();
@@ -100,8 +102,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
-            this.chkCombinationControlWithSoda = new System.Windows.Forms.CheckBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.chkShowSaleOrderTicket = new MetroFramework.Controls.MetroToggle();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -123,7 +125,7 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.Controls.Add(this.metroTabPage4);
             this.tabConfig.Location = new System.Drawing.Point(23, 69);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.SelectedIndex = 1;
+            this.tabConfig.SelectedIndex = 2;
             this.tabConfig.Size = new System.Drawing.Size(856, 433);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.UseSelectable = true;
@@ -506,6 +508,23 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
+            // chkCombinationControlWithSoda
+            // 
+            this.chkCombinationControlWithSoda.AutoSize = true;
+            this.chkCombinationControlWithSoda.Location = new System.Drawing.Point(427, 107);
+            this.chkCombinationControlWithSoda.Name = "chkCombinationControlWithSoda";
+            this.chkCombinationControlWithSoda.Size = new System.Drawing.Size(15, 14);
+            this.chkCombinationControlWithSoda.TabIndex = 81;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(225, 102);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(196, 19);
+            this.metroLabel6.TabIndex = 80;
+            this.metroLabel6.Text = "Control combinados + Refresco";
+            // 
             // BtnSelectReportTicket
             // 
             this.BtnSelectReportTicket.Location = new System.Drawing.Point(509, 140);
@@ -784,6 +803,8 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPage3
             // 
+            this.metroTabPage3.Controls.Add(this.chkShowSaleOrderTicket);
+            this.metroTabPage3.Controls.Add(this.metroLabel7);
             this.metroTabPage3.Controls.Add(this.txtActualStation);
             this.metroTabPage3.Controls.Add(this.DataGridViewStations);
             this.metroTabPage3.Controls.Add(this.label3);
@@ -1104,22 +1125,24 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // chkCombinationControlWithSoda
+            // metroLabel7
             // 
-            this.chkCombinationControlWithSoda.AutoSize = true;
-            this.chkCombinationControlWithSoda.Location = new System.Drawing.Point(427, 107);
-            this.chkCombinationControlWithSoda.Name = "chkCombinationControlWithSoda";
-            this.chkCombinationControlWithSoda.Size = new System.Drawing.Size(15, 14);
-            this.chkCombinationControlWithSoda.TabIndex = 81;
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 58);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(107, 19);
+            this.metroLabel7.TabIndex = 73;
+            this.metroLabel7.Text = "Ticket de pedido";
             // 
-            // metroLabel6
+            // chkShowSaleOrderTicket
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(225, 102);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(196, 19);
-            this.metroLabel6.TabIndex = 80;
-            this.metroLabel6.Text = "Control combinados + Refresco";
+            this.chkShowSaleOrderTicket.AutoSize = true;
+            this.chkShowSaleOrderTicket.Location = new System.Drawing.Point(160, 60);
+            this.chkShowSaleOrderTicket.Name = "chkShowSaleOrderTicket";
+            this.chkShowSaleOrderTicket.Size = new System.Drawing.Size(80, 17);
+            this.chkShowSaleOrderTicket.TabIndex = 91;
+            this.chkShowSaleOrderTicket.Text = "Off";
+            this.chkShowSaleOrderTicket.UseSelectable = true;
             // 
             // FrmConfiguration
             // 
@@ -1226,5 +1249,7 @@ namespace Kiwi.Tpv.App.Forms
         private MetroTextBox txtDbBackupFilePath;
         private CheckBox chkCombinationControlWithSoda;
         private MetroLabel metroLabel6;
+        private MetroLabel metroLabel7;
+        private MetroToggle chkShowSaleOrderTicket;
     }
 }

@@ -195,7 +195,7 @@ namespace Kiwi.Tpv.App.Forms
                 TxtTicketReport.Text = AppGlobal.Company.TicketReport;
 
                 txtActualStation.Text = AppGlobal.Station.Name;
-               
+                chkShowSaleOrderTicket.Checked = AppGlobal.Station.ShowSaleOrderTicket;
                 DataGridViewStations.DataSource = stations;
                 DataGridViewStations.ClearSelection();
 
@@ -238,8 +238,9 @@ namespace Kiwi.Tpv.App.Forms
 
                 if (cbPrinter.SelectedItem != null)
                     AppGlobal.Station.PrintterComPort = cbPrinter.SelectedItem.ToString();
- 
 
+                AppGlobal.Station.ShowSaleOrderTicket = chkShowSaleOrderTicket.Checked;
+            
                 StationController.Update(AppGlobal.Station);
 
                 AppGlobal.Company.Name = TxtCompanyName.Text.Trim();

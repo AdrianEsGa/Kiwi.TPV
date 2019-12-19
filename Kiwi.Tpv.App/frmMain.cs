@@ -59,9 +59,7 @@ namespace Kiwi.Tpv.App
 
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
-
-
-           
+         
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -343,6 +341,9 @@ namespace Kiwi.Tpv.App
 
                 FormBorderStyle = FormBorderStyle.Sizable;
                 FormBorderStyle = FormBorderStyle.None;
+
+                SetControlsVisibility();
+
             }
             catch (Exception ex)
             {
@@ -357,6 +358,18 @@ namespace Kiwi.Tpv.App
             catch
             {
                 // ignored
+            }
+        }
+
+        private void SetControlsVisibility()
+        {
+            try
+            {
+                btnPrintTicket.Visible = AppGlobal.Station.ShowSaleOrderTicket;
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex.Message);
             }
         }
 

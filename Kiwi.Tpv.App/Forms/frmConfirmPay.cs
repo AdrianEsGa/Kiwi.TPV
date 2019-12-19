@@ -41,6 +41,12 @@ namespace Kiwi.Tpv.App.Forms
             _worker.RunWorkerCompleted += RunWorkerCompleted;
         }
 
+        private void FrmConfirmPay_Shown(object sender, EventArgs e)
+        {
+            ViewController.ShowToolTip("¿Cobrar productos por separado?", "Simplemente pulse sobre los productos que desee cobrar.", this,
+                lblTooltip.Location.X, lblTooltip.Location.Y, 6000);
+        }
+
         #region Events
 
         private void btnDisccount_Click(object sender, EventArgs e)
@@ -81,6 +87,12 @@ namespace Kiwi.Tpv.App.Forms
         {
             FinalSaleOrder.PayType = PayType.Cash;
             _printTicket = true;
+
+#if DEBUG
+            DebugConfirmPay();
+           return;
+            
+#endif
             ViewController.ShowPopUpWithSpinner();
             if (!_worker.IsBusy)
             _worker.RunWorkerAsync();
@@ -90,6 +102,12 @@ namespace Kiwi.Tpv.App.Forms
         {
             FinalSaleOrder.PayType = PayType.CreditCard;
             _printTicket = true;
+
+#if DEBUG
+            DebugConfirmPay();
+            return;
+#endif
+
             ViewController.ShowPopUpWithSpinner();
             if(!_worker.IsBusy)
             _worker.RunWorkerAsync();
@@ -203,7 +221,7 @@ namespace Kiwi.Tpv.App.Forms
      
                 var confirmedSale = AppGlobal.SalesController.MakeSale(paySaleOrder, pendingSaleOrder, _printTicket);
 
-                if (AppGlobal.SalesController.PrintTicket)               
+                if (AppGlobal.SalesController.PrintTicket)                      
                     PrinterController.PrintSale(confirmedSale);
                 
                 if (AppGlobal.SalesController.OpenCashDrawer)
@@ -215,6 +233,22 @@ namespace Kiwi.Tpv.App.Forms
             {
                 _confirmationSuccess = false;
                 ViewController.ShowError(ex.Message);
+            }
+        }
+
+        private void DebugConfirmPay()
+        {
+            ConfirmPay();
+            if (!_confirmationSuccess) return;
+
+            if (_payMode == PayMode.Individual)
+            {
+                FinalizeProductSelection();
+            }
+            else
+            {
+                AppGlobal.SaleOrder = new SaleOrder();
+                Close();
             }
         }
 
@@ -266,10 +300,6 @@ namespace Kiwi.Tpv.App.Forms
             Individual = 2
         }
 
-        private void FrmConfirmPay_Shown(object sender, EventArgs e)
-        {
-            ViewController.ShowToolTip("¿Cobrar productos por separado?", "Simplemente pulse sobre los productos que desee cobrar.", this,
-                lblTooltip.Location.X, lblTooltip.Location.Y, 6000);
-        }
+
     }
 }

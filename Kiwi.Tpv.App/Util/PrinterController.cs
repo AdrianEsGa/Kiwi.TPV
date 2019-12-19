@@ -35,6 +35,13 @@ namespace Kiwi.Tpv.App.Util
                 });
 
                 PrintReport(report);
+
+#if DEBUG
+                reportViewer.ViewReport();
+                reportViewer.BringToFront();
+#endif
+
+                ViewController.ShowPopUpWithSpinner();
             }
             catch (Exception ex)
             {
@@ -64,6 +71,11 @@ namespace Kiwi.Tpv.App.Util
                 });
 
                 PrintReport(report);
+
+#if DEBUG
+                reportViewer.ViewReport();
+                reportViewer.BringToFront();
+#endif
             }
             catch (Exception ex)
             {
