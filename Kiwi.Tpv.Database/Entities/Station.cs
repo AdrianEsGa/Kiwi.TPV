@@ -7,6 +7,7 @@
         public string Name { get; set; }
         public string PrintterComPort { get; set; }
         public bool ShowSaleOrderTicket { get; set; }
+        public bool ShowAnimations { get; set; }
 
         public override string ToString()
         {

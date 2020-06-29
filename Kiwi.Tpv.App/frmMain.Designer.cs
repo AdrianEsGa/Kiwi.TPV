@@ -35,15 +35,20 @@ namespace Kiwi.Tpv.App
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.tileBlinkLeft1 = new MetroFramework.Controls.MetroTile();
+            this.tileBlinkLeft2 = new MetroFramework.Controls.MetroTile();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.MenuItemPrincipal = new System.Windows.Forms.ToolStripMenuItem();
             this.PricesSystemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,17 +60,19 @@ namespace Kiwi.Tpv.App
             this.BarTablesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PendingSaleOrdersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PDAComandasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.picBoxLogo = new MetroFramework.Controls.MetroButton();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new MetroFramework.Controls.MetroTile();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMaximize = new MetroFramework.Controls.MetroTile();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.lblComPortStatus = new MetroFramework.Controls.MetroLabel();
             this.lblStation = new MetroFramework.Controls.MetroLabel();
+            this.HeadCenterPanel = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.tileBlinkRight1 = new MetroFramework.Controls.MetroTile();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinimize = new MetroFramework.Controls.MetroTile();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnMaximize = new MetroFramework.Controls.MetroTile();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnClose = new MetroFramework.Controls.MetroTile();
+            this.tileBlinkRight2 = new MetroFramework.Controls.MetroTile();
             this.lblDateTime = new MetroFramework.Controls.MetroLabel();
             this.SaleManagementPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SaleTotalAndEmployeePanel = new System.Windows.Forms.Panel();
@@ -79,17 +86,6 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelEmployees = new System.Windows.Forms.FlowLayoutPanel();
             this.SaleDetailsPanel = new System.Windows.Forms.Panel();
             this.DataGridViewSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
-            this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.RemoveOne = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.AddOne = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SaleInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.lblDayNight = new MetroFramework.Controls.MetroTile();
             this.lblTableBar = new MetroFramework.Controls.MetroTile();
@@ -108,15 +104,29 @@ namespace Kiwi.Tpv.App
             this.TimerWatch = new System.Windows.Forms.Timer(this.components);
             this.SystemTimer = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimerBlinks = new System.Windows.Forms.Timer(this.components);
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.TimerBlinkLogo = new System.Windows.Forms.Timer(this.components);
+            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RemoveOne = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.AddOne = new System.Windows.Forms.DataGridViewButtonColumn();
             this.HeadPanel.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.MenuStrip.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SaleManagementPanel.SuspendLayout();
             this.SaleTotalAndEmployeePanel.SuspendLayout();
             this.SaleTotalAndEmployeeFlowPanel.SuspendLayout();
@@ -125,10 +135,11 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.SuspendLayout();
             this.SaleDetailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSaleOrderDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.SaleInfoPanel.SuspendLayout();
             this.ProductsPanel.SuspendLayout();
             this.TableLayoutProducts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // HeadPanel
@@ -139,49 +150,76 @@ namespace Kiwi.Tpv.App
             this.HeadPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeadPanel.Location = new System.Drawing.Point(20, 30);
             this.HeadPanel.Name = "HeadPanel";
-            this.HeadPanel.Size = new System.Drawing.Size(1220, 70);
+            this.HeadPanel.Size = new System.Drawing.Size(1220, 104);
             this.HeadPanel.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel11, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.HeadCenterPanel, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel12, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1220, 70);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1220, 104);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Controls.Add(this.tileBlinkLeft1);
+            this.panel10.Controls.Add(this.tileBlinkLeft2);
             this.panel10.Controls.Add(this.MenuStrip);
+            this.panel10.Controls.Add(this.lblComPortStatus);
+            this.panel10.Controls.Add(this.lblStation);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(482, 64);
+            this.panel10.Size = new System.Drawing.Size(529, 98);
             this.panel10.TabIndex = 0;
+            // 
+            // tileBlinkLeft1
+            // 
+            this.tileBlinkLeft1.ActiveControl = null;
+            this.tileBlinkLeft1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tileBlinkLeft1.Location = new System.Drawing.Point(0, 0);
+            this.tileBlinkLeft1.Name = "tileBlinkLeft1";
+            this.tileBlinkLeft1.Size = new System.Drawing.Size(529, 7);
+            this.tileBlinkLeft1.Style = MetroFramework.MetroColorStyle.Red;
+            this.tileBlinkLeft1.TabIndex = 68;
+            this.tileBlinkLeft1.Text = "metroTile1";
+            this.tileBlinkLeft1.UseSelectable = true;
+            // 
+            // tileBlinkLeft2
+            // 
+            this.tileBlinkLeft2.ActiveControl = null;
+            this.tileBlinkLeft2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tileBlinkLeft2.Location = new System.Drawing.Point(0, 85);
+            this.tileBlinkLeft2.Name = "tileBlinkLeft2";
+            this.tileBlinkLeft2.Size = new System.Drawing.Size(529, 13);
+            this.tileBlinkLeft2.Style = MetroFramework.MetroColorStyle.Red;
+            this.tileBlinkLeft2.TabIndex = 67;
+            this.tileBlinkLeft2.Text = "metroTile1";
+            this.tileBlinkLeft2.UseSelectable = true;
             // 
             // MenuStrip
             // 
             this.MenuStrip.BackColor = System.Drawing.Color.White;
-            this.MenuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MenuStrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.MenuStrip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemPrincipal,
             this.FreeSaleOrdersMenuItem});
-            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Location = new System.Drawing.Point(6, 13);
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.MenuStrip.Size = new System.Drawing.Size(482, 64);
+            this.MenuStrip.Size = new System.Drawing.Size(267, 40);
             this.MenuStrip.TabIndex = 66;
             this.MenuStrip.Text = "menuStrip1";
             // 
@@ -190,9 +228,11 @@ namespace Kiwi.Tpv.App
             this.MenuItemPrincipal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PricesSystemMenuItem,
             this.AdministrationMenuItem});
+            this.MenuItemPrincipal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuItemPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(16)))), ((int)(((byte)(10)))));
             this.MenuItemPrincipal.Name = "MenuItemPrincipal";
-            this.MenuItemPrincipal.Size = new System.Drawing.Size(97, 60);
-            this.MenuItemPrincipal.Text = "Menú";
+            this.MenuItemPrincipal.Size = new System.Drawing.Size(109, 36);
+            this.MenuItemPrincipal.Text = "MENÚ";
             // 
             // PricesSystemMenuItem
             // 
@@ -231,9 +271,11 @@ namespace Kiwi.Tpv.App
             this.BarTablesMenuItem,
             this.PendingSaleOrdersMenuItem,
             this.PDAComandasMenuItem});
+            this.FreeSaleOrdersMenuItem.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FreeSaleOrdersMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(16)))), ((int)(((byte)(10)))));
             this.FreeSaleOrdersMenuItem.Name = "FreeSaleOrdersMenuItem";
-            this.FreeSaleOrdersMenuItem.Size = new System.Drawing.Size(133, 60);
-            this.FreeSaleOrdersMenuItem.Text = "Pedidos";
+            this.FreeSaleOrdersMenuItem.Size = new System.Drawing.Size(150, 36);
+            this.FreeSaleOrdersMenuItem.Text = "PEDIDOS";
             // 
             // FreeSaleOrderMenuItem
             // 
@@ -263,115 +305,10 @@ namespace Kiwi.Tpv.App
             this.PDAComandasMenuItem.Text = "Comandas PDA";
             this.PDAComandasMenuItem.Click += new System.EventHandler(this.PDAComandasMenuItem_Click);
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.picBoxLogo);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(491, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(238, 64);
-            this.panel11.TabIndex = 1;
-            // 
-            // picBoxLogo
-            // 
-            this.picBoxLogo.BackColor = System.Drawing.SystemColors.Control;
-            this.picBoxLogo.Location = new System.Drawing.Point(77, -3);
-            this.picBoxLogo.Name = "picBoxLogo";
-            this.picBoxLogo.Size = new System.Drawing.Size(86, 70);
-            this.picBoxLogo.Style = MetroFramework.MetroColorStyle.White;
-            this.picBoxLogo.TabIndex = 63;
-            this.picBoxLogo.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.picBoxLogo.UseSelectable = true;
-            this.picBoxLogo.Click += new System.EventHandler(this.picBoxLogo_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.panel9);
-            this.panel12.Controls.Add(this.panel1);
-            this.panel12.Controls.Add(this.panel8);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(735, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(482, 64);
-            this.panel12.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btnMinimize);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(236, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(82, 64);
-            this.panel9.TabIndex = 5;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.ActiveControl = null;
-            this.btnMinimize.BackColor = System.Drawing.SystemColors.Control;
-            this.btnMinimize.Location = new System.Drawing.Point(6, 1);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(70, 62);
-            this.btnMinimize.Style = MetroFramework.MetroColorStyle.White;
-            this.btnMinimize.TabIndex = 61;
-            this.btnMinimize.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoMinimize;
-            this.btnMinimize.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnMinimize.UseSelectable = true;
-            this.btnMinimize.UseTileImage = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnMaximize);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(318, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(82, 64);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.ActiveControl = null;
-            this.btnMaximize.BackColor = System.Drawing.SystemColors.Control;
-            this.btnMaximize.Location = new System.Drawing.Point(6, 1);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(70, 62);
-            this.btnMaximize.Style = MetroFramework.MetroColorStyle.White;
-            this.btnMaximize.TabIndex = 61;
-            this.btnMaximize.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoMaximize;
-            this.btnMaximize.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnMaximize.UseSelectable = true;
-            this.btnMaximize.UseTileImage = true;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnClose);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(400, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(82, 64);
-            this.panel8.TabIndex = 4;
-            // 
-            // btnClose
-            // 
-            this.btnClose.ActiveControl = null;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(6, 1);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 62);
-            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
-            this.btnClose.TabIndex = 61;
-            this.btnClose.TileImage = ((System.Drawing.Image)(resources.GetObject("btnClose.TileImage")));
-            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.UseSelectable = true;
-            this.btnClose.UseTileImage = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // lblComPortStatus
             // 
             this.lblComPortStatus.AutoSize = true;
-            this.lblComPortStatus.Location = new System.Drawing.Point(469, 11);
+            this.lblComPortStatus.Location = new System.Drawing.Point(130, 58);
             this.lblComPortStatus.Name = "lblComPortStatus";
             this.lblComPortStatus.Size = new System.Drawing.Size(111, 19);
             this.lblComPortStatus.TabIndex = 2;
@@ -381,17 +318,150 @@ namespace Kiwi.Tpv.App
             // 
             this.lblStation.AutoSize = true;
             this.lblStation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.lblStation.Location = new System.Drawing.Point(331, 11);
+            this.lblStation.Location = new System.Drawing.Point(23, 58);
             this.lblStation.Name = "lblStation";
             this.lblStation.Size = new System.Drawing.Size(63, 19);
             this.lblStation.TabIndex = 1;
             this.lblStation.Text = "lblStation";
             // 
+            // HeadCenterPanel
+            // 
+            this.HeadCenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeadCenterPanel.Location = new System.Drawing.Point(538, 3);
+            this.HeadCenterPanel.Name = "HeadCenterPanel";
+            this.HeadCenterPanel.Size = new System.Drawing.Size(144, 98);
+            this.HeadCenterPanel.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.tileBlinkRight1);
+            this.panel12.Controls.Add(this.metroPanel1);
+            this.panel12.Controls.Add(this.tileBlinkRight2);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(688, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(529, 98);
+            this.panel12.TabIndex = 2;
+            // 
+            // tileBlinkRight1
+            // 
+            this.tileBlinkRight1.ActiveControl = null;
+            this.tileBlinkRight1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tileBlinkRight1.Location = new System.Drawing.Point(0, 0);
+            this.tileBlinkRight1.Name = "tileBlinkRight1";
+            this.tileBlinkRight1.Size = new System.Drawing.Size(529, 7);
+            this.tileBlinkRight1.Style = MetroFramework.MetroColorStyle.Red;
+            this.tileBlinkRight1.TabIndex = 70;
+            this.tileBlinkRight1.Text = "metroTile1";
+            this.tileBlinkRight1.UseSelectable = true;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.panel1);
+            this.metroPanel1.Controls.Add(this.panel8);
+            this.metroPanel1.Controls.Add(this.panel9);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(0, -7);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(529, 92);
+            this.metroPanel1.TabIndex = 69;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnMinimize);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(283, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(82, 92);
+            this.panel1.TabIndex = 7;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.ActiveControl = null;
+            this.btnMinimize.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMinimize.Location = new System.Drawing.Point(6, 22);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(70, 62);
+            this.btnMinimize.Style = MetroFramework.MetroColorStyle.White;
+            this.btnMinimize.TabIndex = 63;
+            this.btnMinimize.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoMinimize;
+            this.btnMinimize.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMinimize.UseSelectable = true;
+            this.btnMinimize.UseTileImage = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnMaximize);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(365, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(82, 92);
+            this.panel8.TabIndex = 7;
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.ActiveControl = null;
+            this.btnMaximize.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMaximize.Location = new System.Drawing.Point(6, 22);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(70, 62);
+            this.btnMaximize.Style = MetroFramework.MetroColorStyle.White;
+            this.btnMaximize.TabIndex = 63;
+            this.btnMaximize.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoMaximize;
+            this.btnMaximize.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMaximize.UseSelectable = true;
+            this.btnMaximize.UseTileImage = true;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.btnClose);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(447, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(82, 92);
+            this.panel9.TabIndex = 6;
+            // 
+            // btnClose
+            // 
+            this.btnClose.ActiveControl = null;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(6, 22);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
+            this.btnClose.TabIndex = 62;
+            this.btnClose.TileImage = ((System.Drawing.Image)(resources.GetObject("btnClose.TileImage")));
+            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseTileImage = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // tileBlinkRight2
+            // 
+            this.tileBlinkRight2.ActiveControl = null;
+            this.tileBlinkRight2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tileBlinkRight2.Location = new System.Drawing.Point(0, 85);
+            this.tileBlinkRight2.Name = "tileBlinkRight2";
+            this.tileBlinkRight2.Size = new System.Drawing.Size(529, 13);
+            this.tileBlinkRight2.Style = MetroFramework.MetroColorStyle.Red;
+            this.tileBlinkRight2.TabIndex = 68;
+            this.tileBlinkRight2.Text = "metroTile3";
+            this.tileBlinkRight2.UseSelectable = true;
+            // 
             // lblDateTime
             // 
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.lblDateTime.Location = new System.Drawing.Point(20, 12);
+            this.lblDateTime.Location = new System.Drawing.Point(20, 11);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(89, 19);
             this.lblDateTime.TabIndex = 3;
@@ -406,22 +476,22 @@ namespace Kiwi.Tpv.App
             this.SaleManagementPanel.Controls.Add(this.SaleDetailsPanel, 0, 1);
             this.SaleManagementPanel.Controls.Add(this.SaleInfoPanel, 0, 0);
             this.SaleManagementPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SaleManagementPanel.Location = new System.Drawing.Point(831, 100);
+            this.SaleManagementPanel.Location = new System.Drawing.Point(831, 134);
             this.SaleManagementPanel.Name = "SaleManagementPanel";
             this.SaleManagementPanel.RowCount = 3;
             this.SaleManagementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.SaleManagementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
             this.SaleManagementPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46F));
-            this.SaleManagementPanel.Size = new System.Drawing.Size(409, 668);
+            this.SaleManagementPanel.Size = new System.Drawing.Size(409, 634);
             this.SaleManagementPanel.TabIndex = 2;
             // 
             // SaleTotalAndEmployeePanel
             // 
             this.SaleTotalAndEmployeePanel.Controls.Add(this.SaleTotalAndEmployeeFlowPanel);
             this.SaleTotalAndEmployeePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SaleTotalAndEmployeePanel.Location = new System.Drawing.Point(3, 363);
+            this.SaleTotalAndEmployeePanel.Location = new System.Drawing.Point(3, 344);
             this.SaleTotalAndEmployeePanel.Name = "SaleTotalAndEmployeePanel";
-            this.SaleTotalAndEmployeePanel.Size = new System.Drawing.Size(403, 302);
+            this.SaleTotalAndEmployeePanel.Size = new System.Drawing.Size(403, 287);
             this.SaleTotalAndEmployeePanel.TabIndex = 1;
             // 
             // SaleTotalAndEmployeeFlowPanel
@@ -440,7 +510,7 @@ namespace Kiwi.Tpv.App
             this.SaleTotalAndEmployeeFlowPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.SaleTotalAndEmployeeFlowPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.SaleTotalAndEmployeeFlowPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.SaleTotalAndEmployeeFlowPanel.Size = new System.Drawing.Size(403, 302);
+            this.SaleTotalAndEmployeeFlowPanel.Size = new System.Drawing.Size(403, 287);
             this.SaleTotalAndEmployeeFlowPanel.TabIndex = 0;
             // 
             // btnCancel
@@ -449,9 +519,9 @@ namespace Kiwi.Tpv.App
             this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnCancel.Location = new System.Drawing.Point(3, 259);
+            this.btnCancel.Location = new System.Drawing.Point(3, 246);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(397, 40);
+            this.btnCancel.Size = new System.Drawing.Size(397, 38);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
@@ -464,7 +534,7 @@ namespace Kiwi.Tpv.App
             this.TotalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TotalPanel.Location = new System.Drawing.Point(3, 3);
             this.TotalPanel.Name = "TotalPanel";
-            this.TotalPanel.Size = new System.Drawing.Size(397, 39);
+            this.TotalPanel.Size = new System.Drawing.Size(397, 37);
             this.TotalPanel.TabIndex = 0;
             // 
             // txtTotalAmount
@@ -474,9 +544,9 @@ namespace Kiwi.Tpv.App
             // 
             // 
             this.txtTotalAmount.CustomButton.Image = null;
-            this.txtTotalAmount.CustomButton.Location = new System.Drawing.Point(359, 1);
+            this.txtTotalAmount.CustomButton.Location = new System.Drawing.Point(361, 1);
             this.txtTotalAmount.CustomButton.Name = "";
-            this.txtTotalAmount.CustomButton.Size = new System.Drawing.Size(37, 37);
+            this.txtTotalAmount.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtTotalAmount.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtTotalAmount.CustomButton.TabIndex = 1;
             this.txtTotalAmount.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -498,7 +568,7 @@ namespace Kiwi.Tpv.App
             this.txtTotalAmount.SelectionLength = 0;
             this.txtTotalAmount.SelectionStart = 0;
             this.txtTotalAmount.ShortcutsEnabled = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(397, 39);
+            this.txtTotalAmount.Size = new System.Drawing.Size(397, 37);
             this.txtTotalAmount.TabIndex = 2;
             this.txtTotalAmount.Text = "0";
             this.txtTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -510,9 +580,9 @@ namespace Kiwi.Tpv.App
             // 
             this.PrintTicketPanel.Controls.Add(this.btnPrintTicket);
             this.PrintTicketPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PrintTicketPanel.Location = new System.Drawing.Point(3, 48);
+            this.PrintTicketPanel.Location = new System.Drawing.Point(3, 46);
             this.PrintTicketPanel.Name = "PrintTicketPanel";
-            this.PrintTicketPanel.Size = new System.Drawing.Size(397, 39);
+            this.PrintTicketPanel.Size = new System.Drawing.Size(397, 37);
             this.PrintTicketPanel.TabIndex = 1;
             // 
             // btnPrintTicket
@@ -523,7 +593,7 @@ namespace Kiwi.Tpv.App
             this.btnPrintTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
             this.btnPrintTicket.Location = new System.Drawing.Point(0, 0);
             this.btnPrintTicket.Name = "btnPrintTicket";
-            this.btnPrintTicket.Size = new System.Drawing.Size(397, 39);
+            this.btnPrintTicket.Size = new System.Drawing.Size(397, 37);
             this.btnPrintTicket.Style = MetroFramework.MetroColorStyle.Green;
             this.btnPrintTicket.TabIndex = 4;
             this.btnPrintTicket.Text = "Imprimir Ticket";
@@ -536,9 +606,9 @@ namespace Kiwi.Tpv.App
             // 
             this.EmployeesPanel.Controls.Add(this.flowLayoutPanelEmployees);
             this.EmployeesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmployeesPanel.Location = new System.Drawing.Point(3, 93);
+            this.EmployeesPanel.Location = new System.Drawing.Point(3, 89);
             this.EmployeesPanel.Name = "EmployeesPanel";
-            this.EmployeesPanel.Size = new System.Drawing.Size(397, 160);
+            this.EmployeesPanel.Size = new System.Drawing.Size(397, 151);
             this.EmployeesPanel.TabIndex = 2;
             // 
             // flowLayoutPanelEmployees
@@ -547,16 +617,16 @@ namespace Kiwi.Tpv.App
             this.flowLayoutPanelEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelEmployees.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelEmployees.Name = "flowLayoutPanelEmployees";
-            this.flowLayoutPanelEmployees.Size = new System.Drawing.Size(397, 160);
+            this.flowLayoutPanelEmployees.Size = new System.Drawing.Size(397, 151);
             this.flowLayoutPanelEmployees.TabIndex = 2;
             // 
             // SaleDetailsPanel
             // 
             this.SaleDetailsPanel.Controls.Add(this.DataGridViewSaleOrderDetails);
             this.SaleDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SaleDetailsPanel.Location = new System.Drawing.Point(3, 56);
+            this.SaleDetailsPanel.Location = new System.Drawing.Point(3, 53);
             this.SaleDetailsPanel.Name = "SaleDetailsPanel";
-            this.SaleDetailsPanel.Size = new System.Drawing.Size(403, 301);
+            this.SaleDetailsPanel.Size = new System.Drawing.Size(403, 285);
             this.SaleDetailsPanel.TabIndex = 0;
             // 
             // DataGridViewSaleOrderDetails
@@ -571,14 +641,15 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DataGridViewSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewSaleOrderDetails.ColumnHeadersVisible = false;
             this.DataGridViewSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductImage,
             this.idDataGridViewTextBoxColumn,
@@ -591,14 +662,14 @@ namespace Kiwi.Tpv.App
             this.RemoveOne,
             this.AddOne});
             this.DataGridViewSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle9;
             this.DataGridViewSaleOrderDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridViewSaleOrderDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -608,132 +679,26 @@ namespace Kiwi.Tpv.App
             this.DataGridViewSaleOrderDetails.Name = "DataGridViewSaleOrderDetails";
             this.DataGridViewSaleOrderDetails.ReadOnly = true;
             this.DataGridViewSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.DataGridViewSaleOrderDetails.RowHeadersVisible = false;
             this.DataGridViewSaleOrderDetails.RowHeadersWidth = 70;
             this.DataGridViewSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewSaleOrderDetails.RowTemplate.Height = 47;
             this.DataGridViewSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewSaleOrderDetails.Size = new System.Drawing.Size(403, 301);
-            this.DataGridViewSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
+            this.DataGridViewSaleOrderDetails.Size = new System.Drawing.Size(403, 285);
+            this.DataGridViewSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Red;
             this.DataGridViewSaleOrderDetails.TabIndex = 2;
             this.DataGridViewSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
             this.DataGridViewSaleOrderDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellClick);
             this.DataGridViewSaleOrderDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSelectedProducts_CellContentClick);
-            // 
-            // ProductImage
-            // 
-            this.ProductImage.DataPropertyName = "ProductImage";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ProductImage.HeaderText = "";
-            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ProductImage.Name = "ProductImage";
-            this.ProductImage.ReadOnly = true;
-            this.ProductImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductImage.Width = 50;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // TotalString
-            // 
-            this.TotalString.DataPropertyName = "TotalString";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalString.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TotalString.HeaderText = "Total";
-            this.TotalString.Name = "TotalString";
-            this.TotalString.ReadOnly = true;
-            this.TotalString.Width = 50;
-            // 
-            // taxPercentajeDataGridViewTextBoxColumn
-            // 
-            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
-            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
-            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // isBottleDataGridViewCheckBoxColumn
-            // 
-            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
-            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
-            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // RemoveOne
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle4;
-            this.RemoveOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveOne.HeaderText = "";
-            this.RemoveOne.Name = "RemoveOne";
-            this.RemoveOne.ReadOnly = true;
-            this.RemoveOne.Text = "-";
-            this.RemoveOne.UseColumnTextForButtonValue = true;
-            this.RemoveOne.Width = 61;
-            // 
-            // AddOne
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.AddOne.DefaultCellStyle = dataGridViewCellStyle5;
-            this.AddOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddOne.HeaderText = "";
-            this.AddOne.Name = "AddOne";
-            this.AddOne.ReadOnly = true;
-            this.AddOne.Text = "+";
-            this.AddOne.UseColumnTextForButtonValue = true;
-            this.AddOne.Width = 61;
-            // 
-            // saleOrderDetailBindingSource
-            // 
-            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
             // 
             // SaleInfoPanel
             // 
@@ -745,7 +710,7 @@ namespace Kiwi.Tpv.App
             this.SaleInfoPanel.HorizontalScrollbarSize = 10;
             this.SaleInfoPanel.Location = new System.Drawing.Point(3, 3);
             this.SaleInfoPanel.Name = "SaleInfoPanel";
-            this.SaleInfoPanel.Size = new System.Drawing.Size(403, 47);
+            this.SaleInfoPanel.Size = new System.Drawing.Size(403, 44);
             this.SaleInfoPanel.TabIndex = 2;
             this.SaleInfoPanel.VerticalScrollbarBarColor = true;
             this.SaleInfoPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -784,9 +749,9 @@ namespace Kiwi.Tpv.App
             this.ProductsPanel.BackColor = System.Drawing.Color.Transparent;
             this.ProductsPanel.Controls.Add(this.TableLayoutProducts);
             this.ProductsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductsPanel.Location = new System.Drawing.Point(20, 100);
+            this.ProductsPanel.Location = new System.Drawing.Point(20, 134);
             this.ProductsPanel.Name = "ProductsPanel";
-            this.ProductsPanel.Size = new System.Drawing.Size(811, 668);
+            this.ProductsPanel.Size = new System.Drawing.Size(811, 634);
             this.ProductsPanel.TabIndex = 3;
             // 
             // TableLayoutProducts
@@ -819,7 +784,7 @@ namespace Kiwi.Tpv.App
             this.TableLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TableLayoutProducts.Size = new System.Drawing.Size(811, 668);
+            this.TableLayoutProducts.Size = new System.Drawing.Size(811, 634);
             this.TableLayoutProducts.TabIndex = 0;
             // 
             // flowLayoutPanelSecondaryMenus
@@ -950,18 +915,146 @@ namespace Kiwi.Tpv.App
             this.dataGridViewTextBoxColumn1.HeaderText = "Producto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
+            // TimerBlinks
+            // 
+            this.TimerBlinks.Tick += new System.EventHandler(this.TimerBlinks_Tick);
+            // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.Location = new System.Drawing.Point(552, 10);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(156, 131);
+            this.PictureBoxLogo.TabIndex = 13;
+            this.PictureBoxLogo.TabStop = false;
+            // 
+            // TimerBlinkLogo
+            // 
+            this.TimerBlinkLogo.Interval = 500;
+            this.TimerBlinkLogo.Tick += new System.EventHandler(this.TimerBlinkLogo_Tick);
+            // 
+            // saleOrderDetailBindingSource
+            // 
+            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
+            // 
+            // ProductImage
+            // 
+            this.ProductImage.DataPropertyName = "ProductImage";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.ProductImage.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ProductImage.HeaderText = "";
+            this.ProductImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ProductImage.Name = "ProductImage";
+            this.ProductImage.ReadOnly = true;
+            this.ProductImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductImage.Width = 50;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.productDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Und.";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // TotalString
+            // 
+            this.TotalString.DataPropertyName = "TotalString";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalString.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TotalString.HeaderText = "Total";
+            this.TotalString.Name = "TotalString";
+            this.TotalString.ReadOnly = true;
+            this.TotalString.Width = 50;
+            // 
+            // taxPercentajeDataGridViewTextBoxColumn
+            // 
+            this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.HeaderText = "TaxPercentaje";
+            this.taxPercentajeDataGridViewTextBoxColumn.Name = "taxPercentajeDataGridViewTextBoxColumn";
+            this.taxPercentajeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxPercentajeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // isBottleDataGridViewCheckBoxColumn
+            // 
+            this.isBottleDataGridViewCheckBoxColumn.DataPropertyName = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.HeaderText = "IsBottle";
+            this.isBottleDataGridViewCheckBoxColumn.Name = "isBottleDataGridViewCheckBoxColumn";
+            this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBottleDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // RemoveOne
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.RemoveOne.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RemoveOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveOne.HeaderText = "";
+            this.RemoveOne.Name = "RemoveOne";
+            this.RemoveOne.ReadOnly = true;
+            this.RemoveOne.Text = "-";
+            this.RemoveOne.UseColumnTextForButtonValue = true;
+            this.RemoveOne.Width = 61;
+            // 
+            // AddOne
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddOne.DefaultCellStyle = dataGridViewCellStyle8;
+            this.AddOne.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddOne.HeaderText = "";
+            this.AddOne.Name = "AddOne";
+            this.AddOne.ReadOnly = true;
+            this.AddOne.Text = "+";
+            this.AddOne.UseColumnTextForButtonValue = true;
+            this.AddOne.Width = 61;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 788);
             this.ControlBox = false;
-            this.Controls.Add(this.lblComPortStatus);
+            this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.ProductsPanel);
             this.Controls.Add(this.SaleManagementPanel);
             this.Controls.Add(this.HeadPanel);
             this.Controls.Add(this.lblDateTime);
-            this.Controls.Add(this.lblStation);
             this.DisplayHeader = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
@@ -979,11 +1072,11 @@ namespace Kiwi.Tpv.App
             this.panel10.PerformLayout();
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
-            this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.SaleManagementPanel.ResumeLayout(false);
             this.SaleTotalAndEmployeePanel.ResumeLayout(false);
             this.SaleTotalAndEmployeeFlowPanel.ResumeLayout(false);
@@ -992,11 +1085,12 @@ namespace Kiwi.Tpv.App
             this.EmployeesPanel.ResumeLayout(false);
             this.SaleDetailsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSaleOrderDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.SaleInfoPanel.ResumeLayout(false);
             this.ProductsPanel.ResumeLayout(false);
             this.ProductsPanel.PerformLayout();
             this.TableLayoutProducts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1005,7 +1099,6 @@ namespace Kiwi.Tpv.App
         #endregion
 
         private System.Windows.Forms.Panel HeadPanel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel SaleManagementPanel;
         private System.Windows.Forms.Panel SaleTotalAndEmployeePanel;
         private System.Windows.Forms.TableLayoutPanel SaleTotalAndEmployeeFlowPanel;
@@ -1021,16 +1114,10 @@ namespace Kiwi.Tpv.App
         private MetroLabel lblDateTime;
         private System.Windows.Forms.Timer TimerWatch;
         private System.Windows.Forms.Timer SystemTimer;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel HeadCenterPanel;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel9;
-        private MetroTile btnClose;
-        private MetroTile btnMinimize;
-        private MetroTile btnMaximize;
-        private MetroButton picBoxLogo;
         private System.Windows.Forms.Panel SaleDetailsPanel;
         private MetroPanel SaleInfoPanel;
         private MetroTile btnPrintTicket;
@@ -1048,16 +1135,6 @@ namespace Kiwi.Tpv.App
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanelVarious;
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanelEmployees;
         private System.Windows.Forms.BindingSource saleOrderDetailBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn ProductImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn taxPercentajeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isBottleDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn RemoveOne;
-        private System.Windows.Forms.DataGridViewButtonColumn AddOne;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem MenuItemPrincipal;
         private System.Windows.Forms.ToolStripMenuItem PricesSystemMenuItem;
@@ -1071,6 +1148,30 @@ namespace Kiwi.Tpv.App
         private System.Windows.Forms.ToolStripMenuItem PDAComandasMenuItem;
         private MetroTile lblTableBar;
         private MetroTile lblDayNight;
+        private MetroTile tileBlinkLeft2;
+        private MetroTile tileBlinkRight2;
+        private MetroPanel metroPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private MetroTile btnClose;
+        private System.Windows.Forms.Timer TimerBlinks;
+        private MetroTile tileBlinkLeft1;
+        private MetroTile tileBlinkRight1;
+        private MetroTile btnMinimize;
+        private MetroTile btnMaximize;
+        private System.Windows.Forms.PictureBox PictureBoxLogo;
+        private System.Windows.Forms.Timer TimerBlinkLogo;
+        private System.Windows.Forms.DataGridViewImageColumn ProductImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taxPercentajeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isBottleDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn RemoveOne;
+        private System.Windows.Forms.DataGridViewButtonColumn AddOne;
     }
 }
 

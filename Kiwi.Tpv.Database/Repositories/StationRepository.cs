@@ -9,7 +9,7 @@ namespace Kiwi.Tpv.Database.Repositories
     {
         internal static Station GetById(int id)
         {
-            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket FROM Stations WHERE Id = @Id";
+            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket, ShowAnimations FROM Stations WHERE Id = @Id";
             var station = new Station();
 
             try
@@ -30,7 +30,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Code = Convert.ToInt32(reader["Code"]),
                                     Name = reader["Name"].ToString(),
                                     PrintterComPort = reader["PrintterComPort"].ToString(),
-                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"]
+                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"],
+                                    ShowAnimations = (bool)reader["ShowAnimations"]
                                 };
                         }
                     }
@@ -47,7 +48,7 @@ namespace Kiwi.Tpv.Database.Repositories
 
         internal static Station GetByCode(int code)
         {
-            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket FROM Stations WHERE Code = @Code";
+            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket, ShowAnimations FROM Stations WHERE Code = @Code";
             var station = new Station();
 
             try
@@ -68,7 +69,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Code = Convert.ToInt32(reader["Code"]),
                                     Name = reader["Name"].ToString(),
                                     PrintterComPort = reader["PrintterComPort"].ToString(),
-                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"]
+                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"],
+                                    ShowAnimations = (bool)reader["ShowAnimations"]
                                 };
                         }
                     }
@@ -85,7 +87,7 @@ namespace Kiwi.Tpv.Database.Repositories
 
         internal static List<Station> GetAll()
         {
-            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket FROM Stations";
+            const string strSql = "SELECT Id, Code, Name, PrintterComPort, ShowSaleOrderTicket, ShowAnimations FROM Stations";
             var stations = new List<Station>();
 
             try
@@ -105,7 +107,8 @@ namespace Kiwi.Tpv.Database.Repositories
                                     Code = Convert.ToInt32(reader["Code"]),
                                     Name = reader["Name"].ToString(),
                                     PrintterComPort = reader["PrintterComPort"].ToString(),
-                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"]
+                                    ShowSaleOrderTicket = (bool)reader["ShowSaleOrderTicket"],
+                                    ShowAnimations = (bool)reader["ShowAnimations"]
                                 };
 
                                 stations.Add(station);
@@ -129,12 +132,15 @@ namespace Kiwi.Tpv.Database.Repositories
             {
                 using (var connection = new SqlConnection(GlobalDb.ConnectionString))
                 {
-                    const string strSql = "UPDATE Stations SET PrintterComPort = @PrintterComPort, ShowSaleOrderTicket = @ShowSaleOrderTicket WHERE Id = @Id";
+                    const string strSql = "UPDATE Stations " +
+                                          " SET PrintterComPort = @PrintterComPort, ShowSaleOrderTicket = @ShowSaleOrderTicket, ShowAnimations = @ShowAnimations " +
+                                          "WHERE Id = @Id";
 
                     using (var command = new SqlCommand(strSql, connection))
                     {
                         command.Parameters.AddWithValue("@PrintterComPort", station.PrintterComPort);
                         command.Parameters.AddWithValue("@ShowSaleOrderTicket", station.ShowSaleOrderTicket);
+                        command.Parameters.AddWithValue("@ShowAnimations", station.ShowAnimations);
                         command.Parameters.AddWithValue("@Id", station.Id);
                         connection.Open();
                         command.ExecuteNonQuery();

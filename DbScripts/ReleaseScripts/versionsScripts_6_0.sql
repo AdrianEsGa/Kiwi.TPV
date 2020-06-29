@@ -242,3 +242,43 @@ GO
 ALTER TABLE dbo.Companies SET (LOCK_ESCALATION = TABLE)
 GO
 COMMIT
+
+/* Para evitar posibles problemas de pérdida de datos, debe revisar este script detalladamente antes de ejecutarlo fuera del contexto del diseñador de base de datos.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Stations ADD
+	ShowSaleOrderTicket bit NOT NULL CONSTRAINT DF_Stations_ShowOrderSaleTicket DEFAULT 0
+GO
+ALTER TABLE dbo.Stations SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+/* Para evitar posibles problemas de pérdida de datos, debe revisar este script detalladamente antes de ejecutarlo fuera del contexto del diseñador de base de datos.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Stations ADD
+	ShowAnimations bit NOT NULL CONSTRAINT DF_Stations_ShowAnimations DEFAULT 1
+GO
+ALTER TABLE dbo.Stations SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+

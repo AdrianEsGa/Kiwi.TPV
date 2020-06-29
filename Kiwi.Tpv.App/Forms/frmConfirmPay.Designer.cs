@@ -50,31 +50,32 @@
             this.btnConfirmCreditCardTicket = new MetroFramework.Controls.MetroTile();
             this.DataGridViewAllSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
             this.ProductImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PanelProductsToPay = new MetroFramework.Controls.MetroPanel();
-            this.btnRemoveProductSelection = new MetroFramework.Controls.MetroTile();
-            this.DataGridViewIndividualSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lblTooltip = new MetroFramework.Controls.MetroLabel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taxPercentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isBottleDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.saleOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PanelProductsToPay = new MetroFramework.Controls.MetroPanel();
+            this.btnRemoveProductSelection = new MetroFramework.Controls.MetroTile();
+            this.DataGridViewIndividualSaleOrderDetails = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
             this.PanelProductsToPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTotalToPay
@@ -98,7 +99,7 @@
             this.txtTotalToPay.ForeColor = System.Drawing.Color.Green;
             this.txtTotalToPay.Lines = new string[] {
         "0"};
-            this.txtTotalToPay.Location = new System.Drawing.Point(537, 69);
+            this.txtTotalToPay.Location = new System.Drawing.Point(537, 22);
             this.txtTotalToPay.MaxLength = 32767;
             this.txtTotalToPay.Name = "txtTotalToPay";
             this.txtTotalToPay.PasswordChar = '\0';
@@ -114,19 +115,20 @@
             this.txtTotalToPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTotalToPay.UseSelectable = true;
             this.txtTotalToPay.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTotalToPay.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTotalToPay.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnConfirmCash
             // 
             this.btnConfirmCash.ActiveControl = null;
             this.btnConfirmCash.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConfirmCash.Location = new System.Drawing.Point(537, 211);
+            this.btnConfirmCash.Location = new System.Drawing.Point(537, 140);
             this.btnConfirmCash.Name = "btnConfirmCash";
-            this.btnConfirmCash.Size = new System.Drawing.Size(252, 162);
+            this.btnConfirmCash.Size = new System.Drawing.Size(252, 224);
             this.btnConfirmCash.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCash.TabIndex = 4;
-            this.btnConfirmCash.Text = "Confirmar Efectivo";
+            this.btnConfirmCash.Text = "EFECTIVO";
             this.btnConfirmCash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConfirmCash.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnConfirmCash.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnConfirmCash.UseSelectable = true;
             this.btnConfirmCash.Click += new System.EventHandler(this.btnConfirmCash_Click);
@@ -141,8 +143,9 @@
             this.btnCancel.Size = new System.Drawing.Size(511, 122);
             this.btnCancel.Style = MetroFramework.MetroColorStyle.Red;
             this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Text = "CANCELAR";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancel.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnCancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnCancel.UseSelectable = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -150,14 +153,15 @@
             // btnInvite
             // 
             this.btnInvite.ActiveControl = null;
-            this.btnInvite.Location = new System.Drawing.Point(795, 134);
+            this.btnInvite.Location = new System.Drawing.Point(796, 68);
             this.btnInvite.Name = "btnInvite";
             this.btnInvite.Size = new System.Drawing.Size(252, 57);
             this.btnInvite.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnInvite.TabIndex = 3;
-            this.btnInvite.Text = "Invitar";
+            this.btnInvite.Text = "INVITAR";
             this.btnInvite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnInvite.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnInvite.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnInvite.UseSelectable = true;
             this.btnInvite.Click += new System.EventHandler(this.btnInvite_Click);
@@ -167,13 +171,14 @@
             this.btnDisccount.ActiveControl = null;
             this.btnDisccount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDisccount.ForeColor = System.Drawing.Color.Coral;
-            this.btnDisccount.Location = new System.Drawing.Point(537, 134);
+            this.btnDisccount.Location = new System.Drawing.Point(537, 68);
             this.btnDisccount.Name = "btnDisccount";
             this.btnDisccount.Size = new System.Drawing.Size(252, 57);
             this.btnDisccount.Style = MetroFramework.MetroColorStyle.Purple;
             this.btnDisccount.TabIndex = 2;
-            this.btnDisccount.Text = "Dto 1€";
+            this.btnDisccount.Text = "DTO 1€";
             this.btnDisccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDisccount.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnDisccount.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnDisccount.UseSelectable = true;
             this.btnDisccount.Click += new System.EventHandler(this.btnDisccount_Click);
@@ -182,13 +187,14 @@
             // 
             this.btnConfirmCreditCard.ActiveControl = null;
             this.btnConfirmCreditCard.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConfirmCreditCard.Location = new System.Drawing.Point(795, 211);
+            this.btnConfirmCreditCard.Location = new System.Drawing.Point(796, 140);
             this.btnConfirmCreditCard.Name = "btnConfirmCreditCard";
-            this.btnConfirmCreditCard.Size = new System.Drawing.Size(252, 162);
+            this.btnConfirmCreditCard.Size = new System.Drawing.Size(252, 224);
             this.btnConfirmCreditCard.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCreditCard.TabIndex = 6;
-            this.btnConfirmCreditCard.Text = "Confirmar Tarjeta";
+            this.btnConfirmCreditCard.Text = "TARJETA";
             this.btnConfirmCreditCard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConfirmCreditCard.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnConfirmCreditCard.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnConfirmCreditCard.UseSelectable = true;
             this.btnConfirmCreditCard.Click += new System.EventHandler(this.btnConfirmCreditCard_Click);
@@ -201,8 +207,9 @@
             this.btnConfirmCashTicket.Size = new System.Drawing.Size(252, 162);
             this.btnConfirmCashTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCashTicket.TabIndex = 7;
-            this.btnConfirmCashTicket.Text = "Confirmar Efectivo Ticket";
+            this.btnConfirmCashTicket.Text = "EFECTIVO + TICKET";
             this.btnConfirmCashTicket.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConfirmCashTicket.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnConfirmCashTicket.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnConfirmCashTicket.UseSelectable = true;
             this.btnConfirmCashTicket.Click += new System.EventHandler(this.btnConfirmCashTicket_Click);
@@ -217,8 +224,9 @@
             this.btnConfirmCreditCardTicket.Size = new System.Drawing.Size(252, 162);
             this.btnConfirmCreditCardTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCreditCardTicket.TabIndex = 8;
-            this.btnConfirmCreditCardTicket.Text = "Confirmar Tarjeta Ticket";
+            this.btnConfirmCreditCardTicket.Text = "TARJETA + TICKET";
             this.btnConfirmCreditCardTicket.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConfirmCreditCardTicket.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnConfirmCreditCardTicket.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnConfirmCreditCardTicket.UseSelectable = true;
             this.btnConfirmCreditCardTicket.Click += new System.EventHandler(this.btnConfirmCreditCardTicket_Click);
@@ -235,14 +243,15 @@
             this.DataGridViewAllSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DataGridViewAllSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewAllSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewAllSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewAllSaleOrderDetails.ColumnHeadersVisible = false;
             this.DataGridViewAllSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductImage,
             this.idDataGridViewTextBoxColumn,
@@ -257,34 +266,35 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridViewAllSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridViewAllSaleOrderDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewAllSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewAllSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(25, 91);
+            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(25, 138);
             this.DataGridViewAllSaleOrderDetails.MultiSelect = false;
             this.DataGridViewAllSaleOrderDetails.Name = "DataGridViewAllSaleOrderDetails";
             this.DataGridViewAllSaleOrderDetails.ReadOnly = true;
             this.DataGridViewAllSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewAllSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGridViewAllSaleOrderDetails.RowHeadersVisible = false;
             this.DataGridViewAllSaleOrderDetails.RowHeadersWidth = 70;
             this.DataGridViewAllSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewAllSaleOrderDetails.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewAllSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewAllSaleOrderDetails.RowTemplate.Height = 47;
             this.DataGridViewAllSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewAllSaleOrderDetails.Size = new System.Drawing.Size(496, 286);
-            this.DataGridViewAllSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
+            this.DataGridViewAllSaleOrderDetails.Size = new System.Drawing.Size(496, 241);
+            this.DataGridViewAllSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Red;
             this.DataGridViewAllSaleOrderDetails.TabIndex = 9;
             this.DataGridViewAllSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
             this.DataGridViewAllSaleOrderDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAllSaleOrderDetails_CellClick);
@@ -303,212 +313,6 @@
             this.ProductImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ProductImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ProductImage.Width = 50;
-            // 
-            // TotalString
-            // 
-            this.TotalString.DataPropertyName = "TotalString";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalString.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TotalString.HeaderText = "Total";
-            this.TotalString.Name = "TotalString";
-            this.TotalString.ReadOnly = true;
-            this.TotalString.Width = 70;
-            // 
-            // PanelProductsToPay
-            // 
-            this.PanelProductsToPay.Controls.Add(this.btnRemoveProductSelection);
-            this.PanelProductsToPay.Controls.Add(this.DataGridViewIndividualSaleOrderDetails);
-            this.PanelProductsToPay.Controls.Add(this.metroLabel1);
-            this.PanelProductsToPay.HorizontalScrollbarBarColor = true;
-            this.PanelProductsToPay.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelProductsToPay.HorizontalScrollbarSize = 10;
-            this.PanelProductsToPay.Location = new System.Drawing.Point(23, 379);
-            this.PanelProductsToPay.Name = "PanelProductsToPay";
-            this.PanelProductsToPay.Size = new System.Drawing.Size(496, 304);
-            this.PanelProductsToPay.TabIndex = 10;
-            this.PanelProductsToPay.VerticalScrollbarBarColor = true;
-            this.PanelProductsToPay.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelProductsToPay.VerticalScrollbarSize = 10;
-            this.PanelProductsToPay.Visible = false;
-            // 
-            // btnRemoveProductSelection
-            // 
-            this.btnRemoveProductSelection.ActiveControl = null;
-            this.btnRemoveProductSelection.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoveProductSelection.ForeColor = System.Drawing.Color.Red;
-            this.btnRemoveProductSelection.Location = new System.Drawing.Point(0, 265);
-            this.btnRemoveProductSelection.Name = "btnRemoveProductSelection";
-            this.btnRemoveProductSelection.Size = new System.Drawing.Size(496, 39);
-            this.btnRemoveProductSelection.Style = MetroFramework.MetroColorStyle.Red;
-            this.btnRemoveProductSelection.TabIndex = 6;
-            this.btnRemoveProductSelection.Text = "Deshacer selección";
-            this.btnRemoveProductSelection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRemoveProductSelection.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnRemoveProductSelection.UseSelectable = true;
-            this.btnRemoveProductSelection.Click += new System.EventHandler(this.btnRemoveProductSelection_Click);
-            // 
-            // DataGridViewIndividualSaleOrderDetails
-            // 
-            this.DataGridViewIndividualSaleOrderDetails.AllowUserToAddRows = false;
-            this.DataGridViewIndividualSaleOrderDetails.AllowUserToDeleteRows = false;
-            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeColumns = false;
-            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeRows = false;
-            this.DataGridViewIndividualSaleOrderDetails.AutoGenerateColumns = false;
-            this.DataGridViewIndividualSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewIndividualSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataGridViewIndividualSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewIndividualSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewCheckBoxColumn1});
-            this.DataGridViewIndividualSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewIndividualSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DataGridViewIndividualSaleOrderDetails.EnableHeadersVisualStyles = false;
-            this.DataGridViewIndividualSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.DataGridViewIndividualSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewIndividualSaleOrderDetails.Location = new System.Drawing.Point(0, 22);
-            this.DataGridViewIndividualSaleOrderDetails.MultiSelect = false;
-            this.DataGridViewIndividualSaleOrderDetails.Name = "DataGridViewIndividualSaleOrderDetails";
-            this.DataGridViewIndividualSaleOrderDetails.ReadOnly = true;
-            this.DataGridViewIndividualSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(219)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewIndividualSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.DataGridViewIndividualSaleOrderDetails.RowHeadersVisible = false;
-            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidth = 70;
-            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.Height = 47;
-            this.DataGridViewIndividualSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewIndividualSaleOrderDetails.Size = new System.Drawing.Size(496, 237);
-            this.DataGridViewIndividualSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Lime;
-            this.DataGridViewIndividualSaleOrderDetails.TabIndex = 3;
-            this.DataGridViewIndividualSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "ProductImage";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 70;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(210, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Productos a cobrar por separado";
-            // 
-            // lblTooltip
-            // 
-            this.lblTooltip.AutoSize = true;
-            this.lblTooltip.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTooltip.Location = new System.Drawing.Point(43, 50);
-            this.lblTooltip.Name = "lblTooltip";
-            this.lblTooltip.Size = new System.Drawing.Size(21, 19);
-            this.lblTooltip.TabIndex = 11;
-            this.lblTooltip.Text = "   ";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Producto";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Unidades";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "TaxPercentaje";
-            this.dataGridViewTextBoxColumn6.HeaderText = "TaxPercentaje";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Visible = false;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsBottle";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsBottle";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            // 
-            // saleOrderDetailBindingSource
-            // 
-            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -541,6 +345,17 @@
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Visible = false;
             // 
+            // TotalString
+            // 
+            this.TotalString.DataPropertyName = "TotalString";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalString.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TotalString.HeaderText = "Total";
+            this.TotalString.Name = "TotalString";
+            this.TotalString.ReadOnly = true;
+            this.TotalString.Width = 70;
+            // 
             // taxPercentajeDataGridViewTextBoxColumn
             // 
             this.taxPercentajeDataGridViewTextBoxColumn.DataPropertyName = "TaxPercentaje";
@@ -557,13 +372,208 @@
             this.isBottleDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isBottleDataGridViewCheckBoxColumn.Visible = false;
             // 
+            // saleOrderDetailBindingSource
+            // 
+            this.saleOrderDetailBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.SaleOrderDetail);
+            // 
+            // PanelProductsToPay
+            // 
+            this.PanelProductsToPay.Controls.Add(this.btnRemoveProductSelection);
+            this.PanelProductsToPay.Controls.Add(this.DataGridViewIndividualSaleOrderDetails);
+            this.PanelProductsToPay.Controls.Add(this.metroLabel1);
+            this.PanelProductsToPay.HorizontalScrollbarBarColor = true;
+            this.PanelProductsToPay.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelProductsToPay.HorizontalScrollbarSize = 10;
+            this.PanelProductsToPay.Location = new System.Drawing.Point(23, 385);
+            this.PanelProductsToPay.Name = "PanelProductsToPay";
+            this.PanelProductsToPay.Size = new System.Drawing.Size(496, 304);
+            this.PanelProductsToPay.TabIndex = 10;
+            this.PanelProductsToPay.VerticalScrollbarBarColor = true;
+            this.PanelProductsToPay.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelProductsToPay.VerticalScrollbarSize = 10;
+            this.PanelProductsToPay.Visible = false;
+            // 
+            // btnRemoveProductSelection
+            // 
+            this.btnRemoveProductSelection.ActiveControl = null;
+            this.btnRemoveProductSelection.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRemoveProductSelection.ForeColor = System.Drawing.Color.Red;
+            this.btnRemoveProductSelection.Location = new System.Drawing.Point(0, 258);
+            this.btnRemoveProductSelection.Name = "btnRemoveProductSelection";
+            this.btnRemoveProductSelection.Size = new System.Drawing.Size(496, 39);
+            this.btnRemoveProductSelection.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnRemoveProductSelection.TabIndex = 6;
+            this.btnRemoveProductSelection.Text = "DESHACER SELECCIÓN";
+            this.btnRemoveProductSelection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRemoveProductSelection.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnRemoveProductSelection.UseSelectable = true;
+            this.btnRemoveProductSelection.Click += new System.EventHandler(this.btnRemoveProductSelection_Click);
+            // 
+            // DataGridViewIndividualSaleOrderDetails
+            // 
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToAddRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToDeleteRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeColumns = false;
+            this.DataGridViewIndividualSaleOrderDetails.AllowUserToResizeRows = false;
+            this.DataGridViewIndividualSaleOrderDetails.AutoGenerateColumns = false;
+            this.DataGridViewIndividualSaleOrderDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewIndividualSaleOrderDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewIndividualSaleOrderDetails.ColumnHeadersVisible = false;
+            this.DataGridViewIndividualSaleOrderDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewCheckBoxColumn1});
+            this.DataGridViewIndividualSaleOrderDetails.DataSource = this.saleOrderDetailBindingSource;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewIndividualSaleOrderDetails.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridViewIndividualSaleOrderDetails.EnableHeadersVisualStyles = false;
+            this.DataGridViewIndividualSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.DataGridViewIndividualSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DataGridViewIndividualSaleOrderDetails.Location = new System.Drawing.Point(0, 24);
+            this.DataGridViewIndividualSaleOrderDetails.MultiSelect = false;
+            this.DataGridViewIndividualSaleOrderDetails.Name = "DataGridViewIndividualSaleOrderDetails";
+            this.DataGridViewIndividualSaleOrderDetails.ReadOnly = true;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersVisible = false;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidth = 70;
+            this.DataGridViewIndividualSaleOrderDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewIndividualSaleOrderDetails.RowTemplate.Height = 47;
+            this.DataGridViewIndividualSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewIndividualSaleOrderDetails.Size = new System.Drawing.Size(496, 230);
+            this.DataGridViewIndividualSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Red;
+            this.DataGridViewIndividualSaleOrderDetails.TabIndex = 3;
+            this.DataGridViewIndividualSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "ProductImage";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Producto";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Unidades";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalString";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "TaxPercentaje";
+            this.dataGridViewTextBoxColumn6.HeaderText = "TaxPercentaje";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsBottle";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsBottle";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(0, 2);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(210, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Productos a cobrar por separado";
+            // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.Location = new System.Drawing.Point(185, 9);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(146, 125);
+            this.PictureBoxLogo.TabIndex = 12;
+            this.PictureBoxLogo.TabStop = false;
+            // 
             // FrmConfirmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 696);
             this.ControlBox = false;
-            this.Controls.Add(this.lblTooltip);
+            this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.PanelProductsToPay);
             this.Controls.Add(this.DataGridViewAllSaleOrderDetails);
             this.Controls.Add(this.txtTotalToPay);
@@ -582,16 +592,15 @@
             this.Resizable = false;
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "Realizar venta";
             this.Load += new System.EventHandler(this.FrmConfirmPay_Load);
             this.Shown += new System.EventHandler(this.FrmConfirmPay_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAllSaleOrderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
             this.PanelProductsToPay.ResumeLayout(false);
             this.PanelProductsToPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewIndividualSaleOrderDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleOrderDetailBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -627,6 +636,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private MetroFramework.Controls.MetroLabel lblTooltip;
+        private System.Windows.Forms.PictureBox PictureBoxLogo;
     }
 }

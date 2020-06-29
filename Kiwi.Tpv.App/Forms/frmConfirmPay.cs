@@ -1,5 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
 using Kiwi.Tpv.Database.Controllers;
@@ -39,12 +42,23 @@ namespace Kiwi.Tpv.App.Forms
             _worker = new BackgroundWorker();
             _worker.DoWork += DoWork;
             _worker.RunWorkerCompleted += RunWorkerCompleted;
+
+            try
+            {
+                PictureBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
+                PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
+            {
+                // ignored
+            }
+
         }
 
         private void FrmConfirmPay_Shown(object sender, EventArgs e)
         {
-            ViewController.ShowToolTip("¿Cobrar productos por separado?", "Simplemente pulse sobre los productos que desee cobrar.", this,
-                lblTooltip.Location.X, lblTooltip.Location.Y, 6000);
+            //ViewController.ShowToolTip("¿Cobrar productos por separado?", "Simplemente pulse sobre los productos que desee cobrar.", this,
+            //    lblTooltip.Location.X, lblTooltip.Location.Y, 6000);
         }
 
         #region Events
@@ -113,7 +127,7 @@ namespace Kiwi.Tpv.App.Forms
             _worker.RunWorkerAsync();
         }
 
-        private void DataGridViewAllSaleOrderDetails_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        private void DataGridViewAllSaleOrderDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedSaleOrderDetail = (SaleOrderDetail)DataGridViewAllSaleOrderDetails.CurrentRow?.DataBoundItem;
             if (selectedSaleOrderDetail == null) return;
@@ -137,6 +151,7 @@ namespace Kiwi.Tpv.App.Forms
             if (_payMode == PayMode.Individual)
             {
                 FinalizeProductSelection();
+                if (_allSaleOrder.Details.Count == 0) Close();
             }
             else
             {
@@ -179,11 +194,26 @@ namespace Kiwi.Tpv.App.Forms
 
             DataGridViewAllSaleOrderDetails.DataSource = null;
             DataGridViewAllSaleOrderDetails.DataSource = _allSaleOrder.Details;
+            DataGridViewAllSaleOrderDetails.ClearSelection();
+
+            foreach (var column in DataGridViewAllSaleOrderDetails.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
+
 
             if (_payMode == PayMode.All) return;
 
             DataGridViewIndividualSaleOrderDetails.DataSource = null;
             DataGridViewIndividualSaleOrderDetails.DataSource = _individualSaleOrder.Details;
+            DataGridViewIndividualSaleOrderDetails.ClearSelection();
+
+            foreach (var column in DataGridViewIndividualSaleOrderDetails.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+            }
         }
 
         private void RefreshTotal()
@@ -197,6 +227,13 @@ namespace Kiwi.Tpv.App.Forms
             {
                 DataGridViewAllSaleOrderDetails.DataSource = FinalSaleOrder.Details;
                 DataGridViewAllSaleOrderDetails.ClearSelection();
+
+                foreach (var column in DataGridViewAllSaleOrderDetails.Columns)
+                {
+                    if (column is DataGridViewImageColumn)
+                        (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+                }
+
                 txtTotalToPay.Text = FinalSaleOrder.Total.ToString("F") + Resources.Euro;
             }
             catch (Exception ex)
@@ -299,7 +336,6 @@ namespace Kiwi.Tpv.App.Forms
             All = 1,
             Individual = 2
         }
-
 
     }
 }

@@ -20,8 +20,6 @@ namespace Kiwi.Tpv.App
 {
     public partial class FrmMain : MetroForm
     {
-        private List<Employee> _employees;
-        private List<Product> _products;
         private BackgroundWorker _worker;
         private BackgroundWorker _dbBackupWorker;
 
@@ -59,7 +57,6 @@ namespace Kiwi.Tpv.App
 
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
-         
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -277,7 +274,65 @@ namespace Kiwi.Tpv.App
             {
                 AppGlobal.JokeSystemActive = false;
             }
-          
+
+            var location = new Point(HeadCenterPanel.Location.X + 10, HeadCenterPanel.Location.Y + 6);
+            PictureBoxLogo.Location = location;
+        }
+
+        private void TimerBlinks_Tick(object sender, EventArgs e)
+        {
+            var color = RandomColor();
+
+            tileBlinkLeft1.Style = color;
+            tileBlinkLeft1.Refresh();
+
+            tileBlinkLeft2.Style = color;
+            tileBlinkLeft2.Refresh();
+
+            tileBlinkRight1.Style = color;
+            tileBlinkRight1.Refresh();
+
+            tileBlinkRight2.Style = color;
+            tileBlinkRight2.Refresh();
+        }
+
+        private void TimerBlinkLogo_Tick(object sender, EventArgs e)
+        {
+            if (PictureBoxLogo.Size.Width == 156)
+            {
+                PictureBoxLogo.Size = new Size(150, 125);
+            }
+            else
+            {
+                PictureBoxLogo.Size = new Size(156, 131);
+            }
+        }
+
+        private MetroColorStyle RandomColor()
+        {
+        
+            var randomNumber = new Random().Next(1, 6);
+
+            switch (randomNumber)
+            {
+                case 1:
+                    return MetroColorStyle.Red;
+
+                case 2:
+                    return MetroColorStyle.White;
+
+                case 3:
+                    return MetroColorStyle.Blue;
+
+                case 4:
+                    return MetroColorStyle.Yellow;
+
+                case 5:
+                    return MetroColorStyle.Green;
+            }
+
+            return MetroColorStyle.Red;
+
         }
 
         private void SystemTimer_Tick(object sender, EventArgs e)
@@ -291,7 +346,7 @@ namespace Kiwi.Tpv.App
             _worker.RunWorkerAsync();
         }
 
-        private void picBoxLogo_Click(object sender, EventArgs e)
+        private void PictureBoxLogo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -352,8 +407,8 @@ namespace Kiwi.Tpv.App
 
             try
             {
-                picBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
-                picBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+                PictureBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
+                PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
             }
             catch
             {
@@ -366,6 +421,13 @@ namespace Kiwi.Tpv.App
             try
             {
                 btnPrintTicket.Visible = AppGlobal.Station.ShowSaleOrderTicket;
+
+                tileBlinkLeft1.Visible = AppGlobal.Station.ShowAnimations;
+                tileBlinkLeft2.Visible = AppGlobal.Station.ShowAnimations;
+                tileBlinkRight1.Visible = AppGlobal.Station.ShowAnimations;
+                tileBlinkRight2.Visible = AppGlobal.Station.ShowAnimations;
+                TimerBlinkLogo.Enabled = AppGlobal.Station.ShowAnimations;
+                TimerBlinks.Enabled = AppGlobal.Station.ShowAnimations;
             }
             catch (Exception ex)
             {
@@ -642,6 +704,7 @@ namespace Kiwi.Tpv.App
             frmPendingSaleOrders.ShowDialog();
             ViewController.HidePopUp();
         }
+
         private void PDAComandasMenuItem_Click(object sender, EventArgs e)
         {
             ViewController.ShowPopUp();
@@ -649,6 +712,9 @@ namespace Kiwi.Tpv.App
             frmCommands.ShowDialog();
             ViewController.HidePopUp();
         }
+
+
+
 
         #endregion
 

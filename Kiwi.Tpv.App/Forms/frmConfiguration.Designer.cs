@@ -82,6 +82,8 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSelectCompanyAppLogo = new MetroFramework.Controls.MetroTile();
             this.label7 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.chkShowSaleOrderTicket = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.txtActualStation = new MetroFramework.Controls.MetroTextBox();
             this.DataGridViewStations = new MetroFramework.Controls.MetroGrid();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,8 +104,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.chkShowSaleOrderTicket = new MetroFramework.Controls.MetroToggle();
+            this.chkShowAnimations = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -803,6 +805,8 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // metroTabPage3
             // 
+            this.metroTabPage3.Controls.Add(this.chkShowAnimations);
+            this.metroTabPage3.Controls.Add(this.metroLabel8);
             this.metroTabPage3.Controls.Add(this.chkShowSaleOrderTicket);
             this.metroTabPage3.Controls.Add(this.metroLabel7);
             this.metroTabPage3.Controls.Add(this.txtActualStation);
@@ -819,6 +823,25 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
+            // 
+            // chkShowSaleOrderTicket
+            // 
+            this.chkShowSaleOrderTicket.AutoSize = true;
+            this.chkShowSaleOrderTicket.Location = new System.Drawing.Point(160, 60);
+            this.chkShowSaleOrderTicket.Name = "chkShowSaleOrderTicket";
+            this.chkShowSaleOrderTicket.Size = new System.Drawing.Size(80, 17);
+            this.chkShowSaleOrderTicket.TabIndex = 91;
+            this.chkShowSaleOrderTicket.Text = "Off";
+            this.chkShowSaleOrderTicket.UseSelectable = true;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 58);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(107, 19);
+            this.metroLabel7.TabIndex = 73;
+            this.metroLabel7.Text = "Ticket de pedido";
             // 
             // txtActualStation
             // 
@@ -1125,24 +1148,24 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // metroLabel7
+            // chkShowAnimations
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 58);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(107, 19);
-            this.metroLabel7.TabIndex = 73;
-            this.metroLabel7.Text = "Ticket de pedido";
+            this.chkShowAnimations.AutoSize = true;
+            this.chkShowAnimations.Location = new System.Drawing.Point(160, 92);
+            this.chkShowAnimations.Name = "chkShowAnimations";
+            this.chkShowAnimations.Size = new System.Drawing.Size(80, 17);
+            this.chkShowAnimations.TabIndex = 93;
+            this.chkShowAnimations.Text = "Off";
+            this.chkShowAnimations.UseSelectable = true;
             // 
-            // chkShowSaleOrderTicket
+            // metroLabel8
             // 
-            this.chkShowSaleOrderTicket.AutoSize = true;
-            this.chkShowSaleOrderTicket.Location = new System.Drawing.Point(160, 60);
-            this.chkShowSaleOrderTicket.Name = "chkShowSaleOrderTicket";
-            this.chkShowSaleOrderTicket.Size = new System.Drawing.Size(80, 17);
-            this.chkShowSaleOrderTicket.TabIndex = 91;
-            this.chkShowSaleOrderTicket.Text = "Off";
-            this.chkShowSaleOrderTicket.UseSelectable = true;
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(3, 90);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel8.TabIndex = 92;
+            this.metroLabel8.Text = "Animaciones";
             // 
             // FrmConfiguration
             // 
@@ -1251,5 +1274,7 @@ namespace Kiwi.Tpv.App.Forms
         private MetroLabel metroLabel6;
         private MetroLabel metroLabel7;
         private MetroToggle chkShowSaleOrderTicket;
+        private MetroToggle chkShowAnimations;
+        private MetroLabel metroLabel8;
     }
 }
