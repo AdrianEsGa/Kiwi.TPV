@@ -66,7 +66,7 @@ namespace Kiwi.Tpv.App.Forms
         private void btnLoadJokeImage_Click(object sender, EventArgs e)
         {
             var imag = Image.FromFile(txtJokeImage.Text);
-            SystemRepository.Insert(Common.ImageToBytes(imag));
+            EnvironmentController.Insert(Common.ImageToBytes(imag));
         }
 
         private void btnVer_Click(object sender, EventArgs e)

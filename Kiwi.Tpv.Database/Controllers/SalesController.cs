@@ -72,7 +72,7 @@ namespace Kiwi.Tpv.Database.Controllers
                 var sale = new Sale
                 {
                     Station = saleOrder.Station,
-                    Date = DateTime.Now,
+                    Date = EnvironmentController.GetServerDate(),
                     Disscount = saleOrder.Disscount,
                     Employee = saleOrder.Employee,
                     PayType = saleOrder.PayType,

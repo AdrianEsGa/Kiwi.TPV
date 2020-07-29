@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
-using MetroFramework;
 using MetroFramework.Controls;
 
 namespace Kiwi.Tpv.App.Util
@@ -75,7 +74,7 @@ namespace Kiwi.Tpv.App.Util
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular)
+                Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Regular),
             };
 
             btn.Click += FrmMain.Instance.ButtonEmployee_Click;

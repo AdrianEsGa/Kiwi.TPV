@@ -52,7 +52,6 @@ namespace Kiwi.Tpv.App.Forms
             {
                 // ignored
             }
-
         }
 
         private void FrmConfirmPay_Shown(object sender, EventArgs e)

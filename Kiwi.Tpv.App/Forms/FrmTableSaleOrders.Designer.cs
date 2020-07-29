@@ -75,7 +75,7 @@
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(980, 17);
+            this.btnClose.Location = new System.Drawing.Point(909, 15);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -99,7 +99,7 @@
             this.panelButtons.HorizontalScrollbarSize = 10;
             this.panelButtons.Location = new System.Drawing.Point(20, 612);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(1030, 64);
+            this.panelButtons.Size = new System.Drawing.Size(974, 64);
             this.panelButtons.TabIndex = 57;
             this.panelButtons.VerticalScrollbarBarColor = true;
             this.panelButtons.VerticalScrollbarHighlightOnWheel = false;
@@ -110,7 +110,7 @@
             this.btnMoveToPendingSaleOrders.ActiveControl = null;
             this.btnMoveToPendingSaleOrders.BackColor = System.Drawing.Color.White;
             this.btnMoveToPendingSaleOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnMoveToPendingSaleOrders.Location = new System.Drawing.Point(556, 3);
+            this.btnMoveToPendingSaleOrders.Location = new System.Drawing.Point(501, 3);
             this.btnMoveToPendingSaleOrders.Name = "btnMoveToPendingSaleOrders";
             this.btnMoveToPendingSaleOrders.Size = new System.Drawing.Size(153, 58);
             this.btnMoveToPendingSaleOrders.Style = MetroFramework.MetroColorStyle.Red;
@@ -140,7 +140,7 @@
             this.btnMoveAllToOtherTable.ActiveControl = null;
             this.btnMoveAllToOtherTable.BackColor = System.Drawing.Color.White;
             this.btnMoveAllToOtherTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnMoveAllToOtherTable.Location = new System.Drawing.Point(715, 3);
+            this.btnMoveAllToOtherTable.Location = new System.Drawing.Point(660, 3);
             this.btnMoveAllToOtherTable.Name = "btnMoveAllToOtherTable";
             this.btnMoveAllToOtherTable.Size = new System.Drawing.Size(153, 58);
             this.btnMoveAllToOtherTable.Style = MetroFramework.MetroColorStyle.Pink;
@@ -170,7 +170,7 @@
             this.btnNewSale.ActiveControl = null;
             this.btnNewSale.BackColor = System.Drawing.Color.White;
             this.btnNewSale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnNewSale.Location = new System.Drawing.Point(874, 3);
+            this.btnNewSale.Location = new System.Drawing.Point(818, 3);
             this.btnNewSale.Name = "btnNewSale";
             this.btnNewSale.Size = new System.Drawing.Size(153, 58);
             this.btnNewSale.Style = MetroFramework.MetroColorStyle.Green;
@@ -235,7 +235,7 @@
             this.DataGridViewTableSales.RowTemplate.Height = 45;
             this.DataGridViewTableSales.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewTableSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewTableSales.Size = new System.Drawing.Size(1030, 258);
+            this.DataGridViewTableSales.Size = new System.Drawing.Size(974, 258);
             this.DataGridViewTableSales.TabIndex = 3;
             this.DataGridViewTableSales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTableSaleOrders_CellClick);
             this.DataGridViewTableSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTableSaleOrders_CellDoubleClick);
@@ -300,7 +300,7 @@
             this.txtTotalPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
             this.txtTotalPending.Location = new System.Drawing.Point(231, 17);
             this.txtTotalPending.Name = "txtTotalPending";
-            this.txtTotalPending.Size = new System.Drawing.Size(715, 43);
+            this.txtTotalPending.Size = new System.Drawing.Size(642, 43);
             this.txtTotalPending.Style = MetroFramework.MetroColorStyle.Red;
             this.txtTotalPending.TabIndex = 58;
             this.txtTotalPending.Text = "Mesa 1 - Total: 100 €";
@@ -367,7 +367,7 @@
             this.DataGridViewTableSaleDetails.RowTemplate.Height = 45;
             this.DataGridViewTableSaleDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewTableSaleDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewTableSaleDetails.Size = new System.Drawing.Size(1030, 255);
+            this.DataGridViewTableSaleDetails.Size = new System.Drawing.Size(974, 255);
             this.DataGridViewTableSaleDetails.TabIndex = 59;
             // 
             // productImageDataGridViewImageColumn
@@ -455,7 +455,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 696);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
             this.Controls.Add(this.DataGridViewTableSaleDetails);
             this.Controls.Add(this.txtTotalPending);

@@ -24,6 +24,7 @@ namespace Kiwi.Tpv.App
         private BackgroundWorker _dbBackupWorker;
 
         private static FrmMain _instance;
+
         public static FrmMain Instance { get { return _instance; } }
 
         public FrmMain()
@@ -57,6 +58,7 @@ namespace Kiwi.Tpv.App
 
             ViewController.ShowPopUpWithSpinner();
             _dbBackupWorker.RunWorkerAsync();
+
         }
 
         private void RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -174,10 +176,22 @@ namespace Kiwi.Tpv.App
 
                 ViewController.HidePopUp();
             }
-          
+
+            if(AppGlobal.Station.ShowAnimations)
+              PlaySounds(product);
+     
             AddProductToSale(product, alcoholModeType);
           
             RefreshScreen();
+        }
+
+        private void PlaySounds(Product product)
+        {
+            if (product.Type == ProductType.Alcohol || product.Type == ProductType.Vinos || product.Type == ProductType.Cerveza)
+                SoundController.PlayChicoteSound();
+
+            if (product.Type == ProductType.Infusiones || product.Type == ProductType.Refresco || product.Type == ProductType.Cafes)
+                SoundController.PlayJomitaSound();
         }
 
         internal void ButtonEmployee_Click(object sender, EventArgs e)
@@ -260,9 +274,10 @@ namespace Kiwi.Tpv.App
         private void timerWatch_Tick(object sender, EventArgs e)
         {
 
-            lblDateTime.Text = DateTime.Now.ToString("F").ToUpper();
+            var actualDate = EnvironmentController.GetServerDate();
+            lblDateTime.Text = actualDate.ToString("F").ToUpper();
 
-            var actualHour = DateTime.Now.Hour;
+            var actualHour = actualDate.Hour;
 
             if (AppGlobal.AppGeneralConfig.SystemJoke)
             {
@@ -275,7 +290,7 @@ namespace Kiwi.Tpv.App
                 AppGlobal.JokeSystemActive = false;
             }
 
-            var location = new Point(HeadCenterPanel.Location.X + 10, HeadCenterPanel.Location.Y + 6);
+            var location = new Point(HeadCenterPanel.Location.X + 13, HeadCenterPanel.Location.Y + 6);
             PictureBoxLogo.Location = location;
         }
 
@@ -301,10 +316,14 @@ namespace Kiwi.Tpv.App
             if (PictureBoxLogo.Size.Width == 156)
             {
                 PictureBoxLogo.Size = new Size(150, 125);
+                PictureBoxLogoLeft.BackgroundImageLayout = ImageLayout.Stretch;
+                PictureBoxLogoRight.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
                 PictureBoxLogo.Size = new Size(156, 131);
+                PictureBoxLogoLeft.BackgroundImageLayout = ImageLayout.Zoom;
+                PictureBoxLogoRight.BackgroundImageLayout = ImageLayout.Zoom;
             }
         }
 
@@ -428,6 +447,9 @@ namespace Kiwi.Tpv.App
                 tileBlinkRight2.Visible = AppGlobal.Station.ShowAnimations;
                 TimerBlinkLogo.Enabled = AppGlobal.Station.ShowAnimations;
                 TimerBlinks.Enabled = AppGlobal.Station.ShowAnimations;
+                PictureBoxLogoLeft.Visible = AppGlobal.Station.ShowAnimations;
+                PictureBoxLogoRight.Visible = AppGlobal.Station.ShowAnimations;
+
             }
             catch (Exception ex)
             {
@@ -575,7 +597,7 @@ namespace Kiwi.Tpv.App
                 FreeSaleOrderMenuItem.Enabled = false;
                 SaveSale();
                 AppGlobal.Table = null;
-                lblTableBar.Text = "PEDIDO LIBRE";
+                lblTableBar.Text = "BARRA";
                 AppGlobal.SaleOrder = SaleOrdersController.GetByStationAndBar(AppGlobal.Station, false);
                 RefreshScreen();
             }
@@ -713,11 +735,7 @@ namespace Kiwi.Tpv.App
             ViewController.HidePopUp();
         }
 
-
-
-
         #endregion
-
 
     }
 }

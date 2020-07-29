@@ -31,21 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductSelector));
             this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new MetroFramework.Controls.MetroTile();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanelProducts
             // 
-            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(23, 63);
+            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(23, 148);
             this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
-            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(856, 469);
+            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(968, 463);
             this.flowLayoutPanelProducts.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.ActiveControl = null;
-            this.btnCancel.Location = new System.Drawing.Point(23, 538);
+            this.btnCancel.Location = new System.Drawing.Point(23, 617);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(856, 53);
+            this.btnCancel.Size = new System.Drawing.Size(968, 53);
             this.btnCancel.Style = MetroFramework.MetroColorStyle.Green;
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Volver";
@@ -54,12 +56,21 @@
             this.btnCancel.UseSelectable = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.Location = new System.Drawing.Point(422, 8);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(149, 134);
+            this.PictureBoxLogo.TabIndex = 13;
+            this.PictureBoxLogo.TabStop = false;
+            // 
             // FrmProductSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 605);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
+            this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.flowLayoutPanelProducts);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -70,6 +81,7 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Selección de producto";
             this.Load += new System.EventHandler(this.frmProductSelector_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -78,5 +90,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProducts;
         private MetroFramework.Controls.MetroTile btnCancel;
+        private System.Windows.Forms.PictureBox PictureBoxLogo;
     }
 }

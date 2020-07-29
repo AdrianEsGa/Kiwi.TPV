@@ -234,6 +234,7 @@
     <Compile Include="Util\PrinterController.cs" />
     <Compile Include="Util\RawPrinterHelper.cs" />
     <Compile Include="Util\MainViewProductButtonsController.cs" />
+    <Compile Include="Util\SoundController.cs" />
     <Compile Include="Util\ViewController.cs" />
     <Content Include="kiwiLogo.ico" />
     <Content Include="Reports\SaleTicket.rdlc">
@@ -245,6 +246,10 @@
     <Content Include="Reports\SaleOrderTicket.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\jager.png" />
+    <None Include="Resources\Jomita.wav" />
+    <None Include="Resources\TrucuTrucu.wav" />
+    <None Include="Resources\PimPam.wav" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

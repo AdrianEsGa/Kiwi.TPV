@@ -5,7 +5,7 @@ namespace Kiwi.Tpv.Database.Repositories
 {
     public static class SystemRepository
     {
-        public static void Insert(byte[] binary)
+        internal static void Insert(byte[] binary)
         {
             try
             {
@@ -30,8 +30,37 @@ namespace Kiwi.Tpv.Database.Repositories
             }
         }
 
+        internal static DateTime GetServerDate()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(GlobalDb.ConnectionString))
+                {
+                    var strSql = "SELECT GETDATE() As Date";
 
-        public static byte[] Get(int code)
+                    using (var command = new SqlCommand(strSql, connection))
+                    {
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                return (DateTime)reader["Date"];
+                            }                          
+                        }
+                    }
+                }
+
+                return DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
+            }
+        }
+
+        internal static byte[] Get(int code)
         {
             byte[] binary = null;
             try
@@ -61,7 +90,7 @@ namespace Kiwi.Tpv.Database.Repositories
             return binary;
         }
 
-        public static int GetCount()
+        internal static int GetCount()
         {
             object count;
             try

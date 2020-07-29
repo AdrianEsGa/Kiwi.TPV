@@ -54,10 +54,24 @@ namespace Kiwi.Tpv.App.Forms
             }
 
             PaintProductButtons();
+
+            try
+            {
+                PictureBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
+                PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void PaintProductButtons()
         {
+            var buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension;
+            if (AppGlobal.AppGeneralConfig.ProductButtonsDimension < 50)
+                buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension + 30;
+
             var products = _combination ? ProductController.GetAllActive(_typeToLoad) 
                 : ProductController.GetAllActiveAndNotShowInMainView(_typeToLoad);
 
@@ -68,8 +82,8 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new MetroButton
                     {
-                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                        Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                        Width = buttonDimensions,
+                        Height = buttonDimensions,
                         Tag = product,
                         BackgroundImage = Common.BytesToImage(product.Image),
                         BackgroundImageLayout = ImageLayout.Stretch
@@ -83,8 +97,8 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new Button
                     {
-                        Width = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
-                        Height = AppGlobal.AppGeneralConfig.ProductButtonsDimension,
+                        Width = buttonDimensions,
+                        Height = buttonDimensions,
                         Text = product.Name,
                         Tag = product,
                         BackColor = Color.DimGray,

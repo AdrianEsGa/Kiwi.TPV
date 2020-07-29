@@ -53,8 +53,9 @@ namespace Kiwi.Tpv.App.Forms
             _backgroundWorker.RunWorkerCompleted += RunWorker_Completed;
             _backgroundWorker.DoWork += RunWorker_DoWork;
 
-            dtpInitTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-            dtpEndTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+            var actualDate = EnvironmentController.GetServerDate();
+            dtpInitTime.Value = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, 0, 0, 0);
+            dtpEndTime.Value = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, 23, 59, 59);
 
             if (AppGlobal.AppGeneralConfig.SystemJoke && AppGlobal.AppGeneralConfig.ShowJokeReport)
                 cbReports.Items.Add("Informe - Resumen general");

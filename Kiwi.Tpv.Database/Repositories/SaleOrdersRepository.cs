@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
 
 namespace Kiwi.Tpv.Database.Repositories
@@ -275,7 +276,7 @@ namespace Kiwi.Tpv.Database.Repositories
                         command.Transaction = transaction;
                         command.Parameters.AddWithValue("@StationId", saleOrder.Station.Id);
 
-                        command.Parameters.AddWithValue("@Date",  DateTime.Now);
+                        command.Parameters.AddWithValue("@Date",  EnvironmentController.GetServerDate());
 
                         if (saleOrder.Table == null)
                             command.Parameters.AddWithValue("@BarTableId", DBNull.Value);

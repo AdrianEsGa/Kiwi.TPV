@@ -65,7 +65,7 @@
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(977, 17);
+            this.btnClose.Location = new System.Drawing.Point(922, 17);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -113,7 +113,7 @@
             this.DataGridViewCommands.EnableHeadersVisualStyles = false;
             this.DataGridViewCommands.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewCommands.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewCommands.Location = new System.Drawing.Point(25, 85);
+            this.DataGridViewCommands.Location = new System.Drawing.Point(19, 85);
             this.DataGridViewCommands.MultiSelect = false;
             this.DataGridViewCommands.Name = "DataGridViewCommands";
             this.DataGridViewCommands.ReadOnly = true;
@@ -131,7 +131,7 @@
             this.DataGridViewCommands.RowTemplate.Height = 55;
             this.DataGridViewCommands.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewCommands.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewCommands.Size = new System.Drawing.Size(1022, 210);
+            this.DataGridViewCommands.Size = new System.Drawing.Size(973, 210);
             this.DataGridViewCommands.TabIndex = 56;
             this.DataGridViewCommands.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCommands_CellClick);
             // 
@@ -227,7 +227,7 @@
             this.DataGridViewCommandDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewCommandDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewCommandDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewCommandDetails.Location = new System.Drawing.Point(25, 301);
+            this.DataGridViewCommandDetails.Location = new System.Drawing.Point(19, 301);
             this.DataGridViewCommandDetails.MultiSelect = false;
             this.DataGridViewCommandDetails.Name = "DataGridViewCommandDetails";
             this.DataGridViewCommandDetails.ReadOnly = true;
@@ -245,7 +245,7 @@
             this.DataGridViewCommandDetails.RowTemplate.Height = 55;
             this.DataGridViewCommandDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewCommandDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewCommandDetails.Size = new System.Drawing.Size(1022, 334);
+            this.DataGridViewCommandDetails.Size = new System.Drawing.Size(973, 334);
             this.DataGridViewCommandDetails.TabIndex = 57;
             // 
             // idDataGridViewTextBoxColumn1
@@ -315,9 +315,9 @@
             this.btnActions.ActiveControl = null;
             this.btnActions.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnActions.ForeColor = System.Drawing.Color.Green;
-            this.btnActions.Location = new System.Drawing.Point(25, 641);
+            this.btnActions.Location = new System.Drawing.Point(19, 641);
             this.btnActions.Name = "btnActions";
-            this.btnActions.Size = new System.Drawing.Size(1022, 43);
+            this.btnActions.Size = new System.Drawing.Size(973, 43);
             this.btnActions.Style = MetroFramework.MetroColorStyle.Orange;
             this.btnActions.TabIndex = 58;
             this.btnActions.Text = "En proceso";
@@ -335,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 696);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
             this.Controls.Add(this.btnActions);
             this.Controls.Add(this.DataGridViewCommandDetails);

@@ -37,6 +37,16 @@ namespace Kiwi.Tpv.App.Forms
             panelButons.Visible = _windowMode == WindowMode.Administration;
             LoadData();
             BringToFront();
+
+            try
+            {
+                PictureBoxLogo.BackgroundImage = Common.BytesToImage(AppGlobal.Company.AppLogo);
+                PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         #region Events

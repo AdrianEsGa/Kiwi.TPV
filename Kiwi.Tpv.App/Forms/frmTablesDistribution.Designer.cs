@@ -35,7 +35,9 @@
             this.btnRemove = new MetroFramework.Controls.MetroTile();
             this.panelDistribution = new MetroFramework.Controls.MetroPanel();
             this.btnClose = new MetroFramework.Controls.MetroTile();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelButons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddTable
@@ -64,7 +66,7 @@
             this.panelButons.HorizontalScrollbarSize = 10;
             this.panelButons.Location = new System.Drawing.Point(20, 632);
             this.panelButons.Name = "panelButons";
-            this.panelButons.Size = new System.Drawing.Size(1030, 44);
+            this.panelButons.Size = new System.Drawing.Size(974, 44);
             this.panelButons.TabIndex = 88;
             this.panelButons.VerticalScrollbarBarColor = true;
             this.panelButons.VerticalScrollbarHighlightOnWheel = false;
@@ -75,7 +77,7 @@
             this.btnSave.ActiveControl = null;
             this.btnSave.BackColor = System.Drawing.SystemColors.Control;
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSave.Location = new System.Drawing.Point(922, 5);
+            this.btnSave.Location = new System.Drawing.Point(857, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 36);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Green;
@@ -90,7 +92,7 @@
             this.btnRemove.ActiveControl = null;
             this.btnRemove.BackColor = System.Drawing.SystemColors.Control;
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnRemove.Location = new System.Drawing.Point(811, 5);
+            this.btnRemove.Location = new System.Drawing.Point(746, 5);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(105, 36);
             this.btnRemove.Style = MetroFramework.MetroColorStyle.Red;
@@ -105,9 +107,9 @@
             this.panelDistribution.HorizontalScrollbarBarColor = true;
             this.panelDistribution.HorizontalScrollbarHighlightOnWheel = false;
             this.panelDistribution.HorizontalScrollbarSize = 10;
-            this.panelDistribution.Location = new System.Drawing.Point(20, 85);
+            this.panelDistribution.Location = new System.Drawing.Point(20, 112);
             this.panelDistribution.Name = "panelDistribution";
-            this.panelDistribution.Size = new System.Drawing.Size(1030, 541);
+            this.panelDistribution.Size = new System.Drawing.Size(973, 514);
             this.panelDistribution.TabIndex = 89;
             this.panelDistribution.VerticalScrollbarBarColor = true;
             this.panelDistribution.VerticalScrollbarHighlightOnWheel = false;
@@ -117,7 +119,7 @@
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(980, 17);
+            this.btnClose.Location = new System.Drawing.Point(912, 23);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 62);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -128,12 +130,21 @@
             this.btnClose.UseTileImage = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.Location = new System.Drawing.Point(403, 9);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(149, 134);
+            this.PictureBoxLogo.TabIndex = 93;
+            this.PictureBoxLogo.TabStop = false;
+            // 
             // FrmTablesDistribution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 696);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
+            this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelDistribution);
             this.Controls.Add(this.panelButons);
@@ -147,6 +158,7 @@
             this.Text = "Distribución del local";
             this.Load += new System.EventHandler(this.frmTablesDistribution_Load);
             this.panelButons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,7 +171,6 @@
         private MetroFramework.Controls.MetroTile btnSave;
         private MetroFramework.Controls.MetroTile btnRemove;
         private MetroFramework.Controls.MetroTile btnClose;
-
-
+        private System.Windows.Forms.PictureBox PictureBoxLogo;
     }
 }

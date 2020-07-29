@@ -43,7 +43,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 693);
+            this.panel1.Size = new System.Drawing.Size(974, 616);
             this.panel1.TabIndex = 1;
             // 
             // reportViewer
@@ -59,14 +59,14 @@
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer.ServerReport.ReportServerUrl = new System.Uri("", System.UriKind.Relative);
-            this.reportViewer.Size = new System.Drawing.Size(990, 693);
+            this.reportViewer.Size = new System.Drawing.Size(974, 616);
             this.reportViewer.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(955, 7);
+            this.btnClose.Location = new System.Drawing.Point(922, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(55, 52);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 773);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);

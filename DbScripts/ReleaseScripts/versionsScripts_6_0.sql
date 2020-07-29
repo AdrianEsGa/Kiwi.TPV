@@ -93,14 +93,6 @@ GO
 COMMIT
 BEGIN TRANSACTION
 GO
-ALTER TABLE dbo.Sales
-	DROP CONSTRAINT FK_Sales_BarTables
-GO
-ALTER TABLE dbo.BarTables SET (LOCK_ESCALATION = TABLE)
-GO
-COMMIT
-BEGIN TRANSACTION
-GO
 CREATE TABLE dbo.Tmp_Sales
 	(
 	Id int NOT NULL IDENTITY (1, 1),
@@ -282,3 +274,22 @@ GO
 COMMIT
 
 
+/* Para evitar posibles problemas de pérdida de datos, debe revisar este script detalladamente antes de ejecutarlo fuera del contexto del diseñador de base de datos.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.SaleOrders ADD
+	IsPending bit NOT NULL CONSTRAINT DF_SaleOrders_IsPending DEFAULT ((0)),
+	PendingComment varchar(5000) NULL
+GO
+ALTER TABLE dbo.SaleOrders SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT

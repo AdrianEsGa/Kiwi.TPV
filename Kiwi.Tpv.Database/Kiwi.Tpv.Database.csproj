@@ -46,6 +46,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\BarTablesController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EnvironmentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
     <Compile Include="Controllers\SaleOrdersController.cs" />

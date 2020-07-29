@@ -166,7 +166,7 @@ namespace Kiwi.Tpv.App.Forms
             {
                 var newSaleOrder = new SaleOrder
                 {
-                    Date = DateTime.Now,
+                    Date = EnvironmentController.GetServerDate(),
                     Station = AppGlobal.Station,
                     Table = _selectedCommand.Table,
                 };

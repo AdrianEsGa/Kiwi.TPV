@@ -85,7 +85,7 @@
             // 
             // 
             this.txtTotalToPay.CustomButton.Image = null;
-            this.txtTotalToPay.CustomButton.Location = new System.Drawing.Point(471, 2);
+            this.txtTotalToPay.CustomButton.Location = new System.Drawing.Point(426, 2);
             this.txtTotalToPay.CustomButton.Name = "";
             this.txtTotalToPay.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtTotalToPay.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -109,7 +109,7 @@
             this.txtTotalToPay.SelectionLength = 0;
             this.txtTotalToPay.SelectionStart = 0;
             this.txtTotalToPay.ShortcutsEnabled = true;
-            this.txtTotalToPay.Size = new System.Drawing.Size(509, 40);
+            this.txtTotalToPay.Size = new System.Drawing.Size(464, 40);
             this.txtTotalToPay.TabIndex = 1;
             this.txtTotalToPay.Text = "0";
             this.txtTotalToPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -123,7 +123,7 @@
             this.btnConfirmCash.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnConfirmCash.Location = new System.Drawing.Point(537, 140);
             this.btnConfirmCash.Name = "btnConfirmCash";
-            this.btnConfirmCash.Size = new System.Drawing.Size(252, 224);
+            this.btnConfirmCash.Size = new System.Drawing.Size(229, 289);
             this.btnConfirmCash.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCash.TabIndex = 4;
             this.btnConfirmCash.Text = "EFECTIVO";
@@ -138,9 +138,9 @@
             this.btnCancel.ActiveControl = null;
             this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(537, 561);
+            this.btnCancel.Location = new System.Drawing.Point(537, 577);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(511, 122);
+            this.btnCancel.Size = new System.Drawing.Size(464, 105);
             this.btnCancel.Style = MetroFramework.MetroColorStyle.Red;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "CANCELAR";
@@ -153,9 +153,9 @@
             // btnInvite
             // 
             this.btnInvite.ActiveControl = null;
-            this.btnInvite.Location = new System.Drawing.Point(796, 68);
+            this.btnInvite.Location = new System.Drawing.Point(772, 68);
             this.btnInvite.Name = "btnInvite";
-            this.btnInvite.Size = new System.Drawing.Size(252, 57);
+            this.btnInvite.Size = new System.Drawing.Size(229, 57);
             this.btnInvite.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnInvite.TabIndex = 3;
             this.btnInvite.Text = "INVITAR";
@@ -173,7 +173,7 @@
             this.btnDisccount.ForeColor = System.Drawing.Color.Coral;
             this.btnDisccount.Location = new System.Drawing.Point(537, 68);
             this.btnDisccount.Name = "btnDisccount";
-            this.btnDisccount.Size = new System.Drawing.Size(252, 57);
+            this.btnDisccount.Size = new System.Drawing.Size(229, 57);
             this.btnDisccount.Style = MetroFramework.MetroColorStyle.Purple;
             this.btnDisccount.TabIndex = 2;
             this.btnDisccount.Text = "DTO 1€";
@@ -187,9 +187,9 @@
             // 
             this.btnConfirmCreditCard.ActiveControl = null;
             this.btnConfirmCreditCard.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConfirmCreditCard.Location = new System.Drawing.Point(796, 140);
+            this.btnConfirmCreditCard.Location = new System.Drawing.Point(772, 140);
             this.btnConfirmCreditCard.Name = "btnConfirmCreditCard";
-            this.btnConfirmCreditCard.Size = new System.Drawing.Size(252, 224);
+            this.btnConfirmCreditCard.Size = new System.Drawing.Size(229, 289);
             this.btnConfirmCreditCard.Style = MetroFramework.MetroColorStyle.Green;
             this.btnConfirmCreditCard.TabIndex = 6;
             this.btnConfirmCreditCard.Text = "TARJETA";
@@ -202,9 +202,9 @@
             // btnConfirmCashTicket
             // 
             this.btnConfirmCashTicket.ActiveControl = null;
-            this.btnConfirmCashTicket.Location = new System.Drawing.Point(537, 379);
+            this.btnConfirmCashTicket.Location = new System.Drawing.Point(537, 447);
             this.btnConfirmCashTicket.Name = "btnConfirmCashTicket";
-            this.btnConfirmCashTicket.Size = new System.Drawing.Size(252, 162);
+            this.btnConfirmCashTicket.Size = new System.Drawing.Size(229, 117);
             this.btnConfirmCashTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCashTicket.TabIndex = 7;
             this.btnConfirmCashTicket.Text = "EFECTIVO + TICKET";
@@ -219,9 +219,9 @@
             this.btnConfirmCreditCardTicket.ActiveControl = null;
             this.btnConfirmCreditCardTicket.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnConfirmCreditCardTicket.ForeColor = System.Drawing.Color.Green;
-            this.btnConfirmCreditCardTicket.Location = new System.Drawing.Point(795, 379);
+            this.btnConfirmCreditCardTicket.Location = new System.Drawing.Point(772, 447);
             this.btnConfirmCreditCardTicket.Name = "btnConfirmCreditCardTicket";
-            this.btnConfirmCreditCardTicket.Size = new System.Drawing.Size(252, 162);
+            this.btnConfirmCreditCardTicket.Size = new System.Drawing.Size(229, 117);
             this.btnConfirmCreditCardTicket.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnConfirmCreditCardTicket.TabIndex = 8;
             this.btnConfirmCreditCardTicket.Text = "TARJETA + TICKET";
@@ -273,7 +273,7 @@
             this.DataGridViewAllSaleOrderDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewAllSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewAllSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(25, 138);
+            this.DataGridViewAllSaleOrderDetails.Location = new System.Drawing.Point(25, 145);
             this.DataGridViewAllSaleOrderDetails.MultiSelect = false;
             this.DataGridViewAllSaleOrderDetails.Name = "DataGridViewAllSaleOrderDetails";
             this.DataGridViewAllSaleOrderDetails.ReadOnly = true;
@@ -293,7 +293,7 @@
             this.DataGridViewAllSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewAllSaleOrderDetails.RowTemplate.Height = 47;
             this.DataGridViewAllSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewAllSaleOrderDetails.Size = new System.Drawing.Size(496, 241);
+            this.DataGridViewAllSaleOrderDetails.Size = new System.Drawing.Size(496, 273);
             this.DataGridViewAllSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Red;
             this.DataGridViewAllSaleOrderDetails.TabIndex = 9;
             this.DataGridViewAllSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -384,9 +384,9 @@
             this.PanelProductsToPay.HorizontalScrollbarBarColor = true;
             this.PanelProductsToPay.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelProductsToPay.HorizontalScrollbarSize = 10;
-            this.PanelProductsToPay.Location = new System.Drawing.Point(23, 385);
+            this.PanelProductsToPay.Location = new System.Drawing.Point(23, 424);
             this.PanelProductsToPay.Name = "PanelProductsToPay";
-            this.PanelProductsToPay.Size = new System.Drawing.Size(496, 304);
+            this.PanelProductsToPay.Size = new System.Drawing.Size(496, 265);
             this.PanelProductsToPay.TabIndex = 10;
             this.PanelProductsToPay.VerticalScrollbarBarColor = true;
             this.PanelProductsToPay.VerticalScrollbarHighlightOnWheel = false;
@@ -398,7 +398,7 @@
             this.btnRemoveProductSelection.ActiveControl = null;
             this.btnRemoveProductSelection.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnRemoveProductSelection.ForeColor = System.Drawing.Color.Red;
-            this.btnRemoveProductSelection.Location = new System.Drawing.Point(0, 258);
+            this.btnRemoveProductSelection.Location = new System.Drawing.Point(0, 219);
             this.btnRemoveProductSelection.Name = "btnRemoveProductSelection";
             this.btnRemoveProductSelection.Size = new System.Drawing.Size(496, 39);
             this.btnRemoveProductSelection.Style = MetroFramework.MetroColorStyle.Red;
@@ -451,7 +451,7 @@
             this.DataGridViewIndividualSaleOrderDetails.EnableHeadersVisualStyles = false;
             this.DataGridViewIndividualSaleOrderDetails.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewIndividualSaleOrderDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewIndividualSaleOrderDetails.Location = new System.Drawing.Point(0, 24);
+            this.DataGridViewIndividualSaleOrderDetails.Location = new System.Drawing.Point(0, 23);
             this.DataGridViewIndividualSaleOrderDetails.MultiSelect = false;
             this.DataGridViewIndividualSaleOrderDetails.Name = "DataGridViewIndividualSaleOrderDetails";
             this.DataGridViewIndividualSaleOrderDetails.ReadOnly = true;
@@ -471,7 +471,7 @@
             this.DataGridViewIndividualSaleOrderDetails.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewIndividualSaleOrderDetails.RowTemplate.Height = 47;
             this.DataGridViewIndividualSaleOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewIndividualSaleOrderDetails.Size = new System.Drawing.Size(496, 230);
+            this.DataGridViewIndividualSaleOrderDetails.Size = new System.Drawing.Size(496, 192);
             this.DataGridViewIndividualSaleOrderDetails.Style = MetroFramework.MetroColorStyle.Red;
             this.DataGridViewIndividualSaleOrderDetails.TabIndex = 3;
             this.DataGridViewIndividualSaleOrderDetails.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -561,9 +561,9 @@
             // 
             // PictureBoxLogo
             // 
-            this.PictureBoxLogo.Location = new System.Drawing.Point(185, 9);
+            this.PictureBoxLogo.Location = new System.Drawing.Point(187, 9);
             this.PictureBoxLogo.Name = "PictureBoxLogo";
-            this.PictureBoxLogo.Size = new System.Drawing.Size(146, 125);
+            this.PictureBoxLogo.Size = new System.Drawing.Size(149, 134);
             this.PictureBoxLogo.TabIndex = 12;
             this.PictureBoxLogo.TabStop = false;
             // 
@@ -571,7 +571,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 696);
+            this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
             this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.PanelProductsToPay);

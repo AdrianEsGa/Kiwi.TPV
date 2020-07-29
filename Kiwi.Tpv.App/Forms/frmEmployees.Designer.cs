@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmployees));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblActive = new MetroFramework.Controls.MetroLabel();
             this.LblName = new MetroFramework.Controls.MetroLabel();
             this.LblId = new MetroFramework.Controls.MetroLabel();
@@ -46,17 +46,17 @@
             this.btnSearch = new MetroFramework.Controls.MetroTile();
             this.tabEmployees = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageFicha = new MetroFramework.Controls.MetroTabPage();
+            this.BtnRemoveImage = new MetroFramework.Controls.MetroButton();
             this.pictureBoxImage = new MetroFramework.Controls.MetroButton();
             this.chkActive = new MetroFramework.Controls.MetroToggle();
             this.metroTabPageBusqueda = new MetroFramework.Controls.MetroTabPage();
             this.DataGridViewEmployees = new MetroFramework.Controls.MetroGrid();
-            this.EmployeeImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnClose = new MetroFramework.Controls.MetroTile();
-            this.BtnRemoveImage = new MetroFramework.Controls.MetroButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.tabEmployees.SuspendLayout();
             this.metroTabPageFicha.SuspendLayout();
             this.metroTabPageBusqueda.SuspendLayout();
@@ -249,6 +249,17 @@
             this.metroTabPageFicha.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageFicha.VerticalScrollbarSize = 10;
             // 
+            // BtnRemoveImage
+            // 
+            this.BtnRemoveImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnRemoveImage.Location = new System.Drawing.Point(694, 204);
+            this.BtnRemoveImage.Name = "BtnRemoveImage";
+            this.BtnRemoveImage.Size = new System.Drawing.Size(67, 31);
+            this.BtnRemoveImage.TabIndex = 54;
+            this.BtnRemoveImage.Text = "X";
+            this.BtnRemoveImage.UseSelectable = true;
+            this.BtnRemoveImage.Click += new System.EventHandler(this.BtnRemoveImage_Click);
+            // 
             // pictureBoxImage
             // 
             this.pictureBoxImage.Location = new System.Drawing.Point(557, 11);
@@ -292,14 +303,14 @@
             this.DataGridViewEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewEmployees.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.DataGridViewEmployees.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -307,14 +318,14 @@
             this.nameDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.DataGridViewEmployees.DataSource = this.employeeBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridViewEmployees.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewEmployees.DefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridViewEmployees.EnableHeadersVisualStyles = false;
             this.DataGridViewEmployees.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewEmployees.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -323,14 +334,14 @@
             this.DataGridViewEmployees.Name = "DataGridViewEmployees";
             this.DataGridViewEmployees.ReadOnly = true;
             this.DataGridViewEmployees.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGridViewEmployees.RowHeadersVisible = false;
             this.DataGridViewEmployees.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewEmployees.RowTemplate.Height = 60;
@@ -340,46 +351,6 @@
             this.DataGridViewEmployees.TabIndex = 2;
             this.DataGridViewEmployees.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployees_CellDoubleClick);
             // 
-            // EmployeeImage
-            // 
-            this.EmployeeImage.DataPropertyName = "Image";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            this.EmployeeImage.DefaultCellStyle = dataGridViewCellStyle7;
-            this.EmployeeImage.HeaderText = "";
-            this.EmployeeImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.EmployeeImage.Name = "EmployeeImage";
-            this.EmployeeImage.ReadOnly = true;
-            this.EmployeeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EmployeeImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // btnClose
-            // 
-            this.btnClose.ActiveControl = null;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 62);
-            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
-            this.btnClose.TabIndex = 54;
-            this.btnClose.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoClose;
-            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.UseSelectable = true;
-            this.btnClose.UseTileImage = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // BtnRemoveImage
-            // 
-            this.BtnRemoveImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BtnRemoveImage.Location = new System.Drawing.Point(694, 204);
-            this.BtnRemoveImage.Name = "BtnRemoveImage";
-            this.BtnRemoveImage.Size = new System.Drawing.Size(67, 31);
-            this.BtnRemoveImage.TabIndex = 54;
-            this.BtnRemoveImage.Text = "X";
-            this.BtnRemoveImage.UseSelectable = true;
-            this.BtnRemoveImage.Click += new System.EventHandler(this.BtnRemoveImage_Click);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -388,12 +359,26 @@
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
+            // EmployeeImage
+            // 
+            this.EmployeeImage.DataPropertyName = "Image";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            this.EmployeeImage.DefaultCellStyle = dataGridViewCellStyle2;
+            this.EmployeeImage.HeaderText = "";
+            this.EmployeeImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.EmployeeImage.Name = "EmployeeImage";
+            this.EmployeeImage.ReadOnly = true;
+            this.EmployeeImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EmployeeImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -410,6 +395,21 @@
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataSource = typeof(Kiwi.Tpv.Database.Entities.Employee);
+            // 
+            // btnClose
+            // 
+            this.btnClose.ActiveControl = null;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
+            this.btnClose.TabIndex = 54;
+            this.btnClose.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoClose;
+            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseTileImage = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmEmployees
             // 

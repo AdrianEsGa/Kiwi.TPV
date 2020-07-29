@@ -165,7 +165,7 @@ namespace Kiwi.Tpv.App.Util
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular)
+                Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold)
             };
 
             btn.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -225,18 +225,24 @@ namespace Kiwi.Tpv.App.Util
 
         private static void PaintProductSecondaryMenus()
         {
+
+            var buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension;
+            if (AppGlobal.AppGeneralConfig.ProductButtonsDimension < 50)
+                buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension + 15;
+
+
             //Create button Alcohol
             var btnAlcohol = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Alcohol",
                 Text = "Alcohol",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnAlcohol.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -246,15 +252,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Refrescos
             var btnRefrescos = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Refrescos",
                 Text = "Refrescos",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnRefrescos.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -264,15 +270,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Cervezas
             var btnCervezas = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Cervezas",
                 Text = "Cervezas",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnCervezas.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -282,15 +288,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Cafes
             var btnCafes = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Cafes",
                 Text = "Cafés",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnCafes.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -300,15 +306,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Tes
             var btnTes = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Tes",
                 Text = "Tés",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnTes.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -318,15 +324,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Cocktails
             var btnCocktails = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Cocktails",
                 Text = "Cocktails",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnCocktails.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -336,15 +342,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Infusiones
             var btnInfusiones = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Infusiones",
                 Text = "Infusiones",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnInfusiones.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -354,15 +360,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Vinos
             var btnVinos = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Vinos",
                 Text = "Vinos",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnVinos.Click += FrmMain.Instance.ButtonProduct_Click;
@@ -372,15 +378,15 @@ namespace Kiwi.Tpv.App.Util
             //Create button Varios
             var btnVarios = new Button()
             {
-                Width = 90,
-                Height = 90,
+                Width = buttonDimensions,
+                Height = buttonDimensions,
                 Tag = "Varios",
                 Text = "Varios",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Bold),
-                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 4 }
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
+                FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 2 }
             };
 
             btnVarios.Click += FrmMain.Instance.ButtonProduct_Click;
