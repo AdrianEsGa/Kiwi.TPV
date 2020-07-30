@@ -35,6 +35,7 @@ namespace Kiwi.Tpv.App.Forms
         private void frmTablesDistribution_Load(object sender, EventArgs e)
         {
             panelButons.Visible = _windowMode == WindowMode.Administration;
+
             LoadData();
             BringToFront();
 
@@ -192,6 +193,8 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
+                Visible = false;
+
                 panelDistribution.BackgroundImage = Common.BytesToImage(AppGlobal.Company.LocalImage);
                 panelDistribution.BackgroundImageLayout = ImageLayout.Stretch;
                 panelDistribution.Controls.Clear();
@@ -239,10 +242,14 @@ namespace Kiwi.Tpv.App.Forms
                     btn.Click += ButtonTable_Click;
 
                     panelDistribution.Controls.Add(btn);
+
+                    Visible = true;
+
                 }
             }
             catch (Exception ex)
             {
+                Visible = true;
                 ViewController.ShowError(ex.Message);
             }
         }

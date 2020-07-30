@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new MetroFramework.Controls.MetroTile();
             this.flowLayoutPanelEmployees = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ActiveControl = null;
-            this.btnCancel.Location = new System.Drawing.Point(23, 620);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(968, 53);
-            this.btnCancel.Style = MetroFramework.MetroColorStyle.Green;
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Volver";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnCancel.UseSelectable = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // flowLayoutPanelEmployees
             // 
             this.flowLayoutPanelEmployees.Location = new System.Drawing.Point(23, 64);
             this.flowLayoutPanelEmployees.Name = "flowLayoutPanelEmployees";
-            this.flowLayoutPanelEmployees.Size = new System.Drawing.Size(968, 540);
+            this.flowLayoutPanelEmployees.Size = new System.Drawing.Size(968, 592);
             this.flowLayoutPanelEmployees.TabIndex = 2;
+            // 
+            // btnClose
+            // 
+            this.btnClose.ActiveControl = null;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(913, 7);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
+            this.btnClose.TabIndex = 56;
+            this.btnClose.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoClose;
+            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseTileImage = true;
             // 
             // FrmEmployeeSelector
             // 
@@ -59,7 +59,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 696);
             this.ControlBox = false;
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.flowLayoutPanelEmployees);
             this.Movable = false;
             this.Name = "FrmEmployeeSelector";
@@ -73,8 +73,7 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTile btnCancel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelEmployees;
+        private MetroFramework.Controls.MetroTile btnClose;
     }
 }

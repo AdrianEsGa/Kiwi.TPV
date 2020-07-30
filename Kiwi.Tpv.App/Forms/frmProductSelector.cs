@@ -124,13 +124,12 @@ namespace Kiwi.Tpv.App.Forms
           
             FrmMain.Instance.AddProductToSale(SelectedProduct, AlcoholModeTypes.Default);
             FrmMain.Instance.RefreshScreen();
-            if (_combination) Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
             Close();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

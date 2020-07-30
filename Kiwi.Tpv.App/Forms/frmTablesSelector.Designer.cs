@@ -30,27 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTablesSelector));
             this.flowLayoutPanelTables = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancel = new MetroFramework.Controls.MetroTile();
+            this.btnClose = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // flowLayoutPanelTables
             // 
             this.flowLayoutPanelTables.Location = new System.Drawing.Point(23, 63);
             this.flowLayoutPanelTables.Name = "flowLayoutPanelTables";
-            this.flowLayoutPanelTables.Size = new System.Drawing.Size(856, 435);
+            this.flowLayoutPanelTables.Size = new System.Drawing.Size(856, 490);
             this.flowLayoutPanelTables.TabIndex = 1;
             // 
-            // btnCancel
+            // btnClose
             // 
-            this.btnCancel.ActiveControl = null;
-            this.btnCancel.Location = new System.Drawing.Point(23, 504);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(856, 53);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.UseSelectable = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnClose.ActiveControl = null;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(809, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Style = MetroFramework.MetroColorStyle.White;
+            this.btnClose.TabIndex = 61;
+            this.btnClose.TileImage = ((System.Drawing.Image)(resources.GetObject("btnClose.TileImage")));
+            this.btnClose.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseTileImage = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmTablesSelector
             // 
@@ -58,7 +61,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 576);
             this.ControlBox = false;
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.flowLayoutPanelTables);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -74,6 +77,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTables;
-        private MetroFramework.Controls.MetroTile btnCancel;
+        private MetroFramework.Controls.MetroTile btnClose;
     }
 }

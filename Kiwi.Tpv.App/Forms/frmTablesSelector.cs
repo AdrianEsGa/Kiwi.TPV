@@ -93,5 +93,10 @@ namespace Kiwi.Tpv.App.Forms
         {
             Close();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
