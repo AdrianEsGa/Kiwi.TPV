@@ -74,7 +74,7 @@ namespace Kiwi.Tpv.App.Util
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Regular),
+                Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular),
             };
 
             btn.Click += FrmMain.Instance.ButtonEmployee_Click;

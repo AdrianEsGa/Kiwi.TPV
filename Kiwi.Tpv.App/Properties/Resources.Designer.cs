@@ -61,7 +61,7 @@ namespace Kiwi.Tpv.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Botella.
+        ///   Looks up a localized string similar to BOTELLA.
         /// </summary>
         internal static string Botella {
             get {

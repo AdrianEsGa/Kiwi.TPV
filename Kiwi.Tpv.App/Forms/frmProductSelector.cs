@@ -68,10 +68,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private void PaintProductButtons()
         {
-            var buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension;
-            if (AppGlobal.AppGeneralConfig.ProductButtonsDimension < 50)
-                buttonDimensions = AppGlobal.AppGeneralConfig.ProductButtonsDimension + 30;
-
+            var buttonSize = 100;
             var products = _combination ? ProductController.GetAllActive(_typeToLoad) 
                 : ProductController.GetAllActiveAndNotShowInMainView(_typeToLoad);
 
@@ -82,8 +79,8 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new MetroButton
                     {
-                        Width = buttonDimensions,
-                        Height = buttonDimensions,
+                        Width = buttonSize,
+                        Height = buttonSize,
                         Tag = product,
                         BackgroundImage = Common.BytesToImage(product.Image),
                         BackgroundImageLayout = ImageLayout.Stretch
@@ -97,8 +94,8 @@ namespace Kiwi.Tpv.App.Forms
                 {
                     var btn = new Button
                     {
-                        Width = buttonDimensions,
-                        Height = buttonDimensions,
+                        Width = buttonSize,
+                        Height = buttonSize,
                         Text = product.Name,
                         Tag = product,
                         BackColor = Color.DimGray,

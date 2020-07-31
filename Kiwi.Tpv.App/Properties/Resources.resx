@@ -149,7 +149,7 @@
     <value>Desconectada</value>
   </data>
   <data name="Botella" xml:space="preserve">
-    <value>Botella</value>
+    <value>BOTELLA</value>
   </data>
   <data name="ProductosNuevo" xml:space="preserve">
     <value>Productos [Nuevo]</value>

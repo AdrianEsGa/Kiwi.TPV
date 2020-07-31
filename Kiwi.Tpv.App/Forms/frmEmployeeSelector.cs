@@ -61,10 +61,11 @@ namespace Kiwi.Tpv.App.Forms
 
         private void PaintEmployeeImageButtons(Employee employee)
         {
+            var buttonSize = 100;
             var btn = new MetroButton
             {
-                Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                Width = buttonSize,
+                Height = buttonSize,
                 Tag = employee,
                 BackgroundImage = Common.BytesToImage(employee.Image),
                 BackgroundImageLayout = ImageLayout.Stretch
@@ -75,10 +76,11 @@ namespace Kiwi.Tpv.App.Forms
 
         private void PaintEmployeeButtons(Employee employee)
         {
+            var buttonSize = 100;
             var btn = new Button
             {
-                Width = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
-                Height = AppGlobal.AppGeneralConfig.EmployeeButtonsDimension,
+                Width = buttonSize,
+                Height = buttonSize,
                 Text = employee.Name,
                 Tag = employee,
                 BackColor = Color.DimGray,
