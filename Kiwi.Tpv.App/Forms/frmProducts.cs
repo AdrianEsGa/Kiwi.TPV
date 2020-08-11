@@ -36,7 +36,7 @@ namespace Kiwi.Tpv.App.Forms
             CbProductType.Items.Add(ProductType.Cocktails);
             CbProductType.Items.Add(ProductType.Infusiones);
             CbProductType.Items.Add(ProductType.Vinos);
-            CbProductType.Items.Add(ProductType.Varios);
+            CbProductType.Items.Add(ProductType.Comidas);
 
             CbProductSubType.Items.Add(ProductSubType.Whisky);
             CbProductSubType.Items.Add(ProductSubType.Ginebra);

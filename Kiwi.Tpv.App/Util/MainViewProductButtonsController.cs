@@ -145,7 +145,7 @@ namespace Kiwi.Tpv.App.Util
                 case ProductType.Vinos:
                     FrmMain.Instance.flowLayoutPanelVinos.Controls.Add(btn);
                     break;
-                case ProductType.Varios:
+                case ProductType.Comidas:
                     FrmMain.Instance.flowLayoutPanelVarious.Controls.Add(btn);
                     break;
 
@@ -196,7 +196,7 @@ namespace Kiwi.Tpv.App.Util
                 case ProductType.Vinos:
                     FrmMain.Instance.flowLayoutPanelVinos.Controls.Add(btn);
                     break;
-                case ProductType.Varios:
+                case ProductType.Comidas:
                     FrmMain.Instance.flowLayoutPanelVarious.Controls.Add(btn);
                     break;
 
@@ -372,13 +372,13 @@ namespace Kiwi.Tpv.App.Util
 
             FrmMain.Instance.flowLayoutPanelSecondaryMenus.Controls.Add(btnVinos);
 
-            //Create button Varios
-            var btnVarios = new Button()
+            //Create button Comidas
+            var btnComidas = new Button()
             {
                 Width = 65,
                 Height = 40,
-                Tag = "Varios",
-                Text = "Varios",
+                Tag = "Comidas",
+                Text = "Comidas",
                 BackColor = Color.DimGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
@@ -386,9 +386,9 @@ namespace Kiwi.Tpv.App.Util
                 FlatAppearance = { BorderColor = Color.FromArgb(209, 17, 65), BorderSize = 1 }
             };
 
-            btnVarios.Click += FrmMain.Instance.ButtonProduct_Click;
+            btnComidas.Click += FrmMain.Instance.ButtonProduct_Click;
 
-            FrmMain.Instance.flowLayoutPanelSecondaryMenus.Controls.Add(btnVarios);
+            FrmMain.Instance.flowLayoutPanelSecondaryMenus.Controls.Add(btnComidas);
         }
 
     }

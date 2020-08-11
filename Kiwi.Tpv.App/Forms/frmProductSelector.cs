@@ -24,10 +24,12 @@ namespace Kiwi.Tpv.App.Forms
             ViewController.SetSkin(this);
             _typeToLoad = typeToLoad;
             _combination = combination;
+
         }
 
         private void frmProductSelector_Load(object sender, EventArgs e)
         {
+          
             switch (_typeToLoad)
             {
                 case ProductType.Alcohol:
@@ -48,8 +50,8 @@ namespace Kiwi.Tpv.App.Forms
                 case ProductType.Cocktails:
                     Text = "Cocktails";
                     break;
-                case ProductType.Varios:
-                    Text = "Varios";
+                case ProductType.Comidas:
+                    Text = "Comidas";
                     break;
             }
 
@@ -68,7 +70,7 @@ namespace Kiwi.Tpv.App.Forms
 
         private void PaintProductButtons()
         {
-            var buttonSize = 100;
+            var buttonSize = 90;
             var products = _combination ? ProductController.GetAllActive(_typeToLoad) 
                 : ProductController.GetAllActiveAndNotShowInMainView(_typeToLoad);
 
@@ -118,8 +120,26 @@ namespace Kiwi.Tpv.App.Forms
             SelectedProduct.Quantity = 1;
 
             if (_combination) {SelectedProduct.SaleDayPrice = SelectedProduct.SaleCombinedPrice; SelectedProduct.SaleNightPrice = SelectedProduct.SaleCombinedPrice; }
-          
-            FrmMain.Instance.AddProductToSale(SelectedProduct, AlcoholModeTypes.Default);
+
+            var alcoholModeType = AlcoholModeTypes.Default;
+            if (AppGlobal.Company.CombinationControl && SelectedProduct.Type == ProductType.Alcohol)
+            {
+                ViewController.ShowPopUp();
+
+                var frmAlcoholModeTypes = new FrmAlcoholModeTypes();
+                frmAlcoholModeTypes.ShowDialog();
+                alcoholModeType = frmAlcoholModeTypes.SelectedAlcoholModeType;
+
+                if (alcoholModeType == AlcoholModeTypes.Combined && AppGlobal.Company.CombinationControlWithSoda)
+                {
+                    var frmProductSelector = new FrmProductSelector(ProductType.Refresco, true);
+                    frmProductSelector.ShowDialog();
+                }
+
+                ViewController.HidePopUp();
+            }
+
+            FrmMain.Instance.AddProductToSale(SelectedProduct, alcoholModeType);
             FrmMain.Instance.RefreshScreen();
             Close();
         }

@@ -119,7 +119,7 @@ namespace Kiwi.Tpv.App
                 ReferenceEquals(btn.Tag, "Cocktails") ||
                 ReferenceEquals(btn.Tag, "Infusiones") ||
                 ReferenceEquals(btn.Tag, "Vinos") ||
-                ReferenceEquals(btn.Tag, "Varios"))
+                ReferenceEquals(btn.Tag, "Comidas"))
             {
                 ProductType productType;
 
@@ -147,7 +147,7 @@ namespace Kiwi.Tpv.App
                 else if (ReferenceEquals(btn.Tag, "Vinos"))
                     productType = ProductType.Vinos;
 
-                else productType = ProductType.Varios;
+                else productType = ProductType.Comidas;
 
 
                 ViewController.ShowPopUp();

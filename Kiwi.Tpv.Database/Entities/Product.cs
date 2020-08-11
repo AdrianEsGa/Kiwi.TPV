@@ -58,7 +58,7 @@
         Alcohol = 1,
         Refresco = 2,
         Cerveza = 3,
-        Varios = 4,
+        Comidas = 4,
         Botella = 5,
         Cafes = 6,
         Tes = 7,

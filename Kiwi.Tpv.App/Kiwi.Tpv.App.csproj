@@ -373,12 +373,6 @@
     <None Include="Util\Configurations\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kiwi.Tpv.Database\Kiwi.Tpv.Database.csproj">
-      <Project>{68e04105-17ab-4ec7-9bb8-928c76c289bd}</Project>
-      <Name>Kiwi.Tpv.Database</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\loader.gif" />
     <None Include="Resources\Ok.png" />
     <None Include="Resources\NoOk.png" />
@@ -400,6 +394,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kiwi.Tpv.Database\Kiwi.Tpv.Database.csproj">
+      <Project>{68e04105-17ab-4ec7-9bb8-928c76c289bd}</Project>
+      <Name>Kiwi.Tpv.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
