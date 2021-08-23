@@ -87,9 +87,9 @@ namespace Kiwi.Tpv.App.Util
                 Value = new List<Company> { AppGlobal.Company }
             });
 
-            ReportParameter[] parms = new ReportParameter[1];
-            parms[0] = new ReportParameter("text_value", text);
-            report.SetParameters(parms);
+            //ReportParameter[] parms = new ReportParameter[1];
+            //parms[0] = new ReportParameter("text_value", text);
+            //report.SetParameters(parms);
 
             PrintReport(report);
 #if DEBUG
