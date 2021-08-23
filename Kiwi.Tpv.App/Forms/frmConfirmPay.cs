@@ -258,7 +258,7 @@ namespace Kiwi.Tpv.App.Forms
                 var confirmedSale = AppGlobal.SalesController.MakeSale(paySaleOrder, pendingSaleOrder, _printTicket);
 
                 if (AppGlobal.SalesController.PrintTicket)                      
-                    PrinterController.PrintSale(confirmedSale);
+                    PrinterController.PrintSaleTicket(confirmedSale);
                 
                 if (AppGlobal.SalesController.OpenCashDrawer)
                     CashDrawerController.Open();

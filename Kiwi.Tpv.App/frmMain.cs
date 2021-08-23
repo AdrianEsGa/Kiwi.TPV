@@ -626,7 +626,7 @@ namespace Kiwi.Tpv.App
             try
             {
                 SaveSale();
-                PrinterController.PrintSaleOrder(AppGlobal.SaleOrder);
+                PrinterController.PrintSaleOrderTicket(AppGlobal.SaleOrder);
             }
             catch (Exception ex)
             {

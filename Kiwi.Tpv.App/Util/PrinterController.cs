@@ -13,74 +13,89 @@ namespace Kiwi.Tpv.App.Util
 {
     public static class PrinterController
     {
-        public static void PrintSale(Sale saleToPrint)
+        public static void PrintSaleTicket(Sale saleToPrint)
         {
-            try
+
+            var saleDetails = ReportRepository.GetSaleById(saleToPrint.Id);
+            var reportViewer = new FrmReportViewer();
+            var report = reportViewer.reportViewer.LocalReport;
+            report.ReportPath = AppGlobal.Company.TicketReport;
+            report.DataSources.Clear();
+            report.DataSources.Add(new ReportDataSource
             {
-                var saleDetails = ReportRepository.GetSaleById(saleToPrint.Id);
-                var reportViewer = new FrmReportViewer();
-                var report = reportViewer.reportViewer.LocalReport;
-                report.ReportPath = AppGlobal.Company.TicketReport;
-                report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource
-                {
-                    Name = "SaleDetails",
-                    Value = saleDetails
-                });
+                Name = "SaleDetails",
+                Value = saleDetails
+            });
 
-                report.DataSources.Add(new ReportDataSource
-                {
-                    Name = "Company",
-                    Value = new List<Company> { AppGlobal.Company }
-                });
+            report.DataSources.Add(new ReportDataSource
+            {
+                Name = "Company",
+                Value = new List<Company> { AppGlobal.Company }
+            });
 
-                PrintReport(report);
+            PrintReport(report);
 
 #if DEBUG
-                reportViewer.ViewReport();
-                reportViewer.BringToFront();
+            reportViewer.ViewReport();
+            reportViewer.BringToFront();
 #endif
 
-                ViewController.ShowPopUpWithSpinner();
-            }
-            catch (Exception ex)
-            {
-                ViewController.ShowError(ex);
-            }
+            ViewController.ShowPopUpWithSpinner();
+
         }
 
-        public static void PrintSaleOrder(SaleOrder saleOrderToPrint)
+        public static void PrintSaleOrderTicket(SaleOrder saleOrderToPrint)
         {
-            try
+            var saleDetails = ReportRepository.GetSaleById(saleOrderToPrint.Id);
+            var reportViewer = new FrmReportViewer();
+            var report = reportViewer.reportViewer.LocalReport;
+            report.ReportPath = AppGlobal.Company.TicketReport;
+            report.DataSources.Clear();
+            report.DataSources.Add(new ReportDataSource
             {
-                var saleDetails = ReportRepository.GetSaleById(saleOrderToPrint.Id);
-                var reportViewer = new FrmReportViewer();
-                var report = reportViewer.reportViewer.LocalReport;
-                report.ReportPath = AppGlobal.Company.TicketReport;
-                report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource
-                {
-                    Name = "SaleDetails",
-                    Value = saleDetails
-                });
+                Name = "SaleDetails",
+                Value = saleDetails
+            });
 
-                report.DataSources.Add(new ReportDataSource
-                {
-                    Name = "Company",
-                    Value = new List<Company> { AppGlobal.Company }
-                });
+            report.DataSources.Add(new ReportDataSource
+            {
+                Name = "Company",
+                Value = new List<Company> { AppGlobal.Company }
+            });
 
-                PrintReport(report);
+            PrintReport(report);
 
 #if DEBUG
-                reportViewer.ViewReport();
-                reportViewer.BringToFront();
+            reportViewer.ViewReport();
+            reportViewer.BringToFront();
 #endif
-            }
-            catch (Exception ex)
+
+        }
+
+        public static void PrintTicket(string text)
+        {
+
+            var reportViewer = new FrmReportViewer();
+            var report = reportViewer.reportViewer.LocalReport;
+            report.ReportPath = Path.GetDirectoryName(AppGlobal.Company.TicketReport) + "\\Ticket.rdlc";
+            report.DataSources.Clear();
+
+
+            report.DataSources.Add(new ReportDataSource
             {
-                ViewController.ShowError(ex);
-            }
+                Name = "Company",
+                Value = new List<Company> { AppGlobal.Company }
+            });
+
+            ReportParameter[] parms = new ReportParameter[1];
+            parms[0] = new ReportParameter("text_value", text);
+            report.SetParameters(parms);
+
+            PrintReport(report);
+#if DEBUG
+            reportViewer.ViewReport();
+            reportViewer.BringToFront();
+#endif
         }
 
         private static void PrintReport(LocalReport report)

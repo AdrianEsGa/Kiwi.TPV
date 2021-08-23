@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwi.Tpv.App", "Kiwi.Tpv.App\Kiwi.Tpv.App.csproj", "{D0FB3309-7C35-4E81-9771-8AB3180430B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwi.Tpv.Database", "Kiwi.Tpv.Database\Kiwi.Tpv.Database.csproj", "{68E04105-17AB-4EC7-9BB8-928C76C289BD}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Kiwi.Tpv.Database.Sql", "Kiwi.Tpv.Database.Sql\Kiwi.Tpv.Database.Sql.sqlproj", "{761655E7-6E21-4D9C-8625-053F2156C5A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,30 @@ Global
 		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|ARM.ActiveCfg = Release|Any CPU
 		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|x64.ActiveCfg = Release|Any CPU
 		{68E04105-17AB-4EC7-9BB8-928C76C289BD}.Release|x86.ActiveCfg = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|ARM.Build.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x64.Build.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x86.Build.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|ARM.Build.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|ARM.Deploy.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x64.ActiveCfg = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x64.Build.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x64.Deploy.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x86.Build.0 = Release|Any CPU
+		{761655E7-6E21-4D9C-8625-053F2156C5A0}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

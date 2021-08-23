@@ -246,6 +246,9 @@
     <Content Include="Reports\SaleOrderTicket.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\Ticket.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\jager.png" />
     <None Include="Resources\Jomita.wav" />
     <None Include="Resources\TrucuTrucu.wav" />

@@ -178,7 +178,7 @@ namespace Kiwi.Tpv.App.Forms
                 }
 
                 SaleOrdersController.SaveOrUpdate(newSaleOrder);           
-                PrinterController.PrintSaleOrder(newSaleOrder);
+                PrinterController.PrintSaleOrderTicket(newSaleOrder);
             }
             catch (Exception ex)
             {

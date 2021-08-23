@@ -150,6 +150,36 @@ namespace Kiwi.Tpv.App.Forms
             }
         }
 
+        private void btnPrintOneTicket_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var value = txtTicketValue.Text.ToUpper().Trim();
+                PrinterController.PrintTicket(value);
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }
+        }
+
+        private void btnPrintThirtyTickets_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var value = txtTicketValue.Text.ToUpper().Trim();
+
+                for (int i = 0; i < 30; i++)
+                {                
+                    PrinterController.PrintTicket(value);
+                }        
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -265,7 +295,14 @@ namespace Kiwi.Tpv.App.Forms
 
         private void btnTestPrintter_Click(object sender, EventArgs e)
         {
-            PrinterController.PrintSale(new Sale());
+            try
+            {
+                PrinterController.PrintSaleTicket(new Sale());
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }
         }
 
 
@@ -360,6 +397,7 @@ namespace Kiwi.Tpv.App.Forms
 
 
         #endregion
+
 
     }
 }

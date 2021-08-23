@@ -82,6 +82,8 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSelectCompanyAppLogo = new MetroFramework.Controls.MetroTile();
             this.label7 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.chkShowAnimations = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.chkShowSaleOrderTicket = new MetroFramework.Controls.MetroToggle();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.txtActualStation = new MetroFramework.Controls.MetroTextBox();
@@ -97,6 +99,11 @@ namespace Kiwi.Tpv.App.Forms
             this.cbPrinter = new MetroFramework.Controls.MetroComboBox();
             this.btnOpenBox = new MetroFramework.Controls.MetroTile();
             this.label4 = new MetroFramework.Controls.MetroLabel();
+            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintThirtyTickets = new MetroFramework.Controls.MetroTile();
+            this.btnPrintOneTicket = new MetroFramework.Controls.MetroTile();
+            this.LblTicketText = new MetroFramework.Controls.MetroLabel();
+            this.txtTicketValue = new MetroFramework.Controls.MetroTextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnVer = new MetroFramework.Controls.MetroTile();
             this.btnLoadJokeImage = new MetroFramework.Controls.MetroTile();
@@ -104,8 +111,6 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage = new MetroFramework.Controls.MetroTextBox();
             this.btnClose = new MetroFramework.Controls.MetroTile();
             this.btnSave = new MetroFramework.Controls.MetroTile();
-            this.chkShowAnimations = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.tabConfig.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -116,6 +121,7 @@ namespace Kiwi.Tpv.App.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             this.metroTabPage4.SuspendLayout();
+            this.metroTabPage5.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,10 +131,12 @@ namespace Kiwi.Tpv.App.Forms
             this.tabConfig.Controls.Add(this.metroTabPage2);
             this.tabConfig.Controls.Add(this.metroTabPage3);
             this.tabConfig.Controls.Add(this.metroTabPage4);
-            this.tabConfig.Location = new System.Drawing.Point(23, 69);
+            this.tabConfig.Controls.Add(this.metroTabPage5);
+            this.tabConfig.Location = new System.Drawing.Point(31, 85);
+            this.tabConfig.Margin = new System.Windows.Forms.Padding(4);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.SelectedIndex = 2;
-            this.tabConfig.Size = new System.Drawing.Size(856, 433);
+            this.tabConfig.SelectedIndex = 4;
+            this.tabConfig.Size = new System.Drawing.Size(1141, 533);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.UseSelectable = true;
             // 
@@ -154,25 +162,27 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage1.Controls.Add(this.label5);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.HorizontalScrollbarSize = 12;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(848, 391);
+            this.metroTabPage1.Size = new System.Drawing.Size(1133, 491);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "General";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.VerticalScrollbarSize = 13;
             // 
             // cmbServerStation
             // 
             this.cmbServerStation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cmbServerStation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbServerStation.FormattingEnabled = true;
-            this.cmbServerStation.ItemHeight = 23;
-            this.cmbServerStation.Location = new System.Drawing.Point(232, 275);
+            this.cmbServerStation.ItemHeight = 24;
+            this.cmbServerStation.Location = new System.Drawing.Point(309, 338);
+            this.cmbServerStation.Margin = new System.Windows.Forms.Padding(4);
             this.cmbServerStation.Name = "cmbServerStation";
-            this.cmbServerStation.Size = new System.Drawing.Size(217, 29);
+            this.cmbServerStation.Size = new System.Drawing.Size(288, 30);
             this.cmbServerStation.TabIndex = 85;
             this.cmbServerStation.UseSelectable = true;
             this.cmbServerStation.SelectionChangeCommitted += new System.EventHandler(this.cmbServerStation_SelectionChangeCommitted);
@@ -180,17 +190,19 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(28, 275);
+            this.metroLabel5.Location = new System.Drawing.Point(37, 338);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(149, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(158, 20);
             this.metroLabel5.TabIndex = 84;
             this.metroLabel5.Text = "Punto de venta servidor";
             // 
             // btnDbBackupFilePath
             // 
-            this.btnDbBackupFilePath.Location = new System.Drawing.Point(458, 310);
+            this.btnDbBackupFilePath.Location = new System.Drawing.Point(611, 382);
+            this.btnDbBackupFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.btnDbBackupFilePath.Name = "btnDbBackupFilePath";
-            this.btnDbBackupFilePath.Size = new System.Drawing.Size(26, 23);
+            this.btnDbBackupFilePath.Size = new System.Drawing.Size(35, 28);
             this.btnDbBackupFilePath.TabIndex = 83;
             this.btnDbBackupFilePath.UseSelectable = true;
             this.btnDbBackupFilePath.Click += new System.EventHandler(this.btnDbBackupFilePath_Click);
@@ -198,9 +210,10 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(28, 310);
+            this.metroLabel4.Location = new System.Drawing.Point(37, 382);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(133, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(138, 20);
             this.metroLabel4.TabIndex = 82;
             this.metroLabel4.Text = "Ruta copia seguridad";
             // 
@@ -210,9 +223,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtDbBackupFilePath.CustomButton.Image = null;
-            this.txtDbBackupFilePath.CustomButton.Location = new System.Drawing.Point(198, 1);
+            this.txtDbBackupFilePath.CustomButton.Location = new System.Drawing.Point(267, 2);
+            this.txtDbBackupFilePath.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtDbBackupFilePath.CustomButton.Name = "";
-            this.txtDbBackupFilePath.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDbBackupFilePath.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtDbBackupFilePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDbBackupFilePath.CustomButton.TabIndex = 1;
             this.txtDbBackupFilePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -220,7 +234,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtDbBackupFilePath.CustomButton.Visible = false;
             this.txtDbBackupFilePath.Enabled = false;
             this.txtDbBackupFilePath.Lines = new string[0];
-            this.txtDbBackupFilePath.Location = new System.Drawing.Point(232, 310);
+            this.txtDbBackupFilePath.Location = new System.Drawing.Point(309, 382);
+            this.txtDbBackupFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtDbBackupFilePath.MaxLength = 32767;
             this.txtDbBackupFilePath.Name = "txtDbBackupFilePath";
             this.txtDbBackupFilePath.PasswordChar = '\0';
@@ -229,7 +244,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtDbBackupFilePath.SelectionLength = 0;
             this.txtDbBackupFilePath.SelectionStart = 0;
             this.txtDbBackupFilePath.ShortcutsEnabled = true;
-            this.txtDbBackupFilePath.Size = new System.Drawing.Size(220, 23);
+            this.txtDbBackupFilePath.Size = new System.Drawing.Size(293, 28);
             this.txtDbBackupFilePath.TabIndex = 81;
             this.txtDbBackupFilePath.UseSelectable = true;
             this.txtDbBackupFilePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -242,16 +257,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtTableButtonsDimensions.CustomButton.Image = null;
-            this.txtTableButtonsDimensions.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtTableButtonsDimensions.CustomButton.Location = new System.Drawing.Point(223, 1);
+            this.txtTableButtonsDimensions.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtTableButtonsDimensions.CustomButton.Name = "";
-            this.txtTableButtonsDimensions.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtTableButtonsDimensions.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtTableButtonsDimensions.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtTableButtonsDimensions.CustomButton.TabIndex = 1;
             this.txtTableButtonsDimensions.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtTableButtonsDimensions.CustomButton.UseSelectable = true;
             this.txtTableButtonsDimensions.CustomButton.Visible = false;
             this.txtTableButtonsDimensions.Lines = new string[0];
-            this.txtTableButtonsDimensions.Location = new System.Drawing.Point(232, 137);
+            this.txtTableButtonsDimensions.Location = new System.Drawing.Point(309, 169);
+            this.txtTableButtonsDimensions.Margin = new System.Windows.Forms.Padding(4);
             this.txtTableButtonsDimensions.MaxLength = 32767;
             this.txtTableButtonsDimensions.Name = "txtTableButtonsDimensions";
             this.txtTableButtonsDimensions.PasswordChar = '\0';
@@ -260,7 +277,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtTableButtonsDimensions.SelectionLength = 0;
             this.txtTableButtonsDimensions.SelectionStart = 0;
             this.txtTableButtonsDimensions.ShortcutsEnabled = true;
-            this.txtTableButtonsDimensions.Size = new System.Drawing.Size(185, 20);
+            this.txtTableButtonsDimensions.Size = new System.Drawing.Size(247, 25);
             this.txtTableButtonsDimensions.TabIndex = 59;
             this.txtTableButtonsDimensions.UseSelectable = true;
             this.txtTableButtonsDimensions.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -271,45 +288,50 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(28, 134);
+            this.metroLabel2.Location = new System.Drawing.Point(37, 165);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(161, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(172, 20);
             this.metroLabel2.TabIndex = 58;
             this.metroLabel2.Text = "Dimensión Botones Mesas";
             // 
             // chkShowJokeReport
             // 
             this.chkShowJokeReport.AutoSize = true;
-            this.chkShowJokeReport.Location = new System.Drawing.Point(232, 211);
+            this.chkShowJokeReport.Location = new System.Drawing.Point(309, 260);
+            this.chkShowJokeReport.Margin = new System.Windows.Forms.Padding(4);
             this.chkShowJokeReport.Name = "chkShowJokeReport";
-            this.chkShowJokeReport.Size = new System.Drawing.Size(15, 14);
+            this.chkShowJokeReport.Size = new System.Drawing.Size(18, 17);
             this.chkShowJokeReport.TabIndex = 57;
             this.chkShowJokeReport.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 206);
+            this.label11.Location = new System.Drawing.Point(37, 254);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 19);
+            this.label11.Size = new System.Drawing.Size(88, 20);
             this.label11.TabIndex = 56;
             this.label11.Text = "Ver Informes";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 26);
+            this.label1.Location = new System.Drawing.Point(37, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 19);
+            this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Contraseña Admin.";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 170);
+            this.label6.Location = new System.Drawing.Point(37, 209);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 19);
+            this.label6.Size = new System.Drawing.Size(115, 20);
             this.label6.TabIndex = 54;
             this.label6.Text = "Imagen de fondo";
             // 
@@ -320,16 +342,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtAdminPassword.CustomButton.Image = null;
-            this.txtAdminPassword.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtAdminPassword.CustomButton.Location = new System.Drawing.Point(223, 1);
+            this.txtAdminPassword.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtAdminPassword.CustomButton.Name = "";
-            this.txtAdminPassword.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtAdminPassword.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtAdminPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtAdminPassword.CustomButton.TabIndex = 1;
             this.txtAdminPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtAdminPassword.CustomButton.UseSelectable = true;
             this.txtAdminPassword.CustomButton.Visible = false;
             this.txtAdminPassword.Lines = new string[0];
-            this.txtAdminPassword.Location = new System.Drawing.Point(232, 26);
+            this.txtAdminPassword.Location = new System.Drawing.Point(309, 32);
+            this.txtAdminPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdminPassword.MaxLength = 32767;
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.PasswordChar = '\0';
@@ -338,7 +362,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtAdminPassword.SelectionLength = 0;
             this.txtAdminPassword.SelectionStart = 0;
             this.txtAdminPassword.ShortcutsEnabled = true;
-            this.txtAdminPassword.Size = new System.Drawing.Size(185, 20);
+            this.txtAdminPassword.Size = new System.Drawing.Size(247, 25);
             this.txtAdminPassword.TabIndex = 3;
             this.txtAdminPassword.UseSelectable = true;
             this.txtAdminPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -349,9 +373,10 @@ namespace Kiwi.Tpv.App.Forms
             // btnOpenBackImage
             // 
             this.btnOpenBackImage.ActiveControl = null;
-            this.btnOpenBackImage.Location = new System.Drawing.Point(559, 174);
+            this.btnOpenBackImage.Location = new System.Drawing.Point(745, 214);
+            this.btnOpenBackImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpenBackImage.Name = "btnOpenBackImage";
-            this.btnOpenBackImage.Size = new System.Drawing.Size(22, 20);
+            this.btnOpenBackImage.Size = new System.Drawing.Size(29, 25);
             this.btnOpenBackImage.TabIndex = 53;
             this.btnOpenBackImage.UseSelectable = true;
             this.btnOpenBackImage.Click += new System.EventHandler(this.btnOpenImage_Click);
@@ -359,9 +384,10 @@ namespace Kiwi.Tpv.App.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 62);
+            this.label2.Location = new System.Drawing.Point(37, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 19);
+            this.label2.Size = new System.Drawing.Size(195, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Dimensión Botones Productos";
             // 
@@ -372,16 +398,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.TxtBackImagePath.CustomButton.Image = null;
-            this.TxtBackImagePath.CustomButton.Location = new System.Drawing.Point(303, 2);
+            this.TxtBackImagePath.CustomButton.Location = new System.Drawing.Point(404, 1);
+            this.TxtBackImagePath.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.TxtBackImagePath.CustomButton.Name = "";
-            this.TxtBackImagePath.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtBackImagePath.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.TxtBackImagePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TxtBackImagePath.CustomButton.TabIndex = 1;
             this.TxtBackImagePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtBackImagePath.CustomButton.UseSelectable = true;
             this.TxtBackImagePath.CustomButton.Visible = false;
             this.TxtBackImagePath.Lines = new string[0];
-            this.TxtBackImagePath.Location = new System.Drawing.Point(232, 174);
+            this.TxtBackImagePath.Location = new System.Drawing.Point(309, 214);
+            this.TxtBackImagePath.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBackImagePath.MaxLength = 50;
             this.TxtBackImagePath.Name = "TxtBackImagePath";
             this.TxtBackImagePath.PasswordChar = '\0';
@@ -390,7 +418,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtBackImagePath.SelectionLength = 0;
             this.TxtBackImagePath.SelectionStart = 0;
             this.TxtBackImagePath.ShortcutsEnabled = true;
-            this.TxtBackImagePath.Size = new System.Drawing.Size(321, 20);
+            this.TxtBackImagePath.Size = new System.Drawing.Size(428, 25);
             this.TxtBackImagePath.TabIndex = 52;
             this.TxtBackImagePath.UseSelectable = true;
             this.TxtBackImagePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -405,16 +433,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtProductButtonsDimension.CustomButton.Image = null;
-            this.txtProductButtonsDimension.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtProductButtonsDimension.CustomButton.Location = new System.Drawing.Point(223, 1);
+            this.txtProductButtonsDimension.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtProductButtonsDimension.CustomButton.Name = "";
-            this.txtProductButtonsDimension.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtProductButtonsDimension.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtProductButtonsDimension.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtProductButtonsDimension.CustomButton.TabIndex = 1;
             this.txtProductButtonsDimension.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtProductButtonsDimension.CustomButton.UseSelectable = true;
             this.txtProductButtonsDimension.CustomButton.Visible = false;
             this.txtProductButtonsDimension.Lines = new string[0];
-            this.txtProductButtonsDimension.Location = new System.Drawing.Point(232, 63);
+            this.txtProductButtonsDimension.Location = new System.Drawing.Point(309, 78);
+            this.txtProductButtonsDimension.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductButtonsDimension.MaxLength = 32767;
             this.txtProductButtonsDimension.Name = "txtProductButtonsDimension";
             this.txtProductButtonsDimension.PasswordChar = '\0';
@@ -423,7 +453,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtProductButtonsDimension.SelectionLength = 0;
             this.txtProductButtonsDimension.SelectionStart = 0;
             this.txtProductButtonsDimension.ShortcutsEnabled = true;
-            this.txtProductButtonsDimension.Size = new System.Drawing.Size(185, 20);
+            this.txtProductButtonsDimension.Size = new System.Drawing.Size(247, 25);
             this.txtProductButtonsDimension.TabIndex = 5;
             this.txtProductButtonsDimension.UseSelectable = true;
             this.txtProductButtonsDimension.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -438,16 +468,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtEmployeeButtonsDimension.CustomButton.Image = null;
-            this.txtEmployeeButtonsDimension.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtEmployeeButtonsDimension.CustomButton.Location = new System.Drawing.Point(223, 1);
+            this.txtEmployeeButtonsDimension.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmployeeButtonsDimension.CustomButton.Name = "";
-            this.txtEmployeeButtonsDimension.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtEmployeeButtonsDimension.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtEmployeeButtonsDimension.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtEmployeeButtonsDimension.CustomButton.TabIndex = 1;
             this.txtEmployeeButtonsDimension.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtEmployeeButtonsDimension.CustomButton.UseSelectable = true;
             this.txtEmployeeButtonsDimension.CustomButton.Visible = false;
             this.txtEmployeeButtonsDimension.Lines = new string[0];
-            this.txtEmployeeButtonsDimension.Location = new System.Drawing.Point(232, 100);
+            this.txtEmployeeButtonsDimension.Location = new System.Drawing.Point(309, 123);
+            this.txtEmployeeButtonsDimension.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmployeeButtonsDimension.MaxLength = 32767;
             this.txtEmployeeButtonsDimension.Name = "txtEmployeeButtonsDimension";
             this.txtEmployeeButtonsDimension.PasswordChar = '\0';
@@ -456,7 +488,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtEmployeeButtonsDimension.SelectionLength = 0;
             this.txtEmployeeButtonsDimension.SelectionStart = 0;
             this.txtEmployeeButtonsDimension.ShortcutsEnabled = true;
-            this.txtEmployeeButtonsDimension.Size = new System.Drawing.Size(185, 20);
+            this.txtEmployeeButtonsDimension.Size = new System.Drawing.Size(247, 25);
             this.txtEmployeeButtonsDimension.TabIndex = 7;
             this.txtEmployeeButtonsDimension.UseSelectable = true;
             this.txtEmployeeButtonsDimension.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -467,9 +499,10 @@ namespace Kiwi.Tpv.App.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 98);
+            this.label5.Location = new System.Drawing.Point(37, 121);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 19);
+            this.label5.Size = new System.Drawing.Size(201, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Dimensión Botones Empleados";
             // 
@@ -500,38 +533,42 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage2.Controls.Add(this.label7);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
+            this.metroTabPage2.HorizontalScrollbarSize = 12;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(848, 391);
+            this.metroTabPage2.Size = new System.Drawing.Size(1133, 491);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Empresa";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.metroTabPage2.VerticalScrollbarSize = 13;
             // 
             // chkCombinationControlWithSoda
             // 
             this.chkCombinationControlWithSoda.AutoSize = true;
-            this.chkCombinationControlWithSoda.Location = new System.Drawing.Point(427, 107);
+            this.chkCombinationControlWithSoda.Location = new System.Drawing.Point(569, 132);
+            this.chkCombinationControlWithSoda.Margin = new System.Windows.Forms.Padding(4);
             this.chkCombinationControlWithSoda.Name = "chkCombinationControlWithSoda";
-            this.chkCombinationControlWithSoda.Size = new System.Drawing.Size(15, 14);
+            this.chkCombinationControlWithSoda.Size = new System.Drawing.Size(18, 17);
             this.chkCombinationControlWithSoda.TabIndex = 81;
             // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(225, 102);
+            this.metroLabel6.Location = new System.Drawing.Point(300, 126);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(196, 19);
+            this.metroLabel6.Size = new System.Drawing.Size(205, 20);
             this.metroLabel6.TabIndex = 80;
             this.metroLabel6.Text = "Control combinados + Refresco";
             // 
             // BtnSelectReportTicket
             // 
-            this.BtnSelectReportTicket.Location = new System.Drawing.Point(509, 140);
+            this.BtnSelectReportTicket.Location = new System.Drawing.Point(679, 172);
+            this.BtnSelectReportTicket.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSelectReportTicket.Name = "BtnSelectReportTicket";
-            this.BtnSelectReportTicket.Size = new System.Drawing.Size(26, 23);
+            this.BtnSelectReportTicket.Size = new System.Drawing.Size(35, 28);
             this.BtnSelectReportTicket.TabIndex = 79;
             this.BtnSelectReportTicket.UseSelectable = true;
             this.BtnSelectReportTicket.Click += new System.EventHandler(this.BtnSelectReportTicket_Click);
@@ -539,9 +576,10 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 140);
+            this.metroLabel3.Location = new System.Drawing.Point(4, 172);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(42, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(46, 20);
             this.metroLabel3.TabIndex = 77;
             this.metroLabel3.Text = "Ticket";
             // 
@@ -552,16 +590,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.TxtTicketReport.CustomButton.Image = null;
-            this.TxtTicketReport.CustomButton.Location = new System.Drawing.Point(337, 2);
+            this.TxtTicketReport.CustomButton.Location = new System.Drawing.Point(449, 1);
+            this.TxtTicketReport.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.TxtTicketReport.CustomButton.Name = "";
-            this.TxtTicketReport.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtTicketReport.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.TxtTicketReport.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TxtTicketReport.CustomButton.TabIndex = 1;
             this.TxtTicketReport.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtTicketReport.CustomButton.UseSelectable = true;
             this.TxtTicketReport.CustomButton.Visible = false;
             this.TxtTicketReport.Lines = new string[0];
-            this.TxtTicketReport.Location = new System.Drawing.Point(147, 141);
+            this.TxtTicketReport.Location = new System.Drawing.Point(196, 174);
+            this.TxtTicketReport.Margin = new System.Windows.Forms.Padding(4);
             this.TxtTicketReport.MaxLength = 10;
             this.TxtTicketReport.Name = "TxtTicketReport";
             this.TxtTicketReport.PasswordChar = '\0';
@@ -570,7 +610,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtTicketReport.SelectionLength = 0;
             this.TxtTicketReport.SelectionStart = 0;
             this.TxtTicketReport.ShortcutsEnabled = true;
-            this.TxtTicketReport.Size = new System.Drawing.Size(355, 20);
+            this.TxtTicketReport.Size = new System.Drawing.Size(473, 25);
             this.TxtTicketReport.TabIndex = 78;
             this.TxtTicketReport.UseSelectable = true;
             this.TxtTicketReport.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -581,9 +621,10 @@ namespace Kiwi.Tpv.App.Forms
             // btnRemoveCompanyLocalImage
             // 
             this.btnRemoveCompanyLocalImage.ActiveControl = null;
-            this.btnRemoveCompanyLocalImage.Location = new System.Drawing.Point(541, 208);
+            this.btnRemoveCompanyLocalImage.Location = new System.Drawing.Point(721, 256);
+            this.btnRemoveCompanyLocalImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveCompanyLocalImage.Name = "btnRemoveCompanyLocalImage";
-            this.btnRemoveCompanyLocalImage.Size = new System.Drawing.Size(88, 38);
+            this.btnRemoveCompanyLocalImage.Size = new System.Drawing.Size(117, 47);
             this.btnRemoveCompanyLocalImage.TabIndex = 76;
             this.btnRemoveCompanyLocalImage.Text = "Eliminar";
             this.btnRemoveCompanyLocalImage.UseSelectable = true;
@@ -591,9 +632,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // picBoxReportsLocalImage
             // 
-            this.picBoxReportsLocalImage.Location = new System.Drawing.Point(479, 252);
+            this.picBoxReportsLocalImage.Location = new System.Drawing.Point(639, 310);
+            this.picBoxReportsLocalImage.Margin = new System.Windows.Forms.Padding(4);
             this.picBoxReportsLocalImage.Name = "picBoxReportsLocalImage";
-            this.picBoxReportsLocalImage.Size = new System.Drawing.Size(122, 96);
+            this.picBoxReportsLocalImage.Size = new System.Drawing.Size(163, 118);
             this.picBoxReportsLocalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxReportsLocalImage.TabIndex = 75;
             this.picBoxReportsLocalImage.TabStop = false;
@@ -601,9 +643,10 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(447, 186);
+            this.metroLabel1.Location = new System.Drawing.Point(596, 229);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(84, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(87, 20);
             this.metroLabel1.TabIndex = 74;
             this.metroLabel1.Text = "Imagen local";
             // 
@@ -611,9 +654,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnSelectCompanyLocalImage.ActiveControl = null;
             this.btnSelectCompanyLocalImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSelectCompanyLocalImage.Location = new System.Drawing.Point(447, 208);
+            this.btnSelectCompanyLocalImage.Location = new System.Drawing.Point(596, 256);
+            this.btnSelectCompanyLocalImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectCompanyLocalImage.Name = "btnSelectCompanyLocalImage";
-            this.btnSelectCompanyLocalImage.Size = new System.Drawing.Size(88, 38);
+            this.btnSelectCompanyLocalImage.Size = new System.Drawing.Size(117, 47);
             this.btnSelectCompanyLocalImage.TabIndex = 73;
             this.btnSelectCompanyLocalImage.Text = "Seleccionar";
             this.btnSelectCompanyLocalImage.UseSelectable = true;
@@ -622,26 +666,29 @@ namespace Kiwi.Tpv.App.Forms
             // chkCombinationControl
             // 
             this.chkCombinationControl.AutoSize = true;
-            this.chkCombinationControl.Location = new System.Drawing.Point(147, 107);
+            this.chkCombinationControl.Location = new System.Drawing.Point(196, 132);
+            this.chkCombinationControl.Margin = new System.Windows.Forms.Padding(4);
             this.chkCombinationControl.Name = "chkCombinationControl";
-            this.chkCombinationControl.Size = new System.Drawing.Size(15, 14);
+            this.chkCombinationControl.Size = new System.Drawing.Size(18, 17);
             this.chkCombinationControl.TabIndex = 72;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 102);
+            this.label12.Location = new System.Drawing.Point(4, 126);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(129, 19);
+            this.label12.Size = new System.Drawing.Size(133, 20);
             this.label12.TabIndex = 71;
             this.label12.Text = "Control combinados";
             // 
             // btnRemoveCompanyReportsLogo
             // 
             this.btnRemoveCompanyReportsLogo.ActiveControl = null;
-            this.btnRemoveCompanyReportsLogo.Location = new System.Drawing.Point(319, 208);
+            this.btnRemoveCompanyReportsLogo.Location = new System.Drawing.Point(425, 256);
+            this.btnRemoveCompanyReportsLogo.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveCompanyReportsLogo.Name = "btnRemoveCompanyReportsLogo";
-            this.btnRemoveCompanyReportsLogo.Size = new System.Drawing.Size(88, 38);
+            this.btnRemoveCompanyReportsLogo.Size = new System.Drawing.Size(117, 47);
             this.btnRemoveCompanyReportsLogo.TabIndex = 70;
             this.btnRemoveCompanyReportsLogo.Text = "Eliminar";
             this.btnRemoveCompanyReportsLogo.UseSelectable = true;
@@ -649,9 +696,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // picBoxReportsLogo
             // 
-            this.picBoxReportsLogo.Location = new System.Drawing.Point(257, 252);
+            this.picBoxReportsLogo.Location = new System.Drawing.Point(343, 310);
+            this.picBoxReportsLogo.Margin = new System.Windows.Forms.Padding(4);
             this.picBoxReportsLogo.Name = "picBoxReportsLogo";
-            this.picBoxReportsLogo.Size = new System.Drawing.Size(122, 96);
+            this.picBoxReportsLogo.Size = new System.Drawing.Size(163, 118);
             this.picBoxReportsLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxReportsLogo.TabIndex = 68;
             this.picBoxReportsLogo.TabStop = false;
@@ -660,9 +708,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnRemoveCompanyAppLogo.ActiveControl = null;
             this.btnRemoveCompanyAppLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnRemoveCompanyAppLogo.Location = new System.Drawing.Point(98, 211);
+            this.btnRemoveCompanyAppLogo.Location = new System.Drawing.Point(131, 260);
+            this.btnRemoveCompanyAppLogo.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveCompanyAppLogo.Name = "btnRemoveCompanyAppLogo";
-            this.btnRemoveCompanyAppLogo.Size = new System.Drawing.Size(88, 35);
+            this.btnRemoveCompanyAppLogo.Size = new System.Drawing.Size(117, 43);
             this.btnRemoveCompanyAppLogo.TabIndex = 69;
             this.btnRemoveCompanyAppLogo.Text = "Eliminar";
             this.btnRemoveCompanyAppLogo.UseSelectable = true;
@@ -671,9 +720,10 @@ namespace Kiwi.Tpv.App.Forms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 26);
+            this.label10.Location = new System.Drawing.Point(4, 32);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 19);
+            this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 55;
             this.label10.Text = "Nombre";
             // 
@@ -684,16 +734,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.TxtCompanyName.CustomButton.Image = null;
-            this.TxtCompanyName.CustomButton.Location = new System.Drawing.Point(468, 2);
+            this.TxtCompanyName.CustomButton.Location = new System.Drawing.Point(624, 1);
+            this.TxtCompanyName.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCompanyName.CustomButton.Name = "";
-            this.TxtCompanyName.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtCompanyName.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.TxtCompanyName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TxtCompanyName.CustomButton.TabIndex = 1;
             this.TxtCompanyName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtCompanyName.CustomButton.UseSelectable = true;
             this.TxtCompanyName.CustomButton.Visible = false;
             this.TxtCompanyName.Lines = new string[0];
-            this.TxtCompanyName.Location = new System.Drawing.Point(147, 27);
+            this.TxtCompanyName.Location = new System.Drawing.Point(196, 33);
+            this.TxtCompanyName.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCompanyName.MaxLength = 50;
             this.TxtCompanyName.Name = "TxtCompanyName";
             this.TxtCompanyName.PasswordChar = '\0';
@@ -702,7 +754,7 @@ namespace Kiwi.Tpv.App.Forms
             this.TxtCompanyName.SelectionLength = 0;
             this.TxtCompanyName.SelectionStart = 0;
             this.TxtCompanyName.ShortcutsEnabled = true;
-            this.TxtCompanyName.Size = new System.Drawing.Size(486, 20);
+            this.TxtCompanyName.Size = new System.Drawing.Size(648, 25);
             this.TxtCompanyName.TabIndex = 56;
             this.TxtCompanyName.UseSelectable = true;
             this.TxtCompanyName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -712,9 +764,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // picBoxAppLogo
             // 
-            this.picBoxAppLogo.Location = new System.Drawing.Point(36, 252);
+            this.picBoxAppLogo.Location = new System.Drawing.Point(48, 310);
+            this.picBoxAppLogo.Margin = new System.Windows.Forms.Padding(4);
             this.picBoxAppLogo.Name = "picBoxAppLogo";
-            this.picBoxAppLogo.Size = new System.Drawing.Size(122, 96);
+            this.picBoxAppLogo.Size = new System.Drawing.Size(163, 118);
             this.picBoxAppLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxAppLogo.TabIndex = 67;
             this.picBoxAppLogo.TabStop = false;
@@ -722,18 +775,20 @@ namespace Kiwi.Tpv.App.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 64);
+            this.label9.Location = new System.Drawing.Point(4, 79);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 19);
+            this.label9.Size = new System.Drawing.Size(25, 20);
             this.label9.TabIndex = 57;
             this.label9.Text = "Cif";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(225, 186);
+            this.label8.Location = new System.Drawing.Point(300, 229);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 19);
+            this.label8.Size = new System.Drawing.Size(98, 20);
             this.label8.TabIndex = 66;
             this.label8.Text = "Logo Informes";
             // 
@@ -744,16 +799,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtCompanyCif.CustomButton.Image = null;
-            this.txtCompanyCif.CustomButton.Location = new System.Drawing.Point(167, 2);
+            this.txtCompanyCif.CustomButton.Location = new System.Drawing.Point(223, 1);
+            this.txtCompanyCif.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtCompanyCif.CustomButton.Name = "";
-            this.txtCompanyCif.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtCompanyCif.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtCompanyCif.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCompanyCif.CustomButton.TabIndex = 1;
             this.txtCompanyCif.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtCompanyCif.CustomButton.UseSelectable = true;
             this.txtCompanyCif.CustomButton.Visible = false;
             this.txtCompanyCif.Lines = new string[0];
-            this.txtCompanyCif.Location = new System.Drawing.Point(147, 67);
+            this.txtCompanyCif.Location = new System.Drawing.Point(196, 82);
+            this.txtCompanyCif.Margin = new System.Windows.Forms.Padding(4);
             this.txtCompanyCif.MaxLength = 10;
             this.txtCompanyCif.Name = "txtCompanyCif";
             this.txtCompanyCif.PasswordChar = '\0';
@@ -762,7 +819,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtCompanyCif.SelectionLength = 0;
             this.txtCompanyCif.SelectionStart = 0;
             this.txtCompanyCif.ShortcutsEnabled = true;
-            this.txtCompanyCif.Size = new System.Drawing.Size(185, 20);
+            this.txtCompanyCif.Size = new System.Drawing.Size(247, 25);
             this.txtCompanyCif.TabIndex = 58;
             this.txtCompanyCif.UseSelectable = true;
             this.txtCompanyCif.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -774,9 +831,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnSelectCompanyReportsLogo.ActiveControl = null;
             this.btnSelectCompanyReportsLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSelectCompanyReportsLogo.Location = new System.Drawing.Point(225, 208);
+            this.btnSelectCompanyReportsLogo.Location = new System.Drawing.Point(300, 256);
+            this.btnSelectCompanyReportsLogo.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectCompanyReportsLogo.Name = "btnSelectCompanyReportsLogo";
-            this.btnSelectCompanyReportsLogo.Size = new System.Drawing.Size(88, 38);
+            this.btnSelectCompanyReportsLogo.Size = new System.Drawing.Size(117, 47);
             this.btnSelectCompanyReportsLogo.TabIndex = 65;
             this.btnSelectCompanyReportsLogo.Text = "Seleccionar";
             this.btnSelectCompanyReportsLogo.UseSelectable = true;
@@ -786,9 +844,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnSelectCompanyAppLogo.ActiveControl = null;
             this.btnSelectCompanyAppLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnSelectCompanyAppLogo.Location = new System.Drawing.Point(4, 211);
+            this.btnSelectCompanyAppLogo.Location = new System.Drawing.Point(5, 260);
+            this.btnSelectCompanyAppLogo.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectCompanyAppLogo.Name = "btnSelectCompanyAppLogo";
-            this.btnSelectCompanyAppLogo.Size = new System.Drawing.Size(88, 35);
+            this.btnSelectCompanyAppLogo.Size = new System.Drawing.Size(117, 43);
             this.btnSelectCompanyAppLogo.TabIndex = 62;
             this.btnSelectCompanyAppLogo.Text = "Seleccionar";
             this.btnSelectCompanyAppLogo.UseSelectable = true;
@@ -797,9 +856,10 @@ namespace Kiwi.Tpv.App.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 189);
+            this.label7.Location = new System.Drawing.Point(5, 233);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 19);
+            this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 63;
             this.label7.Text = "Logo App";
             // 
@@ -814,22 +874,45 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage3.Controls.Add(this.label3);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 10;
+            this.metroTabPage3.HorizontalScrollbarSize = 12;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(848, 391);
+            this.metroTabPage3.Size = new System.Drawing.Size(1133, 491);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Puntos de venta";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.metroTabPage3.VerticalScrollbarSize = 13;
+            // 
+            // chkShowAnimations
+            // 
+            this.chkShowAnimations.AutoSize = true;
+            this.chkShowAnimations.Location = new System.Drawing.Point(213, 113);
+            this.chkShowAnimations.Margin = new System.Windows.Forms.Padding(4);
+            this.chkShowAnimations.Name = "chkShowAnimations";
+            this.chkShowAnimations.Size = new System.Drawing.Size(80, 21);
+            this.chkShowAnimations.TabIndex = 93;
+            this.chkShowAnimations.Text = "Off";
+            this.chkShowAnimations.UseSelectable = true;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(4, 111);
+            this.metroLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(88, 20);
+            this.metroLabel8.TabIndex = 92;
+            this.metroLabel8.Text = "Animaciones";
             // 
             // chkShowSaleOrderTicket
             // 
             this.chkShowSaleOrderTicket.AutoSize = true;
-            this.chkShowSaleOrderTicket.Location = new System.Drawing.Point(160, 60);
+            this.chkShowSaleOrderTicket.Location = new System.Drawing.Point(213, 74);
+            this.chkShowSaleOrderTicket.Margin = new System.Windows.Forms.Padding(4);
             this.chkShowSaleOrderTicket.Name = "chkShowSaleOrderTicket";
-            this.chkShowSaleOrderTicket.Size = new System.Drawing.Size(80, 17);
+            this.chkShowSaleOrderTicket.Size = new System.Drawing.Size(80, 21);
             this.chkShowSaleOrderTicket.TabIndex = 91;
             this.chkShowSaleOrderTicket.Text = "Off";
             this.chkShowSaleOrderTicket.UseSelectable = true;
@@ -837,9 +920,10 @@ namespace Kiwi.Tpv.App.Forms
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 58);
+            this.metroLabel7.Location = new System.Drawing.Point(4, 71);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(107, 19);
+            this.metroLabel7.Size = new System.Drawing.Size(113, 20);
             this.metroLabel7.TabIndex = 73;
             this.metroLabel7.Text = "Ticket de pedido";
             // 
@@ -849,9 +933,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtActualStation.CustomButton.Image = null;
-            this.txtActualStation.CustomButton.Location = new System.Drawing.Point(198, 1);
+            this.txtActualStation.CustomButton.Location = new System.Drawing.Point(267, 2);
+            this.txtActualStation.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.txtActualStation.CustomButton.Name = "";
-            this.txtActualStation.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtActualStation.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtActualStation.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtActualStation.CustomButton.TabIndex = 1;
             this.txtActualStation.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -859,7 +944,8 @@ namespace Kiwi.Tpv.App.Forms
             this.txtActualStation.CustomButton.Visible = false;
             this.txtActualStation.Enabled = false;
             this.txtActualStation.Lines = new string[0];
-            this.txtActualStation.Location = new System.Drawing.Point(160, 16);
+            this.txtActualStation.Location = new System.Drawing.Point(213, 20);
+            this.txtActualStation.Margin = new System.Windows.Forms.Padding(4);
             this.txtActualStation.MaxLength = 32767;
             this.txtActualStation.Name = "txtActualStation";
             this.txtActualStation.PasswordChar = '\0';
@@ -868,7 +954,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtActualStation.SelectionLength = 0;
             this.txtActualStation.SelectionStart = 0;
             this.txtActualStation.ShortcutsEnabled = true;
-            this.txtActualStation.Size = new System.Drawing.Size(220, 23);
+            this.txtActualStation.Size = new System.Drawing.Size(293, 28);
             this.txtActualStation.TabIndex = 5;
             this.txtActualStation.UseSelectable = true;
             this.txtActualStation.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -913,7 +999,8 @@ namespace Kiwi.Tpv.App.Forms
             this.DataGridViewStations.EnableHeadersVisualStyles = false;
             this.DataGridViewStations.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DataGridViewStations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DataGridViewStations.Location = new System.Drawing.Point(-4, 199);
+            this.DataGridViewStations.Location = new System.Drawing.Point(-5, 245);
+            this.DataGridViewStations.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewStations.MultiSelect = false;
             this.DataGridViewStations.Name = "DataGridViewStations";
             this.DataGridViewStations.ReadOnly = true;
@@ -927,25 +1014,29 @@ namespace Kiwi.Tpv.App.Forms
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewStations.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridViewStations.RowHeadersVisible = false;
+            this.DataGridViewStations.RowHeadersWidth = 51;
             this.DataGridViewStations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewStations.RowTemplate.Height = 20;
             this.DataGridViewStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewStations.Size = new System.Drawing.Size(856, 189);
+            this.DataGridViewStations.Size = new System.Drawing.Size(1141, 233);
             this.DataGridViewStations.TabIndex = 4;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
             this.codeDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.codeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -954,6 +1045,7 @@ namespace Kiwi.Tpv.App.Forms
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -962,6 +1054,7 @@ namespace Kiwi.Tpv.App.Forms
             this.printterComPortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.printterComPortDataGridViewTextBoxColumn.DataPropertyName = "PrintterComPort";
             this.printterComPortDataGridViewTextBoxColumn.HeaderText = "Puerto COM";
+            this.printterComPortDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.printterComPortDataGridViewTextBoxColumn.Name = "printterComPortDataGridViewTextBoxColumn";
             this.printterComPortDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -973,9 +1066,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.label3.Location = new System.Drawing.Point(3, 16);
+            this.label3.Location = new System.Drawing.Point(4, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 19);
+            this.label3.Size = new System.Drawing.Size(152, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Punto de venta actual";
             // 
@@ -987,24 +1081,26 @@ namespace Kiwi.Tpv.App.Forms
             this.metroTabPage4.Controls.Add(this.label4);
             this.metroTabPage4.HorizontalScrollbarBarColor = true;
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.HorizontalScrollbarSize = 10;
+            this.metroTabPage4.HorizontalScrollbarSize = 12;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(848, 391);
+            this.metroTabPage4.Size = new System.Drawing.Size(1133, 491);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "Caja y impresora";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.VerticalScrollbarSize = 10;
+            this.metroTabPage4.VerticalScrollbarSize = 13;
             // 
             // btnTestPrintter
             // 
             this.btnTestPrintter.ActiveControl = null;
             this.btnTestPrintter.BackColor = System.Drawing.SystemColors.Control;
             this.btnTestPrintter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnTestPrintter.Location = new System.Drawing.Point(216, 89);
+            this.btnTestPrintter.Location = new System.Drawing.Point(288, 110);
+            this.btnTestPrintter.Margin = new System.Windows.Forms.Padding(4);
             this.btnTestPrintter.Name = "btnTestPrintter";
-            this.btnTestPrintter.Size = new System.Drawing.Size(215, 53);
+            this.btnTestPrintter.Size = new System.Drawing.Size(287, 65);
             this.btnTestPrintter.TabIndex = 6;
             this.btnTestPrintter.Text = "Probar Impresión";
             this.btnTestPrintter.UseSelectable = true;
@@ -1015,10 +1111,11 @@ namespace Kiwi.Tpv.App.Forms
             this.cbPrinter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cbPrinter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPrinter.FormattingEnabled = true;
-            this.cbPrinter.ItemHeight = 23;
-            this.cbPrinter.Location = new System.Drawing.Point(119, 26);
+            this.cbPrinter.ItemHeight = 24;
+            this.cbPrinter.Location = new System.Drawing.Point(159, 32);
+            this.cbPrinter.Margin = new System.Windows.Forms.Padding(4);
             this.cbPrinter.Name = "cbPrinter";
-            this.cbPrinter.Size = new System.Drawing.Size(217, 29);
+            this.cbPrinter.Size = new System.Drawing.Size(288, 30);
             this.cbPrinter.TabIndex = 5;
             this.cbPrinter.UseSelectable = true;
             // 
@@ -1027,9 +1124,10 @@ namespace Kiwi.Tpv.App.Forms
             this.btnOpenBox.ActiveControl = null;
             this.btnOpenBox.BackColor = System.Drawing.SystemColors.Control;
             this.btnOpenBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
-            this.btnOpenBox.Location = new System.Drawing.Point(28, 89);
+            this.btnOpenBox.Location = new System.Drawing.Point(37, 110);
+            this.btnOpenBox.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpenBox.Name = "btnOpenBox";
-            this.btnOpenBox.Size = new System.Drawing.Size(161, 53);
+            this.btnOpenBox.Size = new System.Drawing.Size(215, 65);
             this.btnOpenBox.TabIndex = 0;
             this.btnOpenBox.Text = "Abrir";
             this.btnOpenBox.UseSelectable = true;
@@ -1038,11 +1136,101 @@ namespace Kiwi.Tpv.App.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 26);
+            this.label4.Location = new System.Drawing.Point(37, 32);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 19);
+            this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Impresora";
+            // 
+            // metroTabPage5
+            // 
+            this.metroTabPage5.Controls.Add(this.btnPrintThirtyTickets);
+            this.metroTabPage5.Controls.Add(this.btnPrintOneTicket);
+            this.metroTabPage5.Controls.Add(this.LblTicketText);
+            this.metroTabPage5.Controls.Add(this.txtTicketValue);
+            this.metroTabPage5.HorizontalScrollbarBarColor = true;
+            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.HorizontalScrollbarSize = 10;
+            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage5.Name = "metroTabPage5";
+            this.metroTabPage5.Size = new System.Drawing.Size(1133, 491);
+            this.metroTabPage5.TabIndex = 4;
+            this.metroTabPage5.Text = "Tickets";
+            this.metroTabPage5.VerticalScrollbarBarColor = true;
+            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintThirtyTickets
+            // 
+            this.btnPrintThirtyTickets.ActiveControl = null;
+            this.btnPrintThirtyTickets.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrintThirtyTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnPrintThirtyTickets.Location = new System.Drawing.Point(247, 162);
+            this.btnPrintThirtyTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintThirtyTickets.Name = "btnPrintThirtyTickets";
+            this.btnPrintThirtyTickets.Size = new System.Drawing.Size(215, 65);
+            this.btnPrintThirtyTickets.TabIndex = 60;
+            this.btnPrintThirtyTickets.Text = "Imprimir 30";
+            this.btnPrintThirtyTickets.UseSelectable = true;
+            this.btnPrintThirtyTickets.Click += new System.EventHandler(this.btnPrintThirtyTickets_Click);
+            // 
+            // btnPrintOneTicket
+            // 
+            this.btnPrintOneTicket.ActiveControl = null;
+            this.btnPrintOneTicket.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrintOneTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(42)))), ((int)(((byte)(43)))));
+            this.btnPrintOneTicket.Location = new System.Drawing.Point(17, 162);
+            this.btnPrintOneTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintOneTicket.Name = "btnPrintOneTicket";
+            this.btnPrintOneTicket.Size = new System.Drawing.Size(215, 65);
+            this.btnPrintOneTicket.TabIndex = 59;
+            this.btnPrintOneTicket.Text = "Imprimir 1";
+            this.btnPrintOneTicket.UseSelectable = true;
+            this.btnPrintOneTicket.Click += new System.EventHandler(this.btnPrintOneTicket_Click);
+            // 
+            // LblTicketText
+            // 
+            this.LblTicketText.AutoSize = true;
+            this.LblTicketText.Location = new System.Drawing.Point(17, 48);
+            this.LblTicketText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblTicketText.Name = "LblTicketText";
+            this.LblTicketText.Size = new System.Drawing.Size(41, 20);
+            this.LblTicketText.TabIndex = 57;
+            this.LblTicketText.Text = "Texto";
+            // 
+            // txtTicketValue
+            // 
+            this.txtTicketValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            // 
+            // 
+            // 
+            this.txtTicketValue.CustomButton.Image = null;
+            this.txtTicketValue.CustomButton.Location = new System.Drawing.Point(403, 1);
+            this.txtTicketValue.CustomButton.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTicketValue.CustomButton.Name = "";
+            this.txtTicketValue.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.txtTicketValue.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTicketValue.CustomButton.TabIndex = 1;
+            this.txtTicketValue.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTicketValue.CustomButton.UseSelectable = true;
+            this.txtTicketValue.CustomButton.Visible = false;
+            this.txtTicketValue.Lines = new string[0];
+            this.txtTicketValue.Location = new System.Drawing.Point(209, 49);
+            this.txtTicketValue.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTicketValue.MaxLength = 50;
+            this.txtTicketValue.Name = "txtTicketValue";
+            this.txtTicketValue.PasswordChar = '\0';
+            this.txtTicketValue.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTicketValue.SelectedText = "";
+            this.txtTicketValue.SelectionLength = 0;
+            this.txtTicketValue.SelectionStart = 0;
+            this.txtTicketValue.ShortcutsEnabled = true;
+            this.txtTicketValue.Size = new System.Drawing.Size(427, 25);
+            this.txtTicketValue.TabIndex = 58;
+            this.txtTicketValue.UseSelectable = true;
+            this.txtTicketValue.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTicketValue.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // panel10
             // 
@@ -1050,18 +1238,30 @@ namespace Kiwi.Tpv.App.Forms
             this.panel10.Controls.Add(this.btnLoadJokeImage);
             this.panel10.Controls.Add(this.btnJokeImage);
             this.panel10.Controls.Add(this.txtJokeImage);
-            this.panel10.Location = new System.Drawing.Point(701, 512);
+            this.panel10.Location = new System.Drawing.Point(935, 630);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(50, 44);
+            this.panel10.Size = new System.Drawing.Size(67, 54);
             this.panel10.TabIndex = 55;
             this.panel10.Visible = false;
+            // 
+            // btnVer
+            // 
+            this.btnVer.ActiveControl = null;
+            this.btnVer.Location = new System.Drawing.Point(0, 0);
+            this.btnVer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(100, 28);
+            this.btnVer.TabIndex = 0;
+            this.btnVer.UseSelectable = true;
             // 
             // btnLoadJokeImage
             // 
             this.btnLoadJokeImage.ActiveControl = null;
-            this.btnLoadJokeImage.Location = new System.Drawing.Point(3, 98);
+            this.btnLoadJokeImage.Location = new System.Drawing.Point(4, 121);
+            this.btnLoadJokeImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadJokeImage.Name = "btnLoadJokeImage";
-            this.btnLoadJokeImage.Size = new System.Drawing.Size(353, 45);
+            this.btnLoadJokeImage.Size = new System.Drawing.Size(471, 55);
             this.btnLoadJokeImage.TabIndex = 57;
             this.btnLoadJokeImage.Text = "Guardar";
             this.btnLoadJokeImage.UseSelectable = true;
@@ -1070,9 +1270,10 @@ namespace Kiwi.Tpv.App.Forms
             // btnJokeImage
             // 
             this.btnJokeImage.ActiveControl = null;
-            this.btnJokeImage.Location = new System.Drawing.Point(334, 3);
+            this.btnJokeImage.Location = new System.Drawing.Point(445, 4);
+            this.btnJokeImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnJokeImage.Name = "btnJokeImage";
-            this.btnJokeImage.Size = new System.Drawing.Size(22, 20);
+            this.btnJokeImage.Size = new System.Drawing.Size(29, 25);
             this.btnJokeImage.TabIndex = 56;
             this.btnJokeImage.UseSelectable = true;
             this.btnJokeImage.Click += new System.EventHandler(this.btnJokeImage_Click);
@@ -1084,16 +1285,18 @@ namespace Kiwi.Tpv.App.Forms
             // 
             // 
             this.txtJokeImage.CustomButton.Image = null;
-            this.txtJokeImage.CustomButton.Location = new System.Drawing.Point(303, 2);
+            this.txtJokeImage.CustomButton.Location = new System.Drawing.Point(404, 1);
+            this.txtJokeImage.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txtJokeImage.CustomButton.Name = "";
-            this.txtJokeImage.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.txtJokeImage.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtJokeImage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtJokeImage.CustomButton.TabIndex = 1;
             this.txtJokeImage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtJokeImage.CustomButton.UseSelectable = true;
             this.txtJokeImage.CustomButton.Visible = false;
             this.txtJokeImage.Lines = new string[0];
-            this.txtJokeImage.Location = new System.Drawing.Point(3, 3);
+            this.txtJokeImage.Location = new System.Drawing.Point(4, 4);
+            this.txtJokeImage.Margin = new System.Windows.Forms.Padding(4);
             this.txtJokeImage.MaxLength = 50;
             this.txtJokeImage.Name = "txtJokeImage";
             this.txtJokeImage.PasswordChar = '\0';
@@ -1102,7 +1305,7 @@ namespace Kiwi.Tpv.App.Forms
             this.txtJokeImage.SelectionLength = 0;
             this.txtJokeImage.SelectionStart = 0;
             this.txtJokeImage.ShortcutsEnabled = true;
-            this.txtJokeImage.Size = new System.Drawing.Size(321, 20);
+            this.txtJokeImage.Size = new System.Drawing.Size(428, 25);
             this.txtJokeImage.TabIndex = 55;
             this.txtJokeImage.UseSelectable = true;
             this.txtJokeImage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1112,9 +1315,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnClose.ActiveControl = null;
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(818, 17);
+            this.btnClose.Location = new System.Drawing.Point(1091, 21);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 62);
+            this.btnClose.Size = new System.Drawing.Size(93, 76);
             this.btnClose.Style = MetroFramework.MetroColorStyle.White;
             this.btnClose.TabIndex = 55;
             this.btnClose.TileImage = global::Kiwi.Tpv.App.Properties.Resources.icoClose;
@@ -1127,9 +1331,10 @@ namespace Kiwi.Tpv.App.Forms
             // 
             this.btnSave.ActiveControl = null;
             this.btnSave.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(774, 508);
+            this.btnSave.Location = new System.Drawing.Point(1032, 625);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(105, 48);
+            this.btnSave.Size = new System.Drawing.Size(140, 59);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Green;
             this.btnSave.TabIndex = 56;
             this.btnSave.Text = "Guardar";
@@ -1137,39 +1342,22 @@ namespace Kiwi.Tpv.App.Forms
             this.btnSave.UseSelectable = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // chkShowAnimations
-            // 
-            this.chkShowAnimations.AutoSize = true;
-            this.chkShowAnimations.Location = new System.Drawing.Point(160, 92);
-            this.chkShowAnimations.Name = "chkShowAnimations";
-            this.chkShowAnimations.Size = new System.Drawing.Size(80, 17);
-            this.chkShowAnimations.TabIndex = 93;
-            this.chkShowAnimations.Text = "Off";
-            this.chkShowAnimations.UseSelectable = true;
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(3, 90);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel8.TabIndex = 92;
-            this.metroLabel8.Text = "Animaciones";
-            // 
             // FrmConfiguration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 576);
+            this.ClientSize = new System.Drawing.Size(1203, 709);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabConfig);
             this.Controls.Add(this.panel10);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "FrmConfiguration";
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Configuración";
@@ -1189,6 +1377,8 @@ namespace Kiwi.Tpv.App.Forms
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage4.PerformLayout();
+            this.metroTabPage5.ResumeLayout(false);
+            this.metroTabPage5.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1265,5 +1455,10 @@ namespace Kiwi.Tpv.App.Forms
         private MetroToggle chkShowSaleOrderTicket;
         private MetroToggle chkShowAnimations;
         private MetroLabel metroLabel8;
+        private MetroTabPage metroTabPage5;
+        private MetroTile btnPrintThirtyTickets;
+        private MetroTile btnPrintOneTicket;
+        private MetroLabel LblTicketText;
+        private MetroTextBox txtTicketValue;
     }
 }
