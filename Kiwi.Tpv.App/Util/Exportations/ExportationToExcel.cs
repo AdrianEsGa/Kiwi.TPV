@@ -107,7 +107,7 @@ namespace Kiwi.Tpv.App.Util.Exportations
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
             finally
             {

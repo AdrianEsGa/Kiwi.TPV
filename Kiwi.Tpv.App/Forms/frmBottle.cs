@@ -24,71 +24,158 @@ namespace Kiwi.Tpv.App.Forms
 
         private void frmBottle_Load(object sender, EventArgs e)
         {
-            CbAlcohol.DataSource = ProductController.GetAllActive(ProductType.Alcohol);
-            _focusIn = TxtFocusState.None;
-            Bottle = null;
-            CbAlcohol.SelectedItem = null;
-            RefreshTextBox();
+            try
+            {
+                InitialLoad();
+            }
+            catch(Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }
         }
 
         private void btnOne_Click(object sender, EventArgs e)
         {
-            WriteValue("1");
+            try
+            {
+                WriteValue("1");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnTwo_Click(object sender, EventArgs e)
         {
-            WriteValue("2");
+            try
+            {
+                WriteValue("2");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }           
         }
 
         private void btnThree_Click(object sender, EventArgs e)
         {
-            WriteValue("3");
+            try
+            {
+                WriteValue("3");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }         
         }
 
         private void btnFour_Click(object sender, EventArgs e)
         {
-            WriteValue("4");
+            try
+            {
+                WriteValue("4");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }        
         }
 
         private void btnFive_Click(object sender, EventArgs e)
         {
-            WriteValue("5");
+            try
+            {
+                WriteValue("5");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnSix_Click(object sender, EventArgs e)
         {
-            WriteValue("6");
+            try
+            {
+                WriteValue("6");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnSeven_Click(object sender, EventArgs e)
         {
-            WriteValue("7");
+            try
+            {
+                WriteValue("7");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnEight_Click(object sender, EventArgs e)
         {
-            WriteValue("8");
+            try
+            {
+                WriteValue("8");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnNine_Click(object sender, EventArgs e)
         {
-            WriteValue("9");
+            try
+            {
+                WriteValue("9");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }          
         }
 
         private void btnZero_Click(object sender, EventArgs e)
         {
-            WriteValue("0");
+            try
+            {
+                WriteValue("0");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }         
         }
 
         private void btnPoint_Click(object sender, EventArgs e)
         {
-            WriteValue(",");
+            try
+            {
+                WriteValue(",");
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }       
         }
 
         private void btnErase_Click(object sender, EventArgs e)
         {
-            EraseTextBox();
+            try
+            {
+                EraseTextBox();
+            }
+            catch (Exception ex)
+            {
+                ViewController.ShowError(ex);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -116,23 +203,37 @@ namespace Kiwi.Tpv.App.Forms
         {
             try
             {
-                if (_quantity == "0" || _price == "0" || CbAlcohol.SelectedItem == null) return;
-                Bottle = (Product) CbAlcohol.SelectedItem;
-                Bottle.Name = "Botella " + Bottle.Name;
-                Bottle.Quantity = Convert.ToInt16(_quantity);
-                Bottle.SalePrice = Convert.ToDouble(_price);
-                Bottle.Type = ProductType.Botella;
-                Close();
+                Confirm();
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
         #endregion
 
         #region Methods
+
+        private void InitialLoad()
+        {
+            CbAlcohol.DataSource = ProductController.GetAllActive(ProductType.Alcohol);
+            _focusIn = TxtFocusState.None;
+            Bottle = null;
+            CbAlcohol.SelectedItem = null;
+            RefreshTextBox();
+        }
+
+        private void Confirm()
+        {
+            if (_quantity == "0" || _price == "0" || CbAlcohol.SelectedItem == null) return;
+            Bottle = (Product)CbAlcohol.SelectedItem;
+            Bottle.Name = "Botella " + Bottle.Name;
+            Bottle.Quantity = Convert.ToInt16(_quantity);
+            Bottle.SalePrice = Convert.ToDouble(_price);
+            Bottle.Type = ProductType.Botella;
+            Close();
+        }
 
         private void WriteValue(string value)
         {

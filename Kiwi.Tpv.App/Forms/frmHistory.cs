@@ -160,7 +160,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -221,7 +221,7 @@ namespace Kiwi.Tpv.App.Forms
                     DbManagementRepository.DropTable("JokeSaleDetails");
                     DbManagementRepository.DropTable("JokeSales");
                 }
-                ViewController.ShowError(ex.Message);    
+                ViewController.ShowError(ex);    
             }
         }
 
@@ -235,7 +235,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);    
+                ViewController.ShowError(ex);    
             }
         }
 
@@ -252,7 +252,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -276,7 +276,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -327,7 +327,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -377,7 +377,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 

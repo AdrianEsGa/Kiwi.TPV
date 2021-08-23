@@ -51,15 +51,13 @@ namespace Kiwi.Tpv.App.Util
 
         public static void ShowWarning(string message)
         {
-            MetroMessageBox.Show(AppGlobal.MainForm, message,
-                "Ayy calmurcio!!",
-                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MetroMessageBox.Show(AppGlobal.MainForm, message, "Ayy calmurcio!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        public static void ShowError(string message)
+        public static void ShowError(Exception exception)
         {
-            NLog.Instance.Error(message);
-            MetroMessageBox.Show(AppGlobal.MainForm, message, "Ooouuu shit!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            NLog.Instance.Error(exception);
+            MetroMessageBox.Show(AppGlobal.MainForm, exception.Message, "Ooouuu shit!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void ShowWindowKeyboard()

@@ -46,7 +46,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
         

@@ -1056,17 +1056,6 @@ namespace Kiwi.Tpv.App.Forms
             this.panel10.TabIndex = 55;
             this.panel10.Visible = false;
             // 
-            // btnVer
-            // 
-            this.btnVer.ActiveControl = null;
-            this.btnVer.Location = new System.Drawing.Point(3, 43);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(353, 49);
-            this.btnVer.TabIndex = 58;
-            this.btnVer.Text = "Ver";
-            this.btnVer.UseSelectable = true;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
             // btnLoadJokeImage
             // 
             this.btnLoadJokeImage.ActiveControl = null;

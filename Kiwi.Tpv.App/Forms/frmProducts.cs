@@ -177,7 +177,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -198,7 +198,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
 
             }
         }
@@ -281,7 +281,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
 
         }

@@ -373,7 +373,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -385,7 +385,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -421,7 +421,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
 
             try
@@ -453,7 +453,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -480,7 +480,7 @@ namespace Kiwi.Tpv.App
 
                 if (!GlobalDb.TestConnection())
                 {
-                    ViewController.ShowError(Resources.ErrorConexionBD);
+                    ViewController.ShowError(new Exception(Resources.ErrorConexionBD));
                     Close();
                 }
 
@@ -488,7 +488,7 @@ namespace Kiwi.Tpv.App
 
                 if (AppGlobal.Station.Id == 0)
                 {
-                    ViewController.ShowError(Resources.EstacionNoExiste);
+                    ViewController.ShowError(new Exception(Resources.EstacionNoExiste));
                     Close();
                 }
 
@@ -499,7 +499,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
 
             try
@@ -536,7 +536,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -584,7 +584,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
 
             ViewController.HidePopUp();
@@ -603,7 +603,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -617,7 +617,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -630,7 +630,7 @@ namespace Kiwi.Tpv.App
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -674,7 +674,7 @@ namespace Kiwi.Tpv.App
             }     
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 

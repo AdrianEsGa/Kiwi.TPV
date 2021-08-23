@@ -24,7 +24,7 @@ namespace Kiwi.Tpv.App.Forms
             LoadData();
         }
 
-        #region General Events
+        #region Events
 
         private void btnActions_Click(object sender, EventArgs e)
         {
@@ -54,7 +54,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 
@@ -73,7 +73,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
     
@@ -90,7 +90,7 @@ namespace Kiwi.Tpv.App.Forms
 
         #endregion
 
-        #region Private Events
+        #region Methods
 
         private void LoadData()
         {
@@ -121,7 +121,7 @@ namespace Kiwi.Tpv.App.Forms
             catch (Exception ex)
             {
                 TimerRefresh.Start();
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
  
@@ -182,7 +182,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
         }
 

@@ -14,17 +14,36 @@ namespace Kiwi.Tpv.App.Forms
             ViewController.SetSkin(this);
         }
 
+        #region Events
+
         private void btnConfirm_Click(object sender, System.EventArgs e)
+        {
+            Confirm();
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            Cancel();
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        private void Confirm()
         {
             Comment = TxtComment.Text.Trim();
             Confirmed = true;
             Close();
         }
 
-        private void btnCancel_Click(object sender, System.EventArgs e)
+        private void Cancel()
         {
             Confirmed = false;
             Close();
         }
+
+        #endregion
     }
 }

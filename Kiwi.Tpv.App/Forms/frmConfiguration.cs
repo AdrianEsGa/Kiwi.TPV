@@ -4,12 +4,9 @@ using System.IO;
 using System.Windows.Forms;
 using Kiwi.Tpv.App.Properties;
 using Kiwi.Tpv.App.Util;
-using Kiwi.Tpv.App.Util.Configurations;
 using Kiwi.Tpv.Database.Controllers;
 using Kiwi.Tpv.Database.Entities;
-using Kiwi.Tpv.Database.Repositories;
 using MetroFramework.Forms;
-using Settings = Kiwi.Tpv.App.Util.Configurations.Settings;
 
 namespace Kiwi.Tpv.App.Forms
 {
@@ -67,10 +64,6 @@ namespace Kiwi.Tpv.App.Forms
         {
             var imag = Image.FromFile(txtJokeImage.Text);
             EnvironmentController.Insert(Common.ImageToBytes(imag));
-        }
-
-        private void btnVer_Click(object sender, EventArgs e)
-        {
         }
 
         private void btnSelectCompanyAppLogo_Click(object sender, EventArgs e)
@@ -205,7 +198,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError(ex.Message);
+                ViewController.ShowError(ex);
             }
 
             try
@@ -260,7 +253,7 @@ namespace Kiwi.Tpv.App.Forms
             }
             catch (Exception ex)
             {
-                ViewController.ShowError( ex.Message);
+                ViewController.ShowError(ex);
             }
 
         }

@@ -15,22 +15,34 @@ namespace Kiwi.Tpv.App.Forms
             ViewController.SetSkin(this);
         }
 
+        #region Events
+
         private void BtnCombined_Click(object sender, EventArgs e)
         {
-            SelectedAlcoholModeType = AlcoholModeTypes.Combined;
-            Close();
+            SelectType(AlcoholModeTypes.Combined);
         }
 
         private void BtnCup_Click(object sender, EventArgs e)
         {
-            SelectedAlcoholModeType = AlcoholModeTypes.Cup;
-            Close();
+            SelectType(AlcoholModeTypes.Cup);
         }
 
         private void BtnShot_Click(object sender, EventArgs e)
         {
-            SelectedAlcoholModeType = AlcoholModeTypes.Shot;
+            SelectType(AlcoholModeTypes.Shot);
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        private void SelectType(AlcoholModeTypes type)
+        {
+            SelectedAlcoholModeType = type;
             Close();
         }
+
+        #endregion
     }
 }
